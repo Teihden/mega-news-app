@@ -1,7 +1,7 @@
 import { useState } from "react";
 import reactLogo from "@public/assets/react.svg";
 import viteLogo from "@public/assets/vite.svg";
-import "./App.css";
+import "./styles/App.css";
 
 /**
  * Компонент App отображает лого Vite и React, предоставляет кнопку для увеличения счётчика и ссылки для изучения документации.
