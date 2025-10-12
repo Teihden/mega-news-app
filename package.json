@@ -10,7 +10,7 @@
   "license": "ISC",
   "sideEffects": false,
   "scripts": {
-    "start": "vite",
+    "start": "dotenv -e .env -- cross-env vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "lint": "npm run stylelint && npm run eslint",
@@ -51,7 +51,9 @@
     "babel-plugin-react-compiler": "^1.0.0",
     "commitlint": "^20.1.0",
     "create-vite": "^8.0.2",
+    "cross-env": "^10.1.0",
     "cz-conventional-changelog": "^3.3.0",
+    "dotenv-cli": "^10.0.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
