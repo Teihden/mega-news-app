@@ -1,0 +1,11 @@
+node_modules/
+assets/
+build/
+dist/
+public/
+**/*.*
+!**/*.css
+!**/*.pcss
+!**/*.scss
+!**/*.sass
+!**/*.less

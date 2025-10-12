@@ -1,0 +1,88 @@
+{
+  "include": [
+    "src/**/*",
+    "commitlint.config.ts",
+    "eslint.config.ts",
+    "modules.d.ts",
+    "vite.config.ts"
+  ],
+  "exclude": [
+    "build",
+    "dist",
+    "public",
+    "assets",
+    "node_modules",
+    ".temp",
+    ".cache",
+    ".eslintcache",
+    ".vercel"
+  ],
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "jsx": "react-jsx",
+    "useDefineForClassFields": true,
+
+    /* Strict Type Checking */
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "strictBuiltinIteratorReturn": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
+
+    /* Module Resolution */
+    "moduleResolution": "bundler",
+    "baseUrl": ".",
+    "paths": {
+      "@public/*": ["public/*"],
+      "@app/*": ["src/app/*"],
+      "@entities/*": ["src/entities/*"],
+      "@features/*": ["src/features/*"],
+      "@pages/*": ["src/pages/*"],
+      "@shared/*": ["src/shared/*"],
+      "@widgets/*": ["src/widgets/*"]
+    },
+    "types": [
+      "vite/client",
+      "node"
+    ],
+
+    /* Interop and Compatibility */
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "noUncheckedSideEffectImports": true,
+    "resolveJsonModule": true,
+    "allowArbitraryExtensions": true,
+
+    /* JavaScript Support */
+    "allowJs": true,
+    "checkJs": false,
+
+    /* Incremental / Build */
+    "incremental": true,
+    "tsBuildInfoFile": "./tsconfig.tsbuildinfo",
+    "noEmit": true,
+    "sourceMap": true,
+    "isolatedModules": true
+  },
+}

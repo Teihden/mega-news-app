@@ -8,6 +8,7 @@ import markdownEslintPlugin from "@eslint/markdown";
 import jsDocPlugin from "eslint-plugin-jsdoc";
 import importPlugin from "eslint-plugin-import";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
+import reactRefreshPlugin from "eslint-plugin-react-refresh";
 import globals from "globals/index.js";
 import * as espree from "espree";
 import { ESLint, Linter } from "eslint";
@@ -47,7 +48,6 @@ const stylisticRules: Linter.RulesRecord = {
   "@stylistic/jsx-curly-spacing": [ 2, { when: "never", children: true, allowMultiline: false } ],
   "@stylistic/jsx-self-closing-comp": [ 2, { component: true, html: true } ],
   "@stylistic/jsx-equals-spacing": [ 2, "never" ],
-  "@stylistic/jsx-props-no-multi-spaces": 2,
   "@stylistic/jsx-curly-brace-presence": [ 2, {
     props: "always",
     children: "ignore",
@@ -125,6 +125,7 @@ const importRules: Linter.RulesRecord = {
 const commonPlugins: Linter.Config["plugins"] = {
   react: reactEslintPlugin,
   "react-hooks": reactHooksPlugin,
+  "react-refresh": reactRefreshPlugin,
   "@stylistic": stylisticPlugin,
   jsdoc: jsDocPlugin,
   import: importPlugin,
@@ -149,6 +150,7 @@ const commonRules: Linter.RulesRecord = {
   ...reactEslintPlugin.configs.recommended.rules,
   ...reactRules,
   ...importPlugin.flatConfigs.recommended.rules,
+  ...reactRefreshPlugin.configs.vite.rules,
 };
 
 const jsSetting: Linter.Config["settings"] = {
@@ -271,7 +273,7 @@ const config: Linter.Config[] = [
   {
     name: jsonEslintPlugin.meta.name,
     files: [ "**/*.json" ],
-    plugins: { json: jsonEslintPlugin },
+    plugins: { json: jsonEslintPlugin as unknown as ESLint.Plugin },
     language: "json/json",
   },
   {
