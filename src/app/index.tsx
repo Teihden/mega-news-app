@@ -1,10 +1,32 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./styles/index.css";
-import App from "./App.tsx";
+import { App } from "./App";
+import { ErrorBoundary } from "react-error-boundary";
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
+/**
+ * Асинхронная функция инициализации приложения.
+ * @returns Возвращает Promise<void>
+ */
+const appStart = async () => {
+  const root = createRoot(document.getElementById("root")!);
+
+  // todo: MSW
+
+  return root.render(
+    <StrictMode>
+      <ErrorBoundary fallback={<>Ошибка при инициализации приложения</>}>
+        <App />
+      </ErrorBoundary>
+    </StrictMode>,
+  );
+};
+
+await appStart()
+  .then(() => {
+  })
+  .catch((error) => {
+    console.error("Ошибка при инициализации приложения:", error);
+
+    // todo: ErrorInfo
+    document.body.innerHTML = "<h1>Ошибка при инициализации приложения</h1>";
+  });
