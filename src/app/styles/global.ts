@@ -23,8 +23,8 @@ export const GlobalStyle = createGlobalStyle`
     --scrollbar-track-color: var(--color-white);
     --scrollbar-width: 1rem;
     --scrollbar-height: 1rem;
-    --scrollbar-track-border-radius: var(--deafult-border-radius);
-    --scrollbar-thumb-border-radius: var(--deafult-border-radius);
+    --scrollbar-track-border-radius: var(--default-border-radius);
+    --scrollbar-thumb-border-radius: var(--default-border-radius);
 
     --default-min-width: 360px;
     --default-font-weight: 400;
@@ -39,8 +39,8 @@ export const GlobalStyle = createGlobalStyle`
     --default-color: var(--color-mine-shaft);
     --default-bg: var(--color-white);
     --default-transition-duration: .2s;
-    --deafult-border-radius: .5rem;
-    --deafult-outline: .25rem dashed var(--color-cobalt);
+    --default-border-radius: .5rem;
+    --default-outline: .25rem dashed var(--color-cobalt);
     --default-margin-block: 0 2rem;
 
     --page-font-size: 2rem;
