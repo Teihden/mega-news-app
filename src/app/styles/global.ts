@@ -46,6 +46,7 @@ export const GlobalStyle = createGlobalStyle`
     --page-font-size: 2rem;
 
     --page-header-z-index: 1;
+
     color-scheme: light dark;
   }
 
@@ -129,5 +130,14 @@ export const GlobalStyle = createGlobalStyle`
     background: var(--default-bg);
     color: var(--default-color);
     font-size: var(--page-font-size);
+  }
+
+  svg {
+    display: block;
+    fill: currentcolor;
+
+    &:not(:last-child) {
+      margin-block: var(--default-margin-block);
+    }
   }
 `;

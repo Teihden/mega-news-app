@@ -9,3 +9,7 @@ public/
 !**/*.scss
 !**/*.sass
 !**/*.less
+!**/*.js
+!**/*.jsx
+!**/*.ts
+!**/*.tsx

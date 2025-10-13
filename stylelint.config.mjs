@@ -11,6 +11,7 @@ export default {
     "@stylistic/stylelint-plugin",
     "stylelint-order",
   ],
+  customSyntax: "postcss-styled-syntax",
   rules: {
     // Order & Structure
     "order/order": [
@@ -27,6 +28,7 @@ export default {
     "no-descending-specificity": [ true, { ignore: [ "selectors-within-list" ] } ],
 
     // Empty lines
+    "@stylistic/no-empty-first-line": null,
     "at-rule-empty-line-before": [ "always", { except: [ "first-nested" ], ignoreAtRules: [ "import" ] } ],
     "comment-empty-line-before": [ "always", { except: [ "first-nested" ] } ],
     "custom-property-empty-line-before": null,
