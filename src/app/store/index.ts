@@ -1,22 +1,29 @@
 import { create } from "zustand";
 import { darkTheme, lightTheme, type TThemeType } from "@app/styles";
+import type { TThemeMode } from "@shared/types";
+import { getThemeMode } from "@shared/utils";
 
 export interface IAppStore {
   theme: TThemeType;
-  updateTheme: () => void;
+  themeMode: TThemeMode;
+  updateTheme: (newThemeMode: TThemeMode) => void;
 }
 
-export const useAppStore = create<IAppStore>((set, get) => ({
-  theme: lightTheme,
+export const useAppStore = create<IAppStore>((set, _get) => ({
+  theme: getThemeMode() === "dark" ? darkTheme : lightTheme,
+  themeMode: getThemeMode(),
 
   /**
-   * Обновляет тему
+   * Обновляет текущую тему приложения.
+   * @param newThemeMode Устанавливает новый режим темы, может быть "light" или "dark". По умолчанию используется "light".
    */
-  updateTheme: () => {
-    const { theme } = get();
+  updateTheme: (newThemeMode: TThemeMode = "light") => {
+    const newTheme = newThemeMode === "light" ? lightTheme : darkTheme;
+    newThemeMode && document.documentElement.setAttribute("data-theme", newThemeMode);
 
     set({
-      theme: theme === lightTheme ? darkTheme : lightTheme,
+      themeMode: newThemeMode,
+      theme: newTheme,
     });
   },
 }));

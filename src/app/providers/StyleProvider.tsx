@@ -14,7 +14,7 @@ interface IStyleProviderProps {
  */
 export const StyleProvider: FC<IStyleProviderProps> = (props) => {
   const { children } = props;
-  const theme = useAppStore((state) => state.theme);
+  const { theme } = useAppStore();
 
   return (
     <ThemeProvider theme={theme}>
