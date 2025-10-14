@@ -1,1 +1,1 @@
-export type TThemeMode = "light" | "dark" | null;
+export type TThemeMode = "light" | "dark";
