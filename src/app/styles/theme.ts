@@ -28,8 +28,8 @@ export const defaultTheme = {
     transitionDuration: ".2s",
     borderRadius: ".5rem",
     marginBlock: "0 2rem",
-    color: palette.mineShaft,
-    bg: palette.white,
+    color: palette.dark["75"],
+    bg: palette.white["100"],
   },
   page: {
     fontSize: "2rem",
@@ -39,11 +39,11 @@ export const defaultTheme = {
     height: "1rem",
     trackBorderRadius: ".5rem",
     thumbBorderRadius: ".5rem",
-    thumbColor: palette.cobalt,
+    thumbColor: palette.dark["75"],
     trackColor: palette.white,
   },
   selection: {
-    bg: palette.cobalt,
+    bg: palette.dark["75"],
     color: palette.white,
   },
   zIndex: {
