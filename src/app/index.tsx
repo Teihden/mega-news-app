@@ -14,6 +14,7 @@ const appStart = async () => {
 
   return root.render(
     <StrictMode>
+      {/* todo: ErrorBoundary FallbackComponent */}
       <ErrorBoundary fallback={<>Ошибка при инициализации приложения</>}>
         <App />
       </ErrorBoundary>
