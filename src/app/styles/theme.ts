@@ -71,6 +71,11 @@ export const darkTheme = {
     color: palette.darkGray["100"],
     bg: palette.black["100"],
   },
+  scrollbar: {
+    ...defaultTheme.scrollbar,
+    thumbColor: palette.darkGray["100"],
+    trackColor: palette.black["100"],
+  },
   selection: {
     bg: palette.darkGray["100"],
     color: palette.black["100"],
