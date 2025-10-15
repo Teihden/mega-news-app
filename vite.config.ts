@@ -5,6 +5,7 @@ import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
   root: path.resolve(__dirname, "src/app"),
+  publicDir: path.resolve(__dirname, "public"),
   build: {
     outDir: path.resolve(__dirname, "build"),
     emptyOutDir: true,
@@ -12,14 +13,21 @@ export default defineConfig({
   plugins: [
     react({
       babel: {
-        plugins: [[ "babel-plugin-react-compiler" ]],
+        plugins: [ [ "babel-plugin-react-compiler" ] ],
       },
     }),
     VitePWA({
       registerType: "autoUpdate",
+      includeAssets: [
+        "favicon.ico",
+        "favicons/favicon.svg",
+        "favicons/apple-touch-icon.png",
+        "favicons/mask-icon.svg",
+      ],
       manifest: {
         name: "Mega news",
         short_name: "Mega news",
+        description: "Mega News is a modern platform with up—to-date news, analytics, and personalized recommendations",
         theme_color: "fff",
         background_color: "#fc4308",
         display: "standalone",
@@ -27,37 +35,31 @@ export default defineConfig({
         start_url: "/",
         icons: [
           {
-            "src": "/assets/android-icon-36x36.png",
-            "sizes": "36x36",
-            "type": "image/png",
-          },
-          {
-            "src": "./assets/android-icon-48x48.png",
-            "sizes": "48x48",
-            "type": "image/png",
-          },
-          {
-            "src": "/assets/android-icon-72x72.png",
-            "sizes": "72x72",
-            "type": "image/png",
-          },
-          {
-            "src": "/assets/android-icon-96x96.png",
-            "sizes": "96x96",
-            "type": "image/png",
-          },
-          {
-            "src": "/assets/android-icon-144x144.png",
-            "sizes": "144x144",
-            "type": "image/png",
-          },
-          {
-            "src": "/assets/android-icon-192x192.png",
+            "src": "/favicons/pwa-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
+            "purpose": "any"
+          },
+          {
+            "src": "/favicons/pwa-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+          },
+          {
+            "src": "/favicons/pwa-maskable-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+          },
+          {
+            "src": "/favicons/pwa-maskable-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
           }
-        ]
-      }
+        ],
+      },
     }),
   ],
   resolve: {
