@@ -20,10 +20,6 @@ declare module "react" {
 export const defaultTheme = {
   palette,
   default: {
-    fontFamily: `Roboto, sans-serif`,
-    fontSize: "8px",
-    fontWeight: 400,
-    lineHeight: 1.3,
     minWidth: "360px",
     transitionDuration: ".2s",
     borderRadius: "1.5rem",
@@ -31,8 +27,21 @@ export const defaultTheme = {
     color: palette.dark["75"],
     bg: palette.white["100"],
   },
-  page: {
-    fontSize: "2rem",
+  html: {
+    fontFamily: `Roboto, sans-serif`,
+    fontSize: "8px",
+  },
+  body: {
+    1: {
+      fontSize: "2rem",
+      fontWeight: 400,
+      lineHeight: 1.5,
+    },
+    2: {
+      fontSize: "1.75rem",
+      fontWeight: 400,
+      lineHeight: 1.43,
+    },
   },
   scrollbar: {
     width: "1rem",

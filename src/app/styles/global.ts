@@ -64,12 +64,10 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
     height: 100%;
     max-height: 100%;
-    font-family: ${({ theme }) => theme.default.fontFamily};
-    font-size: ${({ theme }) => theme.default.fontSize};
+    font-family: ${({ theme }) => theme.html.fontFamily};
+    font-size: ${({ theme }) => theme.html.fontSize};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-weight: ${({ theme }) => theme.default.fontWeight};
-    line-height: ${({ theme }) => theme.default.lineHeight};
     scrollbar-gutter: stable;
 
     @supports (text-size-adjust: none) {
@@ -95,7 +93,9 @@ export const GlobalStyle = createGlobalStyle`
     flex-flow: column nowrap;
     background: ${({ theme }) => theme.default.bg};
     color: ${({ theme }) => theme.default.color};
-    font-size: ${({ theme }) => theme.page.fontSize};
+    font-size: ${({ theme }) => theme.body["1"].fontSize};
+    font-weight: ${({ theme }) => theme.body["1"].fontWeight};
+    line-height: ${({ theme }) => theme.body["1"].lineHeight};
   }
 
   svg {
