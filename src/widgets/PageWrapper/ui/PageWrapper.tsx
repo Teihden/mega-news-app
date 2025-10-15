@@ -1,7 +1,8 @@
-import { Outlet } from "react-router";
+import { Outlet, type UIMatch, useMatches } from "react-router";
 import { PageFooter, PageHeader, PageLayout, PageMain } from "./styles";
-import type { FC } from "react";
+import { type FC, useEffect } from "react";
 import type { IPageWrapperProps } from "../config";
+import type { IRouteHandle } from "@shared/types";
 
 /**
  * Компонент-обёртка для страниц, обеспечивающий структуру страницы с возможностью отображения шапки, основного контента и подвала.
@@ -17,6 +18,15 @@ export const PageWrapper: FC<IPageWrapperProps> = (props) => {
     footer = null,
     children = null,
   } = props;
+
+  const matches = useMatches() as UIMatch<unknown, IRouteHandle>[];
+
+  useEffect(() => {
+    const matchWithTitle = [ ...matches ].reverse().find((m) => m.handle?.title);
+    if (matchWithTitle) {
+      document.title = `Mega News.${matchWithTitle.handle?.title ? ` ${matchWithTitle.handle?.title}` : ""}`;
+    }
+  }, [ matches ]);
 
   return (
     <PageLayout>

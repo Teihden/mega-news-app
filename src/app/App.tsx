@@ -1,7 +1,6 @@
 import { type FC, useEffect } from "react";
 import { GlobalStyle } from "@app/styles";
-import { PageWrapper } from "@widgets/PageWrapper";
-import { StyleProvider } from "@app/providers/StyleProvider.tsx";
+import { BrowserRouterProvider, StyleProvider } from "@app/providers";
 import { useAppStore } from "@app/store";
 import { setThemeChangeListener } from "@shared/utils";
 
@@ -19,7 +18,7 @@ export const App: FC = () => {
   return (
     <StyleProvider>
       <GlobalStyle />
-      <PageWrapper />
+      <BrowserRouterProvider />
     </StyleProvider>
   );
 };
