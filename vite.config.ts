@@ -3,11 +3,18 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import { VitePWA } from "vite-plugin-pwa";
 
+/**
+ * Функция resolvePath объединяет указанные сегменты пути и возвращает абсолютный путь.
+ * @param segments - Массив строк, представляющих части пути, которые требуется объединить.
+ * @returns Абсолютный путь, сформированный из переданных сегментов, относительно текущей директории.
+ */
+const resolvePath = (...segments: string[]) => path.resolve(__dirname, ...segments);
+
 export default defineConfig({
-  root: path.resolve(__dirname, "src/app"),
-  publicDir: path.resolve(__dirname, "public"),
+  root: resolvePath("src/app"),
+  publicDir: resolvePath("public"),
   build: {
-    outDir: path.resolve(__dirname, "build"),
+    outDir: resolvePath("build"),
     emptyOutDir: true,
   },
   plugins: [
@@ -64,13 +71,13 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@public": path.resolve(__dirname, "public"),
-      "@app": path.resolve(__dirname, "src/app"),
-      "@entities": path.resolve(__dirname, "src/entities"),
-      "@features": path.resolve(__dirname, "src/features"),
-      "@pages": path.resolve(__dirname, "src/pages"),
-      "@shared": path.resolve(__dirname, "src/shared"),
-      "@widgets": path.resolve(__dirname, "src/widgets"),
+      "@public": resolvePath("public"),
+      "@app": resolvePath("src/app"),
+      "@entities": resolvePath("src/entities"),
+      "@features": resolvePath("src/features"),
+      "@pages": resolvePath("src/pages"),
+      "@shared": resolvePath("src/shared"),
+      "@widgets": resolvePath("src/widgets"),
     },
   },
   server: {
