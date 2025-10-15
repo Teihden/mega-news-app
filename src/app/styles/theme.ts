@@ -20,13 +20,13 @@ declare module "react" {
 export const defaultTheme = {
   palette,
   default: {
-    fontFamily: `system-ui, -apple-system, "Segoe UI", "Roboto", sans-serif`,
+    fontFamily: `Roboto, sans-serif`,
     fontSize: "8px",
     fontWeight: 400,
     lineHeight: 1.3,
     minWidth: "360px",
     transitionDuration: ".2s",
-    borderRadius: ".5rem",
+    borderRadius: "1.5rem",
     marginBlock: "0 2rem",
     color: palette.dark["75"],
     bg: palette.white["100"],
@@ -55,7 +55,15 @@ export const lightTheme = {
   ...defaultTheme,
 };
 
-// todo: dark theme
 export const darkTheme = {
   ...defaultTheme,
+  default: {
+    ...defaultTheme.default,
+    color: palette.darkGray["100"],
+    bg: palette.black["100"],
+  },
+  selection: {
+    bg: palette.darkGray["100"],
+    color: palette.black["100"],
+  },
 };

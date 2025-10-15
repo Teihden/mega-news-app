@@ -10,7 +10,7 @@ export interface IAppStore {
 }
 
 export const useAppStore = create<IAppStore>((set, _get) => ({
-  theme: getThemeMode() === "dark" ? darkTheme : lightTheme,
+  theme: (getThemeMode() === "dark" ? darkTheme : lightTheme) as TThemeType,
   themeMode: getThemeMode(),
 
   /**
@@ -18,7 +18,7 @@ export const useAppStore = create<IAppStore>((set, _get) => ({
    * @param newThemeMode Устанавливает новый режим темы, может быть "light" или "dark". По умолчанию используется "light".
    */
   updateTheme: (newThemeMode: TThemeMode = "light") => {
-    const newTheme = newThemeMode === "light" ? lightTheme : darkTheme;
+    const newTheme = (newThemeMode === "light" ? lightTheme : darkTheme) as TThemeType;
     newThemeMode && document.documentElement.setAttribute("data-theme", newThemeMode);
 
     set({

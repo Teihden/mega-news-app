@@ -73,6 +73,7 @@
     "noUncheckedSideEffectImports": true,
     "resolveJsonModule": true,
     "allowArbitraryExtensions": true,
+    "skipLibCheck": true,
 
     /* JavaScript Support */
     "allowJs": true,

@@ -75,6 +75,14 @@ export const GlobalStyle = createGlobalStyle`
     @supports (text-size-adjust: none) {
       text-size-adjust: none;
     }
+
+    &[data-theme="light"] {
+      color-scheme: light;
+    }
+
+    &[data-theme="dark"] {
+      color-scheme: dark;
+    }
   }
 
   body {
