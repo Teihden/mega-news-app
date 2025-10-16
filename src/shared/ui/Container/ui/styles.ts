@@ -9,7 +9,7 @@ export const StyledContainer = styled.div`
   ${({ theme }) => css`
     ${MEDIA_BREAKPOINTS
       .map((bp) => css`
-        ${theme.container.padding[bp] && theme.media[bp](`padding: ${theme.container.padding[bp]};`)}
+        ${theme.container.paddingInline[bp] && theme.media[bp](`padding-inline: ${theme.container.paddingInline[bp]};`)}
       `)
       .filter(Boolean)}
   `}

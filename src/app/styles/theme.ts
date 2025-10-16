@@ -1,6 +1,8 @@
 import { palette } from "./palette";
 import type { CSSProp } from "styled-components";
 import { media } from "./media";
+import { container } from "./container";
+import { section } from "./section";
 
 export type TThemeType = typeof defaultTheme;
 
@@ -64,14 +66,8 @@ export const defaultTheme = {
   footer: {
     bg: palette.white["100"],
   },
-  container: {
-    maxWidth: "1652px",
-    padding: {
-      desktop: "100px",
-      tablet: "70px",
-      mobile: "16px",
-    },
-  },
+  container,
+  section,
 };
 
 export const lightTheme = {
