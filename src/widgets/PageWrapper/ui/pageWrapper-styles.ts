@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PageHeader = styled.div`
+export const Header = styled.div`
   position: sticky;
   z-index: ${({ theme }) => theme.header.zIndex};
   width: 100%;
@@ -8,17 +8,17 @@ export const PageHeader = styled.div`
   background: ${({ theme }) => theme.header.bg};
 `;
 
-export const PageMain = styled.main`
+export const Main = styled.main`
   display: flex;
   flex-flow: column nowrap;
   flex-grow: 1;
 `;
 
-export const PageFooter = styled.div`
+export const Footer = styled.div`
   margin: auto 0 0;
 `;
 
-export const PageLayout = styled.div`
+export const Layout = styled.div`
   display: flex;
   width: 100%;
   max-width: 100%;

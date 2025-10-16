@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { MEDIA_BREAKPOINTS } from "@app/styles";
 
-export const StyledContainer = styled.div`
+export const Container = styled.div`
   max-width: ${({ theme }) => theme.container.maxWidth};
   margin: auto;
   width: 100%;

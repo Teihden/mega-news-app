@@ -1,8 +1,8 @@
 import { Outlet, type UIMatch, useMatches } from "react-router";
-import { PageFooter, PageHeader, PageLayout, PageMain } from "./pageWrapper-styles";
 import { type FC, useEffect } from "react";
 import type { IPageWrapperProps } from "../config";
 import type { IRouteHandle } from "@shared/types";
+import * as S from './pageWrapper-styles';
 
 /**
  * Компонент-обёртка для страниц, обеспечивающий структуру страницы с возможностью отображения шапки, основного контента и подвала.
@@ -29,20 +29,20 @@ export const PageWrapper: FC<IPageWrapperProps> = (props) => {
   }, [ matches ]);
 
   return (
-    <PageLayout>
+    <S.Layout>
       {header && (
-        <PageHeader>
+        <S.Header>
           {header}
-        </PageHeader>
+        </S.Header>
       )}
-      <PageMain>
+      <S.Main>
         {children ?? <Outlet />}
-      </PageMain>
+      </S.Main>
       {footer && (
-        <PageFooter>
+        <S.Footer>
           {footer}
-        </PageFooter>
+        </S.Footer>
       )}
-    </PageLayout>
+    </S.Layout>
   );
 };

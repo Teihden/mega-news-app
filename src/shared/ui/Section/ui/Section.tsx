@@ -1,6 +1,6 @@
-import { Header, Footer, StyledSection, Content } from "./section-styles";
 import type { ISection } from "../config";
 import { Container } from "@shared/ui/Container";
+import * as S from './section-styles';
 
 /**
  * Компонент Section представляет собой секцию с возможностью использования слотов для заголовка, основного контента и подвала.
@@ -20,22 +20,22 @@ export const Section: ISection = (props) => {
   } = props;
 
   return (
-    <StyledSection className={className}>
+    <S.Section className={className}>
       <Container>
-        {headerSlot && <Header>
+        {headerSlot && <S.Header>
           {headerSlot}
-        </Header>}
-        {children && <Content>
+        </S.Header>}
+        {children && <S.Content>
           {children}
-        </Content>}
-        {footerSlot && <Footer>
+        </S.Content>}
+        {footerSlot && <S.Footer>
           {footerSlot}
-        </Footer>}
+        </S.Footer>}
       </Container>
-    </StyledSection>
+    </S.Section>
   );
 };
 
-Section.Header = Header;
-Section.Content = Content;
-Section.Footer = Footer;
+Section.Header = S.Header;
+Section.Content = S.Content;
+Section.Footer = S.Footer;

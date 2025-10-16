@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { MEDIA_BREAKPOINTS } from "@app/styles";
 
-export const StyledSection = styled.section`
+export const Section = styled.section`
   &:not(:last-child) {
     ${({ theme }) => css`
       ${MEDIA_BREAKPOINTS

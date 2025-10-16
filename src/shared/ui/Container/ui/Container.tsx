@@ -1,6 +1,6 @@
-import { StyledContainer } from "./container-styles";
 import { type FC } from "react";
 import type { IContainerProps } from "../config";
+import * as S from './container-styles';
 
 /**
  * Компонент Container отвечает за визуальное представление контейнера.
@@ -14,8 +14,8 @@ export const Container: FC<IContainerProps> = (props) => {
   } = props;
 
   return (
-    <StyledContainer>
+    <S.Container>
       {children}
-    </StyledContainer>
+    </S.Container>
   );
 };
