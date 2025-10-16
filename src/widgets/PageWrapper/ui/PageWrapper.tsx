@@ -1,5 +1,5 @@
 import { Outlet, type UIMatch, useMatches } from "react-router";
-import { PageFooter, PageHeader, PageLayout, PageMain } from "./styles";
+import { PageFooter, PageHeader, PageLayout, PageMain } from "./pageWrapper-styles";
 import { type FC, useEffect } from "react";
 import type { IPageWrapperProps } from "../config";
 import type { IRouteHandle } from "@shared/types";
