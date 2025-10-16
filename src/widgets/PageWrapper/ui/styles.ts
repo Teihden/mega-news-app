@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const PageHeader = styled.div`
   position: sticky;
-  z-index: var(--page-header-z-index);
+  z-index: ${({ theme }) => theme.header.zIndex};
   width: 100%;
   inset: 0 0 auto;
+  background: ${({ theme }) => theme.header.bg};
 `;
 
 export const PageMain = styled.main`

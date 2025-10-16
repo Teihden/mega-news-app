@@ -1,5 +1,6 @@
 import { palette } from "./palette";
 import type { CSSProp } from "styled-components";
+import { media } from "./media";
 
 export type TThemeType = typeof defaultTheme;
 
@@ -19,6 +20,7 @@ declare module "react" {
 
 export const defaultTheme = {
   palette,
+  media,
   default: {
     minWidth: "360px",
     transitionDuration: ".2s",
@@ -55,8 +57,20 @@ export const defaultTheme = {
     bg: palette.dark["75"],
     color: palette.white,
   },
-  zIndex: {
-    header: 1,
+  header: {
+    zIndex: 1,
+    bg: palette.white["100"],
+  },
+  footer: {
+    bg: palette.white["100"],
+  },
+  container: {
+    maxWidth: "1652px",
+    padding: {
+      desktop: "100px",
+      tablet: "70px",
+      mobile: "16px",
+    },
   },
 };
 
@@ -79,5 +93,12 @@ export const darkTheme = {
   selection: {
     bg: palette.darkGray["100"],
     color: palette.black["100"],
+  },
+  header: {
+    ...defaultTheme.header,
+    bg: palette.washDark["100"],
+  },
+  footer: {
+    bg: palette.black["100"],
   },
 };
