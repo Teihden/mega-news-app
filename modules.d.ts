@@ -1,3 +1,5 @@
+declare module "eslint-plugin-promise";
+
 declare module "*.ico";
 declare module "*.css";
 declare module "*.pcss";

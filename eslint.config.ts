@@ -9,6 +9,9 @@ import jsDocPlugin from "eslint-plugin-jsdoc";
 import importPlugin from "eslint-plugin-import";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import reactRefreshPlugin from "eslint-plugin-react-refresh";
+import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
+import securityPlugin from "eslint-plugin-security";
+import promisePlugin from "eslint-plugin-promise";
 import globals from "globals/index.js";
 import * as espree from "espree";
 import { ESLint, Linter } from "eslint";
@@ -129,6 +132,9 @@ const commonPlugins: Linter.Config["plugins"] = {
   "@stylistic": stylisticPlugin,
   jsdoc: jsDocPlugin,
   import: importPlugin,
+  "jsx-a11y": jsxA11yPlugin,
+  security: securityPlugin,
+  promise: promisePlugin,
 };
 
 const commonRules: Linter.RulesRecord = {
@@ -151,6 +157,9 @@ const commonRules: Linter.RulesRecord = {
   ...reactRules,
   ...importPlugin.flatConfigs.recommended.rules,
   ...reactRefreshPlugin.configs.vite.rules,
+  ...jsxA11yPlugin.flatConfigs.recommended.rules,
+  ...securityPlugin.configs.recommended.rules,
+  ...promisePlugin.configs["flat/recommended"].rules,
 };
 
 const jsSetting: Linter.Config["settings"] = {

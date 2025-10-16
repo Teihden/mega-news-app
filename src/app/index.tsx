@@ -24,6 +24,7 @@ const appStart = async () => {
 
 await appStart()
   .then(() => {
+    return null;
   })
   .catch((error) => {
     console.error("Ошибка при инициализации приложения:", error);
