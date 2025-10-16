@@ -34,7 +34,7 @@ export default defineConfig(({ mode }) => {
               "babel-plugin-styled-components",
               {
                 displayName: isDev,
-                fileName: false,
+                fileName: isDev,
                 minify: isProd,
                 pure: isProd,
               },

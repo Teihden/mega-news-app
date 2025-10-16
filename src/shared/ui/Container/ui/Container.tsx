@@ -1,4 +1,4 @@
-import { StyledContainer } from "./styles";
+import { StyledContainer } from "./container-styles";
 import { type FC } from "react";
 import type { IContainerProps } from "../config";
 

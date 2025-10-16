@@ -1,4 +1,4 @@
-import { Header, Footer, StyledSection, Content } from "./styles";
+import { Header, Footer, StyledSection, Content } from "./section-styles";
 import type { ISection } from "../config";
 import { Container } from "@shared/ui/Container";
 
