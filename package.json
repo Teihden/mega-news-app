@@ -52,6 +52,7 @@
     "@vitejs/plugin-react": "^5.0.4",
     "@vitejs/plugin-react-swc": "^4.1.0",
     "babel-plugin-react-compiler": "^1.0.0",
+    "babel-plugin-styled-components": "^2.1.4",
     "commitlint": "^20.1.0",
     "create-vite": "^8.0.2",
     "cross-env": "^10.1.0",
