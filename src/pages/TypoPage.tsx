@@ -133,16 +133,16 @@ export const TypoPage: FC = () => {
         <Btn variant={"blank"} size={"md"} icon={<UserIcon />} isDisabled={true} />
 
         {/* Link */}
-        <Btn variant={"blank"} text={"Go to Google"} href={"https://google.com"} target={"_blank"} />
-        <Btn variant={"blank"} text={"Go to Google"} href={"https://google.com"} target={"_blank"} isHover={true} />
-        <Btn variant={"blank"} text={"Go to Google"} href={"https://google.com"} target={"_blank"} isActive={true} />
-        <Btn variant={"blank"} text={"Go to Google"} href={"https://google.com"} target={"_blank"} />
+        <Btn variant={"blank"} text={"Link"} href={"#"} target={"_blank"} />
+        <Btn variant={"blank"} text={"Link"} href={"#"} target={"_blank"} isHover={true} />
+        <Btn variant={"blank"} text={"Link"} href={"#"} target={"_blank"} isActive={true} />
+        <Btn variant={"blank"} text={"Link"} href={"#"} target={"_blank"} />
 
         {/* Link with icon */}
-        <Btn variant={"blank"} text={"Go to Google"} href={"https://google.com"} target={"_blank"} icon={<UserIcon />} />
-        <Btn variant={"blank"} text={"Go to Google"} href={"https://google.com"} target={"_blank"} icon={<UserIcon />} isHover={true} />
-        <Btn variant={"blank"} text={"Go to Google"} href={"https://google.com"} target={"_blank"} icon={<UserIcon />} isActive={true} />
-        <Btn variant={"blank"} text={"Go to Google"} href={"https://google.com"} target={"_blank"} icon={<UserIcon />} isDisabled={true} />
+        <Btn variant={"blank"} text={"Link"} href={"#"} target={"_blank"} icon={<UserIcon />} />
+        <Btn variant={"blank"} text={"Link"} href={"#"} target={"_blank"} icon={<UserIcon />} isHover={true} />
+        <Btn variant={"blank"} text={"Link"} href={"#"} target={"_blank"} icon={<UserIcon />} isActive={true} />
+        <Btn variant={"blank"} text={"Link"} href={"#"} target={"_blank"} icon={<UserIcon />} isDisabled={true} />
       </Section>
     </>
   );
