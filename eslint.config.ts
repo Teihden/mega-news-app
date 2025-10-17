@@ -37,11 +37,12 @@ const stylisticRules: Linter.RulesRecord = {
 
   // Line breaks
   "@stylistic/function-call-argument-newline": [ 2, "never" ],
-  "@stylistic/operator-linebreak": [2, {
-    overrides: {
-      "|": "ignore",
-    }
-  }],
+  "@stylistic/operator-linebreak": [ 2,
+    "before", {
+      overrides: {
+        "|": "ignore",
+      },
+    } ],
 
   // Brackets
   "@stylistic/array-bracket-spacing": [ 2, "always" ],
@@ -107,6 +108,10 @@ const tsEslintRules: Linter.RulesRecord = {
   ],
 };
 
+const tsReactRules: Linter.RulesRecord = {
+  "react/prop-types": "off",
+};
+
 const jsDocRules: Linter.RulesRecord = {
   "jsdoc/require-description": 1,
   "jsdoc/require-jsdoc": [ 1, {
@@ -128,6 +133,10 @@ const importRules: Linter.RulesRecord = {
       count: 1,
     },
   ],
+};
+
+const customSecurityRules: Linter.RulesRecord = {
+  "security/detect-object-injection": 0,
 };
 
 const commonPlugins: Linter.Config["plugins"] = {
@@ -164,6 +173,7 @@ const commonRules: Linter.RulesRecord = {
   ...reactRefreshPlugin.configs.vite.rules,
   ...jsxA11yPlugin.flatConfigs.recommended.rules,
   ...securityPlugin.configs.recommended.rules,
+  ...customSecurityRules,
   ...promisePlugin.configs["flat/recommended"].rules,
 };
 
@@ -210,8 +220,8 @@ const jsLanguageOptions: Linter.Config["languageOptions"] = {
 
 const jsRules: Linter.RulesRecord = {
   ...(jsDocPlugin.configs["flat/recommended"].rules as unknown as Linter.RulesRecord),
-  ...reactHooksPlugin.configs.flat.recommended?.rules ?? {},
   ...jsDocRules,
+  ...reactHooksPlugin.configs.flat.recommended?.rules ?? {},
   ...importRules,
 };
 
@@ -262,6 +272,7 @@ const tsRules: Linter.RulesRecord = {
     .filter((cfg = {}): cfg is { rules: Linter.RulesRecord } => "rules" in cfg)
     .reduce((acc, { rules }) => ({ ...acc, ...rules }), {}),
   ...tsEslintRules,
+  ...tsReactRules,
   ...(jsDocPlugin.configs["flat/recommended-typescript"].rules ?? {}),
   ...jsDocRules,
   ...importPlugin.flatConfigs.typescript.rules,
