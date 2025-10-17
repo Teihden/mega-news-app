@@ -31,10 +31,10 @@ export const Content = styled.div`
   &:not(:last-child) {
     ${({ theme }) => css`
       ${MEDIA_BREAKPOINTS
-      .map((bp) => css`
+        .map((bp) => css`
           ${theme.section.content.marginBlock[bp] && theme.media[bp](`margin-block: ${theme.section.content.marginBlock[bp]};`)}
         `)
-      .filter(Boolean)}
+        .filter(Boolean)}
     `}
   }
 `;
