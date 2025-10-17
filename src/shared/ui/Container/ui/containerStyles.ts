@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { MEDIA_BREAKPOINTS } from "@app/styles";
 
 export const Container = styled.div`
