@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import { VitePWA } from "vite-plugin-pwa";
+import svgr from "vite-plugin-svgr";
 
 /**
  * Функция resolvePath объединяет указанные сегменты пути и возвращает абсолютный путь.
@@ -87,6 +88,12 @@ export default defineConfig(({ mode }) => {
             },
           ],
         },
+      }),
+      svgr({
+        svgrOptions: {
+          icon: true,
+        },
+        include: "**/*.svg?react",
       }),
     ],
     resolve: {

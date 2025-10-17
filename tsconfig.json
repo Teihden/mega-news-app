@@ -4,6 +4,7 @@
     "commitlint.config.ts",
     "eslint.config.ts",
     "modules.d.ts",
+    "vite-env.d.ts",
     "vite.config.ts"
   ],
   "exclude": [

@@ -82,7 +82,8 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.0",
     "vite": "^7.1.9",
-    "vite-plugin-pwa": "^1.1.0"
+    "vite-plugin-pwa": "^1.1.0",
+    "vite-plugin-svgr": "^4.5.0"
   },
   "dependencies": {
     "react": "^19.2.0",

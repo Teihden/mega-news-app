@@ -13,8 +13,9 @@ import * as S from "./btnStyles";
  * @param props.text - Текст, отображаемый внутри кнопки.
  * @param props.children - Дополнительный контент внутри кнопки.
  * @param props.disabled - Указывает, должна ли кнопка быть отключенной.
- * @param props.isDisabled - Альтернативное свойство для отключения кнопки.
  * @param props.isActive - Указывает, активна ли кнопка.
+ * @param props.isHover - Указывает, наведен ли курсор на кнопку.
+ * @param props.isDisabled - Альтернативное свойство для отключения кнопки.
  * @returns Возвращает компонент.
  */
 export const Btn: FC<TBtnProps> = (props) => {
@@ -23,12 +24,14 @@ export const Btn: FC<TBtnProps> = (props) => {
     size = "sm",
     icon = null,
     iconPosition = "left",
-    iconSize = 16,
+    iconSize = 20,
     text = null,
     children = null,
     disabled = false,
-    isDisabled = false,
     isActive = false,
+    isHover = false,
+    isDisabled = false,
+    ...rest
   } = props;
 
   const isLink = "href" in props;
@@ -39,10 +42,11 @@ export const Btn: FC<TBtnProps> = (props) => {
       as={Component}
       $variant={variant}
       $size={size}
+      $isHover={isHover}
       $isActive={isActive}
       $isDisabled={isDisabled}
       disabled={isLink ? isDisabled : (isDisabled || disabled)}
-      {...props}
+      {...rest}
     >
       {children
         ? (

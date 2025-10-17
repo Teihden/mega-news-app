@@ -10,6 +10,7 @@ export interface ICommonBtnProps {
   text?: string;
   children?: ReactNode;
   isActive?: boolean;
+  isHover?: boolean;
   isDisabled?: boolean;
 }
 
@@ -29,5 +30,6 @@ export interface IStyledBtnProps {
   $size: ICommonBtnProps["size"];
   $variant: ICommonBtnProps["variant"];
   $isActive?: boolean;
+  $isHover?: boolean;
   $isDisabled?: boolean;
 }
