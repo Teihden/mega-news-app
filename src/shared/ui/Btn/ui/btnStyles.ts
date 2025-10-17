@@ -32,7 +32,7 @@ export const Btn = styled.button<IStyledBtnProps>`
       background: ${({ theme, $variant, as }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].hover.bg};
       color: ${({ theme, $variant }) => theme.btn.variants[$variant!].hover.color};
 
-      .svg {
+      svg {
         color: ${({ theme, $variant }) => theme.btn.variants[$variant!].hover.iconColor};
       }
     }
@@ -52,7 +52,7 @@ export const Btn = styled.button<IStyledBtnProps>`
     background: ${({ theme, $variant, as }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].active.bg};
     color: ${({ theme, $variant }) => theme.btn.variants[$variant!].active.color};
 
-    .svg {
+    svg {
       color: ${({ theme, $variant }) => theme.btn.variants[$variant!].active.iconColor};
     }
   }
@@ -64,7 +64,7 @@ export const Btn = styled.button<IStyledBtnProps>`
     color: ${({ theme, $variant }) => theme.btn.variants[$variant!].disabled.color};
     cursor: not-allowed;
 
-    .svg {
+    svg {
       color: ${({ theme, $variant }) => theme.btn.variants[$variant!].disabled.iconColor};
     }
   }
@@ -76,7 +76,7 @@ export const Btn = styled.button<IStyledBtnProps>`
       color: ${theme.btn.variants[$variant!].hover.color};
       pointer-events: none;
 
-      .svg {
+      svg {
         color: ${theme.btn.variants[$variant!].hover.iconColor};
       }
 `;
@@ -89,7 +89,7 @@ export const Btn = styled.button<IStyledBtnProps>`
       color: ${theme.btn.variants[$variant!].active.color};
       pointer-events: none;
 
-      .svg {
+      svg {
         color: ${theme.btn.variants[$variant!].active.iconColor};
       }
 `;
@@ -102,7 +102,7 @@ export const Btn = styled.button<IStyledBtnProps>`
       color: ${theme.btn.variants[$variant!].disabled.color};
       pointer-events: none;
 
-      .svg {
+      svg {
         color: ${theme.btn.variants[$variant!].disabled.iconColor};
       }
 `;
