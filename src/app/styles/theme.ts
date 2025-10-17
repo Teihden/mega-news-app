@@ -1,10 +1,23 @@
 import { palette } from "./palette";
 import type { CSSProp } from "styled-components";
 import { media } from "./media";
-import { container } from "./container";
-import { section } from "./section";
-import { subTitle } from "./subTitle";
-import { title } from "./title";
+import { defaultStyles, defaultStylesDark } from "./defaultStyles";
+import {
+  body,
+  btn,
+  btnDark,
+  container, footer, footerDark,
+  header,
+  headerDark,
+  html,
+  scrollbar,
+  scrollbarDark,
+  section,
+  selection,
+  selectionDark,
+  subTitle,
+  title,
+} from "./ui";
 
 export type TThemeType = typeof defaultTheme;
 
@@ -26,53 +39,18 @@ export const defaultTheme = {
   mode: "default",
   palette,
   media,
-  default: {
-    minWidth: "360px",
-    transitionDuration: ".2s",
-    borderRadius: "1.5rem",
-    marginBlock: "0 2rem",
-    color: palette.dark["75"],
-    bg: palette.white["100"],
-  },
-  html: {
-    fontFamily: `Roboto, sans-serif`,
-    fontSize: "8px",
-  },
-  body: {
-    1: {
-      fontSize: "2rem",
-      fontWeight: 400,
-      lineHeight: 1.5,
-    },
-    2: {
-      fontSize: "1.75rem",
-      fontWeight: 400,
-      lineHeight: 1.43,
-    },
-  },
-  scrollbar: {
-    width: "1rem",
-    height: "1rem",
-    trackBorderRadius: ".5rem",
-    thumbBorderRadius: ".5rem",
-    thumbColor: palette.dark["75"],
-    trackColor: palette.white,
-  },
-  selection: {
-    bg: palette.dark["75"],
-    color: palette.white,
-  },
-  header: {
-    zIndex: 1,
-    bg: palette.white["100"],
-  },
-  footer: {
-    bg: palette.white["100"],
-  },
+  default: defaultStyles,
+  html,
+  body,
+  scrollbar,
+  selection,
+  header,
+  footer,
   container,
   section,
   title,
   subTitle,
+  btn,
 };
 
 export const lightTheme = {
@@ -83,25 +61,10 @@ export const lightTheme = {
 export const darkTheme = {
   ...defaultTheme,
   mode: "dark",
-  default: {
-    ...defaultTheme.default,
-    color: palette.darkGray["100"],
-    bg: palette.black["100"],
-  },
-  scrollbar: {
-    ...defaultTheme.scrollbar,
-    thumbColor: palette.darkGray["100"],
-    trackColor: palette.black["100"],
-  },
-  selection: {
-    bg: palette.darkGray["100"],
-    color: palette.black["100"],
-  },
-  header: {
-    ...defaultTheme.header,
-    bg: palette.washDark["100"],
-  },
-  footer: {
-    bg: palette.black["100"],
-  },
+  default: defaultStylesDark,
+  scrollbar: scrollbarDark,
+  selection: selectionDark,
+  header: headerDark,
+  footer: footerDark,
+  btn: btnDark,
 };

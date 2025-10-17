@@ -1,8 +1,9 @@
 export { GlobalStyle } from "./global";
 export { defaultTheme, lightTheme, darkTheme, type TThemeType } from "./theme";
 export { palette } from "./palette";
-export { container } from "./container";
-export { section } from "./section";
-export { title } from "./title";
-export { subTitle } from "./subTitle";
+export { container } from "./ui/container";
+export { section } from "./ui/section";
+export { title } from "./ui/title";
+export { subTitle } from "./ui/subTitle";
+export { defaultStyles, defaultStylesDark } from "./defaultStyles";
 export { media, type TMediaBreakpoints, MEDIA_BREAKPOINTS } from "./media";
