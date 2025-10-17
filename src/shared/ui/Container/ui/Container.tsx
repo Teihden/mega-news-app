@@ -1,5 +1,4 @@
-import { type FC } from "react";
-import type { IContainerProps } from "../config";
+import type { IContainer } from "../config";
 import * as S from './container-styles';
 
 /**
@@ -8,7 +7,7 @@ import * as S from './container-styles';
  * @param props.children - Дочерние элементы для отображения внутри контейнера.
  * @returns Возвращает визуальный контейнер с указанным содержимым.
  */
-export const Container: FC<IContainerProps> = (props) => {
+export const Container: IContainer = (props) => {
   const {
     children = null,
   } = props;
@@ -19,3 +18,5 @@ export const Container: FC<IContainerProps> = (props) => {
     </S.Container>
   );
 };
+
+Container.Container = S.Container;

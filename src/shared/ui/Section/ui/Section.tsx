@@ -36,6 +36,7 @@ export const Section: ISection = (props) => {
   );
 };
 
+Section.Container = Container.Container;
 Section.Header = S.Header;
 Section.Content = S.Content;
 Section.Footer = S.Footer;

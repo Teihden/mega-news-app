@@ -3,6 +3,8 @@ import type { CSSProp } from "styled-components";
 import { media } from "./media";
 import { container } from "./container";
 import { section } from "./section";
+import { subTitle } from "./subTitle";
+import { title } from "./title";
 
 export type TThemeType = typeof defaultTheme;
 
@@ -21,6 +23,7 @@ declare module "react" {
 /* eslint-enable @typescript-eslint/naming-convention, no-unused-vars */
 
 export const defaultTheme = {
+  mode: "default",
   palette,
   media,
   default: {
@@ -68,14 +71,18 @@ export const defaultTheme = {
   },
   container,
   section,
+  title,
+  subTitle,
 };
 
 export const lightTheme = {
   ...defaultTheme,
+  mode: "light",
 };
 
 export const darkTheme = {
   ...defaultTheme,
+  mode: "dark",
   default: {
     ...defaultTheme.default,
     color: palette.darkGray["100"],
