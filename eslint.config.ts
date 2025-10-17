@@ -37,12 +37,7 @@ const stylisticRules: Linter.RulesRecord = {
 
   // Line breaks
   "@stylistic/function-call-argument-newline": [ 2, "never" ],
-  "@stylistic/operator-linebreak": [ 2,
-    "before", {
-      overrides: {
-        "|": "ignore",
-      },
-    } ],
+  "@stylistic/operator-linebreak": [ 2, "before", { overrides: { "|": "ignore" } } ],
 
   // Brackets
   "@stylistic/array-bracket-spacing": [ 2, "always" ],
