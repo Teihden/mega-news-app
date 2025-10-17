@@ -2,7 +2,7 @@ import { Outlet, type UIMatch, useMatches } from "react-router";
 import { type FC, useEffect } from "react";
 import type { IPageWrapperProps } from "../config";
 import type { IRouteHandle } from "@shared/types";
-import * as S from './pageWrapper-styles';
+import * as S from './pageWrapperStyles';
 
 /**
  * Компонент-обёртка для страниц, обеспечивающий структуру страницы с возможностью отображения шапки, основного контента и подвала.

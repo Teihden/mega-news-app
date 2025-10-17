@@ -4,8 +4,8 @@ export const Header = styled.div`
   position: sticky;
   z-index: ${({ theme }) => theme.header.zIndex};
   width: 100%;
-  inset: 0 0 auto;
   background: ${({ theme }) => theme.header.bg};
+  inset: 0 0 auto;
 `;
 
 export const Main = styled.main`
