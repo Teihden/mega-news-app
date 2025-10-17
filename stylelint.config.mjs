@@ -28,7 +28,6 @@ export default {
     "no-descending-specificity": [ true, { ignore: [ "selectors-within-list" ] } ],
 
     // Empty lines
-    "@stylistic/no-empty-first-line": null,
     "at-rule-empty-line-before": [ "always", { except: [ "first-nested" ], ignoreAtRules: [ "import" ] } ],
     "comment-empty-line-before": [ "always", { except: [ "first-nested" ] } ],
     "custom-property-empty-line-before": null,
@@ -48,6 +47,7 @@ export default {
     // Length
     "length-zero-no-unit": true,
     "@stylistic/number-leading-zero": "never",
+    "@stylistic/max-line-length": 150,
 
     // Pattern
     "custom-media-pattern": [ patternRegex ],
@@ -55,4 +55,13 @@ export default {
     "custom-property-pattern": [ patternRegex ],
     "selector-class-pattern": [ patternRegex ],
   },
+  overrides: [
+    {
+      files: [ "**/*.{js,jsx,ts,tsx}" ],
+      rules: {
+        "@stylistic/no-empty-first-line": null,
+        "nesting-selector-no-missing-scoping-root": null,
+      },
+    },
+  ],
 };
