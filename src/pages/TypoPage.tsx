@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { Section } from "@shared/ui/Section";
 import { Title } from "@shared/ui/Title";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const StyledSection = styled(Section)`
   ${Section.Header} {
@@ -15,12 +15,10 @@ const StyledSection = styled(Section)`
     flex-flow: row wrap;
     align-items: center;
     gap: 3rem 4rem;
-    ${({ theme }) => css`
-      ${theme.media.mobile(`
+    ${({ theme }) => theme.media.mobile(`
       flex-flow: column wrap;
       align-items: flex-start;
-      `)};
-    `}
+    `)}
   }
 `;
 
