@@ -4,27 +4,39 @@ import { palette } from "@app/styles";
 
 export const Btn = styled.button<IStyledBtnProps>`
   display: ${({ as }) => as === "a" ? "inline-flex" : "flex"};
-  align-items: center;
-  justify-content: center;
-  gap: ${({ theme, $size }) => theme.btn.sizes[$size!].gap};
-  height: ${({ theme, as, $size }) => as === "a" ? "fit-content" : theme.btn.sizes[$size!].height};
   width: fit-content;
   max-width: 100%;
-  appearance: none;
-  box-shadow: none;
-  border-radius: ${({ theme, as }) => as === "a" ? 0 : theme.btn.borderRadius};
-  color: ${({ theme, $variant }) => theme.btn.variants[$variant!].color};
-  font-size: ${({ theme }) => theme.btn.fontSize};
-  line-height: ${({ theme }) => theme.btn.lineHeight};
-  padding-inline: ${({ theme }) => theme.btn.paddingInline};
-  border-color: ${({ theme, $variant }) => theme.btn.variants[$variant!].borderColor};
+  height: ${({ theme, as, $size }) => as === "a" ? "fit-content" : theme.btn.sizes[$size!].height};
+  align-items: center;
+  justify-content: center;
   border-width: ${({ theme, as }) => as === "a" ? 0 : theme.btn.borderWidth};
   border-style: ${({ as }) => as === "a" ? "none" : "solid"};
+  border-color: ${({ theme, $variant }) => theme.btn.variants[$variant!].borderColor};
+  border-radius: ${({ theme, as }) => as === "a" ? 0 : theme.btn.borderRadius};
+  appearance: none;
   background: ${({ theme, $variant, as }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].bg};
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
+  box-shadow: none;
+  color: ${({ theme, $variant }) => theme.btn.variants[$variant!].color};
   cursor: pointer;
+  font-size: ${({ theme }) => theme.btn.fontSize};
+  gap: ${({ theme, $size }) => theme.btn.sizes[$size!].gap};
+  line-height: ${({ theme }) => theme.btn.lineHeight};
+  padding-inline: ${({ theme }) => theme.btn.paddingInline};
+  -webkit-tap-highlight-color: transparent;
   text-decoration: none;
+  user-select: none;
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: ${({ theme, $variant, as }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].hover.borderColor};
+      background: ${({ theme, $variant, as }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].hover.bg};
+      color: ${({ theme, $variant }) => theme.btn.variants[$variant!].hover.color};
+
+      .svg {
+        color: ${({ theme, $variant }) => theme.btn.variants[$variant!].hover.iconColor};
+      }
+    }
+  }
 
   &:focus {
     outline: none;
@@ -35,22 +47,10 @@ export const Btn = styled.button<IStyledBtnProps>`
     outline-offset: .25rem;
   }
 
-  @media (hover: hover) {
-    &:hover {
-      color: ${({ theme, $variant }) => theme.btn.variants[$variant!].hover.color};
-      border-color: ${({ theme, $variant, as }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].hover.borderColor};
-      background: ${({ theme, $variant, as }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].hover.bg};
-
-      .svg {
-        color: ${({ theme, $variant }) => theme.btn.variants[$variant!].hover.iconColor};
-      }
-    }
-  }
-
   &:active {
-    color: ${({ theme, $variant }) => theme.btn.variants[$variant!].active.color};
     border-color: ${({ theme, $variant, as }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].active.borderColor};
     background: ${({ theme, $variant, as }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].active.bg};
+    color: ${({ theme, $variant }) => theme.btn.variants[$variant!].active.color};
 
     .svg {
       color: ${({ theme, $variant }) => theme.btn.variants[$variant!].active.iconColor};
@@ -59,9 +59,9 @@ export const Btn = styled.button<IStyledBtnProps>`
 
   &:disabled,
   [disabled] {
-    color: ${({ theme, $variant }) => theme.btn.variants[$variant!].disabled.color};
     border-color: ${({ theme, as, $variant }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].disabled.borderColor};
     background: ${({ theme, as, $variant }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].disabled.bg};
+    color: ${({ theme, $variant }) => theme.btn.variants[$variant!].disabled.color};
     cursor: not-allowed;
 
     .svg {
