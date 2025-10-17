@@ -60,7 +60,14 @@ export default {
       files: [ "**/*.{js,jsx,ts,tsx}" ],
       rules: {
         "@stylistic/no-empty-first-line": null,
+        "@stylistic/no-extra-semicolons": null,
         "nesting-selector-no-missing-scoping-root": null,
+      },
+    },
+    {
+      files: [ "**/*.ts", "**/*.tsx" ],
+      rules: {
+        "@stylistic/declaration-bang-space-before": null,
       },
     },
   ],
