@@ -20,9 +20,7 @@ export const Btn = styled.button<IStyledBtnProps>`
   border-color: ${({ theme, $variant }) => theme.btn.variants[$variant!].borderColor};
   border-width: ${({ theme, as }) => as === "a" ? 0 : theme.btn.borderWidth};
   border-style: ${({ as }) => as === "a" ? "none" : "solid"};
-  background: ${({ theme, $variant, as }) => as === "a"
-    ? palette.transparent
-    : theme.btn.variants[$variant!].bg};
+  background: ${({ theme, $variant, as }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].bg};
   -webkit-tap-highlight-color: transparent;
   user-select: none;
   cursor: pointer;
