@@ -13,7 +13,7 @@ export const Title = styled.h1<IStyledTitleProps>`
       ? theme[$variant]
       : theme.title) as typeof theme.title;
     const style = Object.hasOwn(variantSet, $variantLevel)
-      ? variantSet[($variantLevel as keyof typeof variantSet)]
+      ? variantSet[$variantLevel as keyof typeof variantSet]
       : variantSet[1];
 
     return css`

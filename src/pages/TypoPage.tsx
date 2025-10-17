@@ -27,7 +27,7 @@ const StyledSection = styled(Section)`
 /**
  * Компонент TypoPage.
  * Представляет собой страницу, отображающую различные стили типографики.
- * @returns Компонент TypoPage.
+ * @returns Компонент.
  */
 export const TypoPage: FC = () => {
   return (

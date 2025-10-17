@@ -191,5 +191,5 @@ export const btnDark = {
         bg: palette.transparent,
       },
     },
-  }
-}
+  },
+};

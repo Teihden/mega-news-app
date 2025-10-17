@@ -1,7 +1,5 @@
 import type { FC, ReactNode } from "react";
-import { Header } from "../ui/sectionStyles";
-import { Content } from "../ui/sectionStyles";
-import { Footer } from "../ui/sectionStyles";
+import { Header, Content, Footer } from "../ui/sectionStyles";
 import { Container } from "@shared/ui/Container";
 
 export interface ISectionProps {

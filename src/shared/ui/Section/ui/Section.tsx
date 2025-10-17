@@ -9,7 +9,7 @@ import * as S from "./sectionStyles";
  * @param props.headerSlot Слот для отображения содержимого заголовка секции.
  * @param props.footerSlot Слот для отображения содержимого подвала секции.
  * @param props.children Основное содержимое секции.
- * @returns Возвращает стилизованный компонент с указанными слотами.
+ * @returns Компонент.
  */
 export const Section: ISection = (props) => {
   const {

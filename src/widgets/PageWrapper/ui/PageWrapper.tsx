@@ -2,7 +2,7 @@ import { Outlet, type UIMatch, useMatches } from "react-router";
 import { type FC, useEffect } from "react";
 import type { IPageWrapperProps } from "../config";
 import type { IRouteHandle } from "@shared/types";
-import * as S from './pageWrapperStyles';
+import * as S from "./pageWrapperStyles";
 
 /**
  * Компонент-обёртка для страниц, обеспечивающий структуру страницы с возможностью отображения шапки, основного контента и подвала.
@@ -10,7 +10,7 @@ import * as S from './pageWrapperStyles';
  * @param props.header - Опциональный элемент шапки страницы. Если не передан, шапка не отображается.
  * @param props.footer - Опциональный элемент подвала страницы. Если не передан, подвал не отображается.
  * @param props.children - Основной контент страницы. Если не передан, используется компонент <Outlet>.
- * @returns Возвращает компонент с заданной структурой страницы.
+ * @returns Компонент.
  */
 export const PageWrapper: FC<IPageWrapperProps> = (props) => {
   const {

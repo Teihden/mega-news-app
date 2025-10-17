@@ -11,6 +11,7 @@ import * as S from "./titleStyles";
  * @param props.children Содержимое заголовка.
  * @param props.className Дополнительный CSS-класс для заголовка.
  * @param props.rest Остальные свойства, передаваемые в компонент.
+ * @returns Компонент.
  */
 export const Title: FC<ITitleProps> = (props) => {
   const {

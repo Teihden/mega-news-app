@@ -1,7 +1,7 @@
 export const MEDIA_BREAKPOINTS = [
   "mobile",
   "tablet",
-  "desktop"
+  "desktop",
 ] as const;
 
 export type TMediaBreakpoints = typeof MEDIA_BREAKPOINTS[number];

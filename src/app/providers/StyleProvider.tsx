@@ -10,7 +10,7 @@ interface IStyleProviderProps {
  * Компонент StyleProvider предоставляет тему оформления для своего дочернего контента.
  * Использует тему, определенную в состоянии хранилища приложения.
  * @param props Свойства, передаваемые в компонент.
- * @returns Компонент ThemeProvider, оборачивающий переданный дочерний контент.
+ * @returns Компонент.
  */
 export const StyleProvider: FC<IStyleProviderProps> = (props) => {
   const { children } = props;
