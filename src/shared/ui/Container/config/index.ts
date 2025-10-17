@@ -1,5 +1,5 @@
 import type { FC, ReactNode } from "react";
-import { Container } from "../ui/container-styles";
+import { Container } from "../ui/containerStyles";
 
 export interface IContainerProps {
   children?: ReactNode;
