@@ -15,7 +15,6 @@ const StyledSection = styled(Section)`
     flex-flow: row wrap;
     align-items: center;
     gap: 3rem 4rem;
-
     ${({ theme }) => css`
       ${theme.media.mobile(`
       flex-flow: column wrap;
