@@ -5,6 +5,7 @@ export const defaultStyles = {
   transitionDuration: ".2s",
   borderRadius: "1.5rem",
   marginBlock: "0 2rem",
+  outline: `.25rem dashed ${palette.primary["100"]}`,
   color: palette.dark["75"],
   bg: palette.white["100"],
 };

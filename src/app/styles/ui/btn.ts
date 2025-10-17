@@ -7,12 +7,19 @@ export const btn = {
   paddingInline: "2rem",
   borderRadius: defaultStyles.borderRadius,
   borderWidth: "1px",
+  outline: defaultStyles.outline,
   sizes: {
     sm: {
       gap: "1rem",
+      height: "5rem",
+    },
+    md: {
+      gap: "1.5rem",
+      height: "6rem",
     },
     lg: {
       gap: "1.75rem",
+      height: "6.5rem",
     },
   },
   variants: {
