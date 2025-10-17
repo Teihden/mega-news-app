@@ -71,40 +71,40 @@ export const Btn = styled.button<IStyledBtnProps>`
 
   ${({ theme, as, $variant, $isHover }) => {
     return $isHover && css`
-      color: ${theme.btn.variants[$variant!].hover.color};
       border-color: ${as === "a" ? palette.transparent : theme.btn.variants[$variant!].hover.borderColor};
       background: ${as === "a" ? palette.transparent : theme.btn.variants[$variant!].hover.bg};
+      color: ${theme.btn.variants[$variant!].hover.color};
       pointer-events: none;
 
       .svg {
         color: ${theme.btn.variants[$variant!].hover.iconColor};
       }
-    `;
+`;
   }}
 
   ${({ theme, as, $variant, $isActive }) => {
     return $isActive && css`
-      color: ${theme.btn.variants[$variant!].active.color};
       border-color: ${as === "a" ? palette.transparent : theme.btn.variants[$variant!].active.borderColor};
       background: ${as === "a" ? palette.transparent : theme.btn.variants[$variant!].active.bg};
+      color: ${theme.btn.variants[$variant!].active.color};
       pointer-events: none;
 
       .svg {
         color: ${theme.btn.variants[$variant!].active.iconColor};
       }
-    `;
+`;
   }}
 
   ${({ theme, as, $variant, $isDisabled }) => {
     return $isDisabled && css`
-      color: ${theme.btn.variants[$variant!].disabled.color};
       border-color: ${as === "a" ? palette.transparent : theme.btn.variants[$variant!].disabled.borderColor};
       background: ${as === "a" ? palette.transparent : theme.btn.variants[$variant!].disabled.bg};
+      color: ${theme.btn.variants[$variant!].disabled.color};
       pointer-events: none;
 
       .svg {
         color: ${theme.btn.variants[$variant!].disabled.iconColor};
       }
-    `;
+`;
   }}
 `;
