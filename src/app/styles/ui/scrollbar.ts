@@ -6,7 +6,7 @@ export const scrollbar = {
   trackBorderRadius: ".5rem",
   thumbBorderRadius: ".5rem",
   thumbColor: palette.dark["75"],
-  trackColor: palette.white,
+  trackColor: palette.white["100"],
 };
 
 export const scrollbarDark = {
