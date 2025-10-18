@@ -14,7 +14,7 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "lint": "npm run stylelint && npm run eslint",
-    "stylelint": "stylelint --config stylelint.config.mjs ./src/**/*.{css,pcss,scss,sass,less,js,jsx,ts,tsx} --fix",
+    "stylelint": "stylelint --config stylelint.config.mjs ./src --fix",
     "eslint": "eslint --no-config-lookup --config eslint.config.ts ./src --fix",
     "eslint-config-inspect": "npx @eslint/config-inspector --config eslint.config.ts",
     "check-deps-updates": "npx npm-check-updates",

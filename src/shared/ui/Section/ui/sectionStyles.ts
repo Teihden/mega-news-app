@@ -5,7 +5,7 @@ export const Section = styled.section`
   &:not(:last-child) {
     ${({ theme }) => MEDIA_BREAKPOINTS
       .map((bp) =>
-        theme.section.marginBlock[bp] && theme.media[bp](`margin-block: ${theme.section.marginBlock[bp]}`))
+        theme.section.marginBlock[bp] && theme.media[bp](`margin-block:${theme.section.marginBlock[bp]}`))
       .filter(Boolean)}
   }
 `;

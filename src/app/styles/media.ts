@@ -1,3 +1,5 @@
+import type { RuleSet } from "styled-components";
+
 export const MEDIA_BREAKPOINTS = [
   "mobile",
   "tablet",
@@ -8,7 +10,7 @@ export type TMediaBreakpoints = typeof MEDIA_BREAKPOINTS[number];
 
 /* eslint-disable jsdoc/require-jsdoc */
 
-export const media: Record<TMediaBreakpoints, (styles: string) => string> = {
+export const media: Record<TMediaBreakpoints, (styles: string | RuleSet<object>) => string> = {
   mobile: (styles) => `@media (max-width: 767px){${styles}}`,
   tablet: (styles) => `@media (max-width: 1280px){${styles}}`,
   desktop: (styles) => `@media (min-width: 1281px){${styles}}`,

@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { Section } from "@shared/ui/Section";
 import { Title } from "@shared/ui/Title";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Btn } from "@shared/ui/Btn";
 import UserIcon from "@shared/assets/icons/icon-user.svg?react";
 
@@ -17,7 +17,7 @@ const StyledSection = styled(Section)`
     flex-flow: row wrap;
     align-items: center;
     gap: 3rem 4rem;
-    ${({ theme }) => theme.media.mobile(`
+    ${({ theme }) => theme.media.mobile(css`
       flex-flow: column wrap;
       align-items: flex-start;
     `)}

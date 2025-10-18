@@ -62,10 +62,12 @@ export default {
         "@stylistic/no-empty-first-line": null,
         "@stylistic/no-extra-semicolons": null,
         "nesting-selector-no-missing-scoping-root": null,
+        "@stylistic/no-eol-whitespace": null,
+        "@stylistic/no-missing-end-of-source-newline": null,
       },
     },
     {
-      files: [ "**/*.ts", "**/*.tsx" ],
+      files: [ "**/*.{ts,tsx}" ],
       rules: {
         "@stylistic/declaration-bang-space-before": null,
       },
