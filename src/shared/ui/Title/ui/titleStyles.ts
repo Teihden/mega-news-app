@@ -23,7 +23,7 @@ export const getVariantStyles = (
     font-size: ${style?.fontSize};
     font-weight: ${style?.fontWeight};
     line-height: ${style?.lineHeight};
-`;
+  `;
 };
 
 export const Title = styled.h1<IStyledTitleProps>`

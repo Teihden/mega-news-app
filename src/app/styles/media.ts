@@ -1,9 +1,13 @@
 import type { RuleSet } from "styled-components";
 
-export const MEDIA_BREAKPOINTS = [
+export const COMMON_MEDIA_BREAKPOINTS = [
   "mobile",
   "tablet",
   "desktop",
+] as const;
+
+export const MEDIA_BREAKPOINTS = [
+  ...COMMON_MEDIA_BREAKPOINTS,
 ] as const;
 
 export type TMediaBreakpoints = typeof MEDIA_BREAKPOINTS[number];

@@ -6,5 +6,5 @@ export { section } from "./ui/section";
 export { title } from "./ui/title";
 export { subTitle } from "./ui/subTitle";
 export { defaultStyles, defaultStylesDark } from "./defaultStyles";
-export { media, type TMediaBreakpoints, MEDIA_BREAKPOINTS } from "./media";
+export { media, type TMediaBreakpoints, MEDIA_BREAKPOINTS, COMMON_MEDIA_BREAKPOINTS } from "./media";
 export { btn, btnDark } from "./ui";
