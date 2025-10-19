@@ -5,6 +5,7 @@ export { title } from "./title";
 export { subTitle } from "./subTitle";
 export { html } from "./html";
 export { body } from "./body";
+export { main } from "./main";
 export { scrollbar, scrollbarDark } from "./scrollbar";
 export { selection, selectionDark } from "./selection";
 export { header, headerDark } from "./header";

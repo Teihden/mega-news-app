@@ -18,6 +18,7 @@ import { ESLint, Linter } from "eslint";
 
 const eslintRules: Linter.RulesRecord = {
   "no-unused-vars": [ 2, { argsIgnorePattern: "^_" } ],
+  curly: [ "error", "all" ],
 };
 
 const stylisticRules: Linter.RulesRecord = {
