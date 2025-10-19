@@ -3,6 +3,7 @@ import { defaultTheme } from "@app/styles";
 
 export interface ITextProps {
   className?: string;
+  as?: "div" | "p" | "span";
   variant?: keyof typeof defaultTheme.text;
   children?: ReactNode;
 }
