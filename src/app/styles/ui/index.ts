@@ -10,3 +10,4 @@ export { scrollbar, scrollbarDark } from "./scrollbar";
 export { selection, selectionDark } from "./selection";
 export { header, headerDark } from "./header";
 export { footer, footerDark } from "./footer";
+export { text } from "./text";

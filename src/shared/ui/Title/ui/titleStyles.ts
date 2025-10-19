@@ -27,7 +27,7 @@ export const getVariantStyles = (
 };
 
 export const Title = styled.h1<IStyledTitleProps>`
-  color: ${({ theme }) => theme.default.color};
+  color: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["100"] : theme.palette.white["100"]};
 
   &:not(:last-child) {
     margin-block: ${({ theme, $marginBlock }) => $marginBlock ?? theme.default.marginBlock};

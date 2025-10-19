@@ -18,6 +18,7 @@ import {
   selectionDark,
   subTitle,
   title,
+  text,
 } from "./ui";
 
 export type TThemeType = typeof defaultTheme;
@@ -53,6 +54,7 @@ export const defaultTheme = {
   title,
   subTitle,
   btn,
+  text,
 };
 
 export const lightTheme = {

@@ -1,9 +1,9 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
-import { btn } from "@app/styles";
+import { defaultTheme } from "@app/styles";
 
 export interface ICommonBtnProps {
-  variant?: keyof typeof btn.variants;
-  size?: keyof typeof btn.sizes;
+  variant?: keyof typeof defaultTheme.btn.variants;
+  size?: keyof typeof defaultTheme.btn.sizes;
   icon?: ReactNode;
   iconPosition?: "left" | "right";
   iconSize?: number;
