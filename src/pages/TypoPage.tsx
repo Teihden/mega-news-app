@@ -3,7 +3,7 @@ import { Section } from "@shared/ui/Section";
 import { Title } from "@shared/ui/Title";
 import { Text } from "@shared/ui/Text";
 import { Btn } from "@shared/ui/Btn";
-import UserIcon from "@shared/assets/icons/icon-user.svg?react";
+import UserIcon from "@shared/assets/images/icons/icon-user.svg?react";
 import { InlineCluster, Stack } from "@bedrock-layout/primitives";
 
 /**
