@@ -12,6 +12,9 @@ export interface ICommonBtnProps {
   isActive?: boolean;
   isHover?: boolean;
   isDisabled?: boolean;
+  href?: string;
+  target?: string;
+  rel?: string;
 }
 
 export type TButtonProps = ICommonBtnProps & ButtonHTMLAttributes<HTMLButtonElement> & {

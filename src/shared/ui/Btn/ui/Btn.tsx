@@ -16,6 +16,9 @@ import * as S from "./btnStyles";
  * @param props.isActive - Указывает, активна ли кнопка.
  * @param props.isHover - Указывает, наведен ли курсор на кнопку.
  * @param props.isDisabled - Альтернативное свойство для отключения кнопки.
+ * @param props.href - Если передан, кнопка рендерится как `<a>` с указанным href.
+ * @param props.target - Атрибут target для ссылки (`_blank`, `_self` и т.д.).
+ * @param props.rel - Атрибут rel для ссылки (например, `noopener noreferrer` для `_blank`).
  * @returns Возвращает компонент.
  */
 export const Btn: FC<TBtnProps> = (props) => {
@@ -31,6 +34,9 @@ export const Btn: FC<TBtnProps> = (props) => {
     isActive = false,
     isHover = false,
     isDisabled = false,
+    href,
+    target,
+    rel,
     ...rest
   } = props;
 
@@ -45,7 +51,8 @@ export const Btn: FC<TBtnProps> = (props) => {
       $isHover={isHover}
       $isActive={isActive}
       $isDisabled={isDisabled}
-      disabled={isLink ? isDisabled : (isDisabled || disabled)}
+      {...(isLink ? { href, target, rel } : {})}
+      {...(!isLink ? { disabled: isDisabled || disabled } : {})}
       {...rest}
     >
       {children
