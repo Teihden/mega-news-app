@@ -172,21 +172,23 @@ const commonRules: Linter.RulesRecord = {
   ...promisePlugin.configs["flat/recommended"].rules,
 };
 
+const commonAliasMap: string[][] = [
+  [ "@public", "./public" ],
+  [ "@app", "./src/app" ],
+  [ "@entities", "./src/entities" ],
+  [ "@features", "./src/features" ],
+  [ "@pages", "./src/pages" ],
+  [ "@shared", "./src/shared" ],
+  [ "@widgets", "./src/widgets" ],
+];
+
 const jsSetting: Linter.Config["settings"] = {
   react: {
     version: "detect",
   },
   "import/resolver": {
     alias: {
-      map: [
-        [ "@public", "./public" ],
-        [ "@app", "./src/app" ],
-        [ "@entities", "./src/entities" ],
-        [ "@features", "./src/features" ],
-        [ "@pages", "./src/pages" ],
-        [ "@shared", "./src/shared" ],
-        [ "@widgets", "./src/widgets" ],
-      ],
+      map: commonAliasMap,
       extensions: [ ".js", ".jsx" ],
     },
     node: true,
@@ -239,15 +241,7 @@ const tsLanguageOptions: Linter.Config["languageOptions"] = {
 const tsSetting: Linter.Config["settings"] = {
   "import/resolver": {
     alias: {
-      map: [
-        [ "@public", "./public" ],
-        [ "@app", "./src/app" ],
-        [ "@entities", "./src/entities" ],
-        [ "@features", "./src/features" ],
-        [ "@pages", "./src/pages" ],
-        [ "@shared", "./src/shared" ],
-        [ "@widgets", "./src/widgets" ],
-      ],
+      map: commonAliasMap,
       extensions: [ ".js", ".jsx", ".ts", ".tsx" ],
     },
     node: true,
