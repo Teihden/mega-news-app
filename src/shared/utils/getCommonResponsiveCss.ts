@@ -1,7 +1,7 @@
 import { css, type DefaultTheme, type RuleSet } from "styled-components";
-import { COMMON_MEDIA_BREAKPOINTS } from "@app/styles";
+import { COMMON_MEDIA_BREAKPOINTS, type TMediaBreakpoints } from "@app/styles";
 
-type TResponsiveStyles<T> = Partial<Record<typeof COMMON_MEDIA_BREAKPOINTS[number], T>>;
+type TResponsiveStyles<T> = Partial<Record<TMediaBreakpoints, T>>;
 
 /**
  * Генерирует общие стили для адаптивного дизайна на основе заданных значений и свойства.
@@ -16,7 +16,7 @@ export function getCommonResponsiveCss<T = string>(
   { theme: DefaultTheme; values: TResponsiveStyles<T>; property: string },
 ): RuleSet<object> {
   return css`
-    ${COMMON_MEDIA_BREAKPOINTS
+    ${(Object.keys(COMMON_MEDIA_BREAKPOINTS) as (TMediaBreakpoints)[])
       .map((bp) => {
         const value = values[bp];
         if (!value) {
