@@ -21,7 +21,7 @@ export const Btn = styled.button<IStyledBtnProps>`
   font-size: ${({ theme }) => theme.btn.fontSize};
   gap: ${({ theme, $size }) => theme.btn.sizes[$size!].gap};
   line-height: ${({ theme }) => theme.btn.lineHeight};
-  padding-inline: ${({ theme }) => theme.btn.paddingInline};
+  padding-inline: ${({ theme, as }) => as === "a" ? 0 : theme.btn.paddingInline};
   -webkit-tap-highlight-color: transparent;
   text-decoration: none;
   user-select: none;

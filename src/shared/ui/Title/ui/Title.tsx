@@ -18,6 +18,7 @@ export const Title: FC<ITitleProps> = (props) => {
     level = 1,
     variant = "title",
     variantLevel = 1,
+    marginBlock = null,
     children,
     className,
     ...rest
@@ -25,7 +26,14 @@ export const Title: FC<ITitleProps> = (props) => {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
 
   return (
-    <S.Title as={Tag} $variant={variant} $variantLevel={variantLevel} className={className} {...rest}>
+    <S.Title
+      as={Tag}
+      $variant={variant}
+      $variantLevel={variantLevel}
+      $marginBlock={marginBlock}
+      className={className}
+      {...rest}
+    >
       {children}
     </S.Title>
   );

@@ -27,7 +27,8 @@
     "@features/*": "./src/features/*",
     "@pages/*": "./src/pages/*",
     "@shared/*": "./src/shared/*",
-    "@widgets/*": "./src/widgets/*"
+    "@widgets/*": "./src/widgets/*",
+    "@bedrock-css": "node_modules/@bedrock-layout/css/lib/bedrock-layout.css"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
@@ -86,6 +87,8 @@
     "vite-plugin-svgr": "^4.5.0"
   },
   "dependencies": {
+    "@bedrock-layout/css": "^2.14.0",
+    "@bedrock-layout/primitives": "^3.0.47",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-error-boundary": "^6.0.0",

@@ -30,7 +30,7 @@ export const Title = styled.h1<IStyledTitleProps>`
   color: ${({ theme }) => theme.default.color};
 
   &:not(:last-child) {
-    margin-block: ${({ theme }) => theme.default.marginBlock};
+    margin-block: ${({ theme, $marginBlock }) => $marginBlock ?? theme.default.marginBlock};
   }
 
   ${({ theme, $variant = "title", $variantLevel = 1 }) =>
