@@ -104,4 +104,8 @@ export const Btn = styled.button<IStyledBtnProps>`
         color: ${theme.btn.variants[$variant!].disabled.iconColor};
       }`;
   }}
+
+  * {
+    pointer-events: none;
+  }
 `;
