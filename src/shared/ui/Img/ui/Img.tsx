@@ -68,6 +68,9 @@ export const Img: FC<IImgProps> = (props) => {
   const imgEl = (
     <S.Img
       src={currentSrc}
+      fetchPriority={"auto"}
+      loading={"lazy"}
+      decoding={"async"}
       alt={alt}
       $isLoaded={isLoaded}
       $isPlaceholder={isPlaceholder}
