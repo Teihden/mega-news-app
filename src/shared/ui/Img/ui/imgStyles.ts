@@ -6,28 +6,28 @@ export const Picture = styled.picture`
   width: 100%;
   max-width: 100%;
   max-height: 100%;
-  user-select: none;
   pointer-events: none;
+  user-select: none;
 `;
 
 export const Img = styled.img<IStyledImgProps>`
   display: block;
+  overflow: hidden;
+  width: 100%;
   max-width: 100%;
   max-height: 100%;
-  width: 100%;
-  object-fit: ${({ $isPlaceholder }) => $isPlaceholder ? "contain" : "cover"};;
-  object-position: center;
   border: 0;
   border-radius: ${({ theme }) => theme.default.borderRadius};
   background: ${({ theme }) => theme.palette.darkGray["100"]};
-  overflow: hidden;
-  user-select: none;
+  object-fit: ${({ $isPlaceholder }) => $isPlaceholder ? "contain" : "cover"};;
+  object-position: center;
   pointer-events: none;
+  user-select: none;
 
   ${({ $isLoaded }) => {
     return !$isLoaded && css`
-      opacity: .6;
       filter: blur(1.25rem);
+      opacity: .6;
     `;
   }}
 `;

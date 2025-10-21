@@ -4,15 +4,14 @@ import type { IStyledOverlayProps } from "../config";
 export const Overlay = styled.div<IStyledOverlayProps>`
   ${({ $isVisible = true, background = null, opacity = null }) => css`
     position: fixed;
-    inset: 0;
+    z-index: ${({ theme }) => $isVisible ? theme.overlay.zIndex : -1};
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: ${background};
-    opacity: ${$isVisible ? opacity ?? 1 : 0};
-    visibility: ${$isVisible ? "visible" : "hidden"};
-    pointer-events: none;
-    ${({ theme }) => $isVisible ? theme.overlay.zIndex : -1};
+    justify-content: center;
     background: ${({ theme }) => background ?? theme.overlay.bg};
+    inset: 0;
+    opacity: ${$isVisible ? opacity ?? 1 : 0};
+    pointer-events: none;
+    visibility: ${$isVisible ? "visible" : "hidden"};
   `}
 `;
