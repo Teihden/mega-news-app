@@ -1,14 +1,13 @@
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, PropsWithChildren, ReactNode } from "react";
 import { defaultTheme } from "@app/styles";
 
-export interface ICommonBtnProps {
+export interface ICommonBtnProps extends PropsWithChildren {
   variant?: keyof typeof defaultTheme.btn.variants;
   size?: keyof typeof defaultTheme.btn.sizes;
   icon?: ReactNode;
   iconPosition?: "left" | "right";
   iconSize?: number;
   text?: string;
-  children?: ReactNode;
   isActive?: boolean;
   isHover?: boolean;
   isDisabled?: boolean;

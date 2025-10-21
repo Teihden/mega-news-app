@@ -1,12 +1,11 @@
-import type { FC, ReactNode } from "react";
+import type { FC, PropsWithChildren, ReactNode } from "react";
 import { Header, Content, Footer } from "../ui/sectionStyles";
 import { Container } from "@shared/ui/Container";
 
-export interface ISectionProps {
+export interface ISectionProps extends PropsWithChildren {
   className?: string;
   headerSlot?: ReactNode;
   footerSlot?: ReactNode;
-  children?: ReactNode;
 }
 
 export interface ISection extends FC<ISectionProps> {

@@ -6,7 +6,9 @@ import {
   body,
   btn,
   btnDark,
-  container, footer, footerDark,
+  container,
+  footer,
+  footerDark,
   header,
   headerDark,
   html,
@@ -19,6 +21,8 @@ import {
   subTitle,
   title,
   text,
+  overlay,
+  overlayDark,
 } from "./ui";
 
 export type TThemeType = typeof defaultTheme;
@@ -55,6 +59,7 @@ export const defaultTheme = {
   subTitle,
   btn,
   text,
+  overlay,
 };
 
 export const lightTheme = {
@@ -71,4 +76,5 @@ export const darkTheme = {
   header: headerDark,
   footer: footerDark,
   btn: btnDark,
+  overlay: overlayDark,
 };

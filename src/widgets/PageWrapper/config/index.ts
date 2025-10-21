@@ -1,7 +1,6 @@
-import type { ReactNode } from "react";
+import type { PropsWithChildren, ReactNode } from "react";
 
-export interface IPageWrapperProps {
+export interface IPageWrapperProps extends PropsWithChildren {
   header?: ReactNode;
   footer?: ReactNode;
-  children?: ReactNode;
 }

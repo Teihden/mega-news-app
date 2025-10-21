@@ -1,10 +1,6 @@
 import { ThemeProvider } from "styled-components";
-import type { FC, ReactNode } from "react";
+import type { FC, PropsWithChildren } from "react";
 import { useAppStore } from "@app/store";
-
-interface IStyleProviderProps {
-  children?: ReactNode;
-}
 
 /**
  * Компонент StyleProvider предоставляет тему оформления для своего дочернего контента.
@@ -12,7 +8,7 @@ interface IStyleProviderProps {
  * @param props Свойства, передаваемые в компонент.
  * @returns Компонент.
  */
-export const StyleProvider: FC<IStyleProviderProps> = (props) => {
+export const StyleProvider: FC<PropsWithChildren> = (props) => {
   const { children } = props;
   const { theme } = useAppStore();
 
