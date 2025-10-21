@@ -7,7 +7,6 @@ export interface ISourceItem {
 }
 
 export interface IImgProps extends ImgHTMLAttributes<HTMLImageElement> {
-  loader?: string;
   placeholder?: string;
   sources?: ISourceItem[];
 }
