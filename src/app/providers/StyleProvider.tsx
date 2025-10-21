@@ -10,7 +10,7 @@ import { useAppStore } from "@app/store";
  */
 export const StyleProvider: FC<PropsWithChildren> = (props) => {
   const { children } = props;
-  const { theme } = useAppStore();
+  const theme = useAppStore(({ theme }) => theme);
 
   return (
     <ThemeProvider theme={theme}>
