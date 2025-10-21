@@ -1,29 +1,34 @@
 import { create } from "zustand";
+import { devtools, combine } from "zustand/middleware";
 import { darkTheme, lightTheme, type TThemeType } from "@app/styles";
 import type { TThemeMode } from "@shared/types";
 import { getThemeMode } from "@shared/utils";
 
-export interface IAppStore {
-  theme: TThemeType;
-  themeMode: TThemeMode;
-  updateTheme: (newThemeMode: TThemeMode) => void;
-}
+export const useAppStore = create(
+  devtools(
+    combine(
+      // initial state
+      {
+        themeMode: getThemeMode(),
+        theme: (getThemeMode() === "dark" ? darkTheme : lightTheme) as TThemeType,
+      },
+      // eslint-disable-next-line @stylistic/function-call-argument-newline
+      // actions
+      (set) => ({
+        /**
+         * Обновляет текущую тему приложения.
+         * @param newThemeMode Устанавливает новый режим темы ("light" или "dark"). По умолчанию используется "light".
+         */
+        updateTheme: (newThemeMode: TThemeMode = "light") => {
+          const newTheme = (newThemeMode === "light" ? lightTheme : darkTheme) as TThemeType;
+          newThemeMode && document.documentElement.setAttribute("data-theme", newThemeMode);
 
-export const useAppStore = create<IAppStore>((set, _get) => ({
-  theme: (getThemeMode() === "dark" ? darkTheme : lightTheme) as TThemeType,
-  themeMode: getThemeMode(),
-
-  /**
-   * Обновляет текущую тему приложения.
-   * @param newThemeMode Устанавливает новый режим темы, может быть "light" или "dark". По умолчанию используется "light".
-   */
-  updateTheme: (newThemeMode: TThemeMode = "light") => {
-    const newTheme = (newThemeMode === "light" ? lightTheme : darkTheme) as TThemeType;
-    newThemeMode && document.documentElement.setAttribute("data-theme", newThemeMode);
-
-    set({
-      themeMode: newThemeMode,
-      theme: newTheme,
-    });
-  },
-}));
+          set({
+            themeMode: newThemeMode,
+            theme: newTheme,
+          });
+        },
+      }),
+    ), { name: "appStore" },
+  ),
+);
