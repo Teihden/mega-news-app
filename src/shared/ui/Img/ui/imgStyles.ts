@@ -19,7 +19,7 @@ export const Img = styled.img<IStyledImgProps>`
   object-position: center;
   border: 0;
   border-radius: ${({ theme }) => theme.default.borderRadius};
-  background: ${({ theme }) => theme.palette.gray["100"]};
+  background: ${({ theme }) => theme.palette.darkGray["100"]};
   overflow: hidden;
   user-select: none;
   pointer-events: none;

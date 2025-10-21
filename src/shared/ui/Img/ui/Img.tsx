@@ -1,4 +1,4 @@
-import { type FC, type SyntheticEvent, useEffect, useState } from "react";
+import { type FC, useEffect, useState } from "react";
 import * as S from "./imgStyles";
 import type { IImgProps } from "@shared/ui/Img/config";
 import imgStub2 from "@shared/assets/images/stubs/placeholder-2.png";
@@ -9,7 +9,8 @@ import { loadImage } from "@shared/utils";
  * @param props - Свойства компонента.
  * @param props.src URL основного изображения.
  * @param props.sources Массив объектов с дополнительными источниками для тэга `<picture>`. Каждый источник может содержать поля `srcSet`, `media` и `type`.
- * @param props.placeholder Путь к изображению-заглушке, отображаемой до загрузки основного изображения. По умолчанию используется `imgStub2`.
+ * @param props.loader Путь к изображению-заглушке, отображаемой до загрузки основного изображения. По умолчанию используется `imgLoader`.
+ * @param props.placeholder Путь к изображению-заглушке, отображаемой, если основное изображение не загрузилось. По умолчанию используется `imgStub2`.
  * @param props.alt Альтернативный текст для изображения.
  * @param props.rest Дополнительные свойства, передаваемые в изображение.
  * @returns Компонент изображения.
@@ -22,9 +23,8 @@ export const Img: FC<IImgProps> = (props) => {
     alt = "Изображение",
     ...rest
   } = props;
-  const [ currentSrc, setCurrentSrc ] = useState(placeholder);
+  const [ currentSrc, setCurrentSrc ] = useState("");
   const [ isLoaded, setIsLoaded ] = useState(false);
-  const [ isPlaceholder, setIsPlaceholder ] = useState(true);
   const [ isCancelledLoad, setIsCancelledLoad ] = useState(false);
 
   useEffect(() => {
@@ -41,25 +41,26 @@ export const Img: FC<IImgProps> = (props) => {
 
     if (!imgSrc) {
       setIsLoaded(true);
+      setCurrentSrc(placeholder);
       return;
     }
 
     setIsCancelledLoad(false);
 
-    loadImage(imgSrc)
+    void loadImage(imgSrc)
       .then(() => {
         if (!isCancelledLoad) {
-          setIsLoaded(true);
-          setIsPlaceholder(false);
           setCurrentSrc(imgSrc);
         }
-
         return;
       })
       .catch(() => {
         if (!isCancelledLoad) {
-          setIsLoaded(true);
+          setCurrentSrc(placeholder);
         }
+      })
+      .finally(() => {
+        setIsLoaded(true);
       });
 
     return () => setIsCancelledLoad(true);
@@ -71,10 +72,10 @@ export const Img: FC<IImgProps> = (props) => {
       fetchPriority={"auto"}
       loading={"lazy"}
       decoding={"async"}
-      alt={alt}
+      alt={currentSrc ? alt : ""}
       $isLoaded={isLoaded}
-      $isPlaceholder={isPlaceholder}
-      onError={(e: SyntheticEvent<HTMLImageElement, Event>) => (e.target as HTMLImageElement).src = placeholder}
+      $isPlaceholder={currentSrc === placeholder}
+      onError={() => setCurrentSrc(placeholder)}
       {...rest}
     />
   );
