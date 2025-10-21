@@ -18,7 +18,8 @@
     "eslint": "eslint --no-config-lookup --config eslint.config.ts ./src --fix",
     "eslint-config-inspect": "npx @eslint/config-inspector --config eslint.config.ts",
     "check-deps-updates": "npx npm-check-updates",
-    "update-deps": "npx npm-check-updates -u && npm install"
+    "update-deps": "npx npm-check-updates -u && npm install",
+    "prepare": "cd ./ && husky ./.husky"
   },
   "imports": {
     "@public/*": "./public/*",
@@ -71,6 +72,7 @@
     "eslint-plugin-security": "^3.0.1",
     "espree": "^10.4.0",
     "globals": "^16.4.0",
+    "husky": "^9.1.7",
     "npm-check-updates": "^19.0.0",
     "postcss-styled-syntax": "^0.7.1",
     "rimraf": "^6.0.1",
