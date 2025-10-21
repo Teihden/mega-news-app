@@ -14,7 +14,7 @@ export const useAppStore = create(
       },
       // eslint-disable-next-line @stylistic/function-call-argument-newline
       // actions
-      (set) => ({
+      (set, _get) => ({
         /**
          * Обновляет текущую тему приложения.
          * @param newThemeMode Устанавливает новый режим темы ("light" или "dark"). По умолчанию используется "light".
