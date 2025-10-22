@@ -11,19 +11,19 @@ export interface ICommonBtnProps extends PropsWithChildren {
   isActive?: boolean;
   isHover?: boolean;
   isDisabled?: boolean;
-  href?: string;
-  target?: string;
-  rel?: string;
 }
 
 export type TButtonProps = ICommonBtnProps & ButtonHTMLAttributes<HTMLButtonElement> & {
   href?: never;
-  disabled?: boolean;
+  hrefLang?: never;
+  download?: never;
+  target?: never;
+  rel?: never;
 };
 
 export type TAnchorProps = ICommonBtnProps & AnchorHTMLAttributes<HTMLAnchorElement> & {
-  href: string;
   disabled?: never;
+  type?: never;
 };
 
 export type TBtnProps = TButtonProps | TAnchorProps;
