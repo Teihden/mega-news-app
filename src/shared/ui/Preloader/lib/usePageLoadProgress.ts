@@ -19,11 +19,15 @@ export const usePageLoadProgress = () => {
       return;
     }
 
-    setInterval(() => {
+    const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev < 90) {
           const step = Math.max(1, Math.round((90 - prev) / 10));
           return Math.min(prev + step, 90);
+        }
+
+        if (prev >= 100) {
+          clearInterval(interval);
         }
 
         return prev;
