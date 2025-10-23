@@ -3,6 +3,8 @@ import { ScrollRestoration } from "react-router";
 import { NotFoundPage } from "@pages/NotFoundPage.tsx";
 import { IndexPage } from "@pages/IndexPage.tsx";
 import { TypoPage } from "@pages/TypoPage.tsx";
+import { Preloader } from "@shared/ui/Preloader";
+import LogoIcon from "@shared/assets/images/logo/logo.svg?react";
 
 export const routes = [
   {
@@ -12,6 +14,9 @@ export const routes = [
       <>
         <PageWrapper />
         <ScrollRestoration />
+        <Preloader
+          logo={<LogoIcon />}
+        />
       </>
     ),
     errorElement: <NotFoundPage />,
