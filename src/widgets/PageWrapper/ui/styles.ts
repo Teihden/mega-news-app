@@ -29,7 +29,6 @@ export const Layout = styled.div`
   display: flex;
   width: 100%;
   max-width: 100%;
-  min-height: 100%;
   flex-flow: column nowrap;
   flex-grow: 1;
 `;

@@ -21,8 +21,8 @@ export const Overlay: FC<IOverlayProps> = (props) => {
   return (
     <S.Overlay
       $isVisible={isVisible}
-      background={background}
-      opacity={opacity}
+      $background={background}
+      $opacity={opacity}
     >
       {children}
     </S.Overlay>

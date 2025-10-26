@@ -3,9 +3,8 @@ import { devtools, combine } from "zustand/middleware";
 import { darkTheme, lightTheme, type TThemeType } from "@app/styles";
 import type { TThemeMode } from "@shared/types";
 import { getThemeMode } from "@shared/utils";
-import { createSelectors } from "./createSelectors";
 
-const useAppStoreBase = create(
+export const useAppStore = create(
   devtools(
     combine(
       // initial state
@@ -40,5 +39,3 @@ const useAppStoreBase = create(
     ), { name: "appStore" },
   ),
 );
-
-export const useAppStore = createSelectors(useAppStoreBase);

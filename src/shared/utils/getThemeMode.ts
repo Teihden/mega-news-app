@@ -9,7 +9,7 @@ import type { TThemeMode } from "@shared/types";
  */
 export const getThemeMode = (): TThemeMode => {
   const isPreferDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const savedThemeMode: TThemeMode = localStorage.getItem("theme") as (TThemeMode & null);
+  const savedThemeMode = localStorage.getItem("theme") as (TThemeMode | null);
   const themeMode = savedThemeMode ?? (isPreferDarkTheme ? "dark" : "light");
 
   document.documentElement.setAttribute("data-theme", themeMode);

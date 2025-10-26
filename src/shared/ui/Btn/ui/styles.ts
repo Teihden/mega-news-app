@@ -25,6 +25,7 @@ export const Btn = styled.button<IStyledBtnProps>`
   -webkit-tap-highlight-color: transparent;
   text-decoration: none;
   user-select: none;
+  transition: ${({ theme }) => theme.default.transitionDuration} ease-in-out;
 
   @media (hover: hover) {
     &:hover {

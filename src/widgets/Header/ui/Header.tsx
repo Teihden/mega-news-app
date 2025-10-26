@@ -1,7 +1,7 @@
 import { type FC } from "react";
 import type { IHeaderProps } from "../config";
 import * as S from "./styles";
-import { Container } from "@shared/ui/Container";
+import { ThemeToggler } from "@features/ThemeToggler";
 
 /**
  * Компонент `Header` страницы.
@@ -10,9 +10,8 @@ import { Container } from "@shared/ui/Container";
 export const Header: FC<IHeaderProps> = () => {
   return (
     <S.Header>
-      <Container>
-        HEADER
-      </Container>
+      HEADER
+      <ThemeToggler />
     </S.Header>
   );
 };

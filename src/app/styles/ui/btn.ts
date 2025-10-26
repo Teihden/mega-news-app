@@ -65,8 +65,8 @@ export const btn = {
         bg: palette.gray["100"],
       },
       disabled: {
-        color: palette.dark["50"],
-        iconColor: palette.dark["50"],
+        color: palette.dark["75"],
+        iconColor: palette.dark["75"],
         borderColor: palette.gray["50"],
         bg: palette.gray["50"],
       },
@@ -149,7 +149,7 @@ export const btnDark = {
         bg: palette.gray["100"],
       },
     },
-    ...btn.variants.secondary,
+    secondary: btn.variants.secondary,
     outline: {
       color: palette.darkGray["100"],
       iconColor: palette.darkGray["100"],

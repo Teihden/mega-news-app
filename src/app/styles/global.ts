@@ -14,7 +14,6 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: none;
     scroll-behavior: smooth;
-    transition: all ${({ theme }) => theme.default.transitionDuration} ease-in-out;
 
     @supports (-webkit-touch-callout: none) {
       -webkit-touch-callout: none;

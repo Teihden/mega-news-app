@@ -3,6 +3,7 @@ import { type FC, useEffect } from "react";
 import type { IPageWrapperProps } from "../config";
 import type { IRouteHandle } from "@shared/types";
 import * as S from "./styles";
+import { Container } from "@shared/ui/Container";
 
 /**
  * Компонент-обёртка для страниц, обеспечивающий структуру страницы с возможностью отображения шапки, основного контента и подвала.
@@ -32,7 +33,9 @@ export const PageWrapper: FC<IPageWrapperProps> = (props) => {
     <S.Layout>
       {header && (
         <S.Header>
-          {header}
+          <Container>
+            {header}
+          </Container>
         </S.Header>
       )}
       <S.Main>
@@ -40,7 +43,9 @@ export const PageWrapper: FC<IPageWrapperProps> = (props) => {
       </S.Main>
       {footer && (
         <S.Footer>
-          {footer}
+          <Container>
+            {footer}
+          </Container>
         </S.Footer>
       )}
     </S.Layout>

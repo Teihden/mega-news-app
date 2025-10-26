@@ -8,6 +8,6 @@ export interface IOverlayProps extends PropsWithChildren {
 
 export interface IStyledOverlayProps {
   $isVisible?: boolean;
-  background?: CSSProperties["background"] | null;
-  opacity?: CSSProperties["background"] | null;
+  $background?: CSSProperties["background"] | null;
+  $opacity?: CSSProperties["background"] | null;
 }

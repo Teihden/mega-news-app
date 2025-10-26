@@ -23,6 +23,7 @@ export const Img = styled.img<IStyledImgProps>`
   object-position: center;
   pointer-events: none;
   user-select: none;
+  transition: ${({ theme }) => theme.default.transitionDuration} ease;
 
   ${({ $isLoaded }) => {
     return !$isLoaded && css`
