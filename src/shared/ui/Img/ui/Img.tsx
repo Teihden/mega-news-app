@@ -22,7 +22,7 @@ export const Img: FC<IImgProps> = (props) => {
     alt = "Изображение",
     ...rest
   } = props;
-  const [ currentSrc, setCurrentSrc ] = useState("");
+  const [ currentSrc, setCurrentSrc ] = useState<null | string>(null);
   const [ isLoaded, setIsLoaded ] = useState(false);
   const [ isCancelledLoad, setIsCancelledLoad ] = useState(false);
 

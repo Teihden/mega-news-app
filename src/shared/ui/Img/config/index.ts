@@ -12,6 +12,7 @@ export interface IImgProps extends ImgHTMLAttributes<HTMLImageElement> {
 }
 
 export interface IStyledImgProps {
+  src?: string | null;
   $isLoaded?: boolean;
   $isPlaceholder?: boolean;
 }
