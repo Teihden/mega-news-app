@@ -1,6 +1,6 @@
 import type { TBtnProps } from "@shared/ui/Btn/config";
 import type { FC } from "react";
-import * as S from "./btnStyles";
+import * as S from "./styles";
 
 /**
  * Компонент кнопки.

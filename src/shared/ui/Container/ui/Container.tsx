@@ -1,5 +1,5 @@
 import type { IContainer } from "../config";
-import * as S from "./containerStyles";
+import * as S from "./styles";
 
 /**
  * Компонент Container отвечает за визуальное представление контейнера.

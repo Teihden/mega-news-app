@@ -1,6 +1,6 @@
 import { type FC, useEffect, useState } from "react";
 import { COOKIE_CFG, type IPreloaderProps } from "../config";
-import * as S from "./preloaderStyles";
+import * as S from "./styles";
 import { Overlay } from "@shared/ui/Overlay";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { defaultTheme } from "@app/styles";

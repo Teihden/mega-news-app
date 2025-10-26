@@ -5,19 +5,14 @@ import { Text } from "@shared/ui/Text";
 import { Btn } from "@shared/ui/Btn";
 import UserIcon from "@shared/assets/images/icons/icon-user.svg?react";
 import { InlineCluster, Stack } from "@bedrock-layout/primitives";
-import { Img } from "@shared/ui/Img";
-import imgAbstract7 from "@shared/assets/images/abstract/abstract-7.jpg";
-import imgSport5Desktop from "@shared/assets/images/sport/sport-5-desktop.jpg";
-import imgSport5Tablet from "@shared/assets/images/sport/sport-5-tablet.jpg";
-import imgSport5Mobile from "@shared/assets/images/sport/sport-5-mobile.jpg";
-import { COMMON_MEDIA_BREAKPOINTS } from "@app/styles";
+import { WithIndicator } from "@entities/WithIndicator";
 
 /**
  * Компонент TypoPage.
  * Представляет собой страницу, отображающую различные стили типографики.
  * @returns Компонент.
  */
-export const TypoPage: FC = () => {
+export const TypographyPage: FC = () => {
   return (
     <>
       <Section>
@@ -195,41 +190,35 @@ export const TypoPage: FC = () => {
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>Images</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>WithIndicator</Title>}
       >
         <Stack gap={"size8"}>
-          <Stack gap={"size8"}>
-            <Title level={3} variantLevel={4} marginBlock={"0"}>Img</Title>
-            <Img
-              src={imgAbstract7}
-              width={1920}
-              height={400}
-            />
-          </Stack>
-          <Stack gap={"size8"}>
-            <Title level={3} variantLevel={4} marginBlock={"0"}>Picture</Title>
-            <Img
-              src={imgSport5Desktop}
-              width={1920}
-              height={500}
-              sources={[
-                {
-                  srcSet: imgSport5Mobile,
-                  media: COMMON_MEDIA_BREAKPOINTS.mobile,
-                  type: "image/jpeg",
-                },
-                {
-                  srcSet: imgSport5Tablet,
-                  media: COMMON_MEDIA_BREAKPOINTS.tablet,
-                  type: "image/jpeg",
-                },
-              ]}
-              style={{
-                height: "auto",
-                aspectRatio: 1.9,
-              }}
-            />
-          </Stack>
+          <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
+            <Title level={3} variantLevel={4} marginBlock={"0"}>Primary</Title>
+            <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
+              <WithIndicator>
+                <Title level={4} variantLevel={4}>Title</Title>
+              </WithIndicator>
+            </InlineCluster>
+          </InlineCluster>
+
+          <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
+            <Title level={3} variantLevel={4} marginBlock={"0"}>Secondary</Title>
+            <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
+              <WithIndicator variant={"secondary"}>
+                <Title level={4} variantLevel={4}>Title</Title>
+              </WithIndicator>
+            </InlineCluster>
+          </InlineCluster>
+
+          <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
+            <Title level={3} variantLevel={4} marginBlock={"0"}>Tertiary</Title>
+            <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
+              <WithIndicator variant={"tertiary"}>
+                <Title level={4} variantLevel={4}>Title</Title>
+              </WithIndicator>
+            </InlineCluster>
+          </InlineCluster>
         </Stack>
       </Section>
     </>

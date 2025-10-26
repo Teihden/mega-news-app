@@ -1,5 +1,5 @@
 import { type FC, useEffect, useState } from "react";
-import * as S from "./imgStyles";
+import * as S from "./styles";
 import type { IImgProps } from "@shared/ui/Img/config";
 import imgStub2 from "@shared/assets/images/stubs/placeholder-2.png";
 import { loadImage } from "@shared/utils";

@@ -1,6 +1,6 @@
 import type { FC, JSX } from "react";
 import type { ITitleProps } from "../config";
-import * as S from "./titleStyles";
+import * as S from "./styles";
 
 /**
  * Компонент заголовка.

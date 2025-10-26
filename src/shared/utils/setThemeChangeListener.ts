@@ -11,8 +11,8 @@ export const setThemeChangeListener = (updateThemeCb?: (themeMode: TThemeMode) =
 
   // eslint-disable-next-line jsdoc/require-jsdoc
   const mediaChangeHandler = (e: MediaQueryListEvent) => {
-    const userSetTheme = localStorage.getItem("theme");
-    if (!userSetTheme && typeof updateThemeCb === "function") {
+    const userSetThemeMode = localStorage.getItem("theme");
+    if (!userSetThemeMode && typeof updateThemeCb === "function") {
       updateThemeCb(e.matches ? "dark" : "light");
     }
   };

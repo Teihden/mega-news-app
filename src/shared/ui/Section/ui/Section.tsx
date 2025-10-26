@@ -1,6 +1,6 @@
 import type { ISection } from "../config";
 import { Container } from "@shared/ui/Container";
-import * as S from "./sectionStyles";
+import * as S from "./styles";
 
 /**
  * Компонент Section представляет собой секцию с возможностью использования слотов для заголовка, основного контента и подвала.

@@ -1,6 +1,6 @@
 import { type FC } from "react";
 import type { IOverlayProps } from "@shared/ui/Overlay/config";
-import * as S from "./overlayStyles";
+import * as S from "./styles";
 
 /**
  * Компонент Overlay используется для отображения перекрытий на экране.

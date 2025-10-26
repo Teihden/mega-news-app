@@ -1,10 +1,8 @@
 import { PageWrapper } from "@widgets/PageWrapper";
 import { ScrollRestoration } from "react-router";
-import { NotFoundPage } from "@pages/NotFoundPage.tsx";
-import { IndexPage } from "@pages/IndexPage.tsx";
-import { TypoPage } from "@pages/TypoPage.tsx";
 import { Preloader } from "@shared/ui/Preloader";
 import LogoIcon from "@shared/assets/images/logo/logo.svg?react";
+import { ComponentPage, IndexPage, NotFoundPage, TypographyPage } from "@pages/index";
 
 export const routes = [
   {
@@ -28,10 +26,16 @@ export const routes = [
         element: <IndexPage />,
       },
       {
-        path: "/typo",
-        id: "TYPO",
-        handle: { title: "Typo" },
-        element: <TypoPage />,
+        path: "/typography",
+        id: "TYPOGRAPHY",
+        handle: { title: "Typography" },
+        element: <TypographyPage />,
+      },
+      {
+        path: "/components",
+        id: "COMPONENTS",
+        handle: { title: "Components" },
+        element: <ComponentPage />,
       },
       {
         path: "*",

@@ -1,5 +1,5 @@
 import type { FC, PropsWithChildren } from "react";
-import { Container } from "../ui/containerStyles";
+import { Container } from "../ui/styles.ts";
 
 export interface IContainerProps extends PropsWithChildren {}
 

@@ -1,5 +1,5 @@
 import type { ITextProps } from "../config";
-import * as S from "./textStyles";
+import * as S from "./styles";
 import type { FC } from "react";
 
 /**
