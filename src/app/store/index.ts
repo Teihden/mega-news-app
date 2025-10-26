@@ -3,8 +3,9 @@ import { devtools, combine } from "zustand/middleware";
 import { darkTheme, lightTheme, type TThemeType } from "@app/styles";
 import type { TThemeMode } from "@shared/types";
 import { getThemeMode } from "@shared/utils";
+import { createSelectors } from "./createSelectors";
 
-export const useAppStore = create(
+const useAppStoreBase = create(
   devtools(
     combine(
       // initial state
@@ -14,7 +15,7 @@ export const useAppStore = create(
       },
       // eslint-disable-next-line @stylistic/function-call-argument-newline
       // actions
-      (set, _get) => ({
+      (set, _get, store) => ({
         /**
          * Обновляет текущую тему приложения.
          * @param newThemeMode Устанавливает новый режим темы ("light" или "dark"). По умолчанию используется "light".
@@ -28,7 +29,16 @@ export const useAppStore = create(
             theme: newTheme,
           });
         },
+
+        /**
+         * Сбрасывает хранилище в начальное состояние.
+         */
+        resetStore: () => {
+          set(store.getInitialState());
+        },
       }),
     ), { name: "appStore" },
   ),
 );
+
+export const useAppStore = createSelectors(useAppStoreBase);

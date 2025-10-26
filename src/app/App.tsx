@@ -9,7 +9,7 @@ import { setThemeChangeListener } from "@shared/utils";
  * @returns Возвращает структуру приложения с глобальными стилями и оберткой страницы.
  */
 export const App: FC = () => {
-  const updateTheme = useAppStore(({ updateTheme }) => updateTheme);
+  const updateTheme = useAppStore.use.themeMode;
 
   useEffect(() => {
     return setThemeChangeListener(updateTheme);
