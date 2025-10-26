@@ -3,6 +3,7 @@ import { ScrollRestoration } from "react-router";
 import { Preloader } from "@shared/ui/Preloader";
 import LogoIcon from "@shared/assets/images/logo/logo.svg?react";
 import { ComponentPage, IndexPage, NotFoundPage, TypographyPage } from "@pages/index";
+import { Header } from "@widgets/Header";
 
 export const routes = [
   {
@@ -10,7 +11,9 @@ export const routes = [
     id: "ROOT",
     element: (
       <>
-        <PageWrapper />
+        <PageWrapper
+          header={<Header />}
+        />
         <ScrollRestoration />
         <Preloader
           logo={<LogoIcon />}

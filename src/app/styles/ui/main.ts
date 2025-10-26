@@ -1,7 +1,7 @@
 export const main = {
   paddingBlock: {
-    desktop: "6rem 12rem",
-    tablet: "4.5rem 6.5rem",
-    mobile: "3.75rem 4rem",
+    desktop: "4rem 12rem",
+    tablet: "2.5rem 6.5rem",
+    mobile: "0 4rem",
   },
 };
