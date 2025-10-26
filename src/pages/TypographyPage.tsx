@@ -194,7 +194,7 @@ export const TypographyPage: FC = () => {
       >
         <Stack gap={"size8"}>
           <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
-            <Title level={3} variantLevel={4} marginBlock={"0"}>Primary</Title>
+            <Title level={3} variantLevel={4} marginBlock={"0"} style={{ width: "16rem" }}>Primary</Title>
             <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
               <WithIndicator>
                 <Title level={4} variantLevel={4}>Title</Title>
@@ -203,7 +203,7 @@ export const TypographyPage: FC = () => {
           </InlineCluster>
 
           <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
-            <Title level={3} variantLevel={4} marginBlock={"0"}>Secondary</Title>
+            <Title level={3} variantLevel={4} marginBlock={"0"} style={{ width: "16rem" }}>Secondary</Title>
             <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
               <WithIndicator variant={"secondary"}>
                 <Title level={4} variantLevel={4}>Title</Title>
@@ -212,7 +212,7 @@ export const TypographyPage: FC = () => {
           </InlineCluster>
 
           <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
-            <Title level={3} variantLevel={4} marginBlock={"0"}>Tertiary</Title>
+            <Title level={3} variantLevel={4} marginBlock={"0"} style={{ width: "16rem" }}>Tertiary</Title>
             <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
               <WithIndicator variant={"tertiary"}>
                 <Title level={4} variantLevel={4}>Title</Title>
