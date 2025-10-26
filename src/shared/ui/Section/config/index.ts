@@ -5,7 +5,10 @@ import { Container } from "@shared/ui/Container";
 export interface ISectionProps extends PropsWithChildren {
   className?: string;
   headerSlot?: ReactNode;
+  headerTag?: "div" | "header";
+  contentSlot?: ReactNode;
   footerSlot?: ReactNode;
+  footerTag?: "div" | "footer";
 }
 
 export interface ISection extends FC<ISectionProps> {

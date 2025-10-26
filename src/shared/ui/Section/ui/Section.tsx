@@ -7,7 +7,9 @@ import * as S from "./sectionStyles";
  * @param props - Пропсы компонента.
  * @param props.className Кастомное имя класса для основного контейнера секции.
  * @param props.headerSlot Слот для отображения содержимого заголовка секции.
+ * @param props.headerTag Тег для хэдера.
  * @param props.footerSlot Слот для отображения содержимого подвала секции.
+ * @param props.footerTag Тег для футера.
  * @param props.children Основное содержимое секции.
  * @returns Компонент.
  */
@@ -15,15 +17,21 @@ export const Section: ISection = (props) => {
   const {
     className,
     headerSlot = null,
+    headerTag = "header",
     footerSlot = null,
+    footerTag = "footer",
     children = null,
   } = props;
 
   return (
-    <S.Section className={className}>
+    <S.Section
+      className={className}
+    >
       <Container>
         {headerSlot && (
-          <S.Header>
+          <S.Header
+            as={headerTag}
+          >
             {headerSlot}
           </S.Header>
         )}
@@ -33,7 +41,9 @@ export const Section: ISection = (props) => {
           </S.Content>
         )}
         {footerSlot && (
-          <S.Footer>
+          <S.Footer
+            as={footerTag}
+          >
             {footerSlot}
           </S.Footer>
         )}
