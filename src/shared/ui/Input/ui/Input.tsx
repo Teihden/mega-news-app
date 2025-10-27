@@ -4,6 +4,7 @@ import * as S from "./styles";
 
 /**
  * .
+ * @param props
  */
 export const Input: FC<IInputProps> = (props) => {
   const {
