@@ -11,6 +11,7 @@ export interface ICommonBtnProps extends PropsWithChildren {
   isActive?: boolean;
   isHover?: boolean;
   isDisabled?: boolean;
+  isRound?: boolean;
 }
 
 export type TButtonProps = ICommonBtnProps & ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -34,4 +35,5 @@ export interface IStyledBtnProps {
   $isActive?: boolean;
   $isHover?: boolean;
   $isDisabled?: boolean;
+  $isRound?: boolean;
 }

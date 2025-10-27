@@ -16,6 +16,7 @@ import * as S from "./styles";
  * @param props.isActive - Указывает, активна ли кнопка.
  * @param props.isHover - Указывает, наведен ли курсор на кнопку.
  * @param props.isDisabled - Альтернативное свойство для отключения кнопки.
+ * @param props.isRound - Флаг для круглой кнопки.
  * @param props.href - Если передан, кнопка рендерится как `<a>` с указанным href.
  * @param props.target - Атрибут target для ссылки (`_blank`, `_self` и т.д.).
  * @param props.rel - Атрибут rel для ссылки (например, `noopener noreferrer` для `_blank`).
@@ -34,6 +35,7 @@ export const Btn: FC<TBtnProps> = (props) => {
     isActive = false,
     isHover = false,
     isDisabled = false,
+    isRound = false,
     href,
     target,
     rel,
@@ -51,6 +53,7 @@ export const Btn: FC<TBtnProps> = (props) => {
       $isHover={isHover}
       $isActive={isActive}
       $isDisabled={isDisabled}
+      $isRound={isRound}
       {...(isLink ? { href, target, rel } : {})}
       {...(!isLink ? { disabled: isDisabled || disabled } : {})}
       {...rest}

@@ -44,6 +44,7 @@ export const ThemeToggler: FC<IThemeTogglerProps> = (props) => {
       size={"md"}
       iconSize={24}
       icon={createElement(ICONS[togglerThemeMode])}
+      isRound={true}
     />
   );
 };

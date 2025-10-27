@@ -79,7 +79,8 @@ export const Btn = styled.button<IStyledBtnProps>`
 
       svg {
         color: ${theme.btn.variants[$variant!].hover.iconColor};
-      }`;
+      }
+    `;
   }}
 
   ${({ theme, as, $variant, $isActive }) => {
@@ -91,7 +92,8 @@ export const Btn = styled.button<IStyledBtnProps>`
 
       svg {
         color: ${theme.btn.variants[$variant!].active.iconColor};
-      }`;
+      }
+    `;
   }}
 
   ${({ theme, as, $variant, $isDisabled }) => {
@@ -103,7 +105,15 @@ export const Btn = styled.button<IStyledBtnProps>`
 
       svg {
         color: ${theme.btn.variants[$variant!].disabled.iconColor};
-      }`;
+      }
+    `;
+  }}
+
+  ${({ $isRound }) => {
+    return $isRound && css`
+      border-radius: 50%;
+      aspect-ratio: 1;
+    `;
   }}
 
   * {
