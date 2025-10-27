@@ -12,7 +12,7 @@ export const Overlay = styled.div<IStyledOverlayProps>`
     inset: 0;
     opacity: ${$isVisible ? $opacity ?? 1 : 0};
     pointer-events: none;
-    visibility: ${$isVisible ? "visible" : "hidden"};
     transition: opacity ${({ theme }) => theme.default.transitionDuration} ease-in-out;
+    visibility: ${$isVisible ? "visible" : "hidden"};
   `}
 `;

@@ -15,7 +15,7 @@ export const Preloader = styled.div<IStyledPreloaderProps>`
     margin: auto 4.5rem;
   `)}
 
-  .progressBar {
+  .progress-bar {
     width: 100%;
   }
 `;

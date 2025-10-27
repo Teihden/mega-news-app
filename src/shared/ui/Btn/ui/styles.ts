@@ -24,8 +24,8 @@ export const Btn = styled.button<IStyledBtnProps>`
   padding-inline: ${({ theme, as }) => as === "a" ? 0 : theme.btn.paddingInline};
   -webkit-tap-highlight-color: transparent;
   text-decoration: none;
-  user-select: none;
   transition: ${({ theme }) => theme.default.transitionDuration} ease-in-out;
+  user-select: none;
 
   @media (hover: hover) {
     &:hover {

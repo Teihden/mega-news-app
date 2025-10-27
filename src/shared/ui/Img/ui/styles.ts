@@ -22,8 +22,8 @@ export const Img = styled.img<IStyledImgProps>`
   object-fit: ${({ $isPlaceholder }) => $isPlaceholder ? "contain" : "cover"};;
   object-position: center;
   pointer-events: none;
-  user-select: none;
   transition: ${({ theme }) => theme.default.transitionDuration} ease;
+  user-select: none;
 
   ${({ $isLoaded }) => {
     return !$isLoaded && css`

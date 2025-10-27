@@ -8,8 +8,8 @@ export const WithIndicator = styled.div<IStyledWithIndicatorProps>`
   gap: .75rem;
 
   &::before {
-    content: "";
     display: block;
+    content: "";
   }
 
   ${({ theme, $variant }) => {
@@ -17,8 +17,8 @@ export const WithIndicator = styled.div<IStyledWithIndicatorProps>`
       &::before {
         width: .5rem;
         height: 1.25rem;
-        background: ${theme.palette.primary["100"]};
         border-radius: ${theme.default.borderRadius};
+        background: ${theme.palette.primary["100"]};
       }
     `;
   }}
@@ -28,8 +28,8 @@ export const WithIndicator = styled.div<IStyledWithIndicatorProps>`
       &::before {
         width: .5rem;
         height: .5rem;
-        background: ${theme.palette.primary["100"]};
         border-radius: 50%;
+        background: ${theme.palette.primary["100"]};
       }
     `;
   }}
@@ -45,11 +45,11 @@ export const WithIndicator = styled.div<IStyledWithIndicatorProps>`
 
       &::before {
         position: absolute;
-        inset: auto 0 .5rem;
         width: 100%;
         height: .5rem;
-        background: ${theme.palette.primary["25"]};
         border-radius: ${theme.default.borderRadius};
+        background: ${theme.palette.primary["25"]};
+        inset: auto 0 .5rem;
       }
     `;
   }}

@@ -41,7 +41,7 @@ export const Preloader: FC<IPreloaderProps> = (props) => {
           </S.Logo>
         )}
         <ProgressBar
-          className={"progressBar"}
+          className={"progress-bar"}
           completed={progress}
           maxCompleted={100}
           bgColor={defaultTheme.palette.secondary["100"]}
