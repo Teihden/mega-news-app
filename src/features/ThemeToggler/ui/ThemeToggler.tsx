@@ -45,6 +45,8 @@ export const ThemeToggler: FC<IThemeTogglerProps> = (props) => {
       iconSize={24}
       icon={createElement(ICONS[togglerThemeMode])}
       isRound={true}
+      title={`${togglerThemeMode} theme`}
+      aria-label={`switching between dark and light theme (currently using ${togglerThemeMode} theme)`}
     />
   );
 };
