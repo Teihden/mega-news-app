@@ -12,3 +12,4 @@ export { header, headerDark } from "./header";
 export { footer, footerDark } from "./footer";
 export { text } from "./text";
 export { overlay, overlayDark } from "./overlay";
+export { input, inputDark } from "./input";

@@ -23,11 +23,11 @@ export const Title: FC<ITitleProps> = (props) => {
     className,
     ...rest
   } = props;
-  const Tag = `h${level}` as keyof JSX.IntrinsicElements;
+  const tag = `h${level}` as keyof JSX.IntrinsicElements;
 
   return (
     <S.Title
-      as={Tag}
+      as={tag}
       $variant={variant}
       $variantLevel={variantLevel}
       $marginBlock={marginBlock}

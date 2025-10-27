@@ -43,11 +43,11 @@ export const Btn: FC<TBtnProps> = (props) => {
   } = props;
 
   const isLink = "href" in props;
-  const Component = isLink ? "a" : "button";
+  const component = isLink ? "a" : "button";
 
   return (
     <S.Btn
-      as={Component}
+      as={component}
       $variant={variant}
       $size={size}
       $isHover={isHover}

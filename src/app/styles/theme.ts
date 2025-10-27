@@ -23,6 +23,8 @@ import {
   text,
   overlay,
   overlayDark,
+  input,
+  inputDark,
 } from "./ui";
 
 export type TThemeType = typeof defaultTheme;
@@ -60,6 +62,7 @@ export const defaultTheme = {
   btn,
   text,
   overlay,
+  input,
 };
 
 export const lightTheme = {
@@ -77,4 +80,5 @@ export const darkTheme = {
   footer: footerDark,
   btn: btnDark,
   overlay: overlayDark,
+  input: inputDark,
 };

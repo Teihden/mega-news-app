@@ -59,7 +59,7 @@ export const Btn = styled.button<IStyledBtnProps>`
   }
 
   &:disabled,
-  [disabled] {
+  &[disabled] {
     border-color: ${({ theme, as, $variant }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].disabled.borderColor};
     background: ${({ theme, as, $variant }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].disabled.bg};
     color: ${({ theme, $variant }) => theme.btn.variants[$variant!].disabled.color};
