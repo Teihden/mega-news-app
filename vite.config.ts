@@ -34,9 +34,12 @@ export default defineConfig(({ mode }) => {
             [
               "babel-plugin-styled-components",
               {
+                ssr: false,
                 displayName: isDev,
                 fileName: isDev,
+                meaninglessFileNames: [ "index", "styles" ],
                 minify: isProd,
+                transpileTemplateLiterals: isProd,
                 pure: isProd,
               },
             ],
