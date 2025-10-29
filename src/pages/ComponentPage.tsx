@@ -51,10 +51,10 @@ export const ComponentPage: FC = () => {
                   type: "image/jpeg",
                 },
               ]}
-              style={{
-                height: "auto",
-                aspectRatio: 1.9,
-              }}
+              css={`
+                height: auto;
+                aspect-ratio: 1.9;
+              `}
             />
           </Stack>
         </Stack>
