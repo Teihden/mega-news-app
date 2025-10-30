@@ -6,12 +6,14 @@ export const Header = styled.div`
   width: 100%;
   background: ${({ theme }) => theme.header.bg};
   inset: 0 0 auto;
+  overflow: hidden;
 `;
 
 export const Main = styled.main`
   display: flex;
   flex-flow: column nowrap;
   flex-grow: 1;
+  overflow: hidden;
   padding-block: ${({ theme }) => theme.main.paddingBlock.desktop};
 
   ${({ theme }) => theme.bp.down("tablet")} {
@@ -24,6 +26,7 @@ export const Main = styled.main`
 `;
 
 export const Footer = styled.div`
+  overflow: hidden;
   margin: auto 0 0;
 `;
 
