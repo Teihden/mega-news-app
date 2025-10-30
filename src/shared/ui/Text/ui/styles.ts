@@ -6,6 +6,7 @@ export const Text = styled.p<IStyledTextProps>`
   font-size: ${({ theme, $variant }) => theme.text[$variant!].fontSize};
   font-weight: ${({ theme, $variant }) => theme.text[$variant!].fontWeight};
   line-height: ${({ theme, $variant }) => theme.text[$variant!].lineHeight};
+  text-align: ${({ $align }) => $align ?? "left"};
 
   &:not(:last-child) {
     margin-block: ${({ theme }) => theme.default.marginBlock};

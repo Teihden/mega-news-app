@@ -8,6 +8,7 @@ import type { FC } from "react";
  * @param props.className Дополнительный класс стилей для компонента.
  * @param props.as Тип HTML элемента для рендера.
  * @param props.variant Вариант стилей текста.
+ * @param props.align Вариант горизонтального расположения текста.
  * @param props.children Дочерние элементы компонента.
  * @param props.rest Прочие свойства, передаваемые компоненту.
  * @returns Компонент.
@@ -17,6 +18,7 @@ export const Text: FC<ITextProps> = (props) => {
     className,
     as = "p",
     variant = "regular",
+    align = "left",
     children = null,
     ...rest
   } = props;
@@ -26,6 +28,7 @@ export const Text: FC<ITextProps> = (props) => {
       className={className}
       as={as}
       $variant={variant}
+      $align={align}
       {...rest}
     >
       {children}

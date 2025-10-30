@@ -2,7 +2,7 @@ import { palette } from "../palette";
 
 export const selection = {
   bg: palette.dark["75"],
-  color: palette.white,
+  color: palette.white["100"],
 };
 
 export const selectionDark = {

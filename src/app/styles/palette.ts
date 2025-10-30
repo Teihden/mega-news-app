@@ -75,4 +75,7 @@ export const palette = {
   gradient: {
     1: "linear-gradient(270deg, #F81539 0%, #FC4308 94%)",
   },
+  shadow: {
+    1: "0 0 44px rgba(252, 67, 8, .35)",
+  },
 };
