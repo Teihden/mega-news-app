@@ -6,6 +6,8 @@ import { WithIndicator } from "@entities/WithIndicator";
 import { Columns } from "@bedrock-layout/primitives";
 import { Img } from "@shared/ui/Img";
 import { Btn } from "@shared/ui/Btn";
+import { useTheme } from "styled-components";
+import { useMediaQuery } from "styled-breakpoints/use-media-query";
 
 /**
  * Компонент FooterInstagram отображает блок с заголовком и сеткой изображений, представляющих ссылки на Instagram.
@@ -17,9 +19,11 @@ export const FooterInstagram: FC<IFooterInstagramProps> = (props) => {
   const {
     links = [],
   } = props;
+  const { up } = useTheme().bp;
+  const isTabletUp = useMediaQuery(up("tablet"));
 
-  return (
-    <S.InstagramWrapper>
+  return isTabletUp && (
+    <S.Wrapper>
       <WithIndicator variant={"primary"}>
         <Title
           level={2}
@@ -56,6 +60,6 @@ export const FooterInstagram: FC<IFooterInstagramProps> = (props) => {
           </Btn>
         ))}
       </Columns>
-    </S.InstagramWrapper>
+    </S.Wrapper>
   );
 };

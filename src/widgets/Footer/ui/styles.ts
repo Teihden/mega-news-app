@@ -39,18 +39,6 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const InstagramWrapper = styled(Wrapper)`
-  ${({ theme }) => theme.bp.down("tablet")} {
-    display: none;
-  }
-`;
-
-export const CommentWrapper = styled(Wrapper)`
-  ${({ theme }) => theme.bp.down("tabletSmall")} {
-    display: none;
-  }
-`;
-
 export const ContrastWrapper = styled.div`
   position: relative;
   display: grid;
