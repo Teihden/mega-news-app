@@ -1,5 +1,5 @@
 import { palette } from "@app/styles/palette";
-import { defaultStyles } from "../defaultStyles";
+import { defaultStyles } from "@app/styles";
 
 export const input = {
   fontSize: "1.5rem",
@@ -84,7 +84,68 @@ export const input = {
   },
 };
 
-// todo
 export const inputDark = {
   ...input,
+  variants: {
+    primary: {
+      color: palette.white["100"],
+      placeholderColor: palette.white["75"],
+      borderColor: palette.washDark["100"],
+      bg: palette.washDark["100"],
+      hover: {
+        color: palette.white["100"],
+        placeholderColor: palette.white["75"],
+        borderColor: palette.washDark["100"],
+        bg: palette.washDark["100"],
+      },
+      focus: {
+        color: palette.white["100"],
+        placeholderColor: palette.white["75"],
+        borderColor: palette.washDark["100"],
+        bg: palette.washDark["100"],
+      },
+      invalid: {
+        color: palette.primary["100"],
+        placeholderColor: palette.primary["75"],
+        borderColor: palette.washDark["100"],
+        bg: palette.washDark["100"],
+      },
+      disabled: {
+        color: palette.white["75"],
+        placeholderColor: palette.white["50"],
+        borderColor: palette.washDark["100"],
+        bg: palette.washDark["100"],
+      },
+    },
+    secondary: {
+      color: palette.white["100"],
+      placeholderColor: palette.white["75"],
+      borderColor: palette.stroke["100"],
+      bg: palette.transparent,
+      hover: {
+        color: palette.white["100"],
+        placeholderColor: palette.white["75"],
+        borderColor: palette.stroke["100"],
+        bg: palette.transparent,
+      },
+      focus: {
+        color: palette.white["100"],
+        placeholderColor: palette.white["75"],
+        borderColor: palette.stroke["100"],
+        bg: palette.transparent,
+      },
+      invalid: {
+        color: palette.primary["100"],
+        placeholderColor: palette.primary["75"],
+        borderColor: palette.stroke["100"],
+        bg: palette.transparent,
+      },
+      disabled: {
+        color: palette.white["75"],
+        placeholderColor: palette.white["50"],
+        borderColor: palette.stroke["100"],
+        bg: palette.transparent,
+      },
+    },
+  },
 };

@@ -8,6 +8,7 @@ import { InlineCluster, Stack, Grid } from "@bedrock-layout/primitives";
 import { WithIndicator } from "@entities/WithIndicator";
 import { Input } from "@shared/ui/Input";
 import { defaultTheme, palette } from "@app/styles";
+import { useAppStore } from "@app/store";
 
 /**
  * Компонент TypoPage.
@@ -15,6 +16,8 @@ import { defaultTheme, palette } from "@app/styles";
  * @returns Компонент.
  */
 export const TypographyPage: FC = () => {
+  const themeMode = useAppStore(({ themeMode }) => themeMode);
+
   return (
     <>
       <Section>
@@ -282,7 +285,7 @@ export const TypographyPage: FC = () => {
           <Stack
             gap={"size8"}
             style={{
-              background: palette.gray["100"],
+              background: themeMode === "light" ? palette.gray["100"] : palette.washDark["100"],
               padding: "2rem",
               borderRadius: defaultTheme.default.borderRadius,
             }}
@@ -300,7 +303,7 @@ export const TypographyPage: FC = () => {
           <Stack
             gap={"size8"}
             style={{
-              background: palette.gray["100"],
+              background: themeMode === "light" ? palette.gray["100"] : palette.washDark["100"],
               padding: "2rem",
               borderRadius: defaultTheme.default.borderRadius,
             }}
