@@ -111,16 +111,16 @@ export const Btn = styled.button<IStyledBtnProps>`
 
   ${({ $isRound }) => {
     return $isRound && css`
-      padding-inline: 0;
       border-radius: 50%;
       aspect-ratio: 1;
+      padding-inline: 0;
     `;
   }}
 
   ${({ $isSquare }) => {
     return $isSquare && css`
-      padding-inline: 0;
       aspect-ratio: 1;
+      padding-inline: 0;
     `;
   }}
 

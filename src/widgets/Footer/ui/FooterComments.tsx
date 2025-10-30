@@ -4,7 +4,6 @@ import * as S from "./styles";
 import { Title } from "@shared/ui/Title";
 import { WithIndicator } from "@entities/WithIndicator";
 import { Text } from "@shared/ui/Text";
-import { CommentWrapper } from "./styles";
 
 /**
  * Компонент FooterComments отображает список комментариев.

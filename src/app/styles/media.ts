@@ -17,11 +17,21 @@ export type TMediaBreakpoints = keyof typeof MEDIA_BREAKPOINTS;
 /* eslint-disable jsdoc/require-jsdoc */
 
 export const media: Record<TMediaBreakpoints, (styles: string | RuleSet<object>) => string | RuleSet<object>> = {
-  desktop: (styles) => css`@media ${MEDIA_BREAKPOINTS.desktop}{${styles}}`,
-  tabletMedium: (styles) => css`@media ${MEDIA_BREAKPOINTS.tabletMedium}{${styles}}`,
-  tabletSmall: (styles) => css`@media ${MEDIA_BREAKPOINTS.tabletSmall}{${styles}}`,
-  tablet: (styles) => css`@media ${MEDIA_BREAKPOINTS.tablet}{${styles}}`,
-  mobile: (styles) => css`@media ${MEDIA_BREAKPOINTS.mobile}{${styles}}`,
+  desktop: (styles) => css`
+    @media ${MEDIA_BREAKPOINTS.desktop}{${styles}}
+  `,
+  tabletMedium: (styles) => css`
+    @media ${MEDIA_BREAKPOINTS.tabletMedium}{${styles}}
+  `,
+  tabletSmall: (styles) => css`
+    @media ${MEDIA_BREAKPOINTS.tabletSmall}{${styles}}
+  `,
+  tablet: (styles) => css`
+    @media ${MEDIA_BREAKPOINTS.tablet}{${styles}}
+  `,
+  mobile: (styles) => css`
+    @media ${MEDIA_BREAKPOINTS.mobile}{${styles}}
+  `,
 };
 
 /* eslint-enable jsdoc/require-jsdoc */

@@ -7,30 +7,26 @@ import styled, { css } from "styled-components";
 const StyledSection = styled(Section)`
   padding-block: 20rem;
 
-  ${({ theme }) => theme.media.tablet(css`
+  @media (width <= 1280px) {
     padding-block: 7rem 4rem;
-  `)}
+  }
 
-  ${({ theme }) => theme.media.mobile(css`
+  @media (width <= 767px) {
     padding-block: 16rem;
-  `)}
+  }
 
   ${Section.Header} {
     &:not(:last-child) {
       margin-block: 0 4rem;
-    }
 
-    ${({ theme }) => theme.media.tablet(css`
-      &:not(:last-child) {
+      @media (width <= 1280px) {
         margin-block: 0 3rem;
       }
-    `)}
 
-    ${({ theme }) => theme.media.mobile(css`
-      &:not(:last-child) {
+      @media (width <= 767px) {
         margin-block: 0 4rem;
       }
-    `)}
+    }
   }
 `;
 
