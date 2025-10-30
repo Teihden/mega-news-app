@@ -5,6 +5,7 @@ import * as S from "./styles";
 /**
  * Компонент заголовка.
  * @param props Параметры компонента.
+ * @param props.as Определяет HTML-элемент, используемый для рендеринга ввода. По умолчанию null.
  * @param props.level Уровень заголовка, определяет HTML-тег (от 1 до 6). По умолчанию 1.
  * @param props.variant Вариант стиля заголовка. По умолчанию "title".
  * @param props.variantLevel Уровень стиля заголовка. По умолчанию 1.
@@ -15,6 +16,7 @@ import * as S from "./styles";
  */
 export const Title: FC<ITitleProps> = (props) => {
   const {
+    as = null,
     level = 1,
     variant = "title",
     variantLevel = 1,
@@ -27,7 +29,7 @@ export const Title: FC<ITitleProps> = (props) => {
 
   return (
     <S.Title
-      as={tag}
+      as={as ?? tag}
       $variant={variant}
       $variantLevel={variantLevel}
       $marginBlock={marginBlock}

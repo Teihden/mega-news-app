@@ -1,5 +1,6 @@
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, PropsWithChildren, ReactNode } from "react";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, FC, PropsWithChildren, ReactNode } from "react";
 import { defaultTheme } from "@app/styles";
+import { Btn } from "../ui/styles";
 
 export interface ICommonBtnProps extends PropsWithChildren {
   variant?: keyof typeof defaultTheme.btn.variants;
@@ -12,6 +13,8 @@ export interface ICommonBtnProps extends PropsWithChildren {
   isHover?: boolean;
   isDisabled?: boolean;
   isRound?: boolean;
+  isSquare?: boolean;
+  isInline?: boolean;
 }
 
 export type TButtonProps = ICommonBtnProps & ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -36,4 +39,10 @@ export interface IStyledBtnProps {
   $isHover?: boolean;
   $isDisabled?: boolean;
   $isRound?: boolean;
+  $isSquare?: boolean;
+  $isInline?: boolean;
+}
+
+export interface IBtn extends FC<TBtnProps> {
+  Btn: typeof Btn;
 }

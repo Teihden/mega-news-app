@@ -3,25 +3,25 @@ import type { IStyledBtnProps } from "../config";
 import { palette } from "@app/styles";
 
 export const Btn = styled.button<IStyledBtnProps>`
-  display: ${({ as }) => as === "a" ? "inline-flex" : "flex"};
+  display: ${({ $isInline }) => $isInline ? "inline-flex" : "flex"};
   width: fit-content;
   max-width: 100%;
-  height: ${({ theme, as, $size }) => as === "a" ? "fit-content" : theme.btn.sizes[$size!].height};
+  height: ${({ theme, $isInline, $size }) => $isInline ? "fit-content" : theme.btn.sizes[$size!].height};
   align-items: center;
   justify-content: center;
-  border-width: ${({ theme, as }) => as === "a" ? 0 : theme.btn.borderWidth};
-  border-style: ${({ as }) => as === "a" ? "none" : "solid"};
+  border-width: ${({ theme, $isInline }) => $isInline ? 0 : theme.btn.borderWidth};
+  border-style: ${({ $isInline }) => $isInline ? "none" : "solid"};
   border-color: ${({ theme, $variant }) => theme.btn.variants[$variant!].borderColor};
-  border-radius: ${({ theme, as }) => as === "a" ? 0 : theme.btn.borderRadius};
+  border-radius: ${({ theme, $isInline }) => $isInline ? 0 : theme.btn.borderRadius};
   appearance: none;
-  background: ${({ theme, $variant, as }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].bg};
+  background: ${({ theme, $variant, $isInline }) => $isInline ? palette.transparent : theme.btn.variants[$variant!].bg};
   box-shadow: none;
   color: ${({ theme, $variant }) => theme.btn.variants[$variant!].color};
   cursor: pointer;
   font-size: ${({ theme }) => theme.btn.fontSize};
   gap: ${({ theme, $size }) => theme.btn.sizes[$size!].gap};
   line-height: ${({ theme }) => theme.btn.lineHeight};
-  padding-inline: ${({ theme, as }) => as === "a" ? 0 : theme.btn.paddingInline};
+  padding-inline: ${({ theme, $isInline }) => $isInline ? 0 : theme.btn.paddingInline};
   -webkit-tap-highlight-color: transparent;
   text-decoration: none;
   transition: ${({ theme }) => theme.default.transitionDuration} ease-in-out;
@@ -29,8 +29,8 @@ export const Btn = styled.button<IStyledBtnProps>`
 
   @media (hover: hover) {
     &:hover {
-      border-color: ${({ theme, $variant, as }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].hover.borderColor};
-      background: ${({ theme, $variant, as }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].hover.bg};
+      border-color: ${({ theme, $variant, $isInline }) => $isInline ? palette.transparent : theme.btn.variants[$variant!].hover.borderColor};
+      background: ${({ theme, $variant, $isInline }) => $isInline ? palette.transparent : theme.btn.variants[$variant!].hover.bg};
       color: ${({ theme, $variant }) => theme.btn.variants[$variant!].hover.color};
 
       svg {
@@ -49,8 +49,8 @@ export const Btn = styled.button<IStyledBtnProps>`
   }
 
   &:active {
-    border-color: ${({ theme, $variant, as }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].active.borderColor};
-    background: ${({ theme, $variant, as }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].active.bg};
+    border-color: ${({ theme, $variant, $isInline }) => $isInline ? palette.transparent : theme.btn.variants[$variant!].active.borderColor};
+    background: ${({ theme, $variant, $isInline }) => $isInline ? palette.transparent : theme.btn.variants[$variant!].active.bg};
     color: ${({ theme, $variant }) => theme.btn.variants[$variant!].active.color};
 
     svg {
@@ -60,8 +60,8 @@ export const Btn = styled.button<IStyledBtnProps>`
 
   &:disabled,
   &[disabled] {
-    border-color: ${({ theme, as, $variant }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].disabled.borderColor};
-    background: ${({ theme, as, $variant }) => as === "a" ? palette.transparent : theme.btn.variants[$variant!].disabled.bg};
+    border-color: ${({ theme, $isInline, $variant }) => $isInline ? palette.transparent : theme.btn.variants[$variant!].disabled.borderColor};
+    background: ${({ theme, $isInline, $variant }) => $isInline ? palette.transparent : theme.btn.variants[$variant!].disabled.bg};
     color: ${({ theme, $variant }) => theme.btn.variants[$variant!].disabled.color};
     cursor: not-allowed;
 
@@ -70,10 +70,10 @@ export const Btn = styled.button<IStyledBtnProps>`
     }
   }
 
-  ${({ theme, as, $variant, $isHover }) => {
+  ${({ theme, $isInline, $variant, $isHover }) => {
     return $isHover && css`
-      border-color: ${as === "a" ? palette.transparent : theme.btn.variants[$variant!].hover.borderColor};
-      background: ${as === "a" ? palette.transparent : theme.btn.variants[$variant!].hover.bg};
+      border-color: ${$isInline ? palette.transparent : theme.btn.variants[$variant!].hover.borderColor};
+      background: ${$isInline ? palette.transparent : theme.btn.variants[$variant!].hover.bg};
       color: ${theme.btn.variants[$variant!].hover.color};
       pointer-events: none;
 
@@ -83,10 +83,10 @@ export const Btn = styled.button<IStyledBtnProps>`
     `;
   }}
 
-  ${({ theme, as, $variant, $isActive }) => {
+  ${({ theme, $isInline, $variant, $isActive }) => {
     return $isActive && css`
-      border-color: ${as === "a" ? palette.transparent : theme.btn.variants[$variant!].active.borderColor};
-      background: ${as === "a" ? palette.transparent : theme.btn.variants[$variant!].active.bg};
+      border-color: ${$isInline ? palette.transparent : theme.btn.variants[$variant!].active.borderColor};
+      background: ${$isInline ? palette.transparent : theme.btn.variants[$variant!].active.bg};
       color: ${theme.btn.variants[$variant!].active.color};
       pointer-events: none;
 
@@ -96,10 +96,10 @@ export const Btn = styled.button<IStyledBtnProps>`
     `;
   }}
 
-  ${({ theme, as, $variant, $isDisabled }) => {
+  ${({ theme, $isInline, $variant, $isDisabled }) => {
     return $isDisabled && css`
-      border-color: ${as === "a" ? palette.transparent : theme.btn.variants[$variant!].disabled.borderColor};
-      background: ${as === "a" ? palette.transparent : theme.btn.variants[$variant!].disabled.bg};
+      border-color: ${$isInline ? palette.transparent : theme.btn.variants[$variant!].disabled.borderColor};
+      background: ${$isInline ? palette.transparent : theme.btn.variants[$variant!].disabled.bg};
       color: ${theme.btn.variants[$variant!].disabled.color};
       pointer-events: none;
 
@@ -111,7 +111,15 @@ export const Btn = styled.button<IStyledBtnProps>`
 
   ${({ $isRound }) => {
     return $isRound && css`
+      padding-inline: 0;
       border-radius: 50%;
+      aspect-ratio: 1;
+    `;
+  }}
+
+  ${({ $isSquare }) => {
+    return $isSquare && css`
+      padding-inline: 0;
       aspect-ratio: 1;
     `;
   }}

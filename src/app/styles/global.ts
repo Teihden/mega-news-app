@@ -100,6 +100,7 @@ export const GlobalStyle = createGlobalStyle`
   svg {
     display: block;
     fill: currentcolor;
+    transition: ${({ theme }) => theme.default.transitionDuration} ease-in-out;
 
     &:not(:last-child) {
       margin-block: ${({ theme }) => theme.default.marginBlock};

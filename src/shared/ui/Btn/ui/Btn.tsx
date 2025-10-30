@@ -1,5 +1,4 @@
-import type { TBtnProps } from "@shared/ui/Btn/config";
-import type { FC } from "react";
+import type { IBtn } from "@shared/ui/Btn/config";
 import * as S from "./styles";
 
 /**
@@ -17,12 +16,14 @@ import * as S from "./styles";
  * @param props.isHover - Указывает, наведен ли курсор на кнопку.
  * @param props.isDisabled - Альтернативное свойство для отключения кнопки.
  * @param props.isRound - Флаг для круглой кнопки.
+ * @param props.isSquare - Флаг для квадратной кнопки.
+ * @param props.isInline - Флаг для компонента с внешним видом текста.
  * @param props.href - Если передан, кнопка рендерится как `<a>` с указанным href.
  * @param props.target - Атрибут target для ссылки (`_blank`, `_self` и т.д.).
  * @param props.rel - Атрибут rel для ссылки (например, `noopener noreferrer` для `_blank`).
  * @returns Возвращает компонент.
  */
-export const Btn: FC<TBtnProps> = (props) => {
+export const Btn: IBtn = (props) => {
   const {
     variant = "primary",
     size = "sm",
@@ -36,6 +37,8 @@ export const Btn: FC<TBtnProps> = (props) => {
     isHover = false,
     isDisabled = false,
     isRound = false,
+    isSquare = false,
+    isInline = false,
     href,
     target,
     rel,
@@ -54,6 +57,8 @@ export const Btn: FC<TBtnProps> = (props) => {
       $isActive={isActive}
       $isDisabled={isDisabled}
       $isRound={isRound}
+      $isSquare={isSquare}
+      $isInline={isInline}
       {...(isLink ? { href, target, rel } : {})}
       {...(!isLink ? { disabled: isDisabled || disabled } : {})}
       {...rest}
@@ -80,3 +85,5 @@ export const Btn: FC<TBtnProps> = (props) => {
     </S.Btn>
   );
 };
+
+Btn.Btn = S.Btn;

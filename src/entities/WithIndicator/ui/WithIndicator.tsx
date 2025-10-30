@@ -1,6 +1,5 @@
-import type { IWithIndicatorProps } from "../config";
+import type { IWithIndicator } from "../config";
 import * as S from "./styles";
-import type { FC } from "react";
 
 /**
  * Компонент WithIndicator.
@@ -10,7 +9,7 @@ import type { FC } from "react";
  * @param props.children Дочерние элементы внутри компонента.
  * @returns Возвращает элемент пользовательского интерфейса с индикатором.
  */
-export const WithIndicator: FC<IWithIndicatorProps> = (props) => {
+export const WithIndicator: IWithIndicator = (props) => {
   const {
     variant = "primary",
     children = null,
@@ -24,3 +23,5 @@ export const WithIndicator: FC<IWithIndicatorProps> = (props) => {
     </S.WithIndicator>
   );
 };
+
+WithIndicator.WithIndicator = S.WithIndicator;

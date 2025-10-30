@@ -24,6 +24,7 @@ export const PageWrapper: FC<IPageWrapperProps> = (props) => {
 
   useEffect(() => {
     const matchWithTitle = [ ...matches ].reverse().find((m) => m.handle?.title);
+
     if (matchWithTitle) {
       document.title = `Mega News.${matchWithTitle.handle?.title ? ` ${matchWithTitle.handle?.title}` : ""}`;
     }

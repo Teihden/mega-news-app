@@ -96,7 +96,7 @@ export const btn = {
       },
     },
     blank: {
-      color: palette.dark["50"],
+      color: palette.dark["75"],
       iconColor: palette.dark["50"],
       borderColor: palette.transparent,
       bg: palette.transparent,

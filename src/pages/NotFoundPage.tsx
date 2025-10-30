@@ -57,7 +57,7 @@ export const NotFoundPage: FC = () => {
     <StyledSection
       headerSlot={<StyledTitle level={1}>404</StyledTitle>}
     >
-      <Text variant={"large"} align={"center"}>
+      <Text variant={"lg"} align={"center"}>
         {"OOPS! Page you're looking for doesn't exist. Please use search for help."}
       </Text>
     </StyledSection>

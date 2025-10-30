@@ -1,4 +1,5 @@
-import type { PropsWithChildren } from "react";
+import type { FC, PropsWithChildren } from "react";
+import { WithIndicator } from "../ui/styles";
 
 export interface IWithIndicatorProps extends PropsWithChildren {
   variant?:
@@ -9,4 +10,8 @@ export interface IWithIndicatorProps extends PropsWithChildren {
 
 export interface IStyledWithIndicatorProps {
   $variant?: IWithIndicatorProps["variant"];
+}
+
+export interface IWithIndicator extends FC<IWithIndicatorProps> {
+  WithIndicator: typeof WithIndicator;
 }

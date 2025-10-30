@@ -6,6 +6,7 @@ import * as S from "./styles";
  * Компонент Section представляет собой секцию с возможностью использования слотов для заголовка, основного контента и подвала.
  * @param props - Пропсы компонента.
  * @param props.className Кастомное имя класса для основного контейнера секции.
+ * @param props.as Определяет HTML-элемент, используемый для рендеринга ввода. По умолчанию section.
  * @param props.headerSlot Слот для отображения содержимого заголовка секции.
  * @param props.headerTag Тег для хэдера.
  * @param props.footerSlot Слот для отображения содержимого подвала секции.
@@ -16,6 +17,7 @@ import * as S from "./styles";
 export const Section: ISection = (props) => {
   const {
     className,
+    as = "section",
     headerSlot = null,
     headerTag = "header",
     footerSlot = null,
@@ -25,6 +27,7 @@ export const Section: ISection = (props) => {
 
   return (
     <S.Section
+      as={as}
       className={className}
     >
       <Container>
@@ -52,6 +55,7 @@ export const Section: ISection = (props) => {
   );
 };
 
+Section.Section = S.Section;
 Section.Container = Container.Container;
 Section.Header = S.Header;
 Section.Content = S.Content;
