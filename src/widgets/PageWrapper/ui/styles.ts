@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { getCommonResponsiveCss } from "@shared/utils";
 
 export const Header = styled.div`
   position: sticky;
@@ -13,12 +12,15 @@ export const Main = styled.main`
   display: flex;
   flex-flow: column nowrap;
   flex-grow: 1;
+  padding-block: ${({ theme }) => theme.main.paddingBlock.desktop};
 
-  ${({ theme }) => getCommonResponsiveCss({
-    theme,
-    values: theme.main.paddingBlock,
-    property: "padding-block",
-  })}
+  ${({ theme }) => theme.bp.down("tablet")} {
+    padding-block: ${({ theme }) => theme.main.paddingBlock.tablet};
+  }
+
+  ${({ theme }) => theme.bp.down("mobile")} {
+    padding-block: ${({ theme }) => theme.main.paddingBlock.mobile};
+  }
 `;
 
 export const Footer = styled.div`

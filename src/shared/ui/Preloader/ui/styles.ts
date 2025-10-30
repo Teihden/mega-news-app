@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import type { IStyledPreloaderProps } from "../config";
 
 export const Preloader = styled.div<IStyledPreloaderProps>`
@@ -11,9 +11,9 @@ export const Preloader = styled.div<IStyledPreloaderProps>`
   margin: auto 12.75rem;
   gap: 5.25rem;
 
-  ${({ theme }) => theme.media.mobile(css`
+  ${({ theme }) => theme.bp.down("mobile")} {
     margin: auto 4.5rem;
-  `)}
+  }
 
   .progress-bar {
     width: 100%;

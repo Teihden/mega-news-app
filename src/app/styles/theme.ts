@@ -1,6 +1,6 @@
 import { palette } from "./palette";
 import type { CSSProp } from "styled-components";
-import { media } from "./media";
+import { breakpoints as bp } from "./media";
 import { defaultStyles, defaultStylesDark } from "./defaultStyles";
 import {
   body,
@@ -46,7 +46,7 @@ declare module "react" {
 export const defaultTheme = {
   mode: "default",
   palette,
-  media,
+  bp,
   default: defaultStyles,
   scrollbar,
   selection,

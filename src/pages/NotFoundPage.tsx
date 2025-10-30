@@ -2,16 +2,16 @@ import type { FC } from "react";
 import { Section } from "@shared/ui/Section";
 import { Title } from "@shared/ui/Title";
 import { Text } from "@shared/ui/Text";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const StyledSection = styled(Section)`
   padding-block: 20rem;
 
-  @media (width <= 1280px) {
+  ${({ theme }) => theme.bp.down("tablet")} {
     padding-block: 7rem 4rem;
   }
 
-  @media (width <= 767px) {
+  ${({ theme }) => theme.bp.down("mobile")} {
     padding-block: 16rem;
   }
 
@@ -19,11 +19,11 @@ const StyledSection = styled(Section)`
     &:not(:last-child) {
       margin-block: 0 4rem;
 
-      @media (width <= 1280px) {
+      ${({ theme }) => theme.bp.down("tablet")} {
         margin-block: 0 3rem;
       }
 
-      @media (width <= 767px) {
+      ${({ theme }) => theme.bp.down("mobile")} {
         margin-block: 0 4rem;
       }
     }
@@ -38,9 +38,9 @@ const StyledTitle = styled(Title)`
   text-align: center;
   text-shadow: ${({ theme }) => theme.palette.shadow["1"]};
 
-  ${({ theme }) => theme.media.mobile(css`
+  ${({ theme }) => theme.bp.down("mobile")} {
     font-size: 20.25rem;
-  `)}
+  }
 `;
 
 /**

@@ -7,7 +7,7 @@ import { Title } from "@shared/ui/Title";
 import type { IFooterPagesProps } from "@widgets/Footer/config";
 import { type UIMatch, useMatches } from "react-router";
 import type { IRouteHandle } from "@shared/types";
-import { css, type DefaultTheme } from "styled-components";
+import { type DefaultTheme } from "styled-components";
 
 /**
  * Компонент FooterPages используется для отображения списка страниц в футере.
@@ -32,9 +32,9 @@ export const FooterPages: FC<IFooterPagesProps> = (props) => {
       <Stack
         gap={"size7"}
         css={`
-          ${({ theme }: { theme: DefaultTheme }) => theme.media.mobile(css`
+          ${({ theme }: { theme: DefaultTheme }) => theme.bp.down("tablet")} {
             flex-flow: row wrap;
-          `)}
+          }
         `}
       >
         {pages.map(({ href = "", label = "" }) => (

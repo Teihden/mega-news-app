@@ -10,15 +10,15 @@ export const Footer = styled.div`
   gap: 3rem;
   grid-template-columns: minmax(60rem, 1fr) minmax(30rem, 45rem) minmax(35rem, 45rem);
 
-  @media (width <= 1280px) {
+  ${({ theme }) => theme.bp.down("tablet")} {
     grid-template-columns: minmax(60rem, 1fr) minmax(30rem, 45rem);
   }
 
-  @media (width <= 920px) {
+  ${({ theme }) => theme.bp.down("tabletSmall")} {
     grid-template-columns: 1fr;
   }
 
-  @media (width <= 767px) {
+  ${({ theme }) => theme.bp.down("mobile")} {
     padding: 0;
   }
 `;
@@ -28,11 +28,11 @@ export const Wrapper = styled.div`
     &:not(:last-child) {
       margin-block: 0 2.5rem;
 
-      @media (width <= 1280px) {
+      ${({ theme }) => theme.bp.down("tablet")} {
         margin-block: 0 2.5rem;
       }
 
-      @media (width <= 767px) {
+      ${({ theme }) => theme.bp.down("mobile")} {
         margin-block: 0 2.5rem;
       }
     }
@@ -40,13 +40,13 @@ export const Wrapper = styled.div`
 `;
 
 export const InstagramWrapper = styled(Wrapper)`
-  @media (width <= 1280px) {
+  ${({ theme }) => theme.bp.down("tablet")} {
     display: none;
   }
 `;
 
 export const CommentWrapper = styled(Wrapper)`
-  @media (width <= 920px) {
+  ${({ theme }) => theme.bp.down("tabletSmall")} {
     display: none;
   }
 `;
@@ -62,7 +62,7 @@ export const ContrastWrapper = styled.div`
   gap: 4rem 2rem;
   grid-template-columns: minmax(auto, 50rem) auto;
 
-  @media (width <= 767px) {
+  ${({ theme }) => theme.bp.down("mobile")} {
     padding: 3rem 0 0;
     grid-template-columns: auto;
   }
@@ -77,7 +77,7 @@ export const ContrastWrapper = styled.div`
     content: "";
     inset: 0 auto 0 -100dvw;
 
-    @media (width <= 767px) {
+    ${({ theme }) => theme.bp.down("mobile")} {
       inset: ${({ theme }) => `0 -${theme.container.paddingInline.mobile} 0 -${theme.container.paddingInline.mobile}`};;
     }
   }
@@ -94,7 +94,7 @@ export const BottomWrapper = styled.div`
   gap: 3rem 2rem;
   grid-column: span 2;
 
-  @media (width <= 767px) {
+  ${({ theme }) => theme.bp.down("mobile")} {
     flex-flow: column nowrap;
     align-items: normal;
     justify-content: normal;

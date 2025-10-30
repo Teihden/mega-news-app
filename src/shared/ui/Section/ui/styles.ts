@@ -1,23 +1,30 @@
 import styled from "styled-components";
-import { getCommonResponsiveCss } from "@shared/utils";
 
 export const Section = styled.section`
   &:not(:last-child) {
-    ${({ theme }) => getCommonResponsiveCss({
-      theme,
-      values: theme.section.marginBlock,
-      property: "margin-block",
-    })}
+    margin-block: ${({ theme }) => theme.section.marginBlock.desktop};
+
+    ${({ theme }) => theme.bp.down("tablet")} {
+      margin-block: ${({ theme }) => theme.section.marginBlock.tablet};
+    }
+
+    ${({ theme }) => theme.bp.down("mobile")} {
+      margin-block: ${({ theme }) => theme.section.marginBlock.mobile};
+    }
   }
 `;
 
 export const Header = styled.header`
   &:not(:last-child) {
-    ${({ theme }) => getCommonResponsiveCss({
-      theme,
-      values: theme.section.header.marginBlock,
-      property: "margin-block",
-    })}
+    margin-block: ${({ theme }) => theme.section.header.marginBlock.desktop};
+
+    ${({ theme }) => theme.bp.down("tablet")} {
+      margin-block: ${({ theme }) => theme.section.header.marginBlock.tablet};
+    }
+
+    ${({ theme }) => theme.bp.down("mobile")} {
+      margin-block: ${({ theme }) => theme.section.header.marginBlock.mobile};
+    }
   }
 `;
 
@@ -27,10 +34,14 @@ export const Footer = styled.footer`
 
 export const Content = styled.div`
   &:not(:last-child) {
-    ${({ theme }) => getCommonResponsiveCss({
-      theme,
-      values: theme.section.content.marginBlock,
-      property: "margin-block",
-    })}
+    margin-block: ${({ theme }) => theme.section.content.marginBlock.desktop};
+
+    ${({ theme }) => theme.bp.down("tablet")} {
+      margin-block: ${({ theme }) => theme.section.content.marginBlock.tablet};
+    }
+
+    ${({ theme }) => theme.bp.down("mobile")} {
+      margin-block: ${({ theme }) => theme.section.content.marginBlock.mobile};
+    }
   }
 `;
