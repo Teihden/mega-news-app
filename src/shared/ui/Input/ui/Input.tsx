@@ -3,8 +3,17 @@ import type { FC } from "react";
 import * as S from "./styles";
 
 /**
- * .
- * @param props
+ * Компонент Input.
+ * @param props Свойства компонента.
+ * @param props.as Определяет HTML-элемент, используемый для рендеринга ввода.
+ * @param props.variant Вариант стиля компонента.
+ * @param props.componentSize Размер компонента.
+ * @param props.isHover Указывает, находится ли элемент в состоянии наведения.
+ * @param props.isFocus Указывает, находится ли элемент в состоянии фокуса.
+ * @param props.isInvalid Указывает, является ли ввод недействительным.
+ * @param props.disabled Отключает компонент, если установлено значение true.
+ * @param props.rest Дополнительные свойства, передаваемые в компонент.
+ * @returns Компонент.
  */
 export const Input: FC<IInputProps> = (props) => {
   const {
