@@ -268,9 +268,9 @@ export const TypographyPage: FC = () => {
           <Stack gap={"size8"}>
             <Title level={3} variantLevel={4} marginBlock={"0"}>Sizes</Title>
             <Grid style={{ "--gap": "2rem 3rem", alignItems: "center" }} minItemWidth={"30rem"}>
-              <Input variant={"primary"} componentSize={"sm"} value={"Small"} />
-              <Input variant={"primary"} componentSize={"md"} value={"Medium"} />
-              <Input variant={"primary"} componentSize={"lg"} value={"Large"} />
+              <Input variant={"primary"} componentSize={"sm"} defaultValue={"Small"} />
+              <Input variant={"primary"} componentSize={"md"} defaultValue={"Medium"} />
+              <Input variant={"primary"} componentSize={"lg"} defaultValue={"Large"} />
             </Grid>
           </Stack>
 
@@ -286,13 +286,13 @@ export const TypographyPage: FC = () => {
           </Stack>
 
           <Stack gap={"size8"}>
-            <Title level={3} variantLevel={4} marginBlock={"0"}>Primary with value</Title>
+            <Title level={3} variantLevel={4} marginBlock={"0"}>Primary with defaultValue</Title>
             <Grid style={{ "--gap": "2rem 3rem" }} minItemWidth={"30rem"}>
-              <Input variant={"primary"} componentSize={"md"} value={"Enabled"} />
-              <Input variant={"primary"} componentSize={"md"} value={"Hovered"} isHover={true} />
-              <Input variant={"primary"} componentSize={"md"} value={"Focus"} isFocus={true} />
-              <Input variant={"primary"} componentSize={"md"} value={"Invalid"} isInvalid={true} />
-              <Input variant={"primary"} componentSize={"md"} value={"Disabled"} disabled={true} />
+              <Input variant={"primary"} componentSize={"md"} defaultValue={"Enabled"} />
+              <Input variant={"primary"} componentSize={"md"} defaultValue={"Hovered"} isHover={true} />
+              <Input variant={"primary"} componentSize={"md"} defaultValue={"Focus"} isFocus={true} />
+              <Input variant={"primary"} componentSize={"md"} defaultValue={"Invalid"} isInvalid={true} />
+              <Input variant={"primary"} componentSize={"md"} defaultValue={"Disabled"} disabled={true} />
             </Grid>
           </Stack>
 
@@ -322,13 +322,13 @@ export const TypographyPage: FC = () => {
               borderRadius: defaultTheme.default.borderRadius,
             }}
           >
-            <Title level={3} variantLevel={4} marginBlock={"0"}>Secondary with value</Title>
+            <Title level={3} variantLevel={4} marginBlock={"0"}>Secondary with defaultValue</Title>
             <Grid style={{ "--gap": "2rem 3rem" }} minItemWidth={"30rem"}>
-              <Input variant={"secondary"} componentSize={"md"} value={"Enabled"} />
-              <Input variant={"secondary"} componentSize={"md"} value={"Hovered"} isHover={true} />
-              <Input variant={"secondary"} componentSize={"md"} value={"Focus"} isFocus={true} />
-              <Input variant={"secondary"} componentSize={"md"} value={"Invalid"} isInvalid={true} />
-              <Input variant={"secondary"} componentSize={"md"} value={"Disabled"} disabled={true} />
+              <Input variant={"secondary"} componentSize={"md"} defaultValue={"Enabled"} />
+              <Input variant={"secondary"} componentSize={"md"} defaultValue={"Hovered"} isHover={true} />
+              <Input variant={"secondary"} componentSize={"md"} defaultValue={"Focus"} isFocus={true} />
+              <Input variant={"secondary"} componentSize={"md"} defaultValue={"Invalid"} isInvalid={true} />
+              <Input variant={"secondary"} componentSize={"md"} defaultValue={"Disabled"} disabled={true} />
             </Grid>
           </Stack>
         </Stack>
