@@ -3,17 +3,17 @@ import styled from "styled-components";
 export const Header = styled.div`
   position: sticky;
   z-index: ${({ theme }) => theme.header.zIndex};
+  overflow: hidden;
   width: 100%;
   background: ${({ theme }) => theme.header.bg};
   inset: 0 0 auto;
-  overflow: hidden;
 `;
 
 export const Main = styled.main`
   display: flex;
+  overflow: hidden;
   flex-flow: column nowrap;
   flex-grow: 1;
-  overflow: hidden;
   padding-block: ${({ theme }) => theme.main.paddingBlock.desktop};
 
   ${({ theme }) => theme.bp.down("tablet")} {
