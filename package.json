@@ -30,7 +30,6 @@
     "@pages/*": "./src/pages/*",
     "@shared/*": "./src/shared/*",
     "@widgets/*": "./src/widgets/*",
-    "@bedrock-css": "node_modules/@bedrock-layout/css/lib/bedrock-layout.css"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
