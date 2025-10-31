@@ -5,6 +5,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import "@app/styles/vendors";
 import { renderToStaticMarkup } from "react-dom/server";
 import { AppInitError } from "@shared/ui/AppInitError";
+import { startMocking } from "@shared/api";
 
 /**
  * Асинхронная функция инициализации приложения.
@@ -12,8 +13,7 @@ import { AppInitError } from "@shared/ui/AppInitError";
  */
 const appStart = async () => {
   const root = createRoot(document.getElementById("root")!);
-
-  // todo: MSW
+  await startMocking();
 
   return root.render(
     <StrictMode>

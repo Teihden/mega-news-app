@@ -19,7 +19,8 @@
     "eslint-config-inspect": "npx @eslint/config-inspector --config eslint.config.ts",
     "check-deps-updates": "npx npm-check-updates",
     "update-deps": "npx npm-check-updates -u && npm install",
-    "prepare": "cd ./ && husky ./.husky"
+    "prepare": "cd ./ && husky ./.husky",
+    "postinstall": "npx msw init"
   },
   "imports": {
     "@public/*": "./public/*",
@@ -75,6 +76,7 @@
     "espree": "^10.4.0",
     "globals": "^16.4.0",
     "husky": "^9.1.7",
+    "msw": "^2.11.6",
     "npm-check-updates": "^19.0.0",
     "postcss-styled-syntax": "^0.7.1",
     "rimraf": "^6.0.1",
@@ -109,5 +111,10 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

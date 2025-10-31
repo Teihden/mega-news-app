@@ -68,7 +68,6 @@ export const Img: IImg = (props) => {
   const imgEl = (
     <S.Img
       src={currentSrc}
-      fetchPriority={"auto"}
       loading={"lazy"}
       decoding={"async"}
       alt={currentSrc ? alt : ""}

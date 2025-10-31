@@ -15,13 +15,13 @@ export const innerRoutes = [
     element: <IndexPage />,
   },
   {
-    path: "/typography",
+    path: "/typography/",
     id: "TYPOGRAPHY",
     handle: { title: "Typography" },
     element: <TypographyPage />,
   },
   {
-    path: "/components",
+    path: "/components/",
     id: "COMPONENTS",
     handle: { title: "Components" },
     element: <ComponentPage />,
