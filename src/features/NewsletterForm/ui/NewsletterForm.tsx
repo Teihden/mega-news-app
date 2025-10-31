@@ -6,6 +6,8 @@ import { ErrorMessage, Field, Formik } from "formik";
 import { Input } from "@shared/ui/Input";
 import { Btn } from "@shared/ui/Btn";
 import IconMail from "@shared/assets/images/icons/icon-mail.svg?react";
+import { PUBLIC_URLS } from "@shared/config/constants";
+import toast from "react-hot-toast";
 
 /**
  * Компонент NewsletterForm.
@@ -19,12 +21,47 @@ export const NewsletterForm: FC<INewsletterFormProps> = () => {
         email: "",
       }}
       validationSchema={validationSchema}
-      onSubmit={(values, { resetForm }) => {
-        console.debug("Submit:", values);
-        resetForm();
+      onSubmit={async (values, { resetForm }) => {
+        return await toast.promise(
+          async () => {
+            const formData = new FormData();
+            formData.append("email", values.email);
+            let response: Response;
+
+            try {
+              response = await fetch(PUBLIC_URLS.forms.newsletter, {
+                method: "POST",
+                body: formData,
+              });
+            } catch (err) {
+              console.error("Network error", err);
+              throw { message: "Network error. Please check your connection." };
+            }
+
+            let data;
+            try {
+              data = await response.json();
+            } catch {
+              throw { message: "Server error. Invalid server response." };
+            }
+
+            if (data.isSuccess) {
+              resetForm();
+              return data;
+            } else {
+              throw data;
+            }
+          }, {
+            loading: "Loading",
+            /* eslint-disable jsdoc/require-jsdoc */
+            success: ({ message }) => message ? message : "Subscribed successfully",
+            error: ({ message }) => message ? message : "An error has occurred",
+            /* eslint-enable jsdoc/require-jsdoc */
+          },
+        );
       }}
     >
-      {() => (
+      {({ isSubmitting }) => (
         <S.Form>
           <Field
             name={"email"}
@@ -44,6 +81,7 @@ export const NewsletterForm: FC<INewsletterFormProps> = () => {
             icon={<IconMail />}
             isSquare={true}
             type={"submit"}
+            disabled={isSubmitting}
           />
         </S.Form>
       )}

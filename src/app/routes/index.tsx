@@ -6,6 +6,7 @@ import { ComponentPage, IndexPage, NotFoundPage, TypographyPage } from "@pages/i
 import { Header } from "@widgets/Header";
 import { Footer, footerMock } from "@widgets/Footer";
 import { AppInitError } from "@shared/ui/AppInitError";
+import { Toast } from "@shared/ui/Toast";
 
 export const innerRoutes = [
   {
@@ -48,6 +49,7 @@ export const routes = [
         <Preloader
           logo={<LogoIcon />}
         />
+        <Toast />
       </>
     ),
     errorElement: <AppInitError />,
