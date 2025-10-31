@@ -1,5 +1,5 @@
-import type { FC, JSX } from "react";
-import type { ITitleProps } from "../config";
+import type { JSX } from "react";
+import type { ITitle } from "../config";
 import * as S from "./styles";
 
 /**
@@ -14,7 +14,7 @@ import * as S from "./styles";
  * @param props.rest Остальные свойства, передаваемые в компонент.
  * @returns Компонент.
  */
-export const Title: FC<ITitleProps> = (props) => {
+export const Title: ITitle = (props) => {
   const {
     as = null,
     level = 1,
@@ -40,3 +40,5 @@ export const Title: FC<ITitleProps> = (props) => {
     </S.Title>
   );
 };
+
+Title.Title = S.Title;

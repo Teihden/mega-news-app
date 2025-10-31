@@ -1,5 +1,5 @@
-import { type FC, useEffect, useState } from "react";
-import { COOKIE_CFG, type IPreloaderProps } from "../config";
+import { useEffect, useState } from "react";
+import { COOKIE_CFG, type IPreloader } from "../config";
 import * as S from "./styles";
 import { Overlay } from "@shared/ui/Overlay";
 import ProgressBar from "@ramonak/react-progress-bar";
@@ -13,7 +13,7 @@ import Cookies from "js-cookie";
  * @param props.logo - Логотип.
  * @returns Возвращает компонент.
  */
-export const Preloader: FC<IPreloaderProps> = (props) => {
+export const Preloader: IPreloader = (props) => {
   const {
     logo = null,
   } = props;
@@ -56,3 +56,5 @@ export const Preloader: FC<IPreloaderProps> = (props) => {
     </Overlay>
   );
 };
+
+Preloader.Preloader = S.Preloader;

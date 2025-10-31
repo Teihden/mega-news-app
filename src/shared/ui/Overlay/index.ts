@@ -1,2 +1,2 @@
 export { Overlay } from "./ui/Overlay";
-export type { IOverlayProps, IStyledOverlayProps } from "./config";
+export type { IOverlay, IOverlayProps, IStyledOverlayProps } from "./config";

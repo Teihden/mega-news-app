@@ -1,4 +1,5 @@
-import type { HTMLAttributes } from "react";
+import type { FC, HTMLAttributes } from "react";
+import { Title } from "../ui/styles";
 
 export interface ITitleProps extends HTMLAttributes<HTMLHeadingElement> {
   as?: "div" | "span" | "p";
@@ -12,4 +13,8 @@ export interface IStyledTitleProps {
   $variant: ITitleProps["variant"];
   $variantLevel: number;
   $marginBlock?: string | null;
+}
+
+export interface ITitle extends FC<ITitleProps> {
+  Title: typeof Title;
 }

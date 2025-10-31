@@ -1,6 +1,6 @@
-import { type FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import * as S from "./styles";
-import type { IImgProps } from "@shared/ui/Img/config";
+import type { IImg } from "@shared/ui/Img/config";
 import imgStub2 from "@shared/assets/images/stubs/placeholder-2.png";
 import { loadImage } from "@shared/utils";
 
@@ -14,7 +14,7 @@ import { loadImage } from "@shared/utils";
  * @param props.rest Дополнительные свойства, передаваемые в изображение.
  * @returns Компонент изображения.
  */
-export const Img: FC<IImgProps> = (props) => {
+export const Img: IImg = (props) => {
   const {
     src = "",
     sources = [],
@@ -95,3 +95,6 @@ export const Img: FC<IImgProps> = (props) => {
       )
     : (imgEl));
 };
+
+Img.Img = S.Img;
+Img.Picture = S.Picture;

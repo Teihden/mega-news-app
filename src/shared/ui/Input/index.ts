@@ -1,2 +1,2 @@
 export { Input } from "./ui/Input.tsx";
-export type { IInputProps, IStyledInputProps } from "./config";
+export type { IInput, IInputProps, IStyledInputProps } from "./config";

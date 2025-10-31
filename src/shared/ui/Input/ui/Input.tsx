@@ -1,5 +1,4 @@
-import type { IInputProps } from "../config";
-import type { FC } from "react";
+import type { IInput } from "../config";
 import * as S from "./styles";
 
 /**
@@ -15,7 +14,7 @@ import * as S from "./styles";
  * @param props.rest Дополнительные свойства, передаваемые в компонент.
  * @returns Компонент.
  */
-export const Input: FC<IInputProps> = (props) => {
+export const Input: IInput = (props) => {
   const {
     as = "input",
     variant = "primary",
@@ -40,3 +39,5 @@ export const Input: FC<IInputProps> = (props) => {
     />
   );
 };
+
+Input.Input = S.Input;

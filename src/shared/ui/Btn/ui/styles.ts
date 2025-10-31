@@ -18,6 +18,7 @@ export const Btn = styled.button<IStyledBtnProps>`
   box-shadow: none;
   color: ${({ theme, $variant }) => theme.btn.variants[$variant!].color};
   cursor: pointer;
+  font-family: inherit;
   font-size: ${({ theme }) => theme.btn.fontSize};
   gap: ${({ theme, $size }) => theme.btn.sizes[$size!].gap};
   line-height: ${({ theme }) => theme.btn.lineHeight};

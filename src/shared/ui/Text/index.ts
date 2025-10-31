@@ -1,2 +1,2 @@
 export { Text } from "./ui/Text";
-export type { ITextProps, IStyledTextProps } from "./config";
+export type { IText, ITextProps, IStyledTextProps } from "./config";

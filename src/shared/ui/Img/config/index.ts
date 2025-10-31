@@ -1,4 +1,5 @@
-import type { ImgHTMLAttributes } from "react";
+import type { FC, ImgHTMLAttributes } from "react";
+import { Img, Picture } from "../ui/styles";
 
 export interface ISourceItem {
   srcSet: string;
@@ -15,4 +16,9 @@ export interface IStyledImgProps {
   src?: string | null;
   $isLoaded?: boolean;
   $isPlaceholder?: boolean;
+}
+
+export interface IImg extends FC<IImgProps> {
+  Img: typeof Img;
+  Picture: typeof Picture;
 }

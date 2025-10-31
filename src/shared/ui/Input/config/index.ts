@@ -1,5 +1,6 @@
 import { defaultTheme } from "@app/styles";
-import type { InputHTMLAttributes } from "react";
+import type { FC, InputHTMLAttributes } from "react";
+import { Input } from "../ui/styles";
 
 export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   as?: "input" | "textarea";
@@ -18,4 +19,8 @@ export interface IStyledInputProps {
   $isFocus?: boolean;
   $isInvalid?: boolean;
   disabled?: boolean;
+}
+
+export interface IInput extends FC<IInputProps> {
+  Input: typeof Input;
 }

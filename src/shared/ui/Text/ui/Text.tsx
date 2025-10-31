@@ -1,6 +1,5 @@
-import type { ITextProps } from "../config";
+import type { IText } from "../config";
 import * as S from "./styles";
-import type { FC } from "react";
 
 /**
  * Компонент для отображения текста с заданными параметрами.
@@ -13,11 +12,11 @@ import type { FC } from "react";
  * @param props.rest Прочие свойства, передаваемые компоненту.
  * @returns Компонент.
  */
-export const Text: FC<ITextProps> = (props) => {
+export const Text: IText = (props) => {
   const {
     className,
     as = "p",
-    variant = "regular",
+    variant = "md",
     align = "left",
     children = null,
     ...rest
@@ -35,3 +34,5 @@ export const Text: FC<ITextProps> = (props) => {
     </S.Text>
   );
 };
+
+Text.Text = S.Text;

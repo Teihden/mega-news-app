@@ -1,2 +1,2 @@
 export { Container } from "./ui/Container";
-export type { IContainerProps } from "./config";
+export type { IContainer, IContainerProps } from "./config";

@@ -21,6 +21,46 @@ export const Input = styled.input<IStyledInputProps>`
   -webkit-tap-highlight-color: transparent;
   transition: ${({ theme }) => theme.default.transitionDuration} ease-in-out;
 
+  @supports (-ms-ime-align: auto) {
+    &::-ms-clear,
+    &::-ms-reveal {
+      display: none;
+    }
+  }
+
+  &[type="search"] {
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-decoration,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      appearance: none;
+    }
+  }
+
+  &:-webkit-autofill {
+    box-shadow: none;
+  }
+
+  &::-webkit-auto-fill-button,
+  &::-webkit-caps-lock-indicator,
+  &::-webkit-credentials-auto-fill-button {
+    display: none;
+  }
+
+  &::-webkit-contacts-auto-fill-button {
+    position: absolute;
+    right: 0;
+    display: none !important;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:focus {
+    box-shadow: none;
+    transition: background-color 0s 600000s !important;
+  }
+
   @media (hover: hover) {
     &:hover {
       border-color: ${({ theme, $variant }) => theme.input.variants[$variant!].hover.borderColor};
@@ -38,6 +78,7 @@ export const Input = styled.input<IStyledInputProps>`
   }
 
   &::placeholder {
+    font: inherit;
     color: ${({ theme, $variant }) => theme.input.variants[$variant!].placeholderColor};
   }
 

@@ -1,5 +1,6 @@
-import type { CSSProperties, PropsWithChildren } from "react";
+import type { CSSProperties, FC, PropsWithChildren } from "react";
 import { defaultTheme } from "@app/styles";
+import { Text } from "../ui/styles";
 
 export interface ITextProps extends PropsWithChildren {
   className?: string;
@@ -11,4 +12,8 @@ export interface ITextProps extends PropsWithChildren {
 export interface IStyledTextProps {
   $variant?: keyof typeof defaultTheme.text;
   $align?: CSSProperties["textAlign"];
+}
+
+export interface IText extends FC<ITextProps> {
+  Text: typeof Text;
 }

@@ -1,5 +1,4 @@
-import { type FC } from "react";
-import type { IOverlayProps } from "@shared/ui/Overlay/config";
+import type { IOverlay } from "@shared/ui/Overlay/config";
 import * as S from "./styles";
 
 /**
@@ -10,7 +9,7 @@ import * as S from "./styles";
  * @param props.opacity Прозрачность фона.
  * @returns Содержимое, отображаемое внутри оверлея.
  */
-export const Overlay: FC<IOverlayProps> = (props) => {
+export const Overlay: IOverlay = (props) => {
   const {
     isVisible = true,
     background = null,
@@ -28,3 +27,5 @@ export const Overlay: FC<IOverlayProps> = (props) => {
     </S.Overlay>
   );
 };
+
+Overlay.Overlay = S.Overlay;
