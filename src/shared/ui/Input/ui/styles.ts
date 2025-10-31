@@ -28,6 +28,18 @@ export const Input = styled.input<IStyledInputProps>`
     }
   }
 
+  @media (hover: hover) {
+    &:hover {
+      border-color: ${({ theme, $variant }) => theme.input.variants[$variant!].hover.borderColor};
+      background: ${({ theme, $variant }) => theme.input.variants[$variant!].hover.bg};
+      color: ${({ theme, $variant }) => theme.input.variants[$variant!].hover.color};
+    }
+
+    &::placeholder {
+      color: ${({ theme, $variant }) => theme.input.variants[$variant!].hover.placeholderColor};
+    }
+  }
+
   &[type="search"] {
     &::-webkit-search-cancel-button,
     &::-webkit-search-decoration,
@@ -61,25 +73,13 @@ export const Input = styled.input<IStyledInputProps>`
     transition: background-color 0s 600000s !important;
   }
 
-  @media (hover: hover) {
-    &:hover {
-      border-color: ${({ theme, $variant }) => theme.input.variants[$variant!].hover.borderColor};
-      background: ${({ theme, $variant }) => theme.input.variants[$variant!].hover.bg};
-      color: ${({ theme, $variant }) => theme.input.variants[$variant!].hover.color};
-    }
-
-    &::placeholder {
-      color: ${({ theme, $variant }) => theme.input.variants[$variant!].hover.placeholderColor};
-    }
-  }
-
   &:focus {
     outline: none;
   }
 
   &::placeholder {
-    font: inherit;
     color: ${({ theme, $variant }) => theme.input.variants[$variant!].placeholderColor};
+    font: inherit;
   }
 
   &:focus-visible {
