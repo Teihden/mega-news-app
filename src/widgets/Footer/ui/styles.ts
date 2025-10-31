@@ -46,7 +46,7 @@ export const ContrastWrapper = styled.div`
   justify-content: space-between;
   padding: 5rem 5rem 5rem 0;
   border-radius: ${({ theme }) => `0 ${theme.default.borderRadius} ${theme.default.borderRadius} 0`};
-  background: ${({ theme }) => theme.palette.gray["100"]};
+  background: ${({ theme }) => theme.mode === "light" ? theme.palette.gray["100"] : theme.palette.washDark["100"]};
   gap: 4rem 2rem;
   grid-template-columns: minmax(auto, 50rem) auto;
 
@@ -61,7 +61,7 @@ export const ContrastWrapper = styled.div`
     display: block;
     width: 100dvw;
     height: 100%;
-    background: ${({ theme }) => theme.palette.gray["100"]};
+    background: ${({ theme }) => theme.mode === "light" ? theme.palette.gray["100"] : theme.palette.washDark["100"]};
     content: "";
     inset: 0 auto 0 -100dvw;
 
@@ -78,7 +78,7 @@ export const BottomWrapper = styled.div`
   justify-content: space-between;
   padding: 2rem 1.5rem 2rem 0;
   border-radius: ${({ theme }) => `0 ${theme.default.borderRadius} ${theme.default.borderRadius} 0`};
-  background: ${({ theme }) => theme.palette.dark["5"]};
+  background: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["5"] : theme.palette.black["25"]};
   gap: 3rem 2rem;
   grid-column: span 2;
 
@@ -94,7 +94,7 @@ export const BottomWrapper = styled.div`
       display: block;
       width: 100dvw;
       height: 100%;
-      background: ${({ theme }) => theme.palette.dark["5"]};
+      background: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["5"] : theme.palette.black["25"]};
       content: "";
       inset: 0 -100dvw 0 auto;
     }
@@ -105,7 +105,7 @@ export const BottomWrapper = styled.div`
     display: block;
     width: 100dvw;
     height: 100%;
-    background: ${({ theme }) => theme.palette.dark["5"]};
+    background: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["5"] : theme.palette.black["25"]};
     content: "";
     inset: 0 auto 0 -100dvw;
   }
@@ -131,7 +131,7 @@ export const Comment = styled.div`
   flex-flow: column nowrap;
   padding: 2rem;
   border-radius: ${({ theme }) => theme.default.borderRadius};
-  background: ${({ theme }) => theme.palette.gray["100"]};
+  background: ${({ theme }) => theme.mode === "light" ? theme.palette.gray["100"] : theme.palette.washDark["100"]};
   gap: 1rem;
 
   &:not(:last-child) {
