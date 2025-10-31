@@ -1,17 +1,13 @@
 import { type FC } from "react";
 import type { IFooterProps } from "../config";
 import * as S from "./styles";
-import { Title } from "@shared/ui/Title";
-import { WithIndicator } from "@entities/WithIndicator";
-import { Btn } from "@shared/ui/Btn";
-import IconMail from "@shared/assets/images/icons/icon-mail.svg?react";
-import { Input } from "@shared/ui/Input";
 import { FooterInstagram } from "./FooterInstagram";
 import { FooterComments } from "./FooterComments";
 import { FooterBottom } from "./FooterBottom";
 import { FooterPages } from "./FooterPages";
 import { FooterAbout } from "./FooterAbout";
 import { FooterSocials } from "./FooterSocials";
+import { FooterNewsletter } from "./FooterNewsletter";
 
 /**
  * Компонент Footer предоставляет элемент футера для отображения информации и взаимодействия с пользователем.
@@ -33,29 +29,7 @@ export const Footer: FC<IFooterProps> = (props) => {
       <S.ContrastWrapper>
         <FooterAbout />
         <FooterPages pages={pages} />
-
-        <S.Wrapper>
-          <WithIndicator variant={"primary"}>
-            <Title level={2} variantLevel={4}>Newsletters</Title>
-          </WithIndicator>
-
-          <S.Form>
-            <Input
-              variant={"secondary"}
-              componentSize={"md"}
-              placeholder={"Write your email..."}
-            />
-            <Btn
-              variant={"blank"}
-              size={"md"}
-              iconSize={24}
-              icon={<IconMail />}
-              isSquare={true}
-              type={"submit"}
-            />
-          </S.Form>
-        </S.Wrapper>
-
+        <FooterNewsletter />
         <FooterSocials />
         <FooterBottom />
       </S.ContrastWrapper>

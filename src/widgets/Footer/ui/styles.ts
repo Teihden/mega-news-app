@@ -168,13 +168,3 @@ export const TwitterBtn = styled(Btn)`
     background: ${({ theme }) => theme.palette.gradient["3"]} 0 / 100% no-repeat;
   }
 `;
-
-export const Form = styled.form`
-  position: relative;
-  display: block;
-
-  ${Btn.Btn} {
-    position: absolute;
-    inset: 0 0 0 auto;
-  }
-`;
