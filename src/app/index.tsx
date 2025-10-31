@@ -3,6 +3,8 @@ import { createRoot } from "react-dom/client";
 import { App } from "./App";
 import { ErrorBoundary } from "react-error-boundary";
 import "@app/styles/vendors";
+import { renderToStaticMarkup } from "react-dom/server";
+import { AppInitError } from "@shared/ui/AppInitError";
 
 /**
  * Асинхронная функция инициализации приложения.
@@ -15,8 +17,7 @@ const appStart = async () => {
 
   return root.render(
     <StrictMode>
-      {/* todo: ErrorBoundary FallbackComponent */}
-      <ErrorBoundary fallback={<>Ошибка при инициализации приложения</>}>
+      <ErrorBoundary fallback={<AppInitError />}>
         <App />
       </ErrorBoundary>
     </StrictMode>,
@@ -28,8 +29,6 @@ await appStart()
     return null;
   })
   .catch((error) => {
-    console.error("Ошибка при инициализации приложения:", error);
-
-    // todo: ErrorInfo
-    document.body.innerHTML = "<h1>Ошибка при инициализации приложения</h1>";
+    console.error("Application initialization error:", error);
+    document.body.innerHTML = renderToStaticMarkup(<AppInitError />);
   });

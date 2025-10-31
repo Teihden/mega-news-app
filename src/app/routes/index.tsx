@@ -5,6 +5,7 @@ import LogoIcon from "@shared/assets/images/logo/logo.svg?react";
 import { ComponentPage, IndexPage, NotFoundPage, TypographyPage } from "@pages/index";
 import { Header } from "@widgets/Header";
 import { Footer, footerMock } from "@widgets/Footer";
+import { AppInitError } from "@shared/ui/AppInitError";
 
 export const innerRoutes = [
   {
@@ -49,7 +50,7 @@ export const routes = [
         />
       </>
     ),
-    errorElement: <NotFoundPage />,
+    errorElement: <AppInitError />,
     children: innerRoutes,
   },
 ];
