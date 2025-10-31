@@ -137,7 +137,7 @@ const customSecurityRules: Linter.RulesRecord = {
 
 const commonPlugins: Linter.Config["plugins"] = {
   react: reactEslintPlugin,
-  "react-hooks": reactHooksPlugin,
+  "react-hooks": reactHooksPlugin as ESLint.Plugin,
   "react-refresh": reactRefreshPlugin,
   "@stylistic": stylisticPlugin,
   jsdoc: jsDocPlugin,
