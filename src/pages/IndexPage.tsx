@@ -1,4 +1,6 @@
 import type { FC } from "react";
+import { Title } from "@shared/ui/Title";
+import { Section } from "@shared/ui/Section";
 
 /**
  * Компонент IndexPage является функциональным компонентом, который отвечает за отображение главной страницы.
@@ -7,7 +9,9 @@ import type { FC } from "react";
 export const IndexPage: FC = () => {
   return (
     <>
-      IndexPage
+      <Section>
+        <Title>IndexPage</Title>
+      </Section>
     </>
   );
 };
