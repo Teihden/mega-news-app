@@ -3,7 +3,7 @@ import { PUBLIC_URLS } from "@shared/config/constants";
 import type { INewsletterFromReq } from "@features/NewsletterForm";
 
 interface IResp {
-  isSuccess?: boolean;
+  status?: number;
   message?: string;
 }
 
@@ -14,13 +14,13 @@ export const handlers = [
     const email = formData.get("email");
 
     if (email === "test@test.com") {
-      return HttpResponse.json({ isSuccess: true, message: "Subscribed successfully" }, { status: 200 });
+      return HttpResponse.json({ status: 200, message: "MSW. Subscribed successfully" }, { status: 200 });
     }
 
     if (email === "error@test.com") {
-      return HttpResponse.json({ isSuccess: false, message: "Invalid email" }, { status: 400 });
+      return HttpResponse.json({ status: 400, message: "MSW. Invalid email" }, { status: 400 });
     }
 
-    return HttpResponse.json({ isSuccess: false, message: "An error has occurred" }, { status: 500 });
+    return HttpResponse.json({ status: 500, message: "MSW. An error has occurred" }, { status: 500 });
   }),
 ];

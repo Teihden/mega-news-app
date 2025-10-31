@@ -8,11 +8,11 @@ export const PAGES = [
   { href: ROUTES.COMPONENTS, label: "Components" },
 ];
 
-export const API_URL = import.meta.env.API_URL ?? "/api/v1";
+export const API_URL = import.meta.env.VITE_API_URL ?? "https://dummyjson.com";
 
 export const API_ENDPOINTS = {
   forms: {
-    newsletter: "/newsletter/",
+    newsletter: "/http/200/Subscribed%20successfully/?delay=1500",
   },
 };
 

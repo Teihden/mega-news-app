@@ -45,7 +45,7 @@ export const NewsletterForm: FC<INewsletterFormProps> = () => {
               throw { message: "Server error. Invalid server response." };
             }
 
-            if (data.isSuccess) {
+            if (data.status === 200) {
               resetForm();
               return data;
             } else {
