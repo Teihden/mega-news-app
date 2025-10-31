@@ -4,6 +4,11 @@ export interface INewsletterFormik {
   email: string;
 }
 
-export interface INewsletterFromReq {
+export interface INewsletterResp {
+  status?: number;
+  message?: string;
+}
+
+export interface INewsletterFormReq {
   email?: string;
 }

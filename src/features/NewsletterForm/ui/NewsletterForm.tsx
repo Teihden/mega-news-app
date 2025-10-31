@@ -1,4 +1,4 @@
-import { type INewsletterFormik, type INewsletterFormProps } from "../config";
+import { type INewsletterFormik, type INewsletterFormProps, type INewsletterFormReq } from "../config";
 import * as S from "./styles";
 import { type FC } from "react";
 import { validationSchema } from "../lib";
@@ -6,8 +6,8 @@ import { ErrorMessage, Field, Formik } from "formik";
 import { Input } from "@shared/ui/Input";
 import { Btn } from "@shared/ui/Btn";
 import IconMail from "@shared/assets/images/icons/icon-mail.svg?react";
-import { PUBLIC_URLS } from "@shared/config/constants";
 import toast from "react-hot-toast";
+import { useSubscribeNewsletterMutation } from "@shared/api";
 
 /**
  * Компонент NewsletterForm.
@@ -15,6 +15,8 @@ import toast from "react-hot-toast";
  * @returns Возвращает компонент.
  */
 export const NewsletterForm: FC<INewsletterFormProps> = () => {
+  const [ subscribeNewsletter ] = useSubscribeNewsletterMutation();
+
   return (
     <Formik<INewsletterFormik>
       initialValues={{
@@ -22,36 +24,23 @@ export const NewsletterForm: FC<INewsletterFormProps> = () => {
       }}
       validationSchema={validationSchema}
       onSubmit={async (values, { resetForm }) => {
+        const formData = new FormData();
+        formData.append("email", values.email);
+
         return await toast.promise(
-          async () => {
-            const formData = new FormData();
-            formData.append("email", values.email);
-            let response: Response;
-
-            try {
-              response = await fetch(PUBLIC_URLS.forms.newsletter, {
-                method: "POST",
-                body: formData,
-              });
-            } catch (err) {
+          subscribeNewsletter(formData as INewsletterFormReq).unwrap()
+            .then((data) => {
+              if (data.status === 200) {
+                resetForm();
+                return data;
+              } else {
+                throw data;
+              }
+            })
+            .catch((err) => {
               console.error("Network error", err);
-              throw { message: "Network error. Please check your connection." };
-            }
-
-            let data;
-            try {
-              data = await response.json();
-            } catch {
-              throw { message: "Server error. Invalid server response." };
-            }
-
-            if (data.status === 200) {
-              resetForm();
-              return data;
-            } else {
-              throw data;
-            }
-          }, {
+              throw ({ message: "Network error. Please check your connection.", ...err.data });
+            }), {
             loading: "Loading",
             /* eslint-disable jsdoc/require-jsdoc */
             success: ({ message }) => message ? message : "Subscribed successfully",

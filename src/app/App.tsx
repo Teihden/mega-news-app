@@ -1,12 +1,12 @@
 import { type FC, useEffect } from "react";
 import { GlobalStyle } from "@app/styles";
-import { BrowserRouterProvider, StyleProvider } from "@app/providers";
+import { BrowserRouterProvider, ReduxProvider, StyleProvider } from "@app/providers";
 import { useAppStore } from "@app/store";
 import { setThemeChangeListener } from "@shared/utils";
 
 /**
  * Компонент приложения, отвечающий за рендеринг глобальных стилей и обертки страницы.
- * @returns Возвращает структуру приложения с глобальными стилями и оберткой страницы.
+ * @returns Компонент.
  */
 export const App: FC = () => {
   const updateTheme = useAppStore(({ updateTheme }) => updateTheme);
@@ -16,9 +16,11 @@ export const App: FC = () => {
   }, []);
 
   return (
-    <StyleProvider>
-      <GlobalStyle />
-      <BrowserRouterProvider />
-    </StyleProvider>
+    <ReduxProvider>
+      <StyleProvider>
+        <GlobalStyle />
+        <BrowserRouterProvider />
+      </StyleProvider>
+    </ReduxProvider>
   );
 };
