@@ -99,6 +99,7 @@ export const GlobalStyle = createGlobalStyle`
 
   svg {
     display: block;
+    max-width: 100%;
     fill: currentcolor;
     transition: ${({ theme }) => theme.default.transitionDuration} ease-in-out;
 
