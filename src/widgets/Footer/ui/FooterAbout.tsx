@@ -14,7 +14,6 @@ import { Accordion } from "@shared/ui/Accordion";
 export const FooterAbout: FC = () => {
   const { up } = useTheme().bp;
   const isMobileUp = useMediaQuery(up("mobile"));
-  console.debug("isMobileUp", isMobileUp);
 
   return (
     <div>
