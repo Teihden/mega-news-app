@@ -1,7 +1,7 @@
-import { type INewsletterFormik, type INewsletterFormProps, type INewsletterFormReq } from "../config";
+import { type INewsletterFormik, type INewsletterFormProps, type INewsletterFormReq, SESSION_STORAGE_KEY } from "../config";
 import * as S from "./styles";
-import { type FC } from "react";
-import { validationSchema } from "../lib";
+import { type FC, useEffect } from "react";
+import { getSessionStorageInitialValues, validationSchema } from "../lib";
 import { ErrorMessage, Field, Formik } from "formik";
 import { Input } from "@shared/ui/Input";
 import { Btn } from "@shared/ui/Btn";
@@ -19,9 +19,8 @@ export const NewsletterForm: FC<INewsletterFormProps> = () => {
 
   return (
     <Formik<INewsletterFormik>
-      initialValues={{
-        email: "",
-      }}
+      initialValues={getSessionStorageInitialValues()}
+      enableReinitialize={true}
       validationSchema={validationSchema}
       onSubmit={async (values, { resetForm }) => {
         const formData = new FormData();
@@ -31,7 +30,9 @@ export const NewsletterForm: FC<INewsletterFormProps> = () => {
           subscribeNewsletter(formData as INewsletterFormReq).unwrap()
             .then((data) => {
               if (data.status === 200) {
+                sessionStorage.removeItem(SESSION_STORAGE_KEY);
                 resetForm();
+
                 return data;
               } else {
                 throw data;
@@ -50,40 +51,47 @@ export const NewsletterForm: FC<INewsletterFormProps> = () => {
         );
       }}
     >
-      {({ isSubmitting }) => (
-        <S.Form>
-          <label
-            className={"visually-hidden"}
-            htmlFor={"email"}
-          >
-            Email
-          </label>
-          <Field
-            id={"email"}
-            name={"email"}
-            variant={"secondary"}
-            componentSize={"md"}
-            placeholder={"Write your email..."}
-            title={"Write your email..."}
-            autoComplete={"email"}
-            as={Input}
-          />
-          <ErrorMessage
-            name={"email"}
-            component={S.ErrorMessage}
-          />
-          <Btn
-            variant={"blank"}
-            size={"md"}
-            iconSize={24}
-            icon={<IconMail />}
-            isSquare={true}
-            type={"submit"}
-            disabled={isSubmitting}
-            title={"Subscribe to the newsletter"}
-          />
-        </S.Form>
-      )}
+      {({ touched, errors, values, isSubmitting }) => {
+        useEffect(() => {
+          sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(values));
+        }, [ values ]);
+
+        return (
+          <S.Form>
+            <label
+              className={"visually-hidden"}
+              htmlFor={"email"}
+            >
+              Email
+            </label>
+            <Field
+              id={"email"}
+              name={"email"}
+              variant={"secondary"}
+              componentSize={"md"}
+              placeholder={"Write your email..."}
+              title={"Write your email..."}
+              autoComplete={"email"}
+              as={Input}
+              isInvalid={touched.email && errors.email}
+            />
+            <ErrorMessage
+              name={"email"}
+              component={S.ErrorMessage}
+            />
+            <Btn
+              variant={"blank"}
+              size={"md"}
+              iconSize={24}
+              icon={<IconMail />}
+              isSquare={true}
+              type={"submit"}
+              disabled={isSubmitting || Object.keys(errors).length > 0}
+              title={"Subscribe to the newsletter"}
+            />
+          </S.Form>
+        );
+      }}
     </Formik>
   );
 };

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { INewsletterFormReq, INewsletterResp } from "@features/NewsletterForm";
+import type { INewsletterFormReq, INewsletterFormResp } from "@features/NewsletterForm";
 import { API_URL, API_ENDPOINTS } from "@shared/config/constants";
 import type { ICommentsResp } from "@shared/types";
 
@@ -9,7 +9,7 @@ export const apiClient = createApi({
   reducerPath: "apiClient",
   baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
   endpoints: (builder) => ({
-    subscribeNewsletter: builder.mutation<INewsletterResp, INewsletterFormReq>({
+    subscribeNewsletter: builder.mutation<INewsletterFormResp, INewsletterFormReq>({
       query: (body) => ({
         url: API_ENDPOINTS.forms.newsletter,
         method: "POST",

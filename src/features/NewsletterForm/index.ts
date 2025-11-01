@@ -1,2 +1,2 @@
 export { NewsletterForm } from "./ui/NewsletterForm";
-export type { INewsletterFormProps, INewsletterFormik, INewsletterFormReq, INewsletterResp } from "./config";
+export type { INewsletterFormProps, INewsletterFormik, INewsletterFormReq, INewsletterFormResp } from "./config";
