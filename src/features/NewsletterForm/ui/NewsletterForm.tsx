@@ -52,11 +52,20 @@ export const NewsletterForm: FC<INewsletterFormProps> = () => {
     >
       {({ isSubmitting }) => (
         <S.Form>
+          <label
+            className={"visually-hidden"}
+            htmlFor={"email"}
+          >
+            Email
+          </label>
           <Field
+            id={"email"}
             name={"email"}
             variant={"secondary"}
             componentSize={"md"}
             placeholder={"Write your email..."}
+            title={"Write your email..."}
+            autoComplete={"email"}
             as={Input}
           />
           <ErrorMessage
@@ -71,6 +80,7 @@ export const NewsletterForm: FC<INewsletterFormProps> = () => {
             isSquare={true}
             type={"submit"}
             disabled={isSubmitting}
+            title={"Subscribe to the newsletter"}
           />
         </S.Form>
       )}

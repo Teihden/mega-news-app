@@ -107,4 +107,16 @@ export const GlobalStyle = createGlobalStyle`
       margin-block: ${({ theme }) => theme.default.marginBlock};
     }
   }
+
+  .visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    margin: -1px;
+    clip-path: inset(100%);
+    white-space: nowrap;
+  }
 `;

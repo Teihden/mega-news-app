@@ -26,6 +26,7 @@ export const FooterSocials: FC = () => {
           iconSize={16}
           icon={<IconInstagram />}
           text={"Instagram"}
+          title={"Instagram"}
         />
         <S.TwitterBtn
           href={"https://x.com"}
@@ -35,6 +36,7 @@ export const FooterSocials: FC = () => {
           iconSize={24}
           icon={<IconTwitter />}
           isSquare={true}
+          title={"Twitter"}
         />
       </InlineCluster>
     </S.Wrapper>
