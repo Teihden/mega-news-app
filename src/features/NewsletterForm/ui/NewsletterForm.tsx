@@ -67,6 +67,7 @@ export const NewsletterForm: FC<INewsletterFormProps> = () => {
             <Field
               id={"email"}
               name={"email"}
+              type={"email"}
               variant={"secondary"}
               componentSize={"md"}
               placeholder={"Write your email..."}
