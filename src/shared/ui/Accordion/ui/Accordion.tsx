@@ -5,7 +5,7 @@ import IconVChevronRight from "@shared/assets/images/icons/icon-chevron-right.sv
 import { Title } from "@shared/ui/Title";
 
 /**
- * Компонент "Accordion" представляет собой раскрывающийся элемент интерфейса.*
+ * Компонент "Accordion" представляет собой раскрывающийся элемент интерфейса.
  * @param props Объект с параметрами компонента.
  * @param props.btnProps Свойства, которые передаются на элемент кнопки заголовка.
  * @param props.titleProps Свойства, которые передаются на заголовок (текст).
