@@ -1,8 +1,7 @@
+import type { IComment } from "@shared/types";
+
 export interface IFooterProps {
-  comments?: {
-    title?: string;
-    content?: string;
-  }[];
+  comments?: IComment[] | null;
   instagramLinks?: {
     src?: string;
     href?: string;

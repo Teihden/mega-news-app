@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { WithIndicator } from "@entities/WithIndicator";
 import { Btn } from "@shared/ui/Btn";
+import { Text } from "@shared/ui/Text";
 
 export const Footer = styled.div`
   display: grid;
@@ -135,7 +136,14 @@ export const Comment = styled.div`
   gap: 1rem;
 
   &:not(:last-child) {
-    margin-block: 0 1.5rem;
+    margin-block: 0 2rem;
+  }
+
+  ${Text.Text} {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
   }
 `;
 

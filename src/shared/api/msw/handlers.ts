@@ -1,10 +1,12 @@
 import { http, delay, HttpResponse } from "msw";
 import { PUBLIC_URLS } from "@shared/config/constants";
 import type { INewsletterFormReq, INewsletterResp } from "@features/NewsletterForm";
+import type { ICommentsResp } from "@shared/types";
+import { commentsResp } from "@shared/api";
 
 export const handlers = [
   http.post<never, INewsletterFormReq, INewsletterResp>(PUBLIC_URLS.forms.newsletter, async ({ request }) => {
-    await delay(1000);
+    await delay(1500);
     const formData = await request.formData();
     const email = formData.get("email");
 
@@ -17,5 +19,10 @@ export const handlers = [
     }
 
     return HttpResponse.json({ status: 500, message: "MSW. An error has occurred" }, { status: 500 });
+  }),
+
+  http.get<never, never, ICommentsResp>(`${PUBLIC_URLS.comments}`, async () => {
+    await delay(1500);
+    return HttpResponse.json(commentsResp, { status: 200 });
   }),
 ];

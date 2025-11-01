@@ -6,6 +6,7 @@ import { WithIndicator } from "@entities/WithIndicator";
 import { Text } from "@shared/ui/Text";
 import { useTheme } from "styled-components";
 import { useMediaQuery } from "styled-breakpoints/use-media-query";
+import { useGetCommentsQuery } from "@shared/api";
 
 /**
  * Компонент FooterComments отображает список комментариев.
@@ -15,10 +16,11 @@ import { useMediaQuery } from "styled-breakpoints/use-media-query";
  */
 export const FooterComments: FC<IFooterCommentsProps> = (props) => {
   const {
-    comments = [],
+    comments = null,
   } = props;
   const { up } = useTheme().bp;
   const isTabletSmallUp = useMediaQuery(up("tabletSmall"));
+  const { data } = useGetCommentsQuery(4);
 
   return isTabletSmallUp
     && (
@@ -27,13 +29,13 @@ export const FooterComments: FC<IFooterCommentsProps> = (props) => {
           <Title level={2} variantLevel={4}>New Comments</Title>
         </WithIndicator>
 
-        {comments.map(({ title, content }) => (
-          <S.Comment key={title}>
+        {(comments ?? data?.comments ?? [])?.map(({ postId, body = "", user = {} }) => (
+          <S.Comment key={postId}>
             <Title variantLevel={5} as={"p"} marginBlock={"0"}>
-              {title}
+              {user?.username}
             </Title>
             <Text variant={"sm"}>
-              {content}
+              {body}
             </Text>
           </S.Comment>
         ))}

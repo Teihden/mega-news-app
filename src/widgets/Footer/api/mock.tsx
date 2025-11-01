@@ -11,7 +11,7 @@ import imgInstagram9 from "@shared/assets/images/instagram/instagram-9.jpg";
 import { PAGES } from "@shared/config/constants";
 
 export const footer: IFooterProps = {
-  comments: [
+  /* comments: [
     {
       title: "Ellsmartx",
       content: "How nice does this look 😍 I feel it should be delicious, thank you",
@@ -28,7 +28,7 @@ export const footer: IFooterProps = {
       title: "Denis Simonassi",
       content: "It was a great match today Janzi! You did great😉",
     },
-  ],
+  ], */
   instagramLinks: [
     {
       src: imgInstagram1,

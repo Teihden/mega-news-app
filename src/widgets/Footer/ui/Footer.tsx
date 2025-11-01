@@ -19,7 +19,7 @@ import { FooterNewsletter } from "./FooterNewsletter";
  */
 export const Footer: FC<IFooterProps> = (props) => {
   const {
-    comments = [],
+    comments = null,
     instagramLinks = [],
     pages = [],
   } = props;
