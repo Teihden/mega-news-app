@@ -1,14 +1,16 @@
 import type { FC, PropsWithChildren, ReactNode } from "react";
-import { Accordion, Header, Content, Btn } from "../ui/styles";
-import type { IBtn } from "@shared/ui/Btn";
-import type { ITitle } from "@shared/ui/Title";
+import { Accordion, Header, Content, Btn, ContentWrapper } from "../ui/styles";
+import type { TBtnProps } from "@shared/ui/Btn";
+import type { ITitleProps } from "@shared/ui/Title";
+import type { CSSProp } from "styled-components";
 
 export interface IAccordionProps extends PropsWithChildren {
-  headerProps?: IBtn;
-  isDefaultOpen?: boolean;
-  isActive?: boolean;
-  titleProps?: ITitle;
+  btnProps?: TBtnProps;
+  titleProps?: ITitleProps;
   title?: ReactNode;
+  isControlledOpen?: boolean;
+  isActive?: boolean;
+  css?: CSSProp;
 }
 
 export interface IStyledBtn {
@@ -23,6 +25,7 @@ export interface IStyledHeader {
 export interface IAccordion extends FC<IAccordionProps> {
   Accordion: typeof Accordion;
   Header: typeof Header;
+  ContentWrapper: typeof ContentWrapper;
   Content: typeof Content;
   Btn: typeof Btn;
 }

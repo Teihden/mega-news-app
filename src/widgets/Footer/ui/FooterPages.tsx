@@ -32,7 +32,7 @@ export const FooterPages: FC<IFooterPagesProps> = (props) => {
       <Stack
         gap={"size7"}
         css={`
-          ${({ theme }: { theme: DefaultTheme }) => theme.bp.down("tablet")} {
+          ${({ theme }: { theme: DefaultTheme }) => theme.bp.down("mobile")} {
             flex-flow: row wrap;
           }
         `}

@@ -7,26 +7,28 @@ import { Title } from "@shared/ui/Title";
 /**
  * Компонент "Accordion" представляет собой раскрывающийся элемент интерфейса.*
  * @param props Объект с параметрами компонента.
- * @param props.headerProps Свойства, которые передаются на элемент заголовка.
+ * @param props.btnProps Свойства, которые передаются на элемент кнопки заголовка.
  * @param props.titleProps Свойства, которые передаются на заголовок (текст).
- * @param props.isDefaultOpen Определяет, будет ли аккордеон открыт по умолчанию.
+ * @param props.isControlledOpen Определяет, будет ли аккордеон открыт по умолчанию.
  * @param props.isActive Определяет, активен ли аккордеон.
  * @param props.title Текст заголовка аккордеона.
  * @param props.children Вложенное содержимое, отображаемое при раскрытии.
+ * @param props.rest Дополнительные свойства.
  * @returns Возвращает JSX-разметку аккордеона.
  */
 export const Accordion: IAccordion = (props) => {
   const {
-    headerProps = {},
+    btnProps = {},
     titleProps = {},
-    isDefaultOpen = false,
+    isControlledOpen = false,
     isActive = true,
     title = "AccordionHeader",
     children = null,
+    ...rest
   } = props;
-  const [ isOpen, setIsOpen ] = useState<boolean>(isDefaultOpen);
-  const [ height, setHeight ] = useState<string | number>(isDefaultOpen ? "auto" : 0);
-  const contentRef = useRef<HTMLDivElement>(null);
+  const [ isOpen, setIsOpen ] = useState<boolean>(isControlledOpen);
+  const [ height, setHeight ] = useState<string | number>(isControlledOpen ? "auto" : 0);
+  const contentWrapperRef = useRef<HTMLDivElement>(null);
 
   /**
    * Функция для обработки клика по заголовку.
@@ -41,7 +43,12 @@ export const Accordion: IAccordion = (props) => {
   const handleTransitionEnd = () => isOpen ? setHeight("auto") : null;
 
   useEffect(() => {
-    const el = contentRef.current;
+    setHeight(isControlledOpen ? "auto" : 0);
+    setIsOpen(() => isControlledOpen);
+  }, [ isControlledOpen ]);
+
+  useEffect(() => {
+    const el = contentWrapperRef.current;
     if (!el) {
       return;
     }
@@ -61,7 +68,7 @@ export const Accordion: IAccordion = (props) => {
   }, [ isOpen ]);
 
   return (
-    <S.Accordion>
+    <S.Accordion {...rest}>
       <S.Header $isOpen={isOpen}>
         <S.Btn
           variant={"blank"}
@@ -81,21 +88,24 @@ export const Accordion: IAccordion = (props) => {
           )}
           onClick={handleHeaderClick}
           isInline={true}
-          {...headerProps}
+          {...btnProps}
         />
       </S.Header>
-      <S.Content
-        ref={contentRef}
+      <S.ContentWrapper
+        ref={contentWrapperRef}
         style={{ height }}
         onTransitionEnd={handleTransitionEnd}
       >
-        {children}
-      </S.Content>
+        <S.Content>
+          {children}
+        </S.Content>
+      </S.ContentWrapper>
     </S.Accordion>
   );
 };
 
 Accordion.Accordion = S.Accordion;
 Accordion.Header = S.Header;
+Accordion.ContentWrapper = S.ContentWrapper;
 Accordion.Content = S.Content;
 Accordion.Btn = S.Btn;
