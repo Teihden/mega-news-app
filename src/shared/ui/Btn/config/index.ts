@@ -8,7 +8,7 @@ export interface ICommonBtnProps extends PropsWithChildren {
   icon?: ReactNode;
   iconPosition?: "left" | "right";
   iconSize?: number;
-  text?: string;
+  text?: ReactNode;
   isActive?: boolean;
   isHover?: boolean;
   isDisabled?: boolean;
