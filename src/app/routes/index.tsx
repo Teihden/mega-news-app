@@ -1,12 +1,12 @@
-import { PageWrapper } from "@widgets/PageWrapper";
+import { PageWrapper } from "@widgets/pageWrapper";
 import { ScrollRestoration } from "react-router";
-import { Preloader } from "@shared/ui/Preloader";
+import { Preloader } from "@shared/ui/preloader";
 import LogoIcon from "@shared/assets/images/logo/logo.svg?react";
 import { ComponentPage, IndexPage, NotFoundPage, TypographyPage } from "@pages/index";
-import { Header } from "@widgets/Header";
-import { Footer, footerMock } from "@widgets/Footer";
-import { AppInitError } from "@shared/ui/AppInitError";
-import { Toast } from "@shared/ui/Toast";
+import { Header } from "@widgets/header";
+import { Footer, footerMock } from "@widgets/footer";
+import { AppInitError } from "@shared/ui/appInitError";
+import { Toast } from "@shared/ui/toast";
 
 export const innerRoutes = [
   {

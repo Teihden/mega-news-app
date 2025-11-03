@@ -1,11 +1,11 @@
 import { http, delay, HttpResponse } from "msw";
 import { PUBLIC_URLS } from "@shared/config/constants";
-import type { INewsletterFormReq, INewsletterFormResp } from "@features/NewsletterForm";
+import type { INewsletterSignUpFormReq, INewsletterSignUpFormResp } from "@features/newsletterSignUpForm";
 import type { ICommentsResp } from "@shared/types";
 import { commentsResp } from "@shared/api";
 
 export const handlers = [
-  http.post<never, INewsletterFormReq, INewsletterFormResp>(PUBLIC_URLS.forms.newsletter, async ({ request }) => {
+  http.post<never, INewsletterSignUpFormReq, INewsletterSignUpFormResp>(PUBLIC_URLS.forms.newsletter, async ({ request }) => {
     await delay(1500);
     const formData = await request.formData();
     const email = formData.get("email");

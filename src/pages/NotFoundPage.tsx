@@ -1,7 +1,7 @@
 import type { FC } from "react";
-import { Section } from "@shared/ui/Section";
-import { Title } from "@shared/ui/Title";
-import { Text } from "@shared/ui/Text";
+import { Section } from "@shared/ui/section";
+import { Title } from "@shared/ui/title";
+import { Text } from "@shared/ui/text";
 import styled from "styled-components";
 
 const StyledSection = styled(Section)`

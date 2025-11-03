@@ -4,7 +4,7 @@ import { App } from "./App";
 import { ErrorBoundary } from "react-error-boundary";
 import "@app/styles/vendors";
 import { renderToStaticMarkup } from "react-dom/server";
-import { AppInitError } from "@shared/ui/AppInitError";
+import { AppInitError } from "@shared/ui/appInitError";
 import { startMocking } from "@shared/api";
 
 /**

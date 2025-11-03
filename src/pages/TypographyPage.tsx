@@ -1,12 +1,12 @@
 import type { FC } from "react";
-import { Section } from "@shared/ui/Section";
-import { Title } from "@shared/ui/Title";
-import { Text } from "@shared/ui/Text";
-import { Btn } from "@shared/ui/Btn";
+import { Section } from "@shared/ui/section";
+import { Title } from "@shared/ui/title";
+import { Text } from "@shared/ui/text";
+import { Btn } from "@shared/ui/btn";
 import IconUser from "@shared/assets/images/icons/icon-user.svg?react";
 import { InlineCluster, Stack, Grid } from "@bedrock-layout/primitives";
-import { WithIndicator } from "@entities/WithIndicator";
-import { Input } from "@shared/ui/Input";
+import { WithIndicator } from "@entities/withIndicator";
+import { Input } from "@shared/ui/input";
 import { defaultTheme, palette } from "@app/styles";
 import { useAppStore } from "@app/store";
 

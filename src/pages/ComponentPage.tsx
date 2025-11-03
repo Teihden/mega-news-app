@@ -1,14 +1,14 @@
 import type { FC } from "react";
-import { Section } from "@shared/ui/Section";
-import { Title } from "@shared/ui/Title";
+import { Section } from "@shared/ui/section";
+import { Title } from "@shared/ui/title";
 import { Stack } from "@bedrock-layout/primitives";
-import { Img } from "@shared/ui/Img";
+import { Img } from "@shared/ui/img";
 import imgAbstract7 from "@shared/assets/images/abstract/abstract-7.jpg";
 import imgSport5Desktop from "@shared/assets/images/sport/sport-5-desktop.jpg";
 import imgSport5Tablet from "@shared/assets/images/sport/sport-5-tablet.jpg";
 import imgSport5Mobile from "@shared/assets/images/sport/sport-5-mobile.jpg";
 import { COMMON_MEDIA_BREAKPOINTS } from "@app/styles";
-import { Accordion } from "@shared/ui/Accordion";
+import { Accordion } from "@shared/ui/accordion";
 
 /**
  * Компонент ComponentPage.
