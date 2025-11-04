@@ -51,11 +51,11 @@ export const HeaderInnerMenu = styled.div<IHeaderInnerMenuProps>`
   width: 100%;
   max-width: 55rem;
   height: 100%;
-  background: ${({ theme }) => theme.palette.white["100"]};
   padding: 2.5rem 3rem 3rem ${({ theme }) => theme.container.paddingInline.tablet};
+  background: ${({ theme }) => theme.palette.white["100"]};
+  cursor: default;
   transform: ${({ $isMenuOpen }) => $isMenuOpen ? "translate3d(0, 0, 0)" : "translate3d(-100%, 0, 0)"};
   transition: transform ${({ theme }) => theme.default.transitionDuration} ${({ $isMenuOpen }) => $isMenuOpen ? ".2s" : "0s"} ease-in-out;
-  cursor: default;
 
   ${({ theme }) => theme.bp.down("mobile")} {
     padding: 2rem ${({ theme }) => theme.container.paddingInline.mobile} 2rem;
@@ -87,15 +87,15 @@ export const MenuBtn = styled(ComponentBtn)<IStyledBtn>`
 export const Overlay = styled(ComponentOverlay)`
   align-items: flex-start;
   justify-content: flex-start;
-  inset: 11rem 0 0;
   backdrop-filter: blur(1rem);
   background: transparent;
-  transition: opacity ${({ theme }) => theme.default.transitionDuration} ${({ isVisible }) => isVisible ? "0s" : ".2s"} ease-in-out;
   cursor: pointer;
+  inset: 11rem 0 0;
+  transition: opacity ${({ theme }) => theme.default.transitionDuration} ${({ isVisible }) => isVisible ? "0s" : ".2s"} ease-in-out;
 `;
 
 export const Accordion = styled(ComponentAccordion)`
   padding: 2rem;
-  background: ${({ theme }) => theme.palette.gray["100"]};
   border-radius: ${({ theme }) => theme.default.borderRadius};
+  background: ${({ theme }) => theme.palette.gray["100"]};
 `;

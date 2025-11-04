@@ -13,11 +13,11 @@ export const Overlay = styled.div<IStyledOverlayProps>`
     display: flex;
     align-items: center;
     justify-content: center;
+    backdrop-filter: ${$backdropFilter ?? "none"};
     background: ${({ theme }) => $background ?? theme.overlay.bg};
     inset: 0;
     opacity: ${$isVisible ? $opacity ?? 1 : 0};
-    backdrop-filter: ${$backdropFilter ?? "none"};
-    transition: opacity ${({ theme }) => theme.default.transitionDuration} ease-in-out;
     pointer-events: ${$isVisible ? "auto" : "none"};
+    transition: opacity ${({ theme }) => theme.default.transitionDuration} ease-in-out;
   `}
 `;
