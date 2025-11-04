@@ -13,3 +13,11 @@ export interface IStyledBtn {
 export interface IHeaderNavProps {
   pages?: IHeaderProps["pages"];
 }
+
+export interface IHeaderMenuProps {
+  pages?: IHeaderProps["pages"];
+}
+
+export interface IHeaderInnerMenuProps {
+  $isMenuOpen?: boolean;
+}

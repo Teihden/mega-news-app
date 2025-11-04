@@ -5,7 +5,7 @@ export const header = {
   paddingBlock: {
     desktop: "3rem 2rem",
     tablet: "2rem 3rem",
-    mobile: "5rem 2rem",
+    mobile: "3rem 2rem",
   },
   bg: palette.white["100"],
 };

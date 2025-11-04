@@ -84,6 +84,10 @@ export const GlobalStyle = createGlobalStyle`
     &[data-theme="dark"] {
       color-scheme: dark;
     }
+
+    &.no-scroll {
+      overflow: hidden;
+    }
   }
 
   body {

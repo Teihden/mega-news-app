@@ -4,7 +4,8 @@ import * as S from "./styles";
 import { ThemeToggler } from "@features/themeToggler";
 import { useTheme } from "styled-components";
 import { useMediaQuery } from "styled-breakpoints/use-media-query";
-import { HeaderNav } from "./HeaderNav.tsx";
+import { HeaderNav } from "./HeaderNav";
+import { HeaderMenu } from "./HeaderMenu";
 import { type UIMatch, useMatches } from "react-router";
 import type { IRouteHandle } from "@shared/types";
 import { Btn } from "@shared/ui/btn";
@@ -23,12 +24,16 @@ export const Header: FC<IHeaderProps> = (props) => {
   } = props;
   const theme = useTheme();
   const isTabletUp = useMediaQuery(theme.bp.up("tablet"));
+  const isTabletDown = useMediaQuery(theme.bp.down("tablet"));
   const matches = useMatches() as UIMatch<unknown, IRouteHandle>[];
   const currentTitle = [ ...matches ].reverse().find((m) => m.handle?.title)?.handle?.title ?? null;
 
   return (
     <S.Header>
       <S.HeaderInner>
+        {isTabletDown && (
+          <HeaderMenu pages={pages} />
+        )}
         {logo && (
           <Btn
             variant={"blank"}

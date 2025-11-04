@@ -1,6 +1,6 @@
 import { type IBurgerBtnProps } from "../config";
 import * as S from "./styles";
-import { type FC, useState } from "react";
+import { type FC, useImperativeHandle, useRef, useState } from "react";
 
 /**
  * Компонент кнопки-бургера.
@@ -11,14 +11,22 @@ import { type FC, useState } from "react";
 export const BurgerBtn: FC<IBurgerBtnProps> = (props) => {
   const {
     onClickCb = null,
+    ref,
   } = props;
-  const [ isOpen, setIsOpen ] = useState(false);
+  const [ isBurgerBtnActive, setIsBurgerBtnActive ] = useState(false);
+  const refObject = useRef<HTMLButtonElement | null>(null);
+
+  useImperativeHandle((ref), () => ({
+    ref: refObject,
+    setIsBurgerBtnActive,
+    isBurgerBtnActive,
+  }));
 
   /**
    * Функция обработчик события клика.
    */
   const handleClick = () => {
-    setIsOpen((prev) => !prev);
+    setIsBurgerBtnActive((prev) => !prev);
 
     if (typeof onClickCb === "function") {
       onClickCb();
@@ -27,12 +35,13 @@ export const BurgerBtn: FC<IBurgerBtnProps> = (props) => {
 
   return (
     <S.Btn
+      ref={refObject}
       variant={"secondary"}
       size={"md"}
       isSquare={true}
       title={``}
       aria-label={``}
-      $isOpen={isOpen}
+      $isBurgerBtnActive={isBurgerBtnActive}
       onClick={handleClick}
     >
       <S.Bar />

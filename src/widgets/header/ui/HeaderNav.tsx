@@ -26,7 +26,7 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
 
   return (
     <S.HeaderNav>
-      <S.Btn
+      <S.NavBtn
         variant={"blank"}
         text={(
           <Title
@@ -79,7 +79,7 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
         </Stack>
       </Tooltip>
 
-      <S.Btn
+      <Btn
         variant={"blank"}
         text={(
           <Title
@@ -93,7 +93,7 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
         isInline={true}
       />
 
-      <S.Btn
+      <Btn
         variant={"blank"}
         text={(
           <Title

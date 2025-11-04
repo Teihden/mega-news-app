@@ -1,5 +1,6 @@
 import type { IBtn } from "@shared/ui/btn/config";
 import * as S from "./styles";
+import type { Ref } from "react";
 
 /**
  * Компонент кнопки.
@@ -21,6 +22,7 @@ import * as S from "./styles";
  * @param props.href - Если передан, кнопка рендерится как `<a>` с указанным href.
  * @param props.target - Атрибут target для ссылки (`_blank`, `_self` и т.д.).
  * @param props.rel - Атрибут rel для ссылки (например, `noopener noreferrer` для `_blank`).
+ * @param props.ref - реф
  * @returns Возвращает компонент.
  */
 export const Btn: IBtn = (props) => {
@@ -42,14 +44,15 @@ export const Btn: IBtn = (props) => {
     href,
     target,
     rel,
+    ref,
     ...rest
   } = props;
-
   const isLink = "href" in props;
   const component = isLink ? "a" : "button";
 
   return (
     <S.Btn
+      ref={ref as unknown as Ref<HTMLButtonElement & HTMLAnchorElement>}
       as={component}
       $variant={variant}
       $size={size}

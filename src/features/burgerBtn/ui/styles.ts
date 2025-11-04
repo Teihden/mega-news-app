@@ -37,8 +37,8 @@ export const Btn = styled(ComponentBtn)<IStyledBurgerBtnProps>`
     }
   }
 
-  ${({ $isOpen }) => {
-    return $isOpen && css`
+  ${({ $isBurgerBtnActive }) => {
+    return $isBurgerBtnActive && css`
       ${Bar} {
         &:nth-of-type(1) {
           transform: translateY(.875rem) rotate(-45deg);

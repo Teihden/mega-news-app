@@ -9,6 +9,7 @@ import imgSport5Tablet from "@shared/assets/images/sport/sport-5-tablet.jpg";
 import imgSport5Mobile from "@shared/assets/images/sport/sport-5-mobile.jpg";
 import { COMMON_MEDIA_BREAKPOINTS } from "@app/styles";
 import { Accordion } from "@shared/ui/accordion";
+import { BurgerBtn } from "@features/burgerBtn";
 
 /**
  * Компонент ComponentPage.
@@ -109,6 +110,12 @@ export const ComponentPage: FC = () => {
             </Accordion>
           </Stack>
         </Stack>
+      </Section>
+
+      <Section
+        headerSlot={<Title level={2} variantLevel={2}>BurgerBtn</Title>}
+      >
+        <BurgerBtn />
       </Section>
     </>
   );

@@ -1,4 +1,4 @@
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, FC, PropsWithChildren, ReactNode } from "react";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, FC, PropsWithChildren, ReactNode, Ref } from "react";
 import { defaultTheme } from "@app/styles";
 import { Btn } from "../ui/styles";
 
@@ -23,11 +23,13 @@ export type TButtonProps = ICommonBtnProps & ButtonHTMLAttributes<HTMLButtonElem
   download?: never;
   target?: never;
   rel?: never;
+  ref?: Ref<HTMLButtonElement>;
 };
 
 export type TAnchorProps = ICommonBtnProps & AnchorHTMLAttributes<HTMLAnchorElement> & {
   disabled?: never;
   type?: never;
+  ref?: Ref<HTMLAnchorElement>;
 };
 
 export type TBtnProps = TButtonProps | TAnchorProps;
