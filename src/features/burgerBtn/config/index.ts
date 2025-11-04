@@ -7,7 +7,7 @@ export interface IBurgerBtnRef {
 }
 
 export interface IBurgerBtnProps {
-  ref: RefObject<IBurgerBtnRef | null>;
+  ref?: RefObject<IBurgerBtnRef | null>;
   onClickCb?: () => void;
 }
 
