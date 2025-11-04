@@ -12,7 +12,6 @@
   "scripts": {
     "start": "dotenv -e .env -- cross-env vite",
     "build": "tsc -b && vite build",
-    "deploy": "npm i --force && npm run build",
     "preview": "vite preview",
     "lint": "npm run stylelint && npm run eslint",
     "stylelint": "stylelint --config stylelint.config.mjs ./src --fix",
@@ -124,5 +123,9 @@
     "workerDirectory": [
       "public"
     ]
+  },
+  "overrides": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   }
 }
