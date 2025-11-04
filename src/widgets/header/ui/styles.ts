@@ -18,8 +18,8 @@ export const Header = styled.div`
 
 export const HeaderInner = styled.div`
   display: flex;
-  gap: 7.5rem;
   align-items: center;
+  gap: 7.5rem;
 
   ${({ theme }) => theme.bp.down("tablet")} {
     gap: 0;

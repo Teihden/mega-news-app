@@ -63,6 +63,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   html {
+    overflow: hidden auto;
     width: 100%;
     height: 100%;
     max-height: 100%;
@@ -71,7 +72,6 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scrollbar-gutter: stable;
-    overflow: hidden auto;
 
     @supports (text-size-adjust: none) {
       text-size-adjust: none;
@@ -125,12 +125,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .custom-react-tooltip.react-tooltip {
-    background: ${({ theme }) => theme.tooltip.bg};
+    padding: ${({ theme }) => theme.tooltip.padding};
     border-width: ${({ theme }) => theme.tooltip.borderWidth};
     border-style: ${({ theme }) => theme.tooltip.borderStyle};
     border-color: ${({ theme }) => theme.tooltip.borderColor};
     border-radius: ${({ theme }) => theme.tooltip.borderRadius};
-    padding: ${({ theme }) => theme.tooltip.padding};
+    background: ${({ theme }) => theme.tooltip.bg};
     box-shadow: ${({ theme }) => theme.tooltip.boxShadow};
   }
 `;

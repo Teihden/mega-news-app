@@ -2,18 +2,18 @@ import { css } from "styled-components";
 
 export const fonts = css`
   @font-face {
-    font-family: Roboto;
-    src: url("/fonts/Roboto-Regular.woff2") format("woff2");
-    font-weight: 400;
-    font-style: normal;
     font-display: swap;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/Roboto-Regular.woff2") format("woff2");
   }
 
   @font-face {
-    font-family: Roboto;
-    src: url("/fonts/Roboto-Medium.woff2") format("woff2");
-    font-weight: 500;
-    font-style: normal;
     font-display: swap;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    src: url("/fonts/Roboto-Medium.woff2") format("woff2");
   }
 `;

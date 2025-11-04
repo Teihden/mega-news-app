@@ -84,14 +84,14 @@ export const BottomWrapper = styled.div`
   grid-column: span 2;
 
   ${({ theme }) => theme.bp.down("mobile")} {
+    width: 100dvw;
     flex-flow: column nowrap;
     align-items: normal;
     justify-content: normal;
-    border-radius: 0;
-    grid-column: auto;
-    width: 100dvw;
     padding: 2rem ${({ theme }) => theme.container.paddingInline.mobile};
+    border-radius: 0;
     margin: 0 -${({ theme }) => theme.container.paddingInline.mobile} 0 -${({ theme }) => theme.container.paddingInline.mobile};
+    grid-column: auto;
   }
 
   &::before {
