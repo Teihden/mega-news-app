@@ -6,7 +6,7 @@ import { Title } from "@shared/ui/title";
 import { Tooltip } from "react-tooltip";
 import { Btn } from "@shared/ui/btn";
 import { Stack } from "@bedrock-layout/primitives";
-import { type UIMatch, useMatches } from "react-router";
+import { Link, type UIMatch, useMatches } from "react-router";
 import type { IRouteHandle } from "@shared/types";
 
 /**
@@ -61,6 +61,8 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
           {pages.map(({ href = "", label = "" }) => (
             <Btn
               key={label}
+              as={Link}
+              to={href}
               variant={"blank"}
               text={(
                 <Title
@@ -71,7 +73,6 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
                   {label}
                 </Title>
               )}
-              href={href}
               isInline={true}
               isDisabled={label === currentTitle}
             />

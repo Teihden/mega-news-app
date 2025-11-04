@@ -5,6 +5,7 @@ import type { Ref } from "react";
 /**
  * Компонент кнопки.
  * @param props - Свойства компонента.
+ * @param props.as Определяет HTML-элемент, используемый для рендеринга. По умолчанию null.
  * @param props.variant - Тип кнопки, определяющий стиль оформления (например, "primary", "secondary").
  * @param props.size - Размер кнопки (например, "sm", "md", "lg").
  * @param props.icon - Иконка, которая отображается внутри кнопки.
@@ -27,6 +28,7 @@ import type { Ref } from "react";
  */
 export const Btn: IBtn = (props) => {
   const {
+    as = null,
     variant = "primary",
     size = "sm",
     icon = null,
@@ -42,18 +44,19 @@ export const Btn: IBtn = (props) => {
     isSquare = false,
     isInline = false,
     href,
+    to,
     target,
     rel,
     ref,
     ...rest
   } = props;
-  const isLink = "href" in props;
+  const isLink = "href" in props || "to" in props;
   const component = isLink ? "a" : "button";
 
   return (
     <S.Btn
       ref={ref as unknown as Ref<HTMLButtonElement & HTMLAnchorElement>}
-      as={component}
+      as={as ?? component}
       $variant={variant}
       $size={size}
       $isHover={isHover}
@@ -62,7 +65,7 @@ export const Btn: IBtn = (props) => {
       $isRound={isRound}
       $isSquare={isSquare}
       $isInline={isInline}
-      {...(isLink ? { href, target, rel } : {})}
+      {...(isLink ? { href, to, target, rel } : {})}
       {...(!isLink ? { disabled: isDisabled || disabled } : {})}
       {...rest}
     >

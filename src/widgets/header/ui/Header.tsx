@@ -6,7 +6,7 @@ import { useTheme } from "styled-components";
 import { useMediaQuery } from "styled-breakpoints/use-media-query";
 import { HeaderNav } from "./HeaderNav";
 import { HeaderMenu } from "./HeaderMenu";
-import { type UIMatch, useMatches } from "react-router";
+import { Link, type UIMatch, useMatches } from "react-router";
 import type { IRouteHandle } from "@shared/types";
 import { Btn } from "@shared/ui/btn";
 
@@ -36,9 +36,10 @@ export const Header: FC<IHeaderProps> = (props) => {
         )}
         {logo && (
           <Btn
+            as={Link}
             variant={"blank"}
             isInline={true}
-            href={"/"}
+            to={"/"}
             title={"Return to the main page"}
             isDisabled={currentTitle === "Main"}
           >

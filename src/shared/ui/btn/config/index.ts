@@ -1,8 +1,10 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, FC, PropsWithChildren, ReactNode, Ref } from "react";
 import { defaultTheme } from "@app/styles";
 import { Btn } from "../ui/styles";
+import type { Link } from "react-router";
 
 export interface ICommonBtnProps extends PropsWithChildren {
+  as?: typeof Link | null;
   variant?: keyof typeof defaultTheme.btn.variants;
   size?: keyof typeof defaultTheme.btn.sizes;
   icon?: ReactNode;
@@ -19,6 +21,7 @@ export interface ICommonBtnProps extends PropsWithChildren {
 
 export type TButtonProps = ICommonBtnProps & ButtonHTMLAttributes<HTMLButtonElement> & {
   href?: never;
+  to?: never;
   hrefLang?: never;
   download?: never;
   target?: never;
@@ -29,6 +32,7 @@ export type TButtonProps = ICommonBtnProps & ButtonHTMLAttributes<HTMLButtonElem
 export type TAnchorProps = ICommonBtnProps & AnchorHTMLAttributes<HTMLAnchorElement> & {
   disabled?: never;
   type?: never;
+  to?: string;
   ref?: Ref<HTMLAnchorElement>;
 };
 

@@ -5,7 +5,7 @@ import { Btn } from "@shared/ui/btn";
 import { WithIndicator } from "@entities/withIndicator";
 import { Title } from "@shared/ui/title";
 import type { IFooterPagesProps } from "@widgets/footer/config";
-import { type UIMatch, useMatches } from "react-router";
+import { Link, type UIMatch, useMatches } from "react-router";
 import type { IRouteHandle } from "@shared/types";
 import { type DefaultTheme } from "styled-components";
 
@@ -40,9 +40,10 @@ export const FooterPages: FC<IFooterPagesProps> = (props) => {
         {pages.map(({ href = "", label = "" }) => (
           <Btn
             key={label}
+            as={Link}
             variant={"blank"}
             text={label}
-            href={href}
+            to={href}
             isInline={true}
             isDisabled={label === currentTitle}
           />
