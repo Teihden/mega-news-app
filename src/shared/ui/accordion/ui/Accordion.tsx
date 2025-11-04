@@ -27,6 +27,7 @@ export const Accordion: IAccordion = (props) => {
     ...rest
   } = props;
   const [ isOpen, setIsOpen ] = useState<boolean>(isControlledOpen);
+  const [ isVisible, setIsVisible ] = useState<boolean>(isControlledOpen);
   const [ height, setHeight ] = useState<string | number>(isControlledOpen ? "auto" : 0);
   const contentWrapperRef = useRef<HTMLDivElement>(null);
 
@@ -38,9 +39,13 @@ export const Accordion: IAccordion = (props) => {
 
   /**
    * Функция-обработчик события завершения CSS-перехода.
-   * @returns Возвращает null при сворачивании, иначе ничего не возвращает.
    */
-  const handleTransitionEnd = () => isOpen ? setHeight("auto") : null;
+  const handleTransitionEnd = () => {
+    if (isOpen) {
+      setHeight("auto");
+      setIsVisible(true);
+    }
+  };
 
   useEffect(() => {
     if (isControlledOpen === isOpen) {
@@ -49,6 +54,7 @@ export const Accordion: IAccordion = (props) => {
 
     setHeight(isControlledOpen ? "auto" : 0);
     setIsOpen(() => isControlledOpen);
+    setIsVisible(() => isControlledOpen);
   }, [ isControlledOpen ]);
 
   useEffect(() => {
@@ -63,6 +69,7 @@ export const Accordion: IAccordion = (props) => {
 
     if (!isOpen && height === "auto") {
       setHeight(el.scrollHeight);
+      setIsVisible(false);
 
       const timeout = setTimeout(() => setHeight(0), 100);
       return () => clearTimeout(timeout);
@@ -99,6 +106,7 @@ export const Accordion: IAccordion = (props) => {
         ref={contentWrapperRef}
         style={{ height }}
         onTransitionEnd={handleTransitionEnd}
+        $isVisible={isVisible}
       >
         <S.Content>
           {children}

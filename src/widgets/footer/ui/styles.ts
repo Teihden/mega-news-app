@@ -77,7 +77,7 @@ export const BottomWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 1.5rem 2rem 0;
+  padding: 2rem 2rem 2rem 0;
   border-radius: ${({ theme }) => `0 ${theme.default.borderRadius} ${theme.default.borderRadius} 0`};
   background: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["5"] : theme.palette.black["25"]};
   gap: 3rem 2rem;
@@ -89,16 +89,9 @@ export const BottomWrapper = styled.div`
     justify-content: normal;
     border-radius: 0;
     grid-column: auto;
-
-    &::after {
-      position: absolute;
-      display: block;
-      width: 100dvw;
-      height: 100%;
-      background: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["5"] : theme.palette.black["25"]};
-      content: "";
-      inset: 0 -100dvw 0 auto;
-    }
+    width: 100dvw;
+    padding: 2rem ${({ theme }) => theme.container.paddingInline.mobile};
+    margin: 0 -${({ theme }) => theme.container.paddingInline.mobile} 0 -${({ theme }) => theme.container.paddingInline.mobile};
   }
 
   &::before {
@@ -109,6 +102,10 @@ export const BottomWrapper = styled.div`
     background: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["5"] : theme.palette.black["25"]};
     content: "";
     inset: 0 auto 0 -100dvw;
+
+    ${({ theme }) => theme.bp.down("mobile")} {
+      content: none;
+    }
   }
 
   ${Btn.Btn} {
@@ -136,14 +133,14 @@ export const Comment = styled.div`
   gap: 1rem;
 
   &:not(:last-child) {
-    margin-block: 0 2rem;
+    margin-block: 0 2.25rem;
   }
 
   ${Text.Text} {
     display: -webkit-box;
     overflow: hidden;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2;
   }
 `;
 

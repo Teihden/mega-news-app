@@ -8,3 +8,4 @@ export { subTitle } from "./ui/subTitle";
 export { defaultStyles, defaultStylesDark } from "./defaultStyles";
 export { breakpoints as bp, type TMediaBreakpoints, MEDIA_BREAKPOINTS, COMMON_MEDIA_BREAKPOINTS } from "./media";
 export { btn, btnDark } from "./ui";
+export { fonts } from "./fonts";

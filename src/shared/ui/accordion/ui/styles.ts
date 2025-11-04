@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Btn as ComponentBtn } from "@shared/ui/btn";
-import type { IStyledBtn, IStyledHeader } from "../config";
-import { Title } from "@shared/ui/title";
+import type { IStyledBtn, IStyledContentWrapper, IStyledHeader } from "../config";
 
 export const Accordion = styled.div`
   display: flex;
@@ -19,12 +18,8 @@ export const Btn = styled(ComponentBtn)<IStyledBtn>`
 
   svg {
     display: ${({ $isBtnActive }) => $isBtnActive ? "block" : "none"};
+    color: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["50"] : theme.palette.white["50"]};
     transform: ${({ $isOpen }) => $isOpen ? "rotate(90deg)" : "rotate(0deg)"};
-  }
-
-  ${Title.Title} {
-    color: inherit;
-    transition: inherit;
   }
 `;
 
@@ -33,8 +28,8 @@ export const Header = styled.div<IStyledHeader>`
   padding: 0;
 `;
 
-export const ContentWrapper = styled.div`
-  overflow: hidden;
+export const ContentWrapper = styled.div<IStyledContentWrapper>`
+  overflow: ${({ $isVisible }) => $isVisible ? "visible" : "hidden"};
   transition: height ${({ theme }) => theme.default.transitionDuration} linear;
 `;
 

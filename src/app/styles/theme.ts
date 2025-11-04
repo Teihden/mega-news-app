@@ -27,6 +27,8 @@ import {
   inputDark,
   toast,
   toastDark,
+  tooltip,
+  tooltipDark,
 } from "./ui";
 
 export type TThemeType = typeof defaultTheme;
@@ -66,6 +68,7 @@ export const defaultTheme = {
   overlay,
   input,
   toast,
+  tooltip,
 };
 
 export const lightTheme = {
@@ -85,4 +88,5 @@ export const darkTheme = {
   overlay: overlayDark,
   input: inputDark,
   toast: toastDark,
+  tooltip: tooltipDark,
 };

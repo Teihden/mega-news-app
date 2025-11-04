@@ -1,4 +1,5 @@
 import type { IComment } from "@shared/types";
+import type { PAGES } from "@shared/config/constants";
 
 export interface IFooterProps {
   comments?: IComment[] | null;
@@ -6,10 +7,7 @@ export interface IFooterProps {
     src?: string;
     href?: string;
   }[];
-  pages?: {
-    href?: string;
-    label?: string;
-  }[];
+  pages?: typeof PAGES;
 }
 
 export interface IFooterInstagramProps {

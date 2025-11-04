@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import type { IStyledBtnProps } from "../config";
 import { palette } from "@app/styles";
+import { Title } from "@shared/ui/title";
 
 export const Btn = styled.button<IStyledBtnProps>`
   display: ${({ $isInline }) => $isInline ? "inline-flex" : "flex"};
@@ -127,5 +128,10 @@ export const Btn = styled.button<IStyledBtnProps>`
 
   * {
     pointer-events: none;
+  }
+
+  ${Title.Title} {
+    color: inherit;
+    transition: inherit;
   }
 `;

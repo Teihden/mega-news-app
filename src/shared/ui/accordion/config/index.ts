@@ -22,6 +22,10 @@ export interface IStyledHeader {
   $isOpen?: boolean;
 }
 
+export interface IStyledContentWrapper {
+  $isVisible?: boolean;
+}
+
 export interface IAccordion extends FC<IAccordionProps> {
   Accordion: typeof Accordion;
   Header: typeof Header;

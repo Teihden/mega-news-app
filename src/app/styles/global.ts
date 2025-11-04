@@ -1,9 +1,12 @@
 import { createGlobalStyle } from "styled-components";
+import { fonts } from "./fonts";
 
 export const GlobalStyle = createGlobalStyle`
   :root {
     color-scheme: light dark;
   }
+
+  ${fonts}
 
   * {
     box-sizing: border-box;
@@ -68,6 +71,7 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scrollbar-gutter: stable;
+    overflow: hidden auto;
 
     @supports (text-size-adjust: none) {
       text-size-adjust: none;
@@ -92,9 +96,9 @@ export const GlobalStyle = createGlobalStyle`
     flex-flow: column nowrap;
     background: ${({ theme }) => theme.default.bg};
     color: ${({ theme }) => theme.default.color};
-    font-size: ${({ theme }) => theme.body["1"].fontSize};
-    font-weight: ${({ theme }) => theme.body["1"].fontWeight};
-    line-height: ${({ theme }) => theme.body["1"].lineHeight};
+    font-size: ${({ theme }) => theme.body.fontSize};
+    font-weight: ${({ theme }) => theme.body.fontWeight};
+    line-height: ${({ theme }) => theme.body.lineHeight};
   }
 
   svg {
@@ -118,5 +122,15 @@ export const GlobalStyle = createGlobalStyle`
     margin: -1px;
     clip-path: inset(100%);
     white-space: nowrap;
+  }
+
+  .custom-react-tooltip.react-tooltip {
+    background: ${({ theme }) => theme.tooltip.bg};
+    border-width: ${({ theme }) => theme.tooltip.borderWidth};
+    border-style: ${({ theme }) => theme.tooltip.borderStyle};
+    border-color: ${({ theme }) => theme.tooltip.borderColor};
+    border-radius: ${({ theme }) => theme.tooltip.borderRadius};
+    padding: ${({ theme }) => theme.tooltip.padding};
+    box-shadow: ${({ theme }) => theme.tooltip.boxShadow};
   }
 `;

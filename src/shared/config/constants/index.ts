@@ -1,11 +1,7 @@
-export const ROUTES = {
-  TYPOGRAPHY: "/typography/",
-  COMPONENTS: "/components/",
-} as const;
-
 export const PAGES = [
-  { href: ROUTES.TYPOGRAPHY, label: "Typography" },
-  { href: ROUTES.COMPONENTS, label: "Components" },
+  { href: "/typography/", label: "Typography" },
+  { href: "/components/", label: "Components" },
+  { href: "/", label: "Main" },
 ];
 
 export const API_URL = import.meta.env.VITE_API_URL ?? "https://dummyjson.com";

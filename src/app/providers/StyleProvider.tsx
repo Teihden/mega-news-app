@@ -1,6 +1,12 @@
 import { ThemeProvider } from "styled-components";
-import type { FC, PropsWithChildren } from "react";
+import { type FC, type PropsWithChildren, useLayoutEffect, useState } from "react";
 import { useAppStore } from "@app/store";
+import { darkTheme, lightTheme } from "@app/styles";
+
+const themes = {
+  light: lightTheme,
+  dark: darkTheme,
+};
 
 /**
  * Компонент StyleProvider предоставляет тему оформления для своего дочернего контента.
@@ -10,10 +16,16 @@ import { useAppStore } from "@app/store";
  */
 export const StyleProvider: FC<PropsWithChildren> = (props) => {
   const { children } = props;
-  const theme = useAppStore(({ theme }) => theme);
+  const themeMode = useAppStore(({ themeMode }) => themeMode);
+  // const theme = themes[themeMode];
+
+  const [ currentTheme, setCurrentTheme ] = useState(themes[themeMode]);
+  useLayoutEffect(() => {
+    setCurrentTheme(themes[themeMode]);
+  }, [ themeMode ]);
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={currentTheme}>
       {children}
     </ThemeProvider>
   );
