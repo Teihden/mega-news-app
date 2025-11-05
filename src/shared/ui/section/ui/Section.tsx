@@ -11,6 +11,7 @@ import * as S from "./styles";
  * @param props.headerTag Тег для хэдера.
  * @param props.footerSlot Слот для отображения содержимого подвала секции.
  * @param props.footerTag Тег для футера.
+ * @param props.withContainer Определяет, нужно ли оборачивать контент в Container. По умолчанию true.
  * @param props.children Основное содержимое секции.
  * @returns Компонент.
  */
@@ -23,34 +24,42 @@ export const Section: ISection = (props) => {
     footerSlot = null,
     footerTag = "footer",
     children = null,
+    withContainer = true,
   } = props;
+
+  const content = (
+    <>
+      {headerSlot && (
+        <S.Header
+          as={headerTag}
+        >
+          {headerSlot}
+        </S.Header>
+      )}
+      {children && (
+        <S.Content>
+          {children}
+        </S.Content>
+      )}
+      {footerSlot && (
+        <S.Footer
+          as={footerTag}
+        >
+          {footerSlot}
+        </S.Footer>
+      )}
+    </>
+  );
 
   return (
     <S.Section
       as={as}
       className={className}
     >
-      <Container>
-        {headerSlot && (
-          <S.Header
-            as={headerTag}
-          >
-            {headerSlot}
-          </S.Header>
-        )}
-        {children && (
-          <S.Content>
-            {children}
-          </S.Content>
-        )}
-        {footerSlot && (
-          <S.Footer
-            as={footerTag}
-          >
-            {footerSlot}
-          </S.Footer>
-        )}
-      </Container>
+      {withContainer
+        ? <Container>{content}</Container>
+        : content
+      }
     </S.Section>
   );
 };

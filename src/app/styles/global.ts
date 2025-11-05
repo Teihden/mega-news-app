@@ -71,7 +71,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: ${({ theme }) => theme.html.fontSize};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    scrollbar-gutter: stable;
+    scrollbar-gutter: auto;
 
     @supports (text-size-adjust: none) {
       text-size-adjust: none;

@@ -23,7 +23,7 @@ import type { Ref } from "react";
  * @param props.href - Если передан, кнопка рендерится как `<a>` с указанным href.
  * @param props.target - Атрибут target для ссылки (`_blank`, `_self` и т.д.).
  * @param props.rel - Атрибут rel для ссылки (например, `noopener noreferrer` для `_blank`).
- * @param props.ref - реф
+ * @param props.ref - реф.
  * @returns Возвращает компонент.
  */
 export const Btn: IBtn = (props) => {
