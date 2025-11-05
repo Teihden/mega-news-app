@@ -8,8 +8,9 @@ import imgMusic1 from "@shared/assets/images/music/music-1.jpg";
 import imgSport1 from "@shared/assets/images/sport/sport-1.jpg";
 import imgTechnology1 from "@shared/assets/images/technology/technology-1.jpg";
 import imgWeather1 from "@shared/assets/images/weather/weather-1.jpg";
+import type { ILogoCarouselProps } from "../config";
 
-export const main = {
+export const main: ILogoCarouselProps = {
   items: [
     {
       src: imgAbstract1,
@@ -58,4 +59,4 @@ export const main = {
   })),
 };
 
-main.items = [ ...main.items, ...main.items ];
+main.items = [ ...main.items!, ...main.items! ];
