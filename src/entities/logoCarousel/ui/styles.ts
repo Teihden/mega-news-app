@@ -69,7 +69,7 @@ export const Img = styled(ComponentImg)`
   width: 21.25rem;
   height: 6rem;
   flex-shrink: 0;
-  background: ${({ theme }) =>  theme.mode === "light" ? theme.palette.gray["25"] : theme.palette.washDark["100"]};
+  background: ${({ theme }) => theme.mode === "light" ? theme.palette.gray["25"] : theme.palette.washDark["100"]};
   filter: blur(.25rem);
 
   ${({ theme }) => theme.bp.down("mobile")} {

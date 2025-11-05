@@ -58,8 +58,7 @@ export const Section: ISection = (props) => {
     >
       {withContainer
         ? <Container>{content}</Container>
-        : content
-      }
+        : content}
     </S.Section>
   );
 };
