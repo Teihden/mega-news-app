@@ -100,6 +100,7 @@
     "@bedrock-layout/primitives": "^3.0.47",
     "@ramonak/react-progress-bar": "^5.4.0",
     "@reduxjs/toolkit": "^2.9.2",
+    "clsx": "^2.1.1",
     "formik": "^2.4.6",
     "js-cookie": "^3.0.5",
     "react": "^19.2.0",
@@ -109,8 +110,10 @@
     "react-redux": "^9.2.0",
     "react-router": "^7.9.5",
     "react-tooltip": "^5.30.0",
+    "remeda": "^2.32.0",
     "styled-breakpoints": "^14.1.5",
     "styled-components": "^6.1.19",
+    "swiper": "^12.0.3",
     "yup": "^1.7.1",
     "zustand": "^5.0.8"
   },

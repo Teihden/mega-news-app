@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { fonts } from "./fonts";
+import { swiperStyles } from "@app/styles/vendors";
 
 export const GlobalStyle = createGlobalStyle`
   :root {
@@ -7,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   ${fonts}
+  ${swiperStyles}
 
   * {
     box-sizing: border-box;
