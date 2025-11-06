@@ -10,6 +10,7 @@ import imgSport5Mobile from "@shared/assets/images/sport/sport-5-mobile.jpg";
 import { COMMON_MEDIA_BREAKPOINTS } from "@app/styles";
 import { Accordion } from "@shared/ui/accordion";
 import { BurgerBtn } from "@features/burgerBtn";
+import { MediaCard, mediaCardMock } from "@entities/mediaCard";
 
 /**
  * Компонент ComponentPage.
@@ -116,6 +117,18 @@ export const ComponentPage: FC = () => {
         headerSlot={<Title level={2} variantLevel={2}>BurgerBtn</Title>}
       >
         <BurgerBtn />
+      </Section>
+
+      <Section
+        headerSlot={<Title level={2} variantLevel={2}>MediaCard</Title>}
+      >
+        <MediaCard
+          {...mediaCardMock.main[0]}
+          css={`
+            width: 45rem;
+            height: 56rem;
+          `}
+        />
       </Section>
     </>
   );

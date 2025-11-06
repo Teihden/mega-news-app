@@ -26,13 +26,14 @@ export const swiperStyles = css`
     --swiper-preloader-z-index: 10;
     --swiper-preloader-aspect-ratio: 1;
     --swiper-preloader-transform: translate(-50%, -50%);
+
+    z-index: var(--swiper-preloader-z-index);
     width: var(--swiper-preloader-width);
-    max-height: var(--swiper-preloader-max-height);
-    min-height: var(--swiper-preloader-min-height);
     height: var(--swiper-preloader-height);
+    min-height: var(--swiper-preloader-min-height);
+    max-height: var(--swiper-preloader-max-height);
     margin-top: var(--swiper-preloader-margin-top);
     margin-left: var(--swiper-preloader-margin-left);
-    z-index: var(--swiper-preloader-z-index);
     aspect-ratio: var(--swiper-preloader-aspect-ratio);
     transform: var(--swiper-preloader-transform);
   }
@@ -62,18 +63,19 @@ export const swiperStyles = css`
     --swiper-pagination-bullet-inactive-color: ${({ theme }) => theme.palette.white["50"]};
     --swiper-pagination-bullet-horizontal-gap: 0;
     --swiper-pagination-bullet-inactive-opacity: 1;
+
     position: var(--swiper-pagination-bullet-position);
     display: var(--swiper-pagination-bullet-display);
-    background-color: var(--swiper-pagination-bullet-inactive-color);
     overflow: var(--swiper-pagination-bullet-overflow);
+    background-color: var(--swiper-pagination-bullet-inactive-color);
 
     &::after {
-      content: "";
       position: absolute;
       top: 50%;
       left: 0;
       width: 100%;
       height: 2rem;
+      content: "";
       transform: translateY(-50%);
     }
 
@@ -83,14 +85,14 @@ export const swiperStyles = css`
       --swiper-pagination-bullet-overflow: hidden;
 
       &::before {
-        content: "";
         position: relative;
         left: 0;
         display: block;
+        width: calc(var(--swiper-pagination-bullet-width) * (1 - var(--swiper-autoplay-progress, 0)));
         height: inherit;
         border-radius: var(--swiper-pagination-bullet-border-radius);
-        width: calc(var(--swiper-pagination-bullet-width) * (1 - var(--swiper-autoplay-progress, 0)));
         background-color: var(--swiper-pagination-color);
+        content: "";
       }
     }
   }
