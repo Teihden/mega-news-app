@@ -9,48 +9,48 @@ export const Slide = styled.div`
 `;
 
 export const SlideWrapper = styled.div`
-  transition: ${({ theme }) => theme.default.transitionDuration} ease;
-  opacity: 1;
-  height: 100%;
   width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: ${({ theme }) => theme.default.transitionDuration} ease;
 `;
 
 export const Navigation = styled.ul`
   position: absolute;
-  inset: 50% auto auto;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  list-style: none;
   z-index: 1;
-  pointer-events: none;
-  margin: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
   padding: 0;
+  margin: 0;
+  gap: 1rem;
+  inset: 50% auto auto;
+  list-style: none;
+  pointer-events: none;
   transform: translateY(-50%);
 `;
 
 export const NavigationItem = styled.li`
   width: fit-content;
   height: fit-content;
-  margin: 0;
   padding: 0;
+  margin: 0;
   pointer-events: auto;
 `;
 
 export const Pagination = styled.div`
   position: absolute;
-  inset: auto auto 3rem;
+  z-index: 1;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: .75rem;
   width: fit-content;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   padding: 0;
   margin: 0;
+  gap: .75rem;
+  inset: auto auto 3rem;
   transform: none;
-  z-index: 1;
 
   &:empty {
     display: none;
@@ -66,8 +66,8 @@ export const Slider = styled.div`
   }
 
   ${Slide} {
-    height: 100%;
     max-width: 100%;
+    height: 100%;
     border-radius: ${({ theme }) => theme.default.borderRadius};
     background: ${({ theme }) => theme.palette.gray["100"]};
 
