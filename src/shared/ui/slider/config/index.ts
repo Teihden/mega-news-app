@@ -2,8 +2,7 @@ import type { FC, ReactNode } from "react";
 import type { CSSProp } from "styled-components";
 import type Swiper from "swiper";
 import type { SwiperOptions } from "swiper/types";
-import { Container, NavigationItem, Slide, Slider, SlideWrapper } from "../ui/styles";
-import type { Navigation, Pagination } from "swiper/modules";
+import { Container, Navigation, NavigationItem, Pagination, Slide, Slider, SlideWrapper } from "../ui/styles";
 
 export interface ISliderProps {
   className?: string;
@@ -16,9 +15,9 @@ export interface ISliderProps {
   css?: CSSProp;
 }
 
-export const defaultCfg: SwiperOptions = {
+const defaultCfg: SwiperOptions = {
   slidesPerView: "auto",
-  spaceBetween: 8,
+  spaceBetween: 16,
   loop: false,
   watchSlidesProgress: false,
   resizeObserver: true,
@@ -39,9 +38,9 @@ export const defaultCfg: SwiperOptions = {
   },
 };
 
-export const defaultThumbsCfg: SwiperOptions = {
+const defaultThumbsCfg: SwiperOptions = {
   slidesPerView: "auto",
-  spaceBetween: 8,
+  spaceBetween: 16,
   loop: false,
   watchSlidesProgress: true,
   watchOverflow: true,
@@ -62,9 +61,39 @@ export const defaultThumbsCfg: SwiperOptions = {
   },
 };
 
+const mainCfg: SwiperOptions = {
+  initialSlide: 1,
+  speed: 300,
+  slidesPerView: 1,
+  spaceBetween: 24,
+  loopAdditionalSlides: 2,
+  loop: true,
+  autoplay: {
+    delay: 5000,
+    pauseOnMouseEnter: true,
+  },
+  navigation: {
+    enabled: true,
+  },
+  pagination: {
+    enabled: true,
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 1,
+      speed: 400,
+    },
+    1281: {
+      slidesPerView: 2,
+      speed: 500,
+    },
+  },
+};
+
 export const cfgs = {
   defaultCfg,
   defaultThumbsCfg,
+  mainCfg,
 };
 
 export interface ISlider extends FC<ISliderProps> {

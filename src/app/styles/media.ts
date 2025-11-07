@@ -17,6 +17,10 @@ export type TMediaBreakpoints = keyof typeof MEDIA_BREAKPOINTS;
 export const { breakpoints } = createStyledBreakpointsTheme({
   breakpoints: {
     desktop: "1920px",
+    desktopLarge: "1820px",
+    desktopBelowLarge: "1720px",
+    desktopAboveMedium: "1600px",
+    desktopMedium: "1480px",
     tablet: "1280px",
     tabletMedium: "1024px",
     tabletSmall: "920px",

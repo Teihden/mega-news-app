@@ -3,7 +3,7 @@ import * as S from "./styles";
 import { useEffect, useRef, useState } from "react";
 import { type Swiper as TSwiper } from "swiper";
 import { Swiper, type SwiperRef, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade, Mousewheel, Navigation, Pagination, Thumbs } from "swiper/modules";
+import { Autoplay, EffectFade, Mousewheel, Navigation, Pagination, Thumbs, EffectCoverflow } from "swiper/modules";
 import { isNavigation, isPagination, isThumbs } from "../lib";
 import { Btn } from "@shared/ui/btn";
 import IconChevronRight from "@shared/assets/images/icons/icon-chevron-right.svg?react";
@@ -71,8 +71,6 @@ export const Slider: ISlider = (props) => {
   const thumbsCfg = isThumbs(thumbsSlides)
     ? {
         ...swiperConfig.thumbs,
-        thumbsContainerClass: "reactSwiper__container--isThumbs",
-        slideThumbActiveClass: "reactSwiper__slide--isActive",
         swiper: thumbsSwiper,
       }
     : {};
@@ -83,6 +81,7 @@ export const Slider: ISlider = (props) => {
     ...(navigationCfg ? [ Navigation ] : []),
     ...(isThumbs(thumbsSlides) ? [ Thumbs ] : []),
     ...(swiperConfig.effect === "fade" ? [ EffectFade ] : []),
+    ...(swiperConfig.effect === "coverflow" ? [ EffectCoverflow ] : []),
     ...(swiperConfig.autoplay && isPlainObject(swiperConfig.autoplay) && !isEmpty(swiperConfig.autoplay) ? [ Autoplay ] : []),
   ];
 
@@ -91,17 +90,22 @@ export const Slider: ISlider = (props) => {
     ...(isThumbs(thumbsSlides) ? [ Thumbs ] : []),
   ];
 
-  const handleAutoplay = funnel<[ TSwiper, number, number ], [ TSwiper, number, number ]>((data) => {
-    const [ , progress ] = data;
+  const handleAutoplay = funnel((data: [ TSwiper, number, number ]) => {
+    const [ ,,progress ] = data;
     const el = componentRef.current ?? null;
 
     if (el && el instanceof HTMLElement) {
       el.style.setProperty("--swiper-autoplay-progress", String(progress));
     }
-  }, { minGapMs: 150, triggerAt: "start" });
+  }, {
+    /* eslint-disable-next-line jsdoc/require-jsdoc */
+    reducer: (_, ...args: [ TSwiper, number, number ]) => args,
+    minGapMs: 150,
+    triggerAt: "start",
+  });
 
   /* При ресайзе свайпера запускается автопролистывание слайдов */
-  const handleResize = funnel<[ TSwiper ], [ TSwiper ]>((data) => {
+  const handleResize = funnel((data: [ TSwiper ]) => {
     const [ swiper ] = data;
 
     if (swiper.el.matches(":hover") && swiper.autoplay?.running) {
@@ -124,72 +128,12 @@ export const Slider: ISlider = (props) => {
         autoplayListenerAddedRef.current = true;
       }
     }
-  }, { minGapMs: 300, triggerAt: "start" });
-
-  /**
-   * Функция обработки события "pointerenter".
-   * Приостанавливает автоматическое перелистывание слайдов в swiper при наведении указателя. Блокирует возможность перелистывания слайдов вперед и назад.
-   * После истечения времени, оставшегося до следующего автоматического перелистывания, возвращает возможность смены слайдов.
-   */
-  const handlePointerEnter = () => {
-    const swiper = swiperRef.current?.swiper;
-
-    if (!swiper || !swiper.autoplay?.running) {
-      return;
-    }
-
-    swiper.allowSlideNext = false;
-    swiper.allowSlidePrev = false;
-
-    swiper.autoplay?.stop();
-
-    setTimeout(() => {
-      if (!swiper) {
-        return;
-      }
-
-      swiper.allowSlideNext = true;
-      swiper.allowSlidePrev = true;
-    }, (swiper.autoplay?.timeLeft ?? 0));
-  };
-
-  /**
-   * Обрабатывает событие выхода указателя из области компонента.
-   * Если функция автопроигрывания отключена или объект swiper отсутствует, выполнение прекращается.
-   * В противном случае через задержку, равную оставшемуся времени автопроигрывания, возобновляет автопроигрывание, если swiper доступен.
-   */
-  const handlePointerLeave = () => {
-    const swiper = swiperRef.current?.swiper;
-
-    if (!swiperConfig.autoplay || !swiper) {
-      return;
-    }
-
-    setTimeout(() => {
-      if (!swiper) {
-        return;
-      }
-
-      swiper.autoplay?.start();
-    }, swiper.autoplay?.timeLeft ?? 0);
-  };
-
-  /**
-   * Обработчик события PointerDown.
-   * Эта функция выполняется при срабатывании события нажатия, связанном с указателем.
-   * Если autoplay не активирован в конфигурации swiper или экземпляр swiper отсутствует, функция завершает выполнение.
-   * В противном случае она разрешает переходы к следующему и предыдущему слайду.
-   */
-  const handlePointerDown = () => {
-    const swiper = swiperRef.current?.swiper;
-
-    if (!swiperConfig.autoplay || !swiper) {
-      return;
-    }
-
-    swiper.allowSlideNext = true;
-    swiper.allowSlidePrev = true;
-  };
+  }, {
+    /* eslint-disable-next-line jsdoc/require-jsdoc */
+    reducer: (_, ...args: [ TSwiper ]) => args,
+    minGapMs: 300,
+    triggerAt: "start",
+  });
 
   useEffect(() => {
     const swiper = swiperRef.current?.swiper;
@@ -201,6 +145,7 @@ export const Slider: ISlider = (props) => {
       swiper.params.pagination.el = paginationRef.current;
       swiper.pagination?.init();
       swiper.pagination?.render();
+      swiper.pagination?.update();
     }
 
     if (isNavigation(swiper.params.navigation) && navigationPrevRef.current && navigationNextRef.current) {
@@ -216,43 +161,33 @@ export const Slider: ISlider = (props) => {
       className={className}
     >
       {/* Main Swiper */}
-      <div
-        style={{
-          display: "contents",
-        }}
-        onPointerEnter={handlePointerEnter}
-        onPointerLeave={handlePointerLeave}
-        onPointerDown={handlePointerDown}
+      <Swiper
+        ref={swiperRef}
+        className={clsx(`${S.Container.styledComponentId}`, { "is-main": isThumbs(thumbsSlides) })}
+        {...swiperConfig}
+        modules={swiperModules}
+        pagination={paginationCfg}
+        navigation={navigationCfg}
+        thumbs={thumbsCfg}
+        onAutoplayTimeLeft={swiperConfig?.autoplay
+          ? (swiper: TSwiper, time: number, progress: number) => handleAutoplay.call(swiper, time, progress)
+          : () => {}}
+        onResize={(swiper: TSwiper) => handleResize.call(swiper)}
       >
-        <Swiper
-          ref={swiperRef}
-          className={clsx(`${S.Container.styledComponentId}`, { "is-main": isThumbs(thumbsSlides) })}
-          {...swiperConfig}
-          modules={swiperModules}
-          pagination={paginationCfg}
-          navigation={navigationCfg}
-          thumbs={thumbsCfg}
-          onAutoplayTimeLeft={swiperConfig?.autoplay
-            ? (swiper: TSwiper, time: number, progress: number) => handleAutoplay.call(swiper, time, progress)
-            : () => {
-              }}
-          onResize={(swiper: TSwiper) => handleResize.call(swiper)}
-        >
-          {slides?.map((slide, i) => {
-            return (
-              <SwiperSlide
-                key={i}
-                className={clsx(`${S.Slide.styledComponentId}`)}
-              >
-                <S.SlideWrapper>
-                  {slide}
-                </S.SlideWrapper>
-                {isLazyLoadingSlide && <div className={"swiper-lazy-preloader"} />}
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
-      </div>
+        {slides?.map((slide, i) => {
+          return (
+            <SwiperSlide
+              key={i}
+              className={clsx(`${S.Slide.styledComponentId}`)}
+            >
+              <S.SlideWrapper>
+                {slide}
+              </S.SlideWrapper>
+              {isLazyLoadingSlide && <div className={"swiper-lazy-preloader"} />}
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
 
       {/* Thumbs Swiper */}
       {isThumbs(thumbsSlides) && (
@@ -310,6 +245,8 @@ export const Slider: ISlider = (props) => {
     </S.Slider>
   );
 };
+
+export default Slider;
 
 Slider.Slider = S.Slider;
 Slider.Container = S.Container;

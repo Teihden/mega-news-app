@@ -19,7 +19,7 @@ export const Img: IImg = (props) => {
     src = "",
     sources = [],
     placeholder = imgStub2,
-    alt = "Изображение",
+    alt = "Image",
     ...rest
   } = props;
   const [ currentSrc, setCurrentSrc ] = useState<null | string>(null);

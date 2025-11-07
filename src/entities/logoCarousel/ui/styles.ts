@@ -70,7 +70,8 @@ export const Img = styled(ComponentImg)`
   height: 6rem;
   flex-shrink: 0;
   background: ${({ theme }) => theme.mode === "light" ? theme.palette.gray["25"] : theme.palette.washDark["100"]};
-  filter: blur(.25rem);
+  filter: blur(.3rem);
+  transition: filter ${({ theme }) => theme.default.transitionDuration} ease-in-out;
 
   ${({ theme }) => theme.bp.down("mobile")} {
     width: 16rem;
@@ -85,6 +86,20 @@ export const Btn = styled(ComponentBtn)`
   padding: 0;
   border-width: 0;
   color: ${({ theme }) => theme.palette.white["100"]};
+
+  @media (hover: hover) {
+    &:hover {
+      color: ${({ theme }) => theme.palette.white["100"]};
+
+      ${Img} {
+        filter: blur(0);
+      }
+    }
+  }
+
+  &:active {
+    color: ${({ theme }) => theme.palette.white["100"]};
+  }
 `;
 
 export const HashTag = styled.span`

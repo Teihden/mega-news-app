@@ -13,16 +13,19 @@ export const MediaCard = styled.article`
   height: 100%;
   max-height: 100%;
   flex-direction: column;
+  border-radius: ${({ theme }) => theme.default.borderRadius};
   transform: translate3d(0, 0, 0);
 `;
 
 export const Img = styled(ComponentImg)`
   width: 100%;
   height: 100%;
+  border-radius: 0;
+  transition: .3s ease;
 `;
 
 export const Btn = styled(ComponentBtn)`
-  color: ${({ theme }) => theme.palette.black["100"]};
+  color: ${({ theme }) => theme.mode === "light" ? theme.palette.black["100"] : theme.palette.white["100"]};
 
   &::after {
     position: fixed;
@@ -49,10 +52,11 @@ export const Wrapper = styled.div`
   position: absolute;
   z-index: 1;
   display: flex;
+  min-height: 16.25rem;
   flex-direction: column;
-  padding: 2rem;
+  padding: 2rem 2rem 3rem;
   border-radius: ${({ theme }) => theme.default.borderRadius};
-  background: ${({ theme }) => theme.palette.white["75"]};
+  background: ${({ theme }) => theme.mode === "light" ? theme.palette.white["75"] : theme.palette.washDark["75"]};
   gap: 2rem;
   inset: auto 1.5rem 1.5rem;
 `;

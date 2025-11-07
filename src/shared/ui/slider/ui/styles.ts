@@ -19,12 +19,11 @@ export const Navigation = styled.ul`
   position: absolute;
   z-index: 1;
   display: flex;
-  width: 100%;
   justify-content: space-between;
   padding: 0;
   margin: 0;
   gap: 1rem;
-  inset: 50% auto auto;
+  inset: 50% 1.5rem auto;
   list-style: none;
   pointer-events: none;
   transform: translateY(-50%);
@@ -39,18 +38,20 @@ export const NavigationItem = styled.li`
 `;
 
 export const Pagination = styled.div`
-  position: absolute;
-  z-index: 1;
-  display: flex;
-  width: fit-content;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-  gap: .75rem;
-  inset: auto auto 3rem;
-  transform: none;
+  && {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    width: fit-content;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0 auto;
+    gap: .75rem;
+    inset: auto 1.5rem 2.5rem;
+    transform: none;
+  }
 
   &:empty {
     display: none;
@@ -69,7 +70,8 @@ export const Slider = styled.div`
     max-width: 100%;
     height: 100%;
     border-radius: ${({ theme }) => theme.default.borderRadius};
-    background: ${({ theme }) => theme.palette.gray["100"]};
+    background: ${({ theme }) => theme.mode === "light" ? theme.palette.gray["75"] : theme.palette.washDark["100"]};
+    transition: .3s ease;
 
     &:has(.swiper-lazy-preloader) {
       ${SlideWrapper} {

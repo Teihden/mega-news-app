@@ -1,5 +1,5 @@
 export const container = {
-  maxWidth: "1652px",
+  maxWidth: "1712px",
   paddingInline: {
     desktop: "100px",
     tablet: "70px",

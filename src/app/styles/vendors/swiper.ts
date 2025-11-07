@@ -91,7 +91,7 @@ export const swiperStyles = css`
         width: calc(var(--swiper-pagination-bullet-width) * (1 - var(--swiper-autoplay-progress, 0)));
         height: inherit;
         border-radius: var(--swiper-pagination-bullet-border-radius);
-        background-color: var(--swiper-pagination-color);
+        background: var(--swiper-pagination-color);
         content: "";
       }
     }
