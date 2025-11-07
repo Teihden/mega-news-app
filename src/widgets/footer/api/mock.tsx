@@ -1,14 +1,11 @@
 import type { IFooterProps } from "../config";
-import imgInstagram1 from "@shared/assets/images/instagram/instagram-1.jpg";
-import imgInstagram2 from "@shared/assets/images/instagram/instagram-2.jpg";
-import imgInstagram3 from "@shared/assets/images/instagram/instagram-3.jpg";
-import imgInstagram4 from "@shared/assets/images/instagram/instagram-4.jpg";
-import imgInstagram5 from "@shared/assets/images/instagram/instagram-5.jpg";
-import imgInstagram6 from "@shared/assets/images/instagram/instagram-6.jpg";
-import imgInstagram7 from "@shared/assets/images/instagram/instagram-7.jpg";
-import imgInstagram8 from "@shared/assets/images/instagram/instagram-8.jpg";
-import imgInstagram9 from "@shared/assets/images/instagram/instagram-9.jpg";
 import { PAGES } from "@shared/config/constants";
+
+const imgs = import.meta.glob<string>("@shared/assets/images/instagram/*.jpg", {
+  query: "?url",
+  import: "default",
+  eager: true,
+});
 
 export const footer: IFooterProps = {
   /* comments: [
@@ -29,34 +26,6 @@ export const footer: IFooterProps = {
       content: "It was a great match today Janzi! You did great😉",
     },
   ], */
-  instagramLinks: [
-    {
-      src: imgInstagram1,
-    },
-    {
-      src: imgInstagram2,
-    },
-    {
-      src: imgInstagram3,
-    },
-    {
-      src: imgInstagram4,
-    },
-    {
-      src: imgInstagram5,
-    },
-    {
-      src: imgInstagram6,
-    },
-    {
-      src: imgInstagram7,
-    },
-    {
-      src: imgInstagram8,
-    },
-    {
-      src: imgInstagram9,
-    },
-  ],
+  instagramLinks: Object.values(imgs).map((src) => ({ src })),
   pages: PAGES,
 };

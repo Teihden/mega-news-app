@@ -18,7 +18,8 @@ export const Img = styled.img<IStyledImgProps>`
   max-height: 100%;
   border: 0;
   border-radius: ${({ theme }) => theme.default.borderRadius};
-  background: ${({ theme }) => theme.palette.darkGray["100"]};
+  background: ${({ theme }) => theme.mode === "light" ? theme.palette.darkGray["100"] : theme.palette.washDark["100"]};
+  box-shadow: none;
   object-fit: ${({ $isPlaceholder }) => $isPlaceholder ? "contain" : "cover"};;
   object-position: center;
   pointer-events: none;

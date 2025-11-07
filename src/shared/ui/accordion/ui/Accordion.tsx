@@ -1,7 +1,7 @@
 import type { IAccordion } from "../config";
 import * as S from "./styles";
 import { useEffect, useRef, useState } from "react";
-import IconVChevronRight from "@shared/assets/images/icons/icon-chevron-right.svg?react";
+import IconChevronRight from "@shared/assets/images/icons/icon-chevron-right.svg?react";
 import { Title } from "@shared/ui/title";
 
 /**
@@ -85,7 +85,7 @@ export const Accordion: IAccordion = (props) => {
           variant={"blank"}
           $isOpen={isOpen}
           $isBtnActive={isActive}
-          icon={<IconVChevronRight />}
+          icon={<IconChevronRight />}
           iconPosition={"right"}
           text={(
             <Title

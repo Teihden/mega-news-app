@@ -1,6 +1,7 @@
 import type { FC, PropsWithChildren, ReactNode } from "react";
 import { Header, Content, Footer, Section } from "../ui/styles";
 import { Container } from "@shared/ui/container";
+import type { CSSProp } from "styled-components";
 
 export interface ISectionProps extends PropsWithChildren {
   className?: string;
@@ -10,6 +11,8 @@ export interface ISectionProps extends PropsWithChildren {
   contentSlot?: ReactNode;
   footerSlot?: ReactNode;
   footerTag?: "div" | "footer";
+  withContainer?: boolean;
+  css?: CSSProp;
 }
 
 export interface ISection extends FC<ISectionProps> {
