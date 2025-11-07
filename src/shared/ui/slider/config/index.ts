@@ -62,7 +62,7 @@ const defaultThumbsCfg: SwiperOptions = {
 };
 
 const mainCfg: SwiperOptions = {
-  initialSlide: 1,
+  initialSlide: 0,
   speed: 300,
   slidesPerView: 1,
   spaceBetween: 24,
