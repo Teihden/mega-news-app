@@ -6,8 +6,7 @@ import { Title } from "@shared/ui/title";
 export const Btn = styled.button<IStyledBtnProps>`
   display: ${({ $isInline }) => $isInline ? "inline-flex" : "flex"};
   width: fit-content;
-  max-width: 100%;
-  height: ${({ theme, $isInline, $size }) => $isInline ? "fit-content" : theme.btn.sizes[$size!].height};
+  height: ${({ theme, $isInline, $size }) => $isInline ? "auto" : theme.btn.sizes[$size!].height};
   align-items: center;
   justify-content: center;
   border-width: ${({ theme, $isInline }) => $isInline ? 0 : theme.btn.borderWidth};
@@ -121,7 +120,7 @@ export const Btn = styled.button<IStyledBtnProps>`
 
   ${({ $isSquare }) => {
     return $isSquare && css`
-      aspect-ratio: 1;
+      aspect-ratio: 1 / 1;
       padding-inline: 0;
     `;
   }}
