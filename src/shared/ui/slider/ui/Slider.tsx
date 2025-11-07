@@ -246,8 +246,6 @@ export const Slider: ISlider = (props) => {
   );
 };
 
-export default Slider;
-
 Slider.Slider = S.Slider;
 Slider.Container = S.Container;
 Slider.Slide = S.Slide;
