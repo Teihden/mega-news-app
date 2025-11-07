@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { MediaCard } from "@entities/mediaCard";
 
 export const Container = styled.div`
   display: block;
@@ -78,6 +79,101 @@ export const Slider = styled.div`
         opacity: 0;
         pointer-events: none;
       }
+    }
+  }
+`;
+
+export const mainSliderStyles = css`
+  ${Navigation} {
+    max-width: 90rem;
+    margin: 0 auto;
+
+    ${({ theme }) => theme.bp.down("desktopBelowLarge")} {
+      max-width: 100%;
+    }
+  }
+
+  ${Pagination} {
+    inset: auto 27% 2.5rem auto;
+
+    ${({ theme }) => theme.bp.down("desktopBelowLarge")} {
+      inset: auto 1.5rem 2.5rem;
+    }
+
+    ${({ theme }) => theme.bp.down("tablet")} {
+      inset: auto 3rem 3rem auto;
+    }
+
+    ${({ theme }) => theme.bp.down("mobile")} {
+      inset: auto 1.5rem 1.5rem auto;
+
+      .swiper-pagination-bullet {
+        --swiper-pagination-color: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["25"] : theme.palette.white["75"]};
+        --swiper-pagination-bullet-inactive-color: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["10"] : theme.palette.white["50"]};
+      }
+    }
+  }
+
+  ${Slide} {
+    height: 56rem;
+    transition: width .5s ease;
+
+    ${({ theme }) => theme.bp.down("tablet")} {
+      height: 46rem;
+    }
+
+    ${({ theme }) => theme.bp.down("mobile")} {
+      height: 40rem;
+    }
+
+    &.swiper-slide-active,
+    &.swiper-slide-next + .swiper-slide,
+    &.swiper-slide-next + .swiper-slide + .swiper-slide {
+      ${({ theme }) => theme.bp.up("desktopBelowLarge")} {
+        width: 45rem !important;
+      }
+
+      ${({ theme }) => theme.bp.between("tablet", "desktopBelowLarge")} {
+        width: 40rem !important;
+      }
+    }
+
+    &.swiper-slide-next {
+      ${({ theme }) => theme.bp.up("desktopBelowLarge")} {
+        width: 93rem !important;
+      }
+
+      ${({ theme }) => theme.bp.between("tablet", "desktopBelowLarge")} {
+        width: 80rem !important;
+      }
+    }
+  }
+
+  ${MediaCard.Text} {
+    ${({ theme }) => theme.bp.down("tablet")} {
+      display: none;
+    }
+  }
+
+  ${MediaCard.Title} {
+    ${({ theme }) => theme.bp.down("tablet")} {
+      font-size: 2.5rem;
+    }
+
+    ${({ theme }) => theme.bp.down("mobile")} {
+      font-size: 2rem;
+    }
+  }
+
+  ${MediaCard.Wrapper} {
+    ${({ theme }) => theme.bp.down("tablet")} {
+      min-height: 9rem;
+    }
+
+    ${({ theme }) => theme.bp.down("mobile")} {
+      position: static;
+      border-radius: 0;
+      background: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["5"] : theme.palette.washDark["100"]};
     }
   }
 `;
