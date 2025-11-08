@@ -19,3 +19,8 @@ export const PUBLIC_URLS = {
   },
   comments: `${API_URL}${API_ENDPOINTS.comments}`,
 };
+
+export const STATE_CLASSES = {
+  isActive: "is-active",
+  isDisabled: "is-disabled",
+};

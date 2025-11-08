@@ -11,7 +11,7 @@ const MSW_PARAMS: StartOptions = {
  * @returns Если режим - разработка, возвращает промис, который разрешается объектом `ServiceWorkerRegistration`.
  */
 export const startMocking = async (): Promise<void | ServiceWorkerRegistration> => {
-  if (import.meta.env.MODE === "development") {
+  if (import.meta.env.DEV) {
     const { worker } = await import("./browser");
     return worker.start(MSW_PARAMS);
   }

@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import path from "path";
+import { resolve } from "node:path";
 import { VitePWA } from "vite-plugin-pwa";
 import svgr from "vite-plugin-svgr";
 
@@ -9,7 +9,7 @@ import svgr from "vite-plugin-svgr";
  * @param segments - Массив строк, представляющих части пути, которые требуется объединить.
  * @returns Абсолютный путь, сформированный из переданных сегментов, относительно текущей директории.
  */
-const resolvePath = (...segments: string[]) => path.resolve(__dirname, ...segments);
+const resolvePath = (...segments: string[]) => resolve(__dirname, ...segments);
 
 export default defineConfig(({ mode }) => {
   const isDev = mode === "development";

@@ -10,9 +10,9 @@
   "license": "ISC",
   "sideEffects": false,
   "scripts": {
-    "start": "dotenv -e .env -- cross-env vite",
+    "start": "dotenv -e .env -- cross-env vite dev",
     "build": "tsc -b && vite build",
-    "preview": "vite preview",
+    "preview": "dotenv -e .env -- cross-env vite preview",
     "lint": "npm run stylelint && npm run eslint",
     "stylelint": "stylelint --config stylelint.config.mjs ./src --fix",
     "eslint": "eslint --no-config-lookup --config eslint.config.ts ./src --fix",

@@ -65,7 +65,7 @@ const mainCfg: SwiperOptions = {
   initialSlide: 0,
   speed: 300,
   slidesPerView: 1,
-  spaceBetween: 24,
+  spaceBetween: 8,
   loopAdditionalSlides: 2,
   loop: true,
   autoplay: {
@@ -81,10 +81,12 @@ const mainCfg: SwiperOptions = {
   breakpoints: {
     768: {
       slidesPerView: 1,
+      spaceBetween: 16,
       speed: 400,
     },
     1281: {
       slidesPerView: 2,
+      spaceBetween: 24,
       speed: 500,
     },
   },
