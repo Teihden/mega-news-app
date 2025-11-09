@@ -171,7 +171,7 @@ export const Slider: ISlider = (props) => {
         navigation={navigationCfg}
         thumbs={thumbsCfg}
         onAfterInit={(swiper: TSwiper) => {
-          setTimeout(() => swiper.el.classList.add(STATE_CLASSES.isActive), 100);
+          setTimeout(() => swiper.el?.classList.add(STATE_CLASSES.isActive), 100);
         }}
         onAutoplayTimeLeft={swiperConfig?.autoplay
           ? (swiper: TSwiper, time: number, progress: number) => handleAutoplay.call(swiper, time, progress)

@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import { resolve } from "node:path";
 import { VitePWA } from "vite-plugin-pwa";
 import svgr from "vite-plugin-svgr";
+import Inspect from "vite-plugin-inspect";
 
 /**
  * Функция resolvePath объединяет указанные сегменты пути и возвращает абсолютный путь.
@@ -98,6 +99,14 @@ export default defineConfig(({ mode }) => {
         },
         include: "**/*.svg?react",
       }),
+      Inspect({
+        dev: false,
+        build: false,
+        silent: false,
+        open: false,
+        removeVersionQuery: true,
+        embedded: true,
+      }),
     ],
     resolve: {
       alias: {
@@ -112,6 +121,7 @@ export default defineConfig(({ mode }) => {
     },
     server: {
       port: 5173,
+      host: true,
       open: true,
     },
   };
