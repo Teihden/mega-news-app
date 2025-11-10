@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { fonts } from "./fonts";
-import { bedrockLayoutStyles, swiperStyles } from "@app/styles/vendors";
+import { swiperStyles } from "@app/styles/vendors";
 
 export const GlobalStyle = createGlobalStyle`
   :root {
@@ -9,7 +9,6 @@ export const GlobalStyle = createGlobalStyle`
 
   ${fonts}
   ${swiperStyles}
-  ${bedrockLayoutStyles}
 
   * {
     box-sizing: border-box;
