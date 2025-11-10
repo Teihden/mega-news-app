@@ -23,8 +23,6 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: resolvePath("build"),
       emptyOutDir: true,
-      sourcemap: isDev,
-      minify: isProd,
     },
     plugins: [
       react({
@@ -108,7 +106,7 @@ export default defineConfig(({ mode }) => {
         includePublic: true,
         logStats: true,
         cache: true,
-        cacheLocation: ".vite_cache/image-optimizer",
+        cacheLocation: "node_modules/.vite/image-optimizer",
         jpeg: {
           quality: 75,
           progressive: true,
