@@ -1,15 +1,17 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import path from "path";
+import { resolve } from "node:path";
 import { VitePWA } from "vite-plugin-pwa";
-import svgr from "vite-plugin-svgr";
+import ViteSvgr from "vite-plugin-svgr";
+import ViteInspect from "vite-plugin-inspect";
+import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 
 /**
  * Функция resolvePath объединяет указанные сегменты пути и возвращает абсолютный путь.
  * @param segments - Массив строк, представляющих части пути, которые требуется объединить.
  * @returns Абсолютный путь, сформированный из переданных сегментов, относительно текущей директории.
  */
-const resolvePath = (...segments: string[]) => path.resolve(__dirname, ...segments);
+const resolvePath = (...segments: string[]) => resolve(__dirname, ...segments);
 
 export default defineConfig(({ mode }) => {
   const isDev = mode === "development";
@@ -21,8 +23,7 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: resolvePath("build"),
       emptyOutDir: true,
-      sourcemap: isDev,
-      minify: isProd,
+      cssMinify: "lightningcss",
     },
     plugins: [
       react({
@@ -92,11 +93,44 @@ export default defineConfig(({ mode }) => {
           ],
         },
       }),
-      svgr({
+      ViteSvgr({
         svgrOptions: {
+          plugins: [ "@svgr/plugin-svgo", "@svgr/plugin-jsx" ],
           icon: true,
+          titleProp: true,
+          svgo: true,
         },
         include: "**/*.svg?react",
+      }),
+      ViteImageOptimizer({
+        exclude: /\.(svg?react)$/i,
+        includePublic: true,
+        logStats: true,
+        cache: true,
+        cacheLocation: "node_modules/.vite/image-optimizer",
+        jpeg: {
+          quality: 75,
+          progressive: true,
+          mozjpeg: true,
+        },
+        png: {
+          quality: 75,
+          compressionLevel: 7,
+          palette: true,
+        },
+        webp: {
+          quality: 70,
+        },
+        avif: {
+          quality: 70,
+        },
+      }),
+      ViteInspect({
+        dev: false,
+        build: false,
+        silent: false,
+        open: false,
+        removeVersionQuery: true,
       }),
     ],
     resolve: {
@@ -112,7 +146,8 @@ export default defineConfig(({ mode }) => {
     },
     server: {
       port: 5173,
-      open: true,
+      host: true,
+      open: "/",
     },
   };
 });

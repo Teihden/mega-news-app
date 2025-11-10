@@ -110,6 +110,7 @@ next-env.d.ts
 .temp
 temp
 /runtime
+.cache
 
 # React Router
 /.react-router/

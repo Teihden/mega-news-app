@@ -10,6 +10,7 @@ import IconChevronRight from "@shared/assets/images/icons/icon-chevron-right.svg
 import IconChevronLeft from "@shared/assets/images/icons/icon-chevron-left.svg?react";
 import { funnel, isEmpty, isPlainObject } from "remeda";
 import clsx from "clsx";
+import { STATE_CLASSES } from "@shared/config/constants";
 
 /**
  * Компонент слайдера на Swiper.
@@ -169,6 +170,9 @@ export const Slider: ISlider = (props) => {
         pagination={paginationCfg}
         navigation={navigationCfg}
         thumbs={thumbsCfg}
+        onAfterInit={(swiper: TSwiper) => {
+          setTimeout(() => swiper.el?.classList.add(STATE_CLASSES.isActive), 100);
+        }}
         onAutoplayTimeLeft={swiperConfig?.autoplay
           ? (swiper: TSwiper, time: number, progress: number) => handleAutoplay.call(swiper, time, progress)
           : () => {}}

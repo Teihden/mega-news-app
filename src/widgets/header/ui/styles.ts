@@ -64,14 +64,7 @@ export const HeaderInnerMenu = styled.div<IHeaderInnerMenuProps>`
 
 export const Logo = styled.div`
   display: flex;
-  width: 15rem;
-  height: 6rem;
-
-  svg {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
+  flex-shrink: 0;
 `;
 
 export const NavBtn = styled(ComponentBtn)<IStyledBtn>`

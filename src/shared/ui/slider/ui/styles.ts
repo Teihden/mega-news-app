@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { MediaCard } from "@entities/mediaCard";
+import { STATE_CLASSES } from "@shared/config/constants";
 
 export const Container = styled.div`
   display: block;
@@ -72,7 +73,6 @@ export const Slider = styled.div`
     height: 100%;
     border-radius: ${({ theme }) => theme.default.borderRadius};
     background: ${({ theme }) => theme.mode === "light" ? theme.palette.gray["75"] : theme.palette.washDark["100"]};
-    transition: .3s ease;
 
     &:has(.swiper-lazy-preloader) {
       ${SlideWrapper} {
@@ -114,9 +114,14 @@ export const mainSliderStyles = css`
     }
   }
 
+  .${STATE_CLASSES.isActive} {
+    ${Slide} {
+      transition: width .5s ease;
+    }
+  }
+
   ${Slide} {
     height: 56rem;
-    transition: width .5s ease;
 
     ${({ theme }) => theme.bp.down("tablet")} {
       height: 46rem;
