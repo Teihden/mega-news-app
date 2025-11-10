@@ -4,6 +4,7 @@ import { resolve } from "node:path";
 import { VitePWA } from "vite-plugin-pwa";
 import svgr from "vite-plugin-svgr";
 import Inspect from "vite-plugin-inspect";
+import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 
 /**
  * Функция resolvePath объединяет указанные сегменты пути и возвращает абсолютный путь.
@@ -99,13 +100,35 @@ export default defineConfig(({ mode }) => {
         },
         include: "**/*.svg?react",
       }),
+      ViteImageOptimizer({
+        exclude: /\.(svg?react)$/i,
+        includePublic: true,
+        logStats: true,
+        cache: true,
+        cacheLocation: ".vite_cache/image-optimizer",
+        jpeg: {
+          quality: 75,
+          progressive: true,
+          mozjpeg: true,
+        },
+        png: {
+          quality: 75,
+          compressionLevel: 7,
+          palette: true,
+        },
+        webp: {
+          quality: 70,
+        },
+        avif: {
+          quality: 70,
+        },
+      }),
       Inspect({
         dev: false,
         build: false,
         silent: false,
         open: false,
         removeVersionQuery: true,
-        embedded: true,
       }),
     ],
     resolve: {
@@ -122,7 +145,7 @@ export default defineConfig(({ mode }) => {
     server: {
       port: 5173,
       host: true,
-      open: true,
+      open: "/",
     },
   };
 });
