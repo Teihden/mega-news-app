@@ -23,6 +23,7 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: resolvePath("build"),
       emptyOutDir: true,
+      cssMinify: "lightningcss",
     },
     plugins: [
       react({
