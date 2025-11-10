@@ -2,8 +2,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { resolve } from "node:path";
 import { VitePWA } from "vite-plugin-pwa";
-import svgr from "vite-plugin-svgr";
-import Inspect from "vite-plugin-inspect";
+import ViteSvgr from "vite-plugin-svgr";
+import ViteInspect from "vite-plugin-inspect";
 import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 
 /**
@@ -94,9 +94,12 @@ export default defineConfig(({ mode }) => {
           ],
         },
       }),
-      svgr({
+      ViteSvgr({
         svgrOptions: {
+          plugins: [ "@svgr/plugin-svgo", "@svgr/plugin-jsx" ],
           icon: true,
+          titleProp: true,
+          svgo: true,
         },
         include: "**/*.svg?react",
       }),
@@ -123,7 +126,7 @@ export default defineConfig(({ mode }) => {
           quality: 70,
         },
       }),
-      Inspect({
+      ViteInspect({
         dev: false,
         build: false,
         silent: false,
