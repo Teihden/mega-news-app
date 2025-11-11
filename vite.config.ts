@@ -7,6 +7,8 @@ import ViteInspect from "vite-plugin-inspect";
 import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 import { browserslistToTargets } from "lightningcss";
 import browserslist from "browserslist";
+import { analyzer as ViteBundleAnalyzer } from "vite-bundle-analyzer";
+import { compression as ViteCompression } from "vite-plugin-compression2";
 
 /**
  * Функция resolvePath объединяет указанные сегменты пути и возвращает абсолютный путь.
@@ -144,6 +146,17 @@ export default defineConfig(({ mode }) => {
         silent: false,
         open: false,
         removeVersionQuery: true,
+      }),
+      ViteBundleAnalyzer({
+        openAnalyzer: true,
+        enabled: true,
+        exclude: /\.(jpe?g|png|gif|tiff|webp|svg|avif|webmanifest|html)$/i,
+      }),
+      ViteCompression({
+        algorithms: [ "zstd", "br" ],
+        threshold: 10240,
+        deleteOriginalAssets: false,
+        skipIfLargerOrEqual: true,
       }),
     ],
     resolve: {
