@@ -61,6 +61,7 @@
     "@vitejs/plugin-react-swc": "^4.2.0",
     "babel-plugin-react-compiler": "^1.0.0",
     "babel-plugin-styled-components": "^2.1.4",
+    "browserslist": "^4.28.0",
     "commitlint": "^20.1.0",
     "create-vite": "^8.0.2",
     "cross-env": "^10.1.0",
@@ -95,7 +96,7 @@
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.2",
-    "vite": "^7.1.12",
+    "vite": "^7.2.2",
     "vite-plugin-image-optimizer": "^2.0.3",
     "vite-plugin-inspect": "^11.3.3",
     "vite-plugin-pwa": "^1.1.0",
@@ -133,6 +134,10 @@
       "public"
     ]
   },
+  "browserslist": [
+    ">= 0.25%",
+    "defaults"
+  ],
   "overrides": {
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
