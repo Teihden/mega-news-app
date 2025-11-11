@@ -5,6 +5,10 @@ import { VitePWA } from "vite-plugin-pwa";
 import ViteSvgr from "vite-plugin-svgr";
 import ViteInspect from "vite-plugin-inspect";
 import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
+import { browserslistToTargets } from "lightningcss";
+import browserslist from "browserslist";
+import { analyzer as ViteBundleAnalyzer } from "vite-bundle-analyzer";
+import { compression as ViteCompression } from "vite-plugin-compression2";
 
 /**
  * Функция resolvePath объединяет указанные сегменты пути и возвращает абсолютный путь.
@@ -20,9 +24,20 @@ export default defineConfig(({ mode }) => {
   return {
     root: resolvePath("src/app"),
     publicDir: resolvePath("public"),
+    css: {
+      transformer: "lightningcss",
+      devSourcemap: true,
+      lightningcss: {
+        targets: browserslistToTargets(browserslist()),
+        minify: isProd,
+        sourceMap: isDev,
+        analyzeDependencies: true,
+      }
+    },
     build: {
       outDir: resolvePath("build"),
       emptyOutDir: true,
+      sourcemap: false,
       cssMinify: "lightningcss",
     },
     plugins: [
@@ -132,6 +147,17 @@ export default defineConfig(({ mode }) => {
         open: false,
         removeVersionQuery: true,
       }),
+      ViteBundleAnalyzer({
+        openAnalyzer: true,
+        enabled: true,
+        exclude: /\.(jpe?g|png|gif|tiff|webp|svg|avif|webmanifest|html)$/i,
+      }),
+      ViteCompression({
+        algorithms: [ "zstd", "br" ],
+        threshold: 10240,
+        deleteOriginalAssets: false,
+        skipIfLargerOrEqual: true,
+      }),
     ],
     resolve: {
       alias: {
@@ -146,7 +172,13 @@ export default defineConfig(({ mode }) => {
     },
     server: {
       port: 5173,
+      strictPort: true,
       host: true,
+      open: "/",
+    },
+    preview: {
+      port: 4173,
+      strictPort: true,
       open: "/",
     },
   };
