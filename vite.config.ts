@@ -9,6 +9,7 @@ import { browserslistToTargets } from "lightningcss";
 import browserslist from "browserslist";
 import { analyzer as ViteBundleAnalyzer } from "vite-bundle-analyzer";
 import { compression as ViteCompression } from "vite-plugin-compression2";
+import { createHtmlPlugin as ViteHtml } from "vite-plugin-html";
 
 /**
  * Функция resolvePath объединяет указанные сегменты пути и возвращает абсолютный путь.
@@ -62,8 +63,15 @@ export default defineConfig(({ mode }) => {
           ],
         },
       }),
+      ViteHtml({
+        minify: true,
+      }),
       VitePWA({
         registerType: "autoUpdate",
+        devOptions: {
+          enabled: true,
+          resolveTempFolder: () => resolvePath("node_modules/.vite/pwa"),
+        },
         includeAssets: [
           "favicon.ico",
           "favicons/favicon.svg",

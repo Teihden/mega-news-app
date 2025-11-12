@@ -6,6 +6,8 @@ import "@app/styles/vendors";
 import { renderToStaticMarkup } from "react-dom/server";
 import { AppInitError } from "@shared/ui/appInitError";
 import { startMocking } from "@shared/api";
+// eslint-disable-next-line import/no-unresolved
+import { registerSW } from "virtual:pwa-register";
 
 /**
  * Асинхронная функция инициализации приложения.
@@ -26,6 +28,9 @@ const appStart = async () => {
 
 await appStart()
   .then(() => {
+    if (import.meta.env.PROD) {
+      registerSW({ immediate: true });
+    }
     return null;
   })
   .catch((error) => {

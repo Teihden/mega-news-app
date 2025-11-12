@@ -1,4 +1,5 @@
 declare module "eslint-plugin-promise";
+declare module "virtual:pwa-register";
 
 declare module "*.ico";
 declare module "*.css";
