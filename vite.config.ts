@@ -69,7 +69,7 @@ export default defineConfig(({ mode }) => {
       VitePWA({
         registerType: "autoUpdate",
         devOptions: {
-          enabled: true,
+          enabled: false,
           resolveTempFolder: () => resolvePath("node_modules/.vite/pwa"),
         },
         includeAssets: [
@@ -77,15 +77,16 @@ export default defineConfig(({ mode }) => {
           "favicons/favicon.svg",
           "favicons/apple-touch-icon.png",
           "favicons/mask-icon.svg",
+          "fonts/*.woff2",
         ],
         manifest: {
           name: "Mega news",
           short_name: "Mega news",
-          description:
-            "Mega News is a modern platform with up—to-date news, analytics, and personalized recommendations",
+          description: "Mega News is a modern platform with up—to-date news, analytics, and personalized recommendations",
           theme_color: "#fff",
           background_color: "#fc4308",
           display: "standalone",
+          orientation: "portrait-primary",
           scope: "/",
           start_url: "/",
           icons: [
