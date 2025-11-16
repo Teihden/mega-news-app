@@ -136,7 +136,7 @@ export const ComponentPage: FC = () => {
       <Section
         headerSlot={<Title level={2} variantLevel={2}>BurgerBtn</Title>}
       >
-        <BurgerBtn/>
+        <BurgerBtn />
       </Section>
 
       <Section
