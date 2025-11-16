@@ -11,6 +11,7 @@ import { COMMON_MEDIA_BREAKPOINTS } from "@app/styles";
 import { Accordion } from "@shared/ui/accordion";
 import { BurgerBtn } from "@features/burgerBtn";
 import { MediaCard, mediaCardMock } from "@entities/mediaCard";
+import { Video } from "@shared/ui/video";
 
 /**
  * Компонент ComponentPage.
@@ -41,15 +42,15 @@ export const ComponentPage: FC = () => {
             <Img
               src={imgSport5Desktop}
               width={1920}
-              height={500}
+              height={400}
               sources={[
                 {
-                  srcSet: imgSport5Mobile,
+                  srcset: imgSport5Mobile,
                   media: COMMON_MEDIA_BREAKPOINTS.mobile,
                   type: "image/jpeg",
                 },
                 {
-                  srcSet: imgSport5Tablet,
+                  srcset: imgSport5Tablet,
                   media: COMMON_MEDIA_BREAKPOINTS.tablet,
                   type: "image/jpeg",
                 },
@@ -61,6 +62,25 @@ export const ComponentPage: FC = () => {
             />
           </Stack>
         </Stack>
+      </Section>
+
+      <Section
+        headerSlot={<Title level={2} variantLevel={2}>Video</Title>}
+      >
+        <Video
+          width={1920}
+          height={400}
+          poster={"https://assets.mixkit.co/videos/475/475-thumb-2160-0.jpg"}
+          sources={[
+            {
+              src: "https://assets.mixkit.co/videos/475/475-2160.mp4",
+              type: "video/mp4",
+            },
+          ]}
+          css={`
+            aspect-ratio: 1.9;
+          `}
+        />
       </Section>
 
       <Section
@@ -116,7 +136,7 @@ export const ComponentPage: FC = () => {
       <Section
         headerSlot={<Title level={2} variantLevel={2}>BurgerBtn</Title>}
       >
-        <BurgerBtn />
+        <BurgerBtn/>
       </Section>
 
       <Section
