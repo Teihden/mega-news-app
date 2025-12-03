@@ -177,6 +177,16 @@ export const TypographyPage: FC = () => {
           </InlineCluster>
 
           <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
+            <Title level={3} variantLevel={4} marginBlock={"0"} style={{ width: "16rem" }}>Tertiary</Title>
+            <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
+              <Btn variant={"tertiary"} size={"md"} text={"Enabled"} icon={<IconUser />} />
+              <Btn variant={"tertiary"} size={"md"} text={"Hovered"} icon={<IconUser />} isHover={true} />
+              <Btn variant={"tertiary"} size={"md"} text={"Active"} icon={<IconUser />} isActive={true} />
+              <Btn variant={"tertiary"} size={"md"} text={"Disabled"} icon={<IconUser />} isDisabled={true} />
+            </InlineCluster>
+          </InlineCluster>
+
+          <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
             <Title level={3} variantLevel={4} marginBlock={"0"} style={{ width: "16rem" }}>Outline</Title>
             <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
               <Btn variant={"outline"} size={"md"} text={"Enabled"} icon={<IconUser />} />
