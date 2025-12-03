@@ -158,7 +158,7 @@ export default defineConfig(({ mode }) => {
       }),
       ViteBundleAnalyzer({
         openAnalyzer: true,
-        enabled: true,
+        enabled: !Boolean(process.env.RENDER),
         exclude: /\.(jpe?g|png|gif|tiff|webp|svg|avif|webmanifest|html)$/i,
       }),
       ViteCompression({
