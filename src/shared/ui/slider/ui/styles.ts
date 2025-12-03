@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { MediaCard } from "@entities/mediaCard";
 import { STATE_CLASSES } from "@shared/config/constants";
+import { Btn as ComponentBtn } from "@shared/ui/btn";
 
 export const Container = styled.div`
   display: block;
@@ -37,6 +38,10 @@ export const NavigationItem = styled.li`
   padding: 0;
   margin: 0;
   pointer-events: auto;
+`;
+
+export const NavigationBtn = styled(ComponentBtn)`
+  display: flex;
 `;
 
 export const Pagination = styled.div`
@@ -171,6 +176,106 @@ export const mainSliderStyles = css`
   }
 
   ${MediaCard.Wrapper} {
+    ${({ theme }) => theme.bp.down("tablet")} {
+      min-height: 9rem;
+    }
+
+    ${({ theme }) => theme.bp.down("mobile")} {
+      position: static;
+      border-radius: 0;
+      background: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["5"] : theme.palette.washDark["100"]};
+    }
+  }
+`;
+
+export const latestVideosSliderStyles = css`
+  &::after {
+    position: absolute;
+    z-index: 1;
+    width: 21.25rem;
+    height: 100%;
+    background: ${({ theme }) => theme.palette.gradient["4"]};
+    content: "";
+    inset: 0 0 0 auto;
+
+    ${({ theme }) => theme.bp.down("tablet")} {
+      content: none;
+    }
+  }
+
+  ${Pagination} {
+    display: none;
+
+    ${({ theme }) => theme.bp.down("tablet")} {
+      display: flex;
+      inset: auto 3rem 3rem auto;
+    }
+
+    ${({ theme }) => theme.bp.down("mobile")} {
+      inset: auto 1.5rem 1.5rem auto;
+
+      .swiper-pagination-bullet {
+        --swiper-pagination-color: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["25"] : theme.palette.white["75"]};
+        --swiper-pagination-bullet-inactive-color: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["10"] : theme.palette.white["50"]};
+      }
+    }
+  }
+
+  ${Navigation} {
+    max-width: 12.5rem;
+    margin: 0;
+    inset: -8.75rem 0 auto auto;
+    transform: none;
+
+    ${({ theme }) => theme.bp.down("tablet")} {
+      max-width: 100%;
+      inset: 50% 1.5rem auto;
+      transform: translateY(-50%);
+    }
+  }
+
+  ${NavigationBtn} {
+    border-color: transparent;
+    background: ${({ theme }) => theme.palette.dark["5"]};
+
+    ${({ theme }) => theme.bp.down("tablet")} {
+      border-color: ${({ theme }) => theme.btn.variants.secondary.borderColor};
+      background: ${({ theme }) => theme.btn.variants.secondary.bg};
+    }
+  }
+
+  ${Slide} {
+    height: 56rem;
+    background: transparent;
+
+    ${({ theme }) => theme.bp.down("tablet")} {
+      height: 46rem;
+    }
+
+    ${({ theme }) => theme.bp.down("mobile")} {
+      height: 40rem;
+    }
+  }
+
+  ${MediaCard.Text} {
+    ${({ theme }) => theme.bp.down("tablet")} {
+      display: none;
+    }
+  }
+
+  ${MediaCard.Title} {
+    ${({ theme }) => theme.bp.down("tablet")} {
+      font-size: 2.5rem;
+    }
+
+    ${({ theme }) => theme.bp.down("mobile")} {
+      font-size: 2rem;
+    }
+  }
+
+  ${MediaCard.Wrapper} {
+    min-height: 14rem;
+
     ${({ theme }) => theme.bp.down("tablet")} {
       min-height: 9rem;
     }

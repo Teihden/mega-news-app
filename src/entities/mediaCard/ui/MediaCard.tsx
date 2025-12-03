@@ -8,8 +8,12 @@ import { Link } from "react-router";
  * @param props - Свойства компонента.
  * @param props.className - Дополнительный CSS-класс, передаваемый компоненту.
  * @param props.imgProps - Свойства для настройки изображения, передаваемого в карточку.
+ * @param props.videoProps - Свойства для настройки видео, передаваемого в карточку.
  * @param props.title - Заголовок, отображаемый внутри карточки.
+ * @param props.titleVariantLevel - Уровень заголовка.
  * @param props.text - Текст, отображаемый внутри карточки.
+ * @param props.textLineClamp - Кол-во отображаемых строк для компонента Text.
+ * @param props.isBtnOverlay - рендер overlay для заголовка карточки.
  * @param props.rest - Дополнительные свойства, передаваемые в корневой элемент компонента.
  * @returns Компонент.
  */
@@ -17,8 +21,12 @@ export const MediaCard: IMediaCard = (props) => {
   const {
     className,
     imgProps = {},
+    videoProps = {},
     title = "",
+    titleVariantLevel = 3,
     text = "",
+    textLineClamp = 2,
+    isBtnOverlay = true,
     ...rest
   } = props;
 
@@ -30,9 +38,13 @@ export const MediaCard: IMediaCard = (props) => {
       {imgProps && isPlainObject(imgProps) && !isEmpty(imgProps) && (
         <S.Img {...imgProps} />
       )}
+      {videoProps && isPlainObject(videoProps) && !isEmpty(videoProps) && (
+        <S.Video {...videoProps} />
+      )}
       <S.Wrapper>
         {title && (
           <S.Btn
+            $isOverlay={isBtnOverlay}
             forwardedAs={Link}
             to={"/"}
             variant={"blank"}
@@ -41,7 +53,7 @@ export const MediaCard: IMediaCard = (props) => {
             text={(
               <S.Title
                 forwardedAs={"span"}
-                variantLevel={3}
+                variantLevel={titleVariantLevel}
                 marginBlock={0}
               >
                 {title}
@@ -52,6 +64,7 @@ export const MediaCard: IMediaCard = (props) => {
         {text && (
           <S.Text
             variant={"md"}
+            $lineClamp={textLineClamp}
           >
             {text}
           </S.Text>

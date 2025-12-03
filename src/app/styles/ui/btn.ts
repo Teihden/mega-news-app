@@ -3,6 +3,7 @@ import { defaultStyles } from "../defaultStyles";
 
 export const btn = {
   fontSize: "1.75rem",
+  fontWeight: 500,
   lineHeight: 1.43,
   paddingInline: "2rem",
   borderRadius: defaultStyles.borderRadius,
@@ -69,6 +70,30 @@ export const btn = {
         iconColor: palette.dark["75"],
         borderColor: palette.gray["50"],
         bg: palette.gray["50"],
+      },
+    },
+    tertiary: {
+      color: palette.dark["75"],
+      iconColor: palette.dark["75"],
+      borderColor: palette.transparent,
+      bg: palette.dark["5"],
+      hover: {
+        color: palette.dark["75"],
+        iconColor: palette.dark["75"],
+        borderColor: palette.transparent,
+        bg: palette.dark["10"],
+      },
+      active: {
+        color: palette.dark["75"],
+        iconColor: palette.dark["75"],
+        borderColor: palette.transparent,
+        bg: palette.dark["10"],
+      },
+      disabled: {
+        color: palette.dark["50"],
+        iconColor: palette.dark["50"],
+        borderColor: palette.transparent,
+        bg: palette.dark["5"],
       },
     },
     outline: {
@@ -150,6 +175,7 @@ export const btnDark = {
       },
     },
     secondary: btn.variants.secondary,
+    tertiary: btn.variants.tertiary,
     outline: {
       color: palette.darkGray["100"],
       iconColor: palette.darkGray["100"],

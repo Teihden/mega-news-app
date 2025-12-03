@@ -89,11 +89,11 @@ export const palette = {
     100: "rgb(230, 230, 230, 1)",
   },
   gradient: {
-    1: "linear-gradient(270deg, #F81539 0%, #FC4308 94%)",
-    2: "linear-gradient(262.85deg, #F45C9F 5.57%, #FF7563 73.65%)",
-    3: "linear-gradient(227.96deg, #2CA5E0 11.38%, #67C9F5 84.07%)",
-    4: "linear-gradient(270deg, rgb(245, 245, 245) 5.21%, rgba(245, 245, 245, 0.3827) 64.58%, rgba(245, 245, 245, 0) 100%)",
-    5: "linear-gradient(270deg, rgb(35, 39, 47) 5.21%, rgba(35, 39, 47, 0.3827) 64.58%, rgba(35, 39, 47, 0) 100%)",
+    1: "linear-gradient(270deg, grb(248, 21, 57) 0%, rgb(252, 67, 8) 94%)",
+    2: "linear-gradient(262.85deg, rgb(244, 92, 159) 5.57%, rgb(255, 117, 99) 73.65%)",
+    3: "linear-gradient(227.96deg, rgb(44, 165, 224) 11.38%, rgb(03, 201, 245) 84.07%)",
+    4: "linear-gradient(270deg, rgb(245, 245, 245) 5.21%, rgb(245, 245, 245, 0.3827) 64.58%, rgb(245, 245, 245, 0) 100%)",
+    5: "linear-gradient(270deg, rgb(35, 39, 47) 5.21%, rgb(35, 39, 47, 0.3827) 64.58%, rgb(35, 39, 47, 0) 100%)",
   },
   shadow: {
     1: "0 0 44px rgba(252, 67, 8, .35)",

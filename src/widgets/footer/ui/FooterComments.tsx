@@ -37,8 +37,8 @@ export const FooterComments: FC<IFooterCommentsProps> = (props) => {
             height={360}
             width={360}
             title={"Comments"}
-            backgroundColor={theme.mode === "light" ? theme.palette.gray["100"] : theme.palette.washDark["100"]}
-            foregroundColor={theme.mode === "light" ? theme.palette.lightGray["100"] : theme.palette.dark["5"]}
+            backgroundColor={theme.placeholder.bg}
+            foregroundColor={theme.placeholder.foregroundColor}
             preserveAspectRatio={"none"}
           >
             {Array.from({ length: 4 }).map((_, i) => (

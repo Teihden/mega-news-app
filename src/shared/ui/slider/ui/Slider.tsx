@@ -5,7 +5,6 @@ import { type Swiper as TSwiper } from "swiper";
 import { Swiper, type SwiperRef, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Mousewheel, Navigation, Pagination, Thumbs, EffectCoverflow } from "swiper/modules";
 import { isNavigation, isPagination, isThumbs } from "../lib";
-import { Btn } from "@shared/ui/btn";
 import IconChevronRight from "@shared/assets/images/icons/icon-chevron-right.svg?react";
 import IconChevronLeft from "@shared/assets/images/icons/icon-chevron-left.svg?react";
 import { funnel, isEmpty, isPlainObject } from "remeda";
@@ -225,7 +224,7 @@ export const Slider: ISlider = (props) => {
       {navigationCfg && (
         <S.Navigation>
           <S.NavigationItem>
-            <Btn
+            <S.NavigationBtn
               ref={navigationPrevRef}
               variant={"secondary"}
               title={"previous slide"}
@@ -235,7 +234,7 @@ export const Slider: ISlider = (props) => {
             />
           </S.NavigationItem>
           <S.NavigationItem>
-            <Btn
+            <S.NavigationBtn
               ref={navigationNextRef}
               variant={"secondary"}
               title={"next slide"}
@@ -256,4 +255,5 @@ Slider.Slide = S.Slide;
 Slider.SlideWrapper = S.SlideWrapper;
 Slider.Navigation = S.Navigation;
 Slider.NavigationItem = S.NavigationItem;
+Slider.NavigationBtn = S.NavigationBtn;
 Slider.Pagination = S.Pagination;

@@ -16,7 +16,7 @@ export const LogoCarousel = styled.div`
   position: relative;
   overflow: hidden;
   padding: 1.5rem 0;
-  background: ${({ theme }) => theme.mode === "light" ? theme.palette.gray["100"] : theme.palette.washDark["100"]};
+  background: ${({ theme }) => theme.placeholder.bg};
 
   &::before {
     position: absolute;

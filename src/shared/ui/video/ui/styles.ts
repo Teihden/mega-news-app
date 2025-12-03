@@ -49,6 +49,7 @@ export const VideoWrapper = styled.div`
   display: block;
   width: 100%;
   height: auto;
+  max-height: 100%;
   cursor: pointer;
 
   @media (hover: hover) {

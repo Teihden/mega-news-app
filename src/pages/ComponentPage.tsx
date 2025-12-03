@@ -3,6 +3,8 @@ import { Section } from "@shared/ui/section";
 import { Title } from "@shared/ui/title";
 import { Stack } from "@bedrock-layout/primitives";
 import { Img } from "@shared/ui/img";
+import video from "@shared/assets/videos/music/mixkit-guitarist-playing-an-electric-guitar-on-stage-475-full-hd.mp4";
+import imgPoster from "@shared/assets/images/posters/475-thumb-1080-0.jpg";
 import imgAbstract7 from "@shared/assets/images/abstract/abstract-7.jpg";
 import imgSport5Desktop from "@shared/assets/images/sport/sport-5-desktop.jpg";
 import imgSport5Tablet from "@shared/assets/images/sport/sport-5-tablet.jpg";
@@ -70,10 +72,10 @@ export const ComponentPage: FC = () => {
         <Video
           width={1920}
           height={400}
-          poster={"https://assets.mixkit.co/videos/475/475-thumb-2160-0.jpg"}
+          poster={imgPoster}
           sources={[
             {
-              src: "https://assets.mixkit.co/videos/475/475-2160.mp4",
+              src: video,
               type: "video/mp4",
             },
           ]}
