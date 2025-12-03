@@ -2,7 +2,16 @@ import type { FC, ReactNode } from "react";
 import type { CSSProp } from "styled-components";
 import type Swiper from "swiper";
 import type { SwiperOptions } from "swiper/types";
-import { Container, Navigation, NavigationItem, Pagination, Slide, Slider, SlideWrapper } from "../ui/styles";
+import {
+  Container,
+  Navigation,
+  NavigationItem,
+  NavigationBtn,
+  Pagination,
+  Slide,
+  Slider,
+  SlideWrapper,
+} from "../ui/styles";
 
 export interface ISliderProps {
   className?: string;
@@ -68,10 +77,10 @@ const mainCfg: SwiperOptions = {
   spaceBetween: 8,
   loopAdditionalSlides: 2,
   loop: true,
-  autoplay: {
-    delay: 5000,
-    pauseOnMouseEnter: true,
-  },
+  // autoplay: {
+  //   delay: 5000,
+  //   pauseOnMouseEnter: true,
+  // },
   navigation: {
     enabled: true,
   },
@@ -92,10 +101,37 @@ const mainCfg: SwiperOptions = {
   },
 };
 
+const latestVideosCfg: SwiperOptions = {
+  initialSlide: 0,
+  speed: 300,
+  slidesPerView: 1,
+  spaceBetween: 8,
+  loop: true,
+  navigation: {
+    enabled: true,
+  },
+  pagination: {
+    enabled: true,
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 1,
+      spaceBetween: 16,
+      speed: 400,
+    },
+    1281: {
+      slidesPerView: 1.15,
+      spaceBetween: 24,
+      speed: 500,
+    },
+  },
+};
+
 export const cfgs = {
   defaultCfg,
   defaultThumbsCfg,
   mainCfg,
+  latestVideosCfg,
 };
 
 export interface ISlider extends FC<ISliderProps> {
@@ -105,5 +141,6 @@ export interface ISlider extends FC<ISliderProps> {
   SlideWrapper: typeof SlideWrapper;
   Navigation: typeof Navigation;
   NavigationItem: typeof NavigationItem;
+  NavigationBtn: typeof NavigationBtn;
   Pagination: typeof Pagination;
 }

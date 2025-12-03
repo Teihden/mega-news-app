@@ -29,6 +29,8 @@ import {
   toastDark,
   tooltip,
   tooltipDark,
+  placeholder,
+  placeholderDark,
 } from "./ui";
 
 export type TThemeType = typeof defaultTheme;
@@ -69,6 +71,7 @@ export const defaultTheme = {
   input,
   toast,
   tooltip,
+  placeholder,
 };
 
 export const lightTheme = {
@@ -89,4 +92,5 @@ export const darkTheme = {
   input: inputDark,
   toast: toastDark,
   tooltip: tooltipDark,
+  placeholder: placeholderDark,
 };

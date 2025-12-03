@@ -1,15 +1,9 @@
 import type { FC, ImgHTMLAttributes } from "react";
 import { Img, Picture } from "../ui/styles";
 
-export interface ISourceItem {
-  srcSet: string;
-  media?: string;
-  type?: string;
-}
-
 export interface IImgProps extends ImgHTMLAttributes<HTMLImageElement> {
   placeholder?: string;
-  sources?: ISourceItem[];
+  sources?: Partial<HTMLSourceElement>[];
 }
 
 export interface IStyledImgProps {

@@ -8,7 +8,7 @@ import { loadImage } from "@shared/utils";
  * Компонент для отображения изображения с поддержкой источников для элементов `<picture>` и плейсхолдера.
  * @param props - Свойства компонента.
  * @param props.src URL основного изображения.
- * @param props.sources Массив объектов с дополнительными источниками для тэга `<picture>`. Каждый источник может содержать поля `srcSet`, `media` и `type`.
+ * @param props.sources Массив объектов с дополнительными источниками для тэга `<picture>`. Каждый источник может содержать поля `srcset`, `media` и `type`.
  * @param props.placeholder Путь к изображению-заглушке, отображаемой, если основное изображение не загрузилось. По умолчанию используется `imgStub2`.
  * @param props.alt Альтернативный текст для изображения.
  * @param props.rest Дополнительные свойства, передаваемые в изображение.
@@ -28,14 +28,14 @@ export const Img: IImg = (props) => {
 
   useEffect(() => {
     const imgSrc = sources && sources.length > 0
-      ? sources.find(({ srcSet = "", media = "" }) => {
+      ? sources.find(({ srcset = "", media = "" }) => {
         const mq = window.matchMedia(media);
-        if (srcSet && media && mq.matches) {
-          return srcSet;
+        if (srcset && media && mq.matches) {
+          return srcset;
         } else {
           return null;
         }
-      })?.srcSet ?? src
+      })?.srcset ?? src
       : src;
 
     if (!imgSrc) {
@@ -81,10 +81,10 @@ export const Img: IImg = (props) => {
   return ((sources && sources?.length > 0)
     ? (
         <S.Picture>
-          {sources.map(({ srcSet, media, type }) => (
+          {sources.map(({ srcset, media, type }) => (
             <source
-              key={srcSet}
-              srcSet={srcSet}
+              key={srcset}
+              srcSet={srcset}
               media={media}
               type={type}
             />

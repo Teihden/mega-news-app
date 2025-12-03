@@ -20,6 +20,7 @@ export const Btn = styled.button<IStyledBtnProps>`
   cursor: pointer;
   font-family: inherit;
   font-size: ${({ theme }) => theme.btn.fontSize};
+  font-weight: ${({ theme, $isInline }) => $isInline ? "inherit" : theme.btn.fontWeight};
   gap: ${({ theme, $size }) => theme.btn.sizes[$size!].gap};
   line-height: ${({ theme }) => theme.btn.lineHeight};
   padding-inline: ${({ theme, $isInline }) => $isInline ? 0 : theme.btn.paddingInline};

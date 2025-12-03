@@ -15,3 +15,4 @@ export { overlay, overlayDark } from "./overlay";
 export { input, inputDark } from "./input";
 export { toast, toastDark } from "./toast";
 export { tooltip, tooltipDark } from "./tooltip";
+export { placeholder, placeholderDark } from "./placeholder";

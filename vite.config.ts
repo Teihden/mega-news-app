@@ -9,6 +9,7 @@ import { browserslistToTargets } from "lightningcss";
 import browserslist from "browserslist";
 import { analyzer as ViteBundleAnalyzer } from "vite-bundle-analyzer";
 import { compression as ViteCompression } from "vite-plugin-compression2";
+import { createHtmlPlugin as ViteHtml } from "vite-plugin-html";
 
 /**
  * Функция resolvePath объединяет указанные сегменты пути и возвращает абсолютный путь.
@@ -62,22 +63,30 @@ export default defineConfig(({ mode }) => {
           ],
         },
       }),
+      ViteHtml({
+        minify: true,
+      }),
       VitePWA({
         registerType: "autoUpdate",
+        devOptions: {
+          enabled: false,
+          resolveTempFolder: () => resolvePath("node_modules/.vite/pwa"),
+        },
         includeAssets: [
           "favicon.ico",
           "favicons/favicon.svg",
           "favicons/apple-touch-icon.png",
           "favicons/mask-icon.svg",
+          "fonts/*.woff2",
         ],
         manifest: {
           name: "Mega news",
           short_name: "Mega news",
-          description:
-            "Mega News is a modern platform with up—to-date news, analytics, and personalized recommendations",
+          description: "Mega News is a modern platform with up—to-date news, analytics, and personalized recommendations",
           theme_color: "#fff",
           background_color: "#fc4308",
           display: "standalone",
+          orientation: "portrait-primary",
           scope: "/",
           start_url: "/",
           icons: [
