@@ -33,7 +33,7 @@ export default defineConfig(({ mode }) => {
         minify: isProd,
         sourceMap: isDev,
         analyzeDependencies: true,
-      }
+      },
     },
     build: {
       outDir: resolvePath("build"),
@@ -70,6 +70,7 @@ export default defineConfig(({ mode }) => {
         registerType: "autoUpdate",
         devOptions: {
           enabled: false,
+          // eslint-disable-next-line jsdoc/require-jsdoc
           resolveTempFolder: () => resolvePath("node_modules/.vite/pwa"),
         },
         includeAssets: [
@@ -158,7 +159,7 @@ export default defineConfig(({ mode }) => {
       }),
       ViteBundleAnalyzer({
         openAnalyzer: true,
-        enabled: !Boolean(process.env.RENDER),
+        enabled: !(process.env.RENDER ?? false),
         exclude: /\.(jpe?g|png|gif|tiff|webp|svg|avif|webmanifest|html)$/i,
       }),
       ViteCompression({

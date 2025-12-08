@@ -77,10 +77,10 @@ const mainCfg: SwiperOptions = {
   spaceBetween: 8,
   loopAdditionalSlides: 2,
   loop: true,
-  // autoplay: {
-  //   delay: 5000,
-  //   pauseOnMouseEnter: true,
-  // },
+  autoplay: {
+    delay: 5000,
+    pauseOnMouseEnter: true,
+  },
   navigation: {
     enabled: true,
   },

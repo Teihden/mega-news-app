@@ -76,7 +76,7 @@ export const latestVideosMediaCardStyles = css`
   width: 61rem;
   flex-direction: row;
   padding: 1.5rem;
-  background: ${({ theme }) => theme.palette.white["100"]};
+  background: ${({ theme }) => theme.mode === "light" ? theme.palette.white["100"] : theme.palette.black["100"]};
   gap: 2rem;
 
   ${Img} {
@@ -89,6 +89,6 @@ export const latestVideosMediaCardStyles = css`
   ${Wrapper} {
     position: static;
     padding: 2rem 1rem;
-    background: ${({ theme }) => theme.palette.white["100"]};
+    background: ${({ theme }) => theme.palette.transparent};
   }
 `;

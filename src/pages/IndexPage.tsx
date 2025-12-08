@@ -129,7 +129,7 @@ export const IndexPage: FC = () => {
         )}
         css={`
           padding: 8rem 0;
-          background: ${theme.palette.gray["100"]};
+          background: ${theme.mode === "light" ? theme.palette.gray["100"] : theme.palette.washDark["100"]};
 
           @media ${theme.bp.down("mobile")} {
             padding: 5rem 0;

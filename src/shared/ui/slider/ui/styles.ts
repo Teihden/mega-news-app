@@ -194,7 +194,7 @@ export const latestVideosSliderStyles = css`
     z-index: 1;
     width: 21.25rem;
     height: 100%;
-    background: ${({ theme }) => theme.palette.gradient["4"]};
+    background: ${({ theme }) => theme.mode === "light" ? theme.palette.gradient["4"] : theme.palette.gradient["5"]};
     content: "";
     inset: 0 0 0 auto;
 
@@ -235,8 +235,8 @@ export const latestVideosSliderStyles = css`
   }
 
   ${NavigationBtn} {
-    border-color: transparent;
-    background: ${({ theme }) => theme.palette.dark["5"]};
+    border-color: ${({ theme }) => theme.btn.variants.tertiary.borderColor};
+    background: ${({ theme }) => theme.btn.variants.tertiary.bg};
 
     ${({ theme }) => theme.bp.down("tablet")} {
       border-color: ${({ theme }) => theme.btn.variants.secondary.borderColor};
