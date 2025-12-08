@@ -286,6 +286,18 @@ const config: Linter.Config[] = [
     rules: { ...commonRules, ...tsRules },
   },
   {
+    name: "vite-config-overrides",
+    files: [ "vite.config.{js,cjs,mjs,ts,cts,mts}" ],
+    rules: {
+      "import/default": 0,
+      "import/namespace": 0,
+      "import/no-unresolved": 0,
+      "import/no-extraneous-dependencies": 0,
+      "import/no-named-as-default": 0,
+      "import/no-named-as-default-member": 0,
+    },
+  },
+  {
     name: jsonEslintPlugin.meta.name,
     files: [ "**/*.json" ],
     plugins: { json: jsonEslintPlugin as unknown as ESLint.Plugin },
