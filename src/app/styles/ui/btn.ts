@@ -175,7 +175,30 @@ export const btnDark = {
       },
     },
     secondary: btn.variants.secondary,
-    tertiary: btn.variants.tertiary,
+    tertiary: {
+      color: palette.dark["75"],
+      iconColor: palette.dark["75"],
+      borderColor: palette.transparent,
+      bg: palette.white["75"],
+      hover: {
+        color: palette.dark["75"],
+        iconColor: palette.dark["75"],
+        borderColor: palette.transparent,
+        bg: palette.white["100"],
+      },
+      active: {
+        color: palette.dark["75"],
+        iconColor: palette.dark["75"],
+        borderColor: palette.transparent,
+        bg: palette.white["100"],
+      },
+      disabled: {
+        color: palette.dark["50"],
+        iconColor: palette.dark["50"],
+        borderColor: palette.transparent,
+        bg: palette.white["50"],
+      },
+    },
     outline: {
       color: palette.darkGray["100"],
       iconColor: palette.darkGray["100"],
