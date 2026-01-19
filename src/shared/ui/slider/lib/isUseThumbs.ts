@@ -7,5 +7,5 @@ import type { ReactNode } from "react";
  * @param thumbsSlides - проверяемый аргумент, который может быть массивом элементов ReactNode.
  * @returns Результат проверки: true, если аргумент является массивом элементов ReactNode, который не пустой, иначе false.
  */
-export const isThumbs = (thumbsSlides: ReactNode[] | null): thumbsSlides is ReactNode[] =>
+export const isUseThumbs = (thumbsSlides: ReactNode[] | null): thumbsSlides is ReactNode[] =>
   Boolean(thumbsSlides && isArray(thumbsSlides) && !isEmpty(thumbsSlides));

@@ -1,3 +1,3 @@
-export { isPagination } from "./isPagination";
-export { isNavigation } from "./isNavigation";
-export { isThumbs } from "./isThumbs";
+export { isUsePagination } from "./isUsePagination.ts";
+export { isUseNavigation } from "./isUseNavigation.ts";
+export { isUseThumbs } from "./isUseThumbs.ts";
