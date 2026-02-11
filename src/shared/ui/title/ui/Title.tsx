@@ -9,6 +9,7 @@ import * as S from "./styles";
  * @param props.level Уровень заголовка, определяет HTML-тег (от 1 до 6). По умолчанию 1.
  * @param props.variant Вариант стиля заголовка. По умолчанию "title".
  * @param props.variantLevel Уровень стиля заголовка. По умолчанию 1.
+ * @param props.marginBlock Свойство margin-block.
  * @param props.children Содержимое заголовка.
  * @param props.className Дополнительный CSS-класс для заголовка.
  * @param props.rest Остальные свойства, передаваемые в компонент.

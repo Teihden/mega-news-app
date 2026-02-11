@@ -9,6 +9,6 @@ export const Text = styled.p<IStyledTextProps>`
   text-align: ${({ $align }) => $align ?? "left"};
 
   &:not(:last-child) {
-    margin-block: ${({ theme }) => theme.default.marginBlock};
+    margin-block: ${({ theme, $marginBlock }) => $marginBlock ?? theme.default.marginBlock};
   }
 `;

@@ -14,6 +14,7 @@ import { Accordion } from "@shared/ui/accordion";
 import { BurgerBtn } from "@features/burgerBtn";
 import { MediaCard, mediaCardMock } from "@entities/mediaCard";
 import { Video } from "@shared/ui/video";
+import { UserCard, userCardMock } from "@entities/userCard";
 
 /**
  * Компонент ComponentPage.
@@ -149,6 +150,17 @@ export const ComponentPage: FC = () => {
           css={`
             width: 45rem;
             height: 56rem;
+          `}
+        />
+      </Section>
+
+      <Section
+        headerSlot={<Title level={2} variantLevel={2}>UserCard</Title>}
+      >
+        <UserCard
+          {...userCardMock.componentPage}
+          css={`
+            max-width: 40rem;
           `}
         />
       </Section>
