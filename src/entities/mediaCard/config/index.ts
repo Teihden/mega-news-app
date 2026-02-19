@@ -3,14 +3,17 @@ import { MediaCard, Img, Text, Wrapper, Title, Btn } from "../ui/styles";
 import type { IImgProps } from "@shared/ui/img";
 import type { CSSProp } from "styled-components";
 import type { IVideoProps } from "@shared/ui/video";
+import type { ITextProps } from "@shared/ui/text";
+import type { ITitleProps } from "@shared/ui/title";
 
 export interface IMediaCardProps {
   className?: string;
   imgProps?: IImgProps;
   videoProps?: IVideoProps;
   title?: string;
-  titleVariantLevel?: number;
+  titleVariantLevel?: ITitleProps["variantLevel"];
   text?: string;
+  textVariant?: ITextProps["variant"];
   textLineClamp?: number;
   isBtnOverlay?: boolean;
   css?: CSSProp;

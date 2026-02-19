@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import type { IStyledBtnProps } from "../config";
+import type { IStyledBtnProps, IStyledIconProps } from "../config";
 import { palette } from "@app/styles";
 import { Title } from "@shared/ui/title";
 
@@ -134,4 +134,10 @@ export const Btn = styled.button<IStyledBtnProps>`
     color: inherit;
     transition: inherit;
   }
+`;
+
+export const Icon = styled.span<IStyledIconProps>`
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: ${({ $fontSize }) => `${$fontSize}px`};
 `;

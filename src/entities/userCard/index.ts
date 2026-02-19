@@ -1,3 +1,3 @@
-export { default as UserCard } from "./ui/UserCard.tsx";
+export { UserCard } from "./ui/UserCard";
 export type { IUserCard, IUserCardProps } from "./config";
 export * as userCardMock from "./api/mock";

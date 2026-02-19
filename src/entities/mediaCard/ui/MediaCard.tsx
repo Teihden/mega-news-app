@@ -12,6 +12,7 @@ import { Link } from "react-router";
  * @param props.title - Заголовок, отображаемый внутри карточки.
  * @param props.titleVariantLevel - Уровень заголовка.
  * @param props.text - Текст, отображаемый внутри карточки.
+ * @param props.textVariant - Вариант стилей текста.
  * @param props.textLineClamp - Кол-во отображаемых строк для компонента Text.
  * @param props.isBtnOverlay - рендер overlay для заголовка карточки.
  * @param props.rest - Дополнительные свойства, передаваемые в корневой элемент компонента.
@@ -25,6 +26,7 @@ export const MediaCard: IMediaCard = (props) => {
     title = "",
     titleVariantLevel = 3,
     text = "",
+    textVariant = "md",
     textLineClamp = 2,
     isBtnOverlay = true,
     ...rest
@@ -63,7 +65,7 @@ export const MediaCard: IMediaCard = (props) => {
         )}
         {text && (
           <S.Text
-            variant={"md"}
+            variant={textVariant}
             $lineClamp={textLineClamp}
           >
             {text}

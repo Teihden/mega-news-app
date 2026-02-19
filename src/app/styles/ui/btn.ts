@@ -1,5 +1,5 @@
 import { palette } from "@app/styles/palette";
-import { defaultStyles } from "../defaultStyles";
+import { defaultStyles } from "@app/styles";
 
 export const btn = {
   fontSize: "1.75rem",

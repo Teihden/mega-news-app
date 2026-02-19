@@ -208,6 +208,16 @@ export const IndexPage: FC = () => {
           </ErrorBoundary>
         </Suspense>
       </Section>
+
+      <Section
+        headerSlot={(
+          <WithIndicator variant={"primary"}>
+            <Title level={2} variantLevel={4}>Popular posts</Title>
+          </WithIndicator>
+        )}
+      >
+        CONTENT
+      </Section>
     </>
   );
 };

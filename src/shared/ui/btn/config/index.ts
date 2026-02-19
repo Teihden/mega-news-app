@@ -1,6 +1,6 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, FC, PropsWithChildren, ReactNode, Ref } from "react";
 import { defaultTheme } from "@app/styles";
-import { Btn } from "../ui/styles";
+import { Btn, Icon } from "../ui/styles";
 import type { Link } from "react-router";
 
 export interface ICommonBtnProps extends PropsWithChildren {
@@ -49,6 +49,11 @@ export interface IStyledBtnProps {
   $isInline?: boolean;
 }
 
+export interface IStyledIconProps {
+  $fontSize: number;
+}
+
 export interface IBtn extends FC<TBtnProps> {
   Btn: typeof Btn;
+  Icon: typeof Icon;
 }

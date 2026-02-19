@@ -13,7 +13,7 @@ import { formatDate } from "../lib";
  * @param props.rest - Дополнительные свойства, передаваемые в корневой элемент компонента.
  * @returns Компонент.
  */
-const UserCard: IUserCard = (props) => {
+export const UserCard: IUserCard = (props) => {
   const {
     className,
     imgProps = {},
@@ -51,7 +51,6 @@ const UserCard: IUserCard = (props) => {
     </S.UserCard>
   );
 };
-export default UserCard;
 
 UserCard.UserCard = S.UserCard;
 UserCard.Img = S.Img;
