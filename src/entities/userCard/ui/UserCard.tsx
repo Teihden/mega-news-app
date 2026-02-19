@@ -1,6 +1,7 @@
 import type { IUserCard } from "../config";
 import * as S from "./styles";
 import { isEmpty, isPlainObject } from "remeda";
+import { formatDate } from "../lib";
 
 /**
  * Карточка пользователя.
@@ -20,23 +21,6 @@ const UserCard: IUserCard = (props) => {
     timestamp = null,
     ...rest
   } = props;
-
-  /**
-   * Форматирует timestamp в строку даты.
-   * Использует локаль из `document.documentElement.lang`.
-   * Если язык не задан — используется `en`.
-   * @param timestamp - Timestamp в миллисекундах.
-   * @returns Отформатированная дата (например: "August 18, 2022").
-   */
-  const formatDate = (timestamp: number): string => {
-    const locale = document.documentElement.lang ?? "en";
-
-    return new Intl.DateTimeFormat(locale, {
-      month: "long",
-      day: "numeric",
-      year: "numeric",
-    }).format(new Date(timestamp));
-  };
 
   return (
     <S.UserCard
