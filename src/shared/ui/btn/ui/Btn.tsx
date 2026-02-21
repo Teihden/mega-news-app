@@ -24,7 +24,7 @@ import type { Ref } from "react";
  * @param props.target - Атрибут target для ссылки (`_blank`, `_self` и т.д.).
  * @param props.rel - Атрибут rel для ссылки (например, `noopener noreferrer` для `_blank`).
  * @param props.ref - реф.
- * @returns Возвращает компонент.
+ * @returns Компонент.
  */
 export const Btn: IBtn = (props) => {
   const {
@@ -76,15 +76,19 @@ export const Btn: IBtn = (props) => {
         : (
             <>
               {icon && iconPosition === "left" && (
-                <span style={{ fontSize: iconSize, display: "inline-flex" }}>
+                <S.Icon
+                  $fontSize={iconSize}
+                >
                   {icon}
-                </span>
+                </S.Icon>
               )}
               {text}
               {icon && iconPosition === "right" && (
-                <span style={{ fontSize: iconSize, display: "inline-flex" }}>
+                <S.Icon
+                  $fontSize={iconSize}
+                >
                   {icon}
-                </span>
+                </S.Icon>
               )}
             </>
           )}
@@ -93,3 +97,4 @@ export const Btn: IBtn = (props) => {
 };
 
 Btn.Btn = S.Btn;
+Btn.Icon = S.Icon;

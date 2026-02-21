@@ -8,6 +8,7 @@ import * as S from "./styles";
  * @param props.as Тип HTML элемента для рендера.
  * @param props.variant Вариант стилей текста.
  * @param props.align Вариант горизонтального расположения текста.
+ * @param props.marginBlock Свойство margin-block.
  * @param props.children Дочерние элементы компонента.
  * @param props.rest Прочие свойства, передаваемые компоненту.
  * @returns Компонент.
@@ -18,6 +19,7 @@ export const Text: IText = (props) => {
     as = "p",
     variant = "md",
     align = "left",
+    marginBlock = null,
     children = null,
     ...rest
   } = props;
@@ -28,6 +30,7 @@ export const Text: IText = (props) => {
       as={as}
       $variant={variant}
       $align={align}
+      $marginBlock={marginBlock}
       {...rest}
     >
       {children}

@@ -3,8 +3,8 @@ import * as S from "./styles";
 import { useEffect, useRef, useState } from "react";
 import { type Swiper as TSwiper } from "swiper";
 import { Swiper, type SwiperRef, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade, Mousewheel, Navigation, Pagination, Thumbs, EffectCoverflow } from "swiper/modules";
-import { isNavigation, isPagination, isThumbs } from "../lib";
+import { Autoplay, EffectFade, Mousewheel, Keyboard, Navigation, Pagination, Thumbs, EffectCoverflow } from "swiper/modules";
+import { isUseNavigation, isUsePagination, isUseThumbs } from "../lib";
 import IconChevronRight from "@shared/assets/images/icons/icon-chevron-right.svg?react";
 import IconChevronLeft from "@shared/assets/images/icons/icon-chevron-left.svg?react";
 import { funnel, isEmpty, isPlainObject } from "remeda";
@@ -50,7 +50,7 @@ export const Slider: ISlider = (props) => {
     ...swiperThumbsCfg,
   };
 
-  const paginationCfg = isPagination(swiperConfig.pagination)
+  const paginationCfg = isUsePagination(swiperConfig.pagination)
     ? {
         ...swiperConfig.pagination,
         el: paginationRef.current,
@@ -59,7 +59,7 @@ export const Slider: ISlider = (props) => {
       }
     : false;
 
-  const navigationCfg = isNavigation(swiperConfig.navigation)
+  const navigationCfg = isUseNavigation(swiperConfig.navigation)
     ? {
         ...swiperConfig.navigation,
         prevEl: navigationPrevRef.current,
@@ -68,7 +68,7 @@ export const Slider: ISlider = (props) => {
       }
     : false;
 
-  const thumbsCfg = isThumbs(thumbsSlides)
+  const thumbsCfg = isUseThumbs(thumbsSlides)
     ? {
         ...swiperConfig.thumbs,
         swiper: thumbsSwiper,
@@ -77,9 +77,10 @@ export const Slider: ISlider = (props) => {
 
   const swiperModules = [
     Mousewheel,
+    Keyboard,
     ...(paginationCfg ? [ Pagination ] : []),
     ...(navigationCfg ? [ Navigation ] : []),
-    ...(isThumbs(thumbsSlides) ? [ Thumbs ] : []),
+    ...(isUseThumbs(thumbsSlides) ? [ Thumbs ] : []),
     ...(swiperConfig.effect === "fade" ? [ EffectFade ] : []),
     ...(swiperConfig.effect === "coverflow" ? [ EffectCoverflow ] : []),
     ...(swiperConfig.autoplay && isPlainObject(swiperConfig.autoplay) && !isEmpty(swiperConfig.autoplay) ? [ Autoplay ] : []),
@@ -87,7 +88,7 @@ export const Slider: ISlider = (props) => {
 
   const thumbsSwiperModules = [
     Mousewheel,
-    ...(isThumbs(thumbsSlides) ? [ Thumbs ] : []),
+    ...(isUseThumbs(thumbsSlides) ? [ Thumbs ] : []),
   ];
 
   const handleAutoplay = funnel((data: [ TSwiper, number, number ]) => {
@@ -141,14 +142,14 @@ export const Slider: ISlider = (props) => {
       return;
     }
 
-    if (isPagination(swiper.params.pagination) && paginationRef.current) {
+    if (isUsePagination(swiper.params.pagination) && paginationRef.current) {
       swiper.params.pagination.el = paginationRef.current;
       swiper.pagination?.init();
       swiper.pagination?.render();
       swiper.pagination?.update();
     }
 
-    if (isNavigation(swiper.params.navigation) && navigationPrevRef.current && navigationNextRef.current) {
+    if (isUseNavigation(swiper.params.navigation) && navigationPrevRef.current && navigationNextRef.current) {
       swiper.params.navigation.prevEl = navigationPrevRef.current;
       swiper.params.navigation.nextEl = navigationNextRef.current;
       swiper.navigation?.init();
@@ -163,7 +164,7 @@ export const Slider: ISlider = (props) => {
       {/* Main Swiper */}
       <Swiper
         ref={swiperRef}
-        className={clsx(`${S.Container.styledComponentId}`, { "is-main": isThumbs(thumbsSlides) })}
+        className={clsx(`${S.Container.styledComponentId}`, { "is-main": isUseThumbs(thumbsSlides) })}
         {...swiperConfig}
         modules={swiperModules}
         pagination={paginationCfg}
@@ -193,9 +194,9 @@ export const Slider: ISlider = (props) => {
       </Swiper>
 
       {/* Thumbs Swiper */}
-      {isThumbs(thumbsSlides) && (
+      {isUseThumbs(thumbsSlides) && (
         <Swiper
-          className={clsx(`${S.Container.styledComponentId}`, { "is-thumbs": isThumbs(thumbsSlides) })}
+          className={clsx(`${S.Container.styledComponentId}`, { "is-thumbs": isUseThumbs(thumbsSlides) })}
           ref={thumbsSwiperRef}
           {...thumbsSwiperConfig}
           modules={thumbsSwiperModules}

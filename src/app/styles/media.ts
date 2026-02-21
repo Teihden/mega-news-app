@@ -21,9 +21,13 @@ export const { breakpoints } = createStyledBreakpointsTheme({
     desktopBelowLarge: "1720px",
     desktopAboveMedium: "1600px",
     desktopMedium: "1480px",
+    desktopSmall: "1366px",
+    desktopMinimum: "1320px",
     tablet: "1280px",
     tabletMedium: "1024px",
     tabletSmall: "920px",
     mobile: "767px",
+    mobileSmall: "640px",
+    mobileMinimum: "375px",
   },
 });

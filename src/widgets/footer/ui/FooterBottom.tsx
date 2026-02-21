@@ -28,7 +28,7 @@ export const FooterBottom: FC = () => {
       </InlineCluster>
 
       <Text variant={"sm"}>
-        {"All Copyright (C) 2025 Reserved"}
+        {`All Copyright (C) ${new Date().getFullYear()} Reserved`}
       </Text>
     </S.BottomWrapper>
   );

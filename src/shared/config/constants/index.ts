@@ -10,7 +10,12 @@ export const API_ENDPOINTS = {
   forms: {
     newsletter: "/http/200/Subscribed%20successfully/?delay=1500",
   },
-  comments: "/comments/?delay=1500",
+  posts: {
+    all: "/posts?delay=1500",
+    // eslint-disable-next-line jsdoc/require-jsdoc
+    updatePosts: (id: number) => `/posts/${id}?delay=200`,
+  },
+  comments: "/comments?delay=1500",
 };
 
 export const PUBLIC_URLS = {
@@ -18,6 +23,11 @@ export const PUBLIC_URLS = {
     newsletter: `${API_URL}${API_ENDPOINTS.forms.newsletter}`,
   },
   comments: `${API_URL}${API_ENDPOINTS.comments}`,
+  posts: {
+    all: `${API_URL}${API_ENDPOINTS.posts.all}`,
+    // eslint-disable-next-line jsdoc/require-jsdoc
+    updatePosts: (id: number) => `${API_URL}${API_ENDPOINTS.posts.updatePosts(id)}`,
+  },
 };
 
 export const STATE_CLASSES = {

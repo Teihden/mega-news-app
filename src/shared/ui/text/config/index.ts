@@ -7,11 +7,13 @@ export interface ITextProps extends PropsWithChildren {
   as?: "div" | "p" | "span";
   variant?: keyof typeof defaultTheme.text;
   align?: CSSProperties["textAlign"];
+  marginBlock?: CSSProperties["marginBlock"] | null;
 }
 
 export interface IStyledTextProps {
-  $variant?: keyof typeof defaultTheme.text;
-  $align?: CSSProperties["textAlign"];
+  $variant?: ITextProps["variant"];
+  $align?: ITextProps["align"];
+  $marginBlock?: ITextProps["marginBlock"];
 }
 
 export interface IText extends FC<ITextProps> {

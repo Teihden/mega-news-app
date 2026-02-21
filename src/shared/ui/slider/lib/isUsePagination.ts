@@ -8,5 +8,5 @@ import { isEmpty, isPlainObject } from "remeda";
  * @param pagination - Параметр, представляющий настройку пагинации компонента Swiper.
  * @returns Возвращает `true`, если `pagination` является объектом и содержит данные, иначе `false`.
  */
-export const isPagination = (pagination: SwiperOptions["pagination"]): pagination is Exclude<SwiperOptions["pagination"], boolean | undefined> =>
+export const isUsePagination = (pagination: SwiperOptions["pagination"]): pagination is Exclude<SwiperOptions["pagination"], boolean | undefined> =>
   Boolean(pagination && isPlainObject(pagination) && !isEmpty(pagination));
