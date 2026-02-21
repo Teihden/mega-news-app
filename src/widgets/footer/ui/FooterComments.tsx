@@ -22,7 +22,7 @@ export const FooterComments: FC<IFooterCommentsProps> = (props) => {
   } = props;
   const theme = useTheme();
   const isTabletSmallUp = useMediaQuery(theme.bp.up("tabletSmall"));
-  const { data, isLoading } = useGetCommentsQuery({ limit: 4 });
+  const { data, isLoading } = useGetCommentsQuery({ limit: 8 });
 
   return isTabletSmallUp
     && (

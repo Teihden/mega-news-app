@@ -19,16 +19,32 @@ export const apiClient = createApi({
       }),
     }),
     getComments: builder.query<ICommentsResp, ICommentsReq>({
-      query: ({ limit = 4 }) => ({
-        url: `${API_ENDPOINTS.comments}${limit ? `&limit=${limit}` : ""}`,
+      query: ({ limit = 4, skip = 0 }) => ({
+        url: `${API_ENDPOINTS.comments}${limit ? `&limit=${limit}` : ""}${skip ? `&skip=${skip}` : ""}`,
         method: "GET",
       }),
+      serializeQueryArgs: ({ endpointName }) => endpointName,
+      merge: (currentCache, newData) => {
+        currentCache.comments?.push(...newData.comments ?? []);
+        currentCache.total = newData.total ?? 0;
+        currentCache.skip = newData.skip ?? 0;
+        currentCache.limit = newData.limit ?? 0;
+      },
+      forceRefetch: ({ currentArg, previousArg }) => currentArg?.skip !== previousArg?.skip || currentArg?.limit !== previousArg?.limit,
     }),
     getPosts: builder.query<IPostsResp, IPostsReq>({
-      query: ({ limit = 8 }) => ({
-        url: `${API_ENDPOINTS.posts.all}${limit ? `&limit=${limit}` : ""}`,
+      query: ({ limit = 8, skip = 0 }) => ({
+        url: `${API_ENDPOINTS.posts.all}${limit ? `&limit=${limit}` : ""}${skip ? `&skip=${skip}` : ""}`,
         method: "GET",
       }),
+      serializeQueryArgs: ({ endpointName }) => endpointName,
+      merge: (currentCache, newData) => {
+        currentCache.posts?.push(...newData.posts ?? []);
+        currentCache.total = newData.total ?? 0;
+        currentCache.skip = newData.skip ?? 0;
+        currentCache.limit = newData.limit ?? 0;
+      },
+      forceRefetch: ({ currentArg, previousArg }) => currentArg?.skip !== previousArg?.skip || currentArg?.limit !== previousArg?.limit,
     }),
     updatePost: builder.mutation<IUpdatePostResp, IUpdatePostReq>({
       query: ({ id, reactions }) => ({

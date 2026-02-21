@@ -1,5 +1,6 @@
 import type { ICommentsResp, IFooterProps } from "../config";
 import { PAGES } from "@shared/config/constants";
+import { randomInteger } from "remeda";
 
 const imgs = import.meta.glob<string>("@shared/assets/images/instagram/*.jpg", {
   query: "?url",
@@ -33,7 +34,7 @@ export const footer: IFooterProps = {
 export const commentsResp: ICommentsResp = {
   comments: [
     {
-      id: 1,
+      id: randomInteger(1, 9999),
       body: "This is some awesome thinking!",
       postId: 242,
       likes: 3,
@@ -44,7 +45,7 @@ export const commentsResp: ICommentsResp = {
       },
     },
     {
-      id: 2,
+      id: randomInteger(1, 9999),
       body: "What terrific math skills you're showing!",
       postId: 46,
       likes: 4,
@@ -55,7 +56,7 @@ export const commentsResp: ICommentsResp = {
       },
     },
     {
-      id: 3,
+      id: randomInteger(1, 9999),
       body: "You are an amazing writer!",
       postId: 235,
       likes: 2,
@@ -66,7 +67,7 @@ export const commentsResp: ICommentsResp = {
       },
     },
     {
-      id: 4,
+      id: randomInteger(1, 9999),
       body: "Wow! You have improved so much!",
       postId: 31,
       likes: 1,
@@ -77,7 +78,7 @@ export const commentsResp: ICommentsResp = {
       },
     },
     {
-      id: 5,
+      id: randomInteger(1, 9999),
       body: "Nice idea!",
       postId: 212,
       likes: 1,
@@ -88,7 +89,7 @@ export const commentsResp: ICommentsResp = {
       },
     },
     {
-      id: 6,
+      id: randomInteger(1, 9999),
       body: "You are showing excellent understanding!",
       postId: 184,
       likes: 5,
@@ -99,7 +100,7 @@ export const commentsResp: ICommentsResp = {
       },
     },
     {
-      id: 7,
+      id: randomInteger(1, 9999),
       body: "This is clear, concise, and complete!",
       postId: 172,
       likes: 1,
@@ -110,7 +111,7 @@ export const commentsResp: ICommentsResp = {
       },
     },
     {
-      id: 8,
+      id: randomInteger(1, 9999),
       body: "What a powerful argument!",
       postId: 233,
       likes: 0,

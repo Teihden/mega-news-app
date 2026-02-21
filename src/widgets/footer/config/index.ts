@@ -44,4 +44,5 @@ export interface ICommentsResp {
 
 export interface ICommentsReq {
   limit?: number;
+  skip?: number;
 }
