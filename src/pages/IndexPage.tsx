@@ -14,6 +14,7 @@ import { InlineCluster, Inline, Stack } from "@bedrock-layout/primitives";
 import { Link } from "react-router";
 import { Btn } from "@shared/ui/btn";
 import IconChevronRight from "@shared/assets/images/icons/icon-chevron-right.svg?react";
+import { PostCardContainer } from "@entities/postCardContainer";
 
 const LazyMainSlider = lazy(() => import("@shared/ui/slider")
   .then((module) => ({ default: styled(module.Slider)`${mainSliderStyles}` })));
@@ -216,7 +217,7 @@ export const IndexPage: FC = () => {
           </WithIndicator>
         )}
       >
-        CONTENT
+        <PostCardContainer />
       </Section>
     </>
   );

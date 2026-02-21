@@ -6,7 +6,7 @@ export const UserCard = styled.div`
   display: grid;
   padding: 1.5rem;
   border-radius: ${({ theme }) => theme.default.borderRadius};
-  background: ${({ theme }) => theme.palette.gray[100]};
+  background: ${({ theme }) => theme.mode === "light" ? theme.palette.gray["100"] : theme.palette.washDark["100"]};
   gap: .5rem 1rem;
   grid-template-columns: auto 1fr;
 `;
@@ -28,5 +28,5 @@ export const Name = styled(ComponentText)`
 `;
 
 export const Timestamp = styled(ComponentText)`
-  color: ${({ theme }) => theme.palette.dark[75]};
+  color: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["75"] : theme.palette.white["75"]};
 `;

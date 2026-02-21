@@ -4,6 +4,5 @@ export type {
   IPostCardProps,
   IUpdatePostResp,
   IUpdatePostReq,
-  IPostsResp,
 } from "./config";
 export * as postCardMock from "./api/mock";

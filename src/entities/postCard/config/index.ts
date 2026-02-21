@@ -36,13 +36,6 @@ export interface IPost {
   views?: number;
 }
 
-export interface IPostsResp {
-  posts: IPost[];
-  total: number;
-  skip: number;
-  limit: number;
-}
-
 export interface IUpdatePostResp extends Omit<IPost, "views"> {}
 
 export interface IUpdatePostReq {

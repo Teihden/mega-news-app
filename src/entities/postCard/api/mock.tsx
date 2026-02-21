@@ -1,5 +1,5 @@
 import imgCity1 from "@shared/assets/images/city/city-1.jpg";
-import type { IPostCardProps } from "../config";
+import type { IPostCardProps, IUpdatePostResp } from "../config";
 import avatar6 from "@shared/assets/images/avatar/avatar-6.jpg";
 
 export const componentPage: IPostCardProps = {
@@ -27,5 +27,21 @@ export const componentPage: IPostCardProps = {
   reactions: {
     dislikes: 11,
     likes: 190,
+  },
+};
+
+export const updatePostResp: IUpdatePostResp = {
+  id: 1,
+  title: "His mother had always taught him",
+  body: "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+  userId: 121,
+  tags: [
+    "history",
+    "american",
+    "crime",
+  ],
+  reactions: {
+    dislikes: 10,
+    likes: 191,
   },
 };

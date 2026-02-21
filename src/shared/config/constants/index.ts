@@ -23,6 +23,11 @@ export const PUBLIC_URLS = {
     newsletter: `${API_URL}${API_ENDPOINTS.forms.newsletter}`,
   },
   comments: `${API_URL}${API_ENDPOINTS.comments}`,
+  posts: {
+    all: `${API_URL}${API_ENDPOINTS.posts.all}`,
+    // eslint-disable-next-line jsdoc/require-jsdoc
+    updatePosts: (id: number) => `${API_URL}${API_ENDPOINTS.posts.updatePosts(id)}`,
+  },
 };
 
 export const STATE_CLASSES = {

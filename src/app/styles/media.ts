@@ -27,5 +27,7 @@ export const { breakpoints } = createStyledBreakpointsTheme({
     tabletMedium: "1024px",
     tabletSmall: "920px",
     mobile: "767px",
+    mobileSmall: "640px",
+    mobileMinimum: "375px",
   },
 });

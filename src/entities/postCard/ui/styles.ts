@@ -9,7 +9,7 @@ export const PostCard = styled.article`
   flex-flow: column nowrap;
   padding: 1.25rem;
   border-radius: ${({ theme }) => theme.default.borderRadius};
-  background: ${({ theme }) => theme.palette.white["100"]};
+  background: ${({ theme }) => theme.mode === "light" ? theme.palette.white["100"] : theme.palette.washDark["100"]};
   box-shadow: ${({ theme }) => theme.palette.shadow["2"]};
   transform: translate3d(0, 0, 0);
 `;
@@ -47,18 +47,18 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   padding: 1.75rem 2rem;
   border-radius: ${({ theme }) => theme.default.borderRadius};
-  background: ${({ theme }) => theme.palette.gray["100"]};
+  background: ${({ theme }) => theme.mode === "light" ? theme.palette.gray["100"] : theme.palette.black["100"]};
 `;
 
 export const Btn = styled(ComponentBtn)`
   display: flex;
   aspect-ratio: auto;
-  color: ${({ theme }) => theme.palette.dark["100"]};
+  color: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["100"] : theme.palette.white["75"]};
   gap: .75rem;
 
   &:disabled,
   &[disabled] {
-    color: ${({ theme }) => theme.palette.dark["100"]};
+    color: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["100"] : theme.palette.white["100"]};
 
     svg {
       color: ${({ theme }) => theme.palette.primary["100"]};
@@ -66,6 +66,6 @@ export const Btn = styled(ComponentBtn)`
   }
 
   ${ComponentBtn.Icon} {
-    color: ${({ theme }) => theme.palette.dark["50"]};
+    color: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["50"] : theme.palette.white["75"]};
   }
 `;

@@ -1,12 +1,13 @@
 import { http, delay, HttpResponse } from "msw";
 import { PUBLIC_URLS } from "@shared/config/constants";
 import type { INewsletterSignUpFormReq, INewsletterSignUpFormResp } from "@features/newsletterSignUpForm";
-import type { ICommentsResp } from "@shared/types";
-import { commentsResp } from "@shared/api";
+import { footerMock, type ICommentsResp } from "@widgets/footer";
+import { type IUpdatePostResp, postCardMock } from "@entities/postCard";
+import { type IPostsResp, postCardContainerMock } from "@entities/postCardContainer";
 
 export const handlers = [
   http.post<never, INewsletterSignUpFormReq, INewsletterSignUpFormResp>(PUBLIC_URLS.forms.newsletter, async ({ request }) => {
-    await delay(1500);
+    await delay(1000);
     const formData = await request.formData();
     const email = formData.get("email");
 
@@ -22,7 +23,18 @@ export const handlers = [
   }),
 
   http.get<never, never, ICommentsResp>(`${PUBLIC_URLS.comments}`, async () => {
-    await delay(1500);
-    return HttpResponse.json(commentsResp, { status: 200 });
+    await delay(1000);
+    return HttpResponse.json(footerMock.commentsResp, { status: 200 });
   }),
+
+  http.put<never, never, IUpdatePostResp>(`${PUBLIC_URLS.posts.updatePosts(1)}`, async () => {
+    await delay(1000);
+    return HttpResponse.json(postCardMock.updatePostResp, { status: 200 });
+  }),
+
+  http.get<never, never, IPostsResp>(`${PUBLIC_URLS.posts.all}`, async () => {
+    await delay(1000);
+    return HttpResponse.json(postCardContainerMock.mainPage, { status: 200 });
+  }),
+
 ];

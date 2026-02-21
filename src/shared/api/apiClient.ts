@@ -1,8 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type { INewsletterSignUpFormReq, INewsletterSignUpFormResp } from "@features/newsletterSignUpForm";
 import { API_URL, API_ENDPOINTS } from "@shared/config/constants";
-import type { ICommentsResp } from "@shared/types";
-import type { IPostsResp, IUpdatePostReq, IUpdatePostResp } from "@entities/postCard";
+import type { IUpdatePostReq, IUpdatePostResp } from "@entities/postCard";
+import type { ICommentsReq, ICommentsResp } from "@widgets/footer";
+import type { IPostsReq, IPostsResp } from "@entities/postCardContainer";
 
 /* eslint-disable jsdoc/require-jsdoc */
 
@@ -17,15 +18,15 @@ export const apiClient = createApi({
         body,
       }),
     }),
-    getComments: builder.query<ICommentsResp, number>({
-      query: (limit = 4) => ({
-        url: `${API_ENDPOINTS.comments}&limit=${limit}`,
+    getComments: builder.query<ICommentsResp, ICommentsReq>({
+      query: ({ limit = 4 }) => ({
+        url: `${API_ENDPOINTS.comments}${limit ? `&limit=${limit}` : ""}`,
         method: "GET",
       }),
     }),
-    getPosts: builder.query<IPostsResp, undefined | number>({
-      query: (limit = 8) => ({
-        url: `${API_ENDPOINTS.posts.all}&limit=${limit}`,
+    getPosts: builder.query<IPostsResp, IPostsReq>({
+      query: ({ limit = 8 }) => ({
+        url: `${API_ENDPOINTS.posts.all}${limit ? `&limit=${limit}` : ""}`,
         method: "GET",
       }),
     }),
