@@ -1,7 +1,8 @@
 import type { IPostsResp } from "../config";
 import { randomInteger } from "remeda";
 
-export const mainPage: IPostsResp = {
+// eslint-disable-next-line jsdoc/require-jsdoc
+export const getPostResp = (): IPostsResp => ({
   posts: [
     {
       id: randomInteger(1, 9999),
@@ -133,4 +134,4 @@ export const mainPage: IPostsResp = {
   total: 251,
   skip: 0,
   limit: 8,
-};
+});

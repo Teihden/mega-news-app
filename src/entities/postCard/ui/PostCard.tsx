@@ -2,7 +2,6 @@ import type { IPostCard } from "../config";
 import * as S from "./styles";
 import IconHeart from "@shared/assets/images/icons/icon-heart.svg?react";
 import { useUpdatePostMutation } from "@shared/api";
-import { useEffect, useState } from "react";
 
 /**
  * Компонент PostCard.
@@ -24,23 +23,13 @@ export const PostCard: IPostCard = (props) => {
     id = 0,
     ...rest
   } = props;
-  const [ updatePost, { isSuccess, isLoading, isError } ] = useUpdatePostMutation();
-  const [ likes, setLikes ] = useState(() => reactions?.["likes"] ?? 0);
-
-  useEffect(() => {
-    if (!isError) {
-      return;
-    }
-
-    setLikes((prev) => prev -= 1);
-  }, [ isError ]);
+  const { likes = 0 } = reactions ?? {};
+  const [ updatePost, { isSuccess, isLoading } ] = useUpdatePostMutation();
 
   /**
    * Функция обработчик события клика.
    */
   const handleClick = () => {
-    setLikes((prev) => prev += 1);
-
     updatePost({
       id,
       reactions: {

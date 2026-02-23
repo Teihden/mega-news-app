@@ -8,14 +8,13 @@ export const API_URL = import.meta.env.VITE_API_URL ?? "https://dummyjson.com";
 
 export const API_ENDPOINTS = {
   forms: {
-    newsletter: "/http/200/Subscribed%20successfully/?delay=1500",
+    newsletter: "/http/200/Subscribed%20successfully/?delay=1000",
   },
   posts: {
-    all: "/posts?delay=1500",
-    // eslint-disable-next-line jsdoc/require-jsdoc
-    updatePosts: (id: number) => `/posts/${id}?delay=200`,
+    all: "/posts?delay=1000",
+    updatePosts: "/posts/",
   },
-  comments: "/comments?delay=1500",
+  comments: "/comments?delay=1000",
 };
 
 export const PUBLIC_URLS = {
@@ -25,8 +24,7 @@ export const PUBLIC_URLS = {
   comments: `${API_URL}${API_ENDPOINTS.comments}`,
   posts: {
     all: `${API_URL}${API_ENDPOINTS.posts.all}`,
-    // eslint-disable-next-line jsdoc/require-jsdoc
-    updatePosts: (id: number) => `${API_URL}${API_ENDPOINTS.posts.updatePosts(id)}`,
+    updatePosts: `${API_URL}${API_ENDPOINTS.posts.updatePosts}`,
   },
 };
 
