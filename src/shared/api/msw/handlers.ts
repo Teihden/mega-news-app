@@ -24,17 +24,17 @@ export const handlers = [
 
   http.get<never, never, ICommentsResp>(`${PUBLIC_URLS.comments}`, async () => {
     await delay(1000);
-    return HttpResponse.json(footerMock.commentsResp, { status: 200 });
+    return HttpResponse.json(footerMock.getCommentsResp(), { status: 200 });
   }),
 
-  http.put<never, never, IUpdatePostResp>(`${PUBLIC_URLS.posts.updatePosts(1)}`, async () => {
+  http.put<never, never, IUpdatePostResp>(`${PUBLIC_URLS.posts.updatePosts}:id`, async () => {
     await delay(1000);
     return HttpResponse.json(postCardMock.updatePostResp, { status: 200 });
   }),
 
   http.get<never, never, IPostsResp>(`${PUBLIC_URLS.posts.all}`, async () => {
     await delay(1000);
-    return HttpResponse.json(postCardContainerMock.mainPage, { status: 200 });
+    return HttpResponse.json(postCardContainerMock.getPostResp(), { status: 200 });
   }),
 
 ];

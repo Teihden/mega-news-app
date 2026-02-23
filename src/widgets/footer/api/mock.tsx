@@ -31,7 +31,8 @@ export const footer: IFooterProps = {
   pages: PAGES,
 };
 
-export const commentsResp: ICommentsResp = {
+// eslint-disable-next-line jsdoc/require-jsdoc
+export const getCommentsResp = (): ICommentsResp => ({
   comments: [
     {
       id: randomInteger(1, 9999),
@@ -125,4 +126,4 @@ export const commentsResp: ICommentsResp = {
   total: 340,
   skip: 0,
   limit: 8,
-};
+});

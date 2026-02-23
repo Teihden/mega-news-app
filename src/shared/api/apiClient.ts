@@ -48,7 +48,7 @@ export const apiClient = createApi({
     }),
     updatePost: builder.mutation<IUpdatePostResp, IUpdatePostReq>({
       query: ({ id, reactions }) => ({
-        url: API_ENDPOINTS.posts.updatePosts(id),
+        url: `${API_ENDPOINTS.posts.updatePosts}${id}`,
         method: "PUT",
         body: { reactions },
       }),
