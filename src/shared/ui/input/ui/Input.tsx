@@ -13,7 +13,6 @@ import * as S from "./styles";
  * @param props.disabled Отключает компонент, если установлено значение true.
  * @param props.style - Стили.
  * @param props.rest Дополнительные свойства, передаваемые в компонент.
- *
  * @returns Компонент.
  */
 export const Input: IInput = (props) => {
