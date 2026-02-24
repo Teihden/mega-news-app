@@ -31,6 +31,7 @@ export const useAppStore = create(
          */
         updateLanguage: (newLanguageMode: TLanguageMode = "en") => {
           newLanguageMode && document.documentElement.setAttribute("lang", newLanguageMode);
+          localStorage.setItem("lang", newLanguageMode);
 
           set({
             languageMode: newLanguageMode,

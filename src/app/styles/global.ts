@@ -131,6 +131,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .custom-react-tooltip.react-tooltip {
+    z-index: ${({ theme }) => theme.tooltip.zIndex};
     padding: ${({ theme }) => theme.tooltip.padding};
     border-width: ${({ theme }) => theme.tooltip.borderWidth};
     border-style: ${({ theme }) => theme.tooltip.borderStyle};

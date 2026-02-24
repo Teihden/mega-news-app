@@ -32,6 +32,10 @@ export const HeaderRightInner = styled.div`
   display: flex;
   align-items: center;
   gap: 3rem;
+
+  ${({ theme }) => theme.bp.down("mobile")} {
+    gap: 2rem;
+  }
 `;
 
 export const HeaderNav = styled.div`

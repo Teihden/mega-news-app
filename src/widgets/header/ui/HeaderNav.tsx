@@ -1,4 +1,4 @@
-import { type FC, useState } from "react";
+import { type FC, useId, useState } from "react";
 import type { IHeaderNavProps } from "../config";
 import * as S from "./styles";
 import IconChevronDown from "@shared/assets/images/icons/icon-chevron-down.svg?react";
@@ -23,6 +23,7 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
   const matches = useMatches() as UIMatch<unknown, IRouteHandle>[];
   const currentTitle = [ ...matches ].reverse().find((m) => m.handle?.title)?.handle?.title ?? null;
   const [ isTooltipOpen, setIsTooltipOpen ] = useState(false);
+  const tooltipId = useId();
 
   return (
     <S.HeaderNav>
@@ -41,11 +42,11 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
         icon={<IconChevronDown />}
         iconSize={16}
         iconPosition={"right"}
-        data-tooltip-id={"pages"}
+        data-tooltip-id={tooltipId}
         $isTooltipOpen={isTooltipOpen}
       />
       <Tooltip
-        id={"pages"}
+        id={tooltipId}
         className={"custom-react-tooltip"}
         clickable={true}
         noArrow={true}

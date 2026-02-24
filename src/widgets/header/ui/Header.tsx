@@ -9,6 +9,7 @@ import { HeaderMenu } from "./HeaderMenu";
 import { Link, type UIMatch, useMatches } from "react-router";
 import type { IRouteHandle } from "@shared/types";
 import { Btn } from "@shared/ui/btn";
+import { LanguageToggler } from "@features/languageToggler";
 
 /**
  * Компонент Header.
@@ -53,6 +54,7 @@ export const Header: FC<IHeaderProps> = (props) => {
         )}
       </S.HeaderLeftInner>
       <S.HeaderRightInner>
+        <LanguageToggler />
         <ThemeToggler />
       </S.HeaderRightInner>
     </S.Header>
