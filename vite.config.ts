@@ -10,6 +10,7 @@ import browserslist from "browserslist";
 import { analyzer as ViteBundleAnalyzer } from "vite-bundle-analyzer";
 import { compression as ViteCompression } from "vite-plugin-compression2";
 import { createHtmlPlugin as ViteHtml } from "vite-plugin-html";
+import ViteChecker from "vite-plugin-checker";
 
 /**
  * Функция resolvePath объединяет указанные сегменты пути и возвращает абсолютный путь.
@@ -167,6 +168,11 @@ export default defineConfig(({ mode }) => {
         threshold: 10240,
         deleteOriginalAssets: false,
         skipIfLargerOrEqual: true,
+      }),
+      ViteChecker({
+        typescript: true,
+        eslint: false,
+        stylelint: false,
       }),
     ],
     resolve: {
