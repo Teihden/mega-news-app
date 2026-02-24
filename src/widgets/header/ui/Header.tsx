@@ -15,7 +15,7 @@ import { Btn } from "@shared/ui/btn";
  * @param props - Свойства компонента.
  * @param props.logo - Логотип, отображаемый в заголовке.
  * @param props.pages - - Массив объектов, содержащий информацию о страницах.
- * @returns Возвращает компонент.
+ * @returns Компонент.
  */
 export const Header: FC<IHeaderProps> = (props) => {
   const {
@@ -30,7 +30,7 @@ export const Header: FC<IHeaderProps> = (props) => {
 
   return (
     <S.Header>
-      <S.HeaderInner>
+      <S.HeaderLeftInner>
         {isTabletDown && (
           <HeaderMenu pages={pages} />
         )}
@@ -51,8 +51,10 @@ export const Header: FC<IHeaderProps> = (props) => {
         {isTabletUp && (
           <HeaderNav pages={pages} />
         )}
-      </S.HeaderInner>
-      <ThemeToggler />
+      </S.HeaderLeftInner>
+      <S.HeaderRightInner>
+        <ThemeToggler />
+      </S.HeaderRightInner>
     </S.Header>
   );
 };

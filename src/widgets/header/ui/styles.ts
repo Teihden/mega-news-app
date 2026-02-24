@@ -18,7 +18,7 @@ export const Header = styled.div`
   }
 `;
 
-export const HeaderInner = styled.div`
+export const HeaderLeftInner = styled.div`
   display: flex;
   align-items: center;
   gap: 7.5rem;
@@ -26,6 +26,12 @@ export const HeaderInner = styled.div`
   ${({ theme }) => theme.bp.down("tablet")} {
     gap: 0;
   }
+`;
+
+export const HeaderRightInner = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 3rem;
 `;
 
 export const HeaderNav = styled.div`
