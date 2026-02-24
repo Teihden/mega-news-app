@@ -12,6 +12,7 @@ import * as S from "./styles";
  * @param props.marginBlock Свойство margin-block.
  * @param props.children Содержимое заголовка.
  * @param props.className Дополнительный CSS-класс для заголовка.
+ * @param props.style - Стили.
  * @param props.rest Остальные свойства, передаваемые в компонент.
  * @returns Компонент.
  */
@@ -24,6 +25,7 @@ export const Title: ITitle = (props) => {
     marginBlock = null,
     children,
     className,
+    style,
     ...rest
   } = props;
   const tag = `h${level}` as keyof JSX.IntrinsicElements;
@@ -35,6 +37,7 @@ export const Title: ITitle = (props) => {
       $variantLevel={variantLevel}
       $marginBlock={marginBlock}
       className={className}
+      {...(style ? { style } : {})}
       {...rest}
     >
       {children}

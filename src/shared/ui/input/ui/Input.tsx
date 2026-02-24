@@ -11,7 +11,9 @@ import * as S from "./styles";
  * @param props.isFocus Указывает, находится ли элемент в состоянии фокуса.
  * @param props.isInvalid Указывает, является ли ввод недействительным.
  * @param props.disabled Отключает компонент, если установлено значение true.
+ * @param props.style - Стили.
  * @param props.rest Дополнительные свойства, передаваемые в компонент.
+ *
  * @returns Компонент.
  */
 export const Input: IInput = (props) => {
@@ -23,6 +25,7 @@ export const Input: IInput = (props) => {
     isFocus = false,
     isInvalid = false,
     disabled = false,
+    style,
     ...rest
   } = props;
 
@@ -35,6 +38,7 @@ export const Input: IInput = (props) => {
       $isFocus={isFocus}
       $isInvalid={isInvalid}
       disabled={disabled}
+      {...(style ? { style } : {})}
       {...rest}
     />
   );
