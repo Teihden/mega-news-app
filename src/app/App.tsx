@@ -1,7 +1,7 @@
 import { type FC, useEffect } from "react";
 import { GlobalStyle } from "@app/styles";
 import { BrowserRouterProvider, ReduxProvider, StyleProvider } from "@app/providers";
-import { useAppStore } from "@app/store";
+import { useAppStore } from "@app/store/useAppStore";
 import { setThemeChangeListener } from "@shared/utils";
 
 /**

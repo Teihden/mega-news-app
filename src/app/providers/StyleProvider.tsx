@@ -1,6 +1,6 @@
 import { ThemeProvider } from "styled-components";
 import { type FC, type PropsWithChildren, useLayoutEffect, useState } from "react";
-import { useAppStore } from "@app/store";
+import { useAppStore } from "@app/store/useAppStore";
 import { darkTheme, lightTheme } from "@app/styles";
 
 const themes = {

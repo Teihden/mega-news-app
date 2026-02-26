@@ -33,4 +33,4 @@ export const STATE_CLASSES = {
   isDisabled: "is-disabled",
 };
 
-export const LANGUAGE_MODES = [ "en", "ru" ] as const;
+export const LANGUAGES = [ "en", "ru" ] as const;

@@ -1,23 +1,23 @@
-import { LANGUAGE_MODES } from "@shared/config/constants";
-import type { TLanguageMode } from "@shared/types";
+import { LANGUAGES } from "@shared/config/constants";
+import type { TLanguage } from "@shared/types";
 
 /**
  * Проверяет, является ли переданное значение поддерживаемым языковым режимом.
  * @param value - Проверяемое строковое значение.
- * @returns `true`, если значение входит в список `LANGUAGE_MODES`.
+ * @returns `true`, если значение входит в список `LANGUAGES`.
  */
-const isLanguageMode = (value: string): value is TLanguageMode => {
-  return LANGUAGE_MODES.includes(value as TLanguageMode);
+const isLanguage = (value: string): value is TLanguage => {
+  return LANGUAGES.includes(value as TLanguage);
 };
 
 /**
  * Возвращает текущий режим переключателя языка.
  * @returns Текущий активный режим языка.
  */
-export const getLanguageMode = (): TLanguageMode => {
+export const getLanguage = (): TLanguage => {
   const savedLanguage = localStorage.getItem("lang");
 
-  if (savedLanguage && isLanguageMode(savedLanguage)) {
+  if (savedLanguage && isLanguage(savedLanguage)) {
     document.documentElement.lang = savedLanguage;
     return savedLanguage;
   }
@@ -26,7 +26,7 @@ export const getLanguageMode = (): TLanguageMode => {
     ?.slice(0, 2)
     .toLowerCase();
 
-  if (htmlLanguage && isLanguageMode(htmlLanguage)) {
+  if (htmlLanguage && isLanguage(htmlLanguage)) {
     return htmlLanguage;
   }
 

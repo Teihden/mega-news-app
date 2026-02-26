@@ -8,7 +8,7 @@ import { InlineCluster, Stack, Grid } from "@bedrock-layout/primitives";
 import { WithIndicator } from "@entities/withIndicator";
 import { Input } from "@shared/ui/input";
 import { defaultTheme, palette } from "@app/styles";
-import { useAppStore } from "@app/store";
+import { useAppStore } from "@app/store/useAppStore";
 
 /**
  * Компонент TypoPage.

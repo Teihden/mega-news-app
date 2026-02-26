@@ -1,7 +1,7 @@
 import { type IThemeTogglerProps, THEME_TOGGLER_MODES, ICONS } from "../config";
 import * as S from "./styles";
 import { createElement, type FC, useState } from "react";
-import { useAppStore } from "@app/store";
+import { useAppStore } from "@app/store/useAppStore";
 import { getThemeTogglerMode } from "../lib";
 
 /**

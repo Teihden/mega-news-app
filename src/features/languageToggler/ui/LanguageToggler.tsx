@@ -1,12 +1,12 @@
 import { type FC, useId, useState } from "react";
 import { type ILanguageTogglerProps, LANGUAGE_LABELS } from "../config";
 import * as S from "./styles";
-import { LANGUAGE_MODES } from "@shared/config/constants";
-import type { TLanguageMode } from "@shared/types";
+import { LANGUAGES } from "@shared/config/constants";
+import type { TLanguage } from "@shared/types";
 import { Tooltip } from "react-tooltip";
 import { Stack } from "@bedrock-layout/primitives";
 import IconChevronDown from "@shared/assets/images/icons/icon-chevron-down.svg?react";
-import { useAppStore } from "@app/store";
+import { useAppStore } from "@app/store/useAppStore";
 import { Title } from "@shared/ui/title";
 
 /**
@@ -20,7 +20,7 @@ export const LanguageToggler: FC<ILanguageTogglerProps> = (props) => {
   const {
     variant = "blank",
   } = props;
-  const language = useAppStore(({ languageMode }) => languageMode);
+  const language = useAppStore(({ language }) => language);
   const updateLanguage = useAppStore(({ updateLanguage }) => updateLanguage);
   const [ isTooltipOpen, setIsTooltipOpen ] = useState(false);
   const tooltipId = useId();
@@ -31,7 +31,7 @@ export const LanguageToggler: FC<ILanguageTogglerProps> = (props) => {
    * и если они различаются, обновляет язык приложения.
    * @param nextLanguage Новый язык, на который нужно переключиться.
    */
-  const handleLanguageClick = (nextLanguage: TLanguageMode) => {
+  const handleLanguageClick = (nextLanguage: TLanguage) => {
     if (nextLanguage === language) {
       return;
     }
@@ -77,7 +77,7 @@ export const LanguageToggler: FC<ILanguageTogglerProps> = (props) => {
         }}
       >
         <Stack gap={"size7"}>
-          {LANGUAGE_MODES.map((mode) => (
+          {LANGUAGES.map((mode) => (
             <S.LanguageToggler
               key={mode}
               variant={"blank"}
