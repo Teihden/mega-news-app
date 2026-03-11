@@ -2,24 +2,24 @@ import styled, { css } from "styled-components";
 import type { IStyledInputProps } from "../config";
 
 export const Input = styled.input<IStyledInputProps>`
+  cursor: default;
   display: flex;
   width: 100%;
   max-width: 100%;
   height: ${({ theme, $componentSize }) => theme.input.sizes[$componentSize!].height};
-  border-width: ${({ theme }) => theme.input.borderWidth};
-  border-style: solid;
+  padding-inline: ${({ theme, $componentSize }) => theme.input.sizes[$componentSize!].paddingInline};
   border-color: ${({ theme, $variant }) => theme.input.variants[$variant!].borderColor};
+  border-style: solid;
+  border-width: ${({ theme }) => theme.input.borderWidth};
   border-radius: ${({ theme }) => theme.input.borderRadius};
+  font-size: ${({ theme }) => theme.input.fontSize};
+  line-height: ${({ theme }) => theme.input.lineHeight};
+  color: ${({ theme, $variant }) => theme.input.variants[$variant!].color};
   appearance: none;
   background: ${({ theme, $variant }) => theme.input.variants[$variant!].bg};
   box-shadow: none;
-  color: ${({ theme, $variant }) => theme.input.variants[$variant!].color};
-  cursor: default;
-  font-size: ${({ theme }) => theme.input.fontSize};
-  line-height: ${({ theme }) => theme.input.lineHeight};
-  padding-inline: ${({ theme, $componentSize }) => theme.input.sizes[$componentSize!].paddingInline};
-  -webkit-tap-highlight-color: transparent;
   transition: ${({ theme }) => theme.default.transitionDuration} ease-in-out;
+  -webkit-tap-highlight-color: transparent;
 
   @supports (-ms-ime-align: auto) {
     &::-ms-clear,
@@ -31,8 +31,8 @@ export const Input = styled.input<IStyledInputProps>`
   @media (hover: hover) {
     &:hover {
       border-color: ${({ theme, $variant }) => theme.input.variants[$variant!].hover.borderColor};
-      background: ${({ theme, $variant }) => theme.input.variants[$variant!].hover.bg};
       color: ${({ theme, $variant }) => theme.input.variants[$variant!].hover.color};
+      background: ${({ theme, $variant }) => theme.input.variants[$variant!].hover.bg};
     }
 
     &::placeholder {
@@ -60,10 +60,10 @@ export const Input = styled.input<IStyledInputProps>`
   }
 
   &::-webkit-contacts-auto-fill-button {
+    pointer-events: none;
     position: absolute;
     right: 0;
     display: none !important;
-    pointer-events: none;
     visibility: hidden;
   }
 
@@ -78,14 +78,14 @@ export const Input = styled.input<IStyledInputProps>`
   }
 
   &::placeholder {
-    color: ${({ theme, $variant }) => theme.input.variants[$variant!].placeholderColor};
     font: inherit;
+    color: ${({ theme, $variant }) => theme.input.variants[$variant!].placeholderColor};
   }
 
   &:focus-visible {
     border-color: ${({ theme, $variant }) => theme.input.variants[$variant!].focus.borderColor};
-    background: ${({ theme, $variant }) => theme.input.variants[$variant!].focus.bg};
     color: ${({ theme, $variant }) => theme.input.variants[$variant!].focus.color};
+    background: ${({ theme, $variant }) => theme.input.variants[$variant!].focus.bg};
 
     &::placeholder {
       color: ${({ theme, $variant }) => theme.input.variants[$variant!].focus.placeholderColor};
@@ -94,8 +94,8 @@ export const Input = styled.input<IStyledInputProps>`
 
   &:invalid {
     border-color: ${({ theme, $variant }) => theme.input.variants[$variant!].invalid.borderColor};
-    background: ${({ theme, $variant }) => theme.input.variants[$variant!].invalid.bg};
     color: ${({ theme, $variant }) => theme.input.variants[$variant!].invalid.color};
+    background: ${({ theme, $variant }) => theme.input.variants[$variant!].invalid.bg};
 
     &::placeholder {
       color: ${({ theme, $variant }) => theme.input.variants[$variant!].invalid.placeholderColor};
@@ -104,10 +104,10 @@ export const Input = styled.input<IStyledInputProps>`
 
   &:disabled,
   &[disabled] {
-    border-color: ${({ theme, $variant }) => theme.input.variants[$variant!].disabled.borderColor};
-    background: ${({ theme, $variant }) => theme.input.variants[$variant!].disabled.bg};
-    color: ${({ theme, $variant }) => theme.input.variants[$variant!].disabled.color};
     cursor: not-allowed;
+    border-color: ${({ theme, $variant }) => theme.input.variants[$variant!].disabled.borderColor};
+    color: ${({ theme, $variant }) => theme.input.variants[$variant!].disabled.color};
+    background: ${({ theme, $variant }) => theme.input.variants[$variant!].disabled.bg};
 
     &::placeholder {
       color: ${({ theme, $variant }) => theme.input.variants[$variant!].disabled.placeholderColor};
@@ -116,10 +116,10 @@ export const Input = styled.input<IStyledInputProps>`
 
   ${({ theme, $variant, $isHover }) => {
     return $isHover && css`
-      border-color: ${theme.input.variants[$variant!].hover.borderColor};
-      background: ${theme.input.variants[$variant!].hover.bg};
-      color: ${theme.input.variants[$variant!].hover.color};
       pointer-events: none;
+      border-color: ${theme.input.variants[$variant!].hover.borderColor};
+      color: ${theme.input.variants[$variant!].hover.color};
+      background: ${theme.input.variants[$variant!].hover.bg};
 
       &::placeholder {
         color: ${theme.input.variants[$variant!].hover.placeholderColor};
@@ -129,10 +129,10 @@ export const Input = styled.input<IStyledInputProps>`
 
   ${({ theme, $variant, $isFocus }) => {
     return $isFocus && css`
-      border-color: ${theme.input.variants[$variant!].focus.borderColor};
-      background: ${theme.input.variants[$variant!].focus.bg};
-      color: ${theme.input.variants[$variant!].focus.color};
       pointer-events: none;
+      border-color: ${theme.input.variants[$variant!].focus.borderColor};
+      color: ${theme.input.variants[$variant!].focus.color};
+      background: ${theme.input.variants[$variant!].focus.bg};
 
       &::placeholder {
         color: ${theme.input.variants[$variant!].focus.placeholderColor};
@@ -143,8 +143,8 @@ export const Input = styled.input<IStyledInputProps>`
   ${({ theme, $variant, $isInvalid }) => {
     return $isInvalid && css`
       border-color: ${theme.input.variants[$variant!].invalid.borderColor};
-      background: ${theme.input.variants[$variant!].invalid.bg};
       color: ${theme.input.variants[$variant!].invalid.color};
+      background: ${theme.input.variants[$variant!].invalid.bg};
 
       &::placeholder {
         color: ${theme.input.variants[$variant!].invalid.placeholderColor};

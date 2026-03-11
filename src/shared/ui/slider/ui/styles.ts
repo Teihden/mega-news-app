@@ -19,25 +19,25 @@ export const SlideWrapper = styled.div`
 `;
 
 export const Navigation = styled.ul`
+  pointer-events: none;
   position: absolute;
   z-index: 1;
-  display: flex;
-  justify-content: space-between;
-  padding: 0;
-  margin: 0;
-  gap: 1rem;
   inset: 50% 1.5rem auto;
-  list-style: none;
-  pointer-events: none;
   transform: translateY(-50%);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 `;
 
 export const NavigationItem = styled.li`
+  pointer-events: auto;
   width: fit-content;
   height: fit-content;
-  padding: 0;
   margin: 0;
-  pointer-events: auto;
+  padding: 0;
 `;
 
 export const NavigationBtn = styled(ComponentBtn)`
@@ -48,16 +48,16 @@ export const Pagination = styled.div`
   && {
     position: absolute;
     z-index: 1;
-    display: flex;
-    width: fit-content;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin: 0 auto;
-    gap: .75rem;
     inset: auto 1.5rem 2.5rem;
     transform: none;
+    display: flex;
+    flex-direction: row;
+    gap: .75rem;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0;
   }
 
   &:empty {
@@ -81,8 +81,8 @@ export const Slider = styled.div`
 
     &:has(.swiper-lazy-preloader) {
       ${SlideWrapper} {
-        opacity: 0;
         pointer-events: none;
+        opacity: 0;
       }
     }
   }
@@ -190,13 +190,13 @@ export const mainSliderStyles = css`
 
 export const latestVideosSliderStyles = css`
   &::after {
+    content: "";
     position: absolute;
     z-index: 1;
+    inset: 0 0 0 auto;
     width: 21.25rem;
     height: 100%;
     background: ${({ theme }) => theme.mode === "light" ? theme.palette.gradient["4"] : theme.palette.gradient["5"]};
-    content: "";
-    inset: 0 0 0 auto;
 
     ${({ theme }) => theme.bp.down("tablet")} {
       content: none;
@@ -207,8 +207,8 @@ export const latestVideosSliderStyles = css`
     display: none;
 
     ${({ theme }) => theme.bp.down("tablet")} {
-      display: flex;
       inset: auto 3rem 3rem auto;
+      display: flex;
     }
 
     ${({ theme }) => theme.bp.down("mobile")} {
@@ -222,15 +222,15 @@ export const latestVideosSliderStyles = css`
   }
 
   ${Navigation} {
-    max-width: 12.5rem;
-    margin: 0;
     inset: -8.75rem 0 auto auto;
     transform: none;
+    max-width: 12.5rem;
+    margin: 0;
 
     ${({ theme }) => theme.bp.down("tablet")} {
-      max-width: 100%;
       inset: 50% 1.5rem auto;
       transform: translateY(-50%);
+      max-width: 100%;
     }
   }
 

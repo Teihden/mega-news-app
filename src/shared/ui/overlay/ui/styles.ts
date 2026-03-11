@@ -8,16 +8,16 @@ export const Overlay = styled.div<IStyledOverlayProps>`
     $opacity = null,
     $backdropFilter = null,
   }) => css`
+    pointer-events: ${$isVisible ? "auto" : "none"};
     position: fixed;
     z-index: ${({ theme }) => theme.overlay.zIndex};
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: ${$backdropFilter ?? "none"};
-    background: ${({ theme }) => $background ?? theme.overlay.bg};
-    inset: 0;
     opacity: ${$isVisible ? $opacity ?? 1 : 0};
-    pointer-events: ${$isVisible ? "auto" : "none"};
+    background: ${({ theme }) => $background ?? theme.overlay.bg};
+    backdrop-filter: ${$backdropFilter ?? "none"};
     transition: opacity ${({ theme }) => theme.default.transitionDuration} ease-in-out;
   `}
 `;

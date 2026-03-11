@@ -31,10 +31,10 @@ const StyledSection = styled(Section)`
 `;
 
 const StyledTitle = styled(Title)`
-  color: ${({ theme }) => theme.palette.secondary["100"]};
   font-size: 24rem;
   font-weight: 500;
   line-height: 1.2;
+  color: ${({ theme }) => theme.palette.secondary["100"]};
   text-align: center;
   text-shadow: ${({ theme }) => theme.palette.shadow["1"]};
 

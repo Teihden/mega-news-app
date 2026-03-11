@@ -11,14 +11,14 @@ export const GlobalStyle = createGlobalStyle`
   ${swiperStyles}
 
   * {
+    scroll-behavior: smooth;
+    overscroll-behavior: none;
     box-sizing: border-box;
+    margin: 0;
     padding: 0;
     border: 0;
-    margin: 0;
     outline: none;
     -webkit-overflow-scrolling: touch;
-    overscroll-behavior: none;
-    scroll-behavior: smooth;
 
     @supports (-webkit-touch-callout: none) {
       -webkit-touch-callout: none;
@@ -33,8 +33,8 @@ export const GlobalStyle = createGlobalStyle`
       &,
       &::before,
       &::after {
-        animation: none !important;
         transition: none !important;
+        animation: none !important;
       }
     }
 
@@ -60,11 +60,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   ::selection {
-    background: ${({ theme }) => theme.selection.bg};
     color: ${({ theme }) => theme.selection.color};
+    background: ${({ theme }) => theme.selection.bg};
   }
 
   html {
+    scrollbar-gutter: auto;
     overflow: hidden auto;
     width: 100%;
     height: 100%;
@@ -73,7 +74,6 @@ export const GlobalStyle = createGlobalStyle`
     font-size: ${({ theme }) => theme.html.fontSize};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    scrollbar-gutter: auto;
 
     @supports (text-size-adjust: none) {
       text-size-adjust: none;
@@ -94,17 +94,17 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     display: flex;
+    flex-flow: column nowrap;
     width: 100%;
     min-width: ${({ theme }) => theme.default.minWidth};
     height: 100%;
     min-height: 100%;
     max-height: 100%;
-    flex-flow: column nowrap;
-    background: ${({ theme }) => theme.default.bg};
-    color: ${({ theme }) => theme.default.color};
     font-size: ${({ theme }) => theme.body.fontSize};
     font-weight: ${({ theme }) => theme.body.fontWeight};
     line-height: ${({ theme }) => theme.body.lineHeight};
+    color: ${({ theme }) => theme.default.color};
+    background: ${({ theme }) => theme.default.bg};
   }
 
   svg {
@@ -123,19 +123,19 @@ export const GlobalStyle = createGlobalStyle`
     overflow: hidden;
     width: 1px;
     height: 1px;
+    margin: -1px;
     padding: 0;
     border: 0;
-    margin: -1px;
-    clip-path: inset(100%);
     white-space: nowrap;
+    clip-path: inset(100%);
   }
 
   .custom-react-tooltip.react-tooltip {
     z-index: ${({ theme }) => theme.tooltip.zIndex};
     padding: ${({ theme }) => theme.tooltip.padding};
-    border-width: ${({ theme }) => theme.tooltip.borderWidth};
-    border-style: ${({ theme }) => theme.tooltip.borderStyle};
     border-color: ${({ theme }) => theme.tooltip.borderColor};
+    border-style: ${({ theme }) => theme.tooltip.borderStyle};
+    border-width: ${({ theme }) => theme.tooltip.borderWidth};
     border-radius: ${({ theme }) => theme.tooltip.borderRadius};
     background: ${({ theme }) => theme.tooltip.bg};
     box-shadow: ${({ theme }) => theme.tooltip.boxShadow};

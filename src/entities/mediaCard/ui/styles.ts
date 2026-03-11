@@ -8,15 +8,15 @@ import type { IStyledTextProps, IStyledBtnProps } from "../config";
 
 export const MediaCard = styled.article`
   position: relative;
-  display: flex;
+  transform: translate3d(0, 0, 0);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 100%;
   height: 100%;
   max-height: 100%;
-  flex-direction: column;
   border-radius: ${({ theme }) => theme.default.borderRadius};
-  transform: translate3d(0, 0, 0);
 `;
 
 export const Img = styled(ComponentImg)`
@@ -37,8 +37,8 @@ export const Btn = styled(ComponentBtn)<IStyledBtnProps>`
   ${({ $isOverlay }) => {
     return $isOverlay && css`
       &::after {
-        position: fixed;
         content: "";
+        position: fixed;
         inset: 0;
       }
     `;
@@ -46,15 +46,15 @@ export const Btn = styled(ComponentBtn)<IStyledBtnProps>`
 `;
 
 export const Title = styled(ComponentTitle)`
-  display: -webkit-box;
   overflow: hidden;
+  display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 `;
 
 export const Text = styled(ComponentText)<IStyledTextProps>`
-  display: -webkit-box;
   overflow: hidden;
+  display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: ${({ $lineClamp }) => $lineClamp};
 `;
@@ -62,27 +62,27 @@ export const Text = styled(ComponentText)<IStyledTextProps>`
 export const Wrapper = styled.div`
   position: absolute;
   z-index: 1;
+  inset: auto 1.5rem 1.5rem;
   display: flex;
-  min-height: 16.25rem;
   flex-direction: column;
+  gap: 2rem;
+  min-height: 16.25rem;
   padding: 2rem 2rem 3rem;
   border-radius: ${({ theme }) => theme.default.borderRadius};
   background: ${({ theme }) => theme.mode === "light" ? theme.palette.white["75"] : theme.palette.washDark["75"]};
-  gap: 2rem;
-  inset: auto 1.5rem 1.5rem;
 `;
 
 export const latestVideosMediaCardStyles = css`
-  width: 61rem;
   flex-direction: row;
+  gap: 2rem;
+  width: 61rem;
   padding: 1.5rem;
   background: ${({ theme }) => theme.mode === "light" ? theme.palette.white["100"] : theme.palette.black["100"]};
-  gap: 2rem;
 
   ${Img} {
+    flex-shrink: 0;
     width: 23.75rem;
     height: 23.75rem;
-    flex-shrink: 0;
     border-radius: ${({ theme }) => theme.default.borderRadius};
   }
 

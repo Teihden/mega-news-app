@@ -10,16 +10,16 @@ export const Accordion = styled.div`
 `;
 
 export const Btn = styled(ComponentBtn)<IStyledBtn>`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  color: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["100"] : theme.palette.white["100"]};
   pointer-events: ${({ $isBtnActive }) => $isBtnActive ? "unset" : "none"};
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["100"] : theme.palette.white["100"]};
 
   svg {
+    transform: ${({ $isOpen }) => $isOpen ? "rotate(90deg)" : "rotate(0deg)"};
     display: ${({ $isBtnActive }) => $isBtnActive ? "block" : "none"};
     color: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["50"] : theme.palette.white["50"]};
-    transform: ${({ $isOpen }) => $isOpen ? "rotate(90deg)" : "rotate(0deg)"};
   }
 `;
 

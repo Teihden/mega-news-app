@@ -14,10 +14,10 @@ export const Form = styled(FormikForm)`
 
 export const ErrorMessage = styled.div`
   position: absolute;
-  color: ${({ theme }) => theme.palette.secondary["100"]};
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.16;
+  color: ${({ theme }) => theme.palette.secondary["100"]};
 
   &:not(:empty) {
     margin-block: .75rem 0;

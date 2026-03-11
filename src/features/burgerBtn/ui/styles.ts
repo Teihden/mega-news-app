@@ -4,9 +4,9 @@ import type { IStyledBurgerBtnProps } from "../config";
 
 export const Bar = styled.div`
   display: block;
+  flex-shrink: 0;
   width: 2.25rem;
   height: .375rem;
-  flex-shrink: 0;
   border-radius: .5rem;
   background: ${({ theme }) => theme.palette.dark["100"]};
   transition: ${({ theme }) => theme.default.transitionDuration} ease-in-out;

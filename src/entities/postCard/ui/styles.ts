@@ -5,24 +5,24 @@ import { Btn as ComponentBtn } from "@shared/ui/btn";
 
 export const PostCard = styled.article`
   position: relative;
+  transform: translate3d(0, 0, 0);
   display: flex;
   flex-flow: column nowrap;
   padding: 1.25rem;
   border-radius: ${({ theme }) => theme.default.borderRadius};
   background: ${({ theme }) => theme.mode === "light" ? theme.palette.white["100"] : theme.palette.washDark["100"]};
   box-shadow: ${({ theme }) => theme.palette.shadow["2"]};
-  transform: translate3d(0, 0, 0);
 `;
 
 export const MediaCard = styled(ComponentMediaCard)`
   position: static;
+  transform: none;
   overflow: visible;
   border-radius: 0;
-  transform: none;
 
   ${ComponentMediaCard.Img} {
-    border-radius: ${({ theme }) => theme.default.borderRadius};
     aspect-ratio: 340 / 190;
+    border-radius: ${({ theme }) => theme.default.borderRadius};
   }
 
   ${ComponentMediaCard.Wrapper} {
@@ -52,9 +52,9 @@ export const Wrapper = styled.div`
 
 export const Btn = styled(ComponentBtn)`
   display: flex;
+  gap: .75rem;
   aspect-ratio: auto;
   color: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["100"] : theme.palette.white["75"]};
-  gap: .75rem;
 
   &:disabled,
   &[disabled] {

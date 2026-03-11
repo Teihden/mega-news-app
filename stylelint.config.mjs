@@ -1,11 +1,18 @@
+import { propertyGroups } from "stylelint-config-clean-order";
+
 const patternRegex = "^[a-z0-9]+(-[a-z0-9]+)*(__([a-z0-9]+(-[a-z0-9]+)*))?(--([a-z0-9]+(-[a-z0-9]+)*))?$";
+const propertiesOrder = propertyGroups.map((properties) => ({
+  noEmptyLineBetween: true,
+  emptyLineBefore: "never",
+  properties,
+}));
 
 /** @type {import("stylelint").Config} */
 export default {
   extends: [
     "stylelint-config-standard",
     "@stylistic/stylelint-config",
-    "stylelint-config-idiomatic-order",
+    "stylelint-config-clean-order",
   ],
   plugins: [
     "@stylistic/stylelint-plugin",
@@ -22,6 +29,13 @@ export default {
       "at-variables",
       "less-mixins",
       "rules",
+    ],
+    "order/properties-order": [
+      propertiesOrder,
+      {
+        severity: "warning",
+        unspecified: "bottomAlphabetical",
+      },
     ],
 
     // Descending

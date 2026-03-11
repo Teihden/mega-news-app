@@ -20,8 +20,8 @@ export const Header = styled.div`
 
 export const HeaderLeftInner = styled.div`
   display: flex;
-  align-items: center;
   gap: 7.5rem;
+  align-items: center;
 
   ${({ theme }) => theme.bp.down("tablet")} {
     gap: 0;
@@ -30,8 +30,8 @@ export const HeaderLeftInner = styled.div`
 
 export const HeaderRightInner = styled.div`
   display: flex;
-  align-items: center;
   gap: 3rem;
+  align-items: center;
 
   ${({ theme }) => theme.bp.down("mobile")} {
     gap: 2rem;
@@ -40,8 +40,8 @@ export const HeaderRightInner = styled.div`
 
 export const HeaderNav = styled.div`
   display: flex;
-  align-items: center;
   gap: 4rem;
+  align-items: center;
 `;
 
 export const HeaderMenu = styled.div`
@@ -57,14 +57,14 @@ export const HeaderMenu = styled.div`
 `;
 
 export const HeaderInnerMenu = styled.div<IHeaderInnerMenuProps>`
+  cursor: default;
+  transform: ${({ $isMenuOpen }) => $isMenuOpen ? "translate3d(0, 0, 0)" : "translate3d(-100%, 0, 0)"};
   display: flex;
   width: 100%;
   max-width: 55rem;
   height: 100%;
   padding: 2.5rem 3rem 3rem ${({ theme }) => theme.container.paddingInline.tablet};
   background: ${({ theme }) => theme.palette.white["100"]};
-  cursor: default;
-  transform: ${({ $isMenuOpen }) => $isMenuOpen ? "translate3d(0, 0, 0)" : "translate3d(-100%, 0, 0)"};
   transition: transform ${({ theme }) => theme.default.transitionDuration} ${({ $isMenuOpen }) => $isMenuOpen ? ".2s" : "0s"} ease-in-out;
 
   ${({ theme }) => theme.bp.down("mobile")} {
@@ -88,12 +88,12 @@ export const MenuBtn = styled(ComponentBtn)<IStyledBtn>`
 `;
 
 export const Overlay = styled(ComponentOverlay)`
-  align-items: flex-start;
-  justify-content: flex-start;
-  backdrop-filter: blur(1rem);
-  background: transparent;
   cursor: pointer;
   inset: 11rem 0 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: transparent;
+  backdrop-filter: blur(1rem);
   transition: opacity ${({ theme }) => theme.default.transitionDuration} ${({ isVisible }) => isVisible ? "0s" : ".2s"} ease-in-out;
 `;
 

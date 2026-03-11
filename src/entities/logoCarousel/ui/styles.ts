@@ -19,15 +19,15 @@ export const LogoCarousel = styled.div`
   background: ${({ theme }) => theme.placeholder.bg};
 
   &::before {
+    pointer-events: none;
+    content: "";
     position: absolute;
     z-index: 1;
+    inset: 0 auto 0 0;
+    transform: rotate(180deg);
     width: 18rem;
     height: 8.5rem;
     background: ${({ theme }) => theme.mode === "light" ? theme.palette.gradient["4"] : theme.palette.gradient["5"]};
-    content: "";
-    inset: 0 auto 0 0;
-    pointer-events: none;
-    transform: rotate(180deg);
 
     ${({ theme }) => theme.bp.down("mobile")} {
       width: 9rem;
@@ -35,14 +35,14 @@ export const LogoCarousel = styled.div`
   }
 
   &::after {
+    pointer-events: none;
+    content: "";
     position: absolute;
     z-index: 1;
+    inset: 0 0 0 auto;
     width: 18rem;
     height: 8.5rem;
     background: ${({ theme }) => theme.mode === "light" ? theme.palette.gradient["4"] : theme.palette.gradient["5"]};
-    content: "";
-    inset: 0 0 0 auto;
-    pointer-events: none;
 
     ${({ theme }) => theme.bp.down("mobile")} {
       width: 9rem;
@@ -52,9 +52,9 @@ export const LogoCarousel = styled.div`
 
 export const LogoCarouselInner = styled.div`
   display: flex;
+  gap: 3rem;
   align-items: center;
   animation: ${slideIn} 50s linear infinite;
-  gap: 3rem;
 
   ${({ theme }) => theme.bp.down("tablet")} {
     animation: ${slideIn} 35s linear infinite;
@@ -66,9 +66,9 @@ export const LogoCarouselInner = styled.div`
 `;
 
 export const Img = styled(ComponentImg)`
+  flex-shrink: 0;
   width: 21.25rem;
   height: 6rem;
-  flex-shrink: 0;
   background: ${({ theme }) => theme.mode === "light" ? theme.palette.gray["25"] : theme.palette.washDark["100"]};
   filter: blur(.3rem);
   transition: filter ${({ theme }) => theme.default.transitionDuration} ease-in-out;
@@ -80,9 +80,9 @@ export const Img = styled(ComponentImg)`
 
 export const Btn = styled(ComponentBtn)`
   position: relative;
+  flex-shrink: 0;
   width: fit-content;
   height: fit-content;
-  flex-shrink: 0;
   padding: 0;
   border-width: 0;
   color: ${({ theme }) => theme.palette.white["100"]};
@@ -104,9 +104,9 @@ export const Btn = styled(ComponentBtn)`
 
 export const HashTag = styled.span`
   position: absolute;
-  color: inherit;
-  font-size: 2rem;
-  font-weight: 500;
   inset: 50% auto auto 50%;
   transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: 500;
+  color: inherit;
 `;

@@ -4,12 +4,12 @@ import type { IStyledWithIndicatorProps } from "../config";
 export const WithIndicator = styled.div<IStyledWithIndicatorProps>`
   display: flex;
   flex-flow: row nowrap;
-  align-items: center;
   gap: .75rem;
+  align-items: center;
 
   &::before {
-    display: block;
     content: "";
+    display: block;
   }
 
   ${({ theme, $variant }) => {
@@ -45,11 +45,11 @@ export const WithIndicator = styled.div<IStyledWithIndicatorProps>`
 
       &::before {
         position: absolute;
+        inset: auto 0 .5rem;
         width: 100%;
         height: .5rem;
         border-radius: ${theme.default.borderRadius};
         background: ${theme.palette.primary["25"]};
-        inset: auto 0 .5rem;
       }
     `;
   }}

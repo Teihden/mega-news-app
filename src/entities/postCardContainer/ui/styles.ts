@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const PostCardContainer = styled.div`
   position: relative;
   display: grid;
-  gap: 3rem;
   grid-template-columns: repeat(auto-fit, minmax(38rem, 1fr));
+  gap: 3rem;
 
   ${({ theme }) => theme.bp.down("tablet")} {
     gap: 2rem;
@@ -17,7 +17,7 @@ export const PostCardContainer = styled.div`
 
 export const Sentinel = styled.div`
   position: absolute;
+  inset: auto 0 0;
   display: block;
   grid-column: 1 / -1;
-  inset: auto 0 0;
 `;

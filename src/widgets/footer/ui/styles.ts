@@ -5,11 +5,11 @@ import { Text } from "@shared/ui/text";
 
 export const Footer = styled.div`
   display: grid;
+  grid-template-columns: minmax(60rem, 1fr) minmax(30rem, 45rem) minmax(35rem, 45rem);
+  gap: 3rem;
   align-items: flex-start;
   justify-content: space-between;
   padding: 0 0 6.5rem;
-  gap: 3rem;
-  grid-template-columns: minmax(60rem, 1fr) minmax(30rem, 45rem) minmax(35rem, 45rem);
 
   ${({ theme }) => theme.bp.down("tablet")} {
     grid-template-columns: minmax(60rem, 1fr) minmax(30rem, 45rem);
@@ -43,28 +43,28 @@ export const Wrapper = styled.div`
 export const ContrastWrapper = styled.div`
   position: relative;
   display: grid;
+  grid-template-columns: minmax(auto, 50rem) auto;
+  gap: 4rem 2rem;
   align-items: flex-start;
   justify-content: space-between;
   padding: 5rem 5rem 5rem 0;
   border-radius: ${({ theme }) => `0 ${theme.default.borderRadius} ${theme.default.borderRadius} 0`};
   background: ${({ theme }) => theme.mode === "light" ? theme.palette.gray["100"] : theme.palette.washDark["100"]};
-  gap: 4rem 2rem;
-  grid-template-columns: minmax(auto, 50rem) auto;
 
   ${({ theme }) => theme.bp.down("mobile")} {
-    padding: 3rem 0 0;
     grid-template-columns: auto;
+    padding: 3rem 0 0;
   }
 
   &::before {
+    content: "";
     position: absolute;
     z-index: -1;
+    inset: 0 auto 0 -100dvw;
     display: block;
     width: 100dvw;
     height: 100%;
     background: ${({ theme }) => theme.mode === "light" ? theme.palette.gray["100"] : theme.palette.washDark["100"]};
-    content: "";
-    inset: 0 auto 0 -100dvw;
 
     ${({ theme }) => theme.bp.down("mobile")} {
       inset: ${({ theme }) => `0 -${theme.container.paddingInline.mobile} 0 -${theme.container.paddingInline.mobile}`};;
@@ -75,33 +75,33 @@ export const ContrastWrapper = styled.div`
 export const BottomWrapper = styled.div`
   position: relative;
   display: flex;
+  grid-column: span 2;
+  gap: 3rem 2rem;
   align-items: center;
   justify-content: space-between;
   padding: 2rem 2rem 2rem 0;
   border-radius: ${({ theme }) => `0 ${theme.default.borderRadius} ${theme.default.borderRadius} 0`};
   background: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["5"] : theme.palette.black["25"]};
-  gap: 3rem 2rem;
-  grid-column: span 2;
 
   ${({ theme }) => theme.bp.down("mobile")} {
-    width: 100dvw;
+    grid-column: auto;
     flex-flow: column nowrap;
     align-items: normal;
     justify-content: normal;
+    width: 100dvw;
+    margin: 0 -${({ theme }) => theme.container.paddingInline.mobile} 0 -${({ theme }) => theme.container.paddingInline.mobile};
     padding: 2rem ${({ theme }) => theme.container.paddingInline.mobile};
     border-radius: 0;
-    margin: 0 -${({ theme }) => theme.container.paddingInline.mobile} 0 -${({ theme }) => theme.container.paddingInline.mobile};
-    grid-column: auto;
   }
 
   &::before {
+    content: "";
     position: absolute;
+    inset: 0 auto 0 -100dvw;
     display: block;
     width: 100dvw;
     height: 100%;
     background: ${({ theme }) => theme.mode === "light" ? theme.palette.dark["5"] : theme.palette.black["25"]};
-    content: "";
-    inset: 0 auto 0 -100dvw;
 
     ${({ theme }) => theme.bp.down("mobile")} {
       content: none;
@@ -116,9 +116,9 @@ export const BottomWrapper = styled.div`
       position: relative;
 
       &::after {
+        content: "|";
         position: static;
         color: inherit;
-        content: "|";
       }
     }
   }
@@ -127,18 +127,18 @@ export const BottomWrapper = styled.div`
 export const Comment = styled.div`
   display: flex;
   flex-flow: column nowrap;
+  gap: 1rem;
   padding: 2rem;
   border-radius: ${({ theme }) => theme.default.borderRadius};
   background: ${({ theme }) => theme.mode === "light" ? theme.palette.gray["100"] : theme.palette.washDark["100"]};
-  gap: 1rem;
 
   &:not(:last-child) {
     margin-block: 0 2.25rem;
   }
 
   ${Text.Text} {
-    display: -webkit-box;
     overflow: hidden;
+    display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
   }

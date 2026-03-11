@@ -2,34 +2,34 @@ import styled, { css } from "styled-components";
 import type { IStyledImgProps } from "../config";
 
 export const Picture = styled.picture`
+  pointer-events: none;
+  user-select: none;
   display: block;
   width: 100%;
   max-width: 100%;
   max-height: 100%;
-  pointer-events: none;
-  user-select: none;
 `;
 
 export const Img = styled.img<IStyledImgProps>`
-  display: block;
+  pointer-events: none;
+  user-select: none;
   overflow: hidden;
+  display: block;
   width: 100%;
   max-width: 100%;
   max-height: 100%;
   border: 0;
   border-radius: ${({ theme }) => theme.default.borderRadius};
-  background: ${({ theme }) => theme.mode === "light" ? theme.palette.darkGray["100"] : theme.palette.washDark["100"]};
-  box-shadow: none;
   object-fit: ${({ $isPlaceholder }) => $isPlaceholder ? "contain" : "cover"};;
   object-position: center;
-  pointer-events: none;
+  background: ${({ theme }) => theme.mode === "light" ? theme.palette.darkGray["100"] : theme.palette.washDark["100"]};
+  box-shadow: none;
   transition: ${({ theme }) => theme.default.transitionDuration} ease;
-  user-select: none;
 
   ${({ $isLoaded }) => {
     return !$isLoaded && css`
-      filter: blur(1.25rem);
       opacity: .6;
+      filter: blur(1.25rem);
     `;
   }}
 `;
