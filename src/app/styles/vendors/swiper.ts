@@ -63,6 +63,8 @@ export const swiperStyles = css`
     --swiper-pagination-bullet-inactive-color: ${({ theme }) => theme.palette.white["50"]};
     --swiper-pagination-bullet-horizontal-gap: 0;
     --swiper-pagination-bullet-inactive-opacity: 1;
+    --swiper-pagination-bullet-outline: ${({ theme }) => theme.default.outline};
+    --swiper-pagination-bullet-outline-offset: .25rem;
 
     position: var(--swiper-pagination-bullet-position);
     overflow: var(--swiper-pagination-bullet-overflow);
@@ -94,6 +96,11 @@ export const swiperStyles = css`
         border-radius: var(--swiper-pagination-bullet-border-radius);
         background: var(--swiper-pagination-color);
       }
+    }
+
+    &:focus-visible {
+      outline: var(--swiper-pagination-bullet-outline);
+      outline-offset: var(--swiper-pagination-bullet-outline-offset);
     }
   }
 `;

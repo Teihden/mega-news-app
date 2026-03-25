@@ -4,8 +4,6 @@ const common = {
   loading: "Загрузка",
   errorOccurred: "Произошла ошибка",
   like: "Нравится",
-  previousSlide: "Предыдущий слайд",
-  nextSlide: "Следующий слайд",
 };
 
 export default common;

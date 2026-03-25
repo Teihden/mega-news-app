@@ -11,6 +11,7 @@ import { funnel, isEmpty, isPlainObject } from "remeda";
 import clsx from "clsx";
 import { STATE_CLASSES } from "@shared/config/constants";
 import { useTranslation } from "react-i18next";
+import type { SwiperOptions } from "swiper/types";
 
 /**
  * Компонент слайдера на Swiper.
@@ -32,7 +33,7 @@ export const Slider: ISlider = (props) => {
     isLazyLoadingSlide = true,
     isLazyLoadingThumbSlide = true,
   } = props;
-  const { t } = useTranslation([ "common" ]);
+  const { t } = useTranslation([ "shared" ]);
   const componentRef = useRef<HTMLDivElement | null>(null);
   const swiperRef = useRef<SwiperRef | null>(null);
   const thumbsSwiperRef = useRef<SwiperRef | null>(null);
@@ -54,11 +55,22 @@ export const Slider: ISlider = (props) => {
 
   const paginationCfg = isUsePagination(swiperConfig.pagination)
     ? {
-        ...swiperConfig.pagination,
-        el: paginationRef.current,
-        clickable: true,
-        enabled: true,
-      }
+      ...swiperConfig.pagination,
+      el: paginationRef.current,
+      clickable: true,
+      bulletElement: "button",
+      type: "bullets",
+      /**
+       * Формирует HTML-разметку кнопки пагинации для конкретного слайда.
+       * @param index - Индекс слайда, для которого создается bullet.
+       * @param className - CSS-класс, который Swiper назначает bullet-элементу.
+       * @returns HTML-строка кнопки пагинации с локализованными атрибутами.
+       */
+      renderBullet: (index, className) => {
+        const label = t("slider.goToSlide", { slide: index + 1 });
+        return `<button class="${className}" type="button" title="${label}" aria-label="${label}"></button>`;
+      },
+    } satisfies SwiperOptions["pagination"]
     : false;
 
   const navigationCfg = isUseNavigation(swiperConfig.navigation)
@@ -92,6 +104,18 @@ export const Slider: ISlider = (props) => {
     Mousewheel,
     ...(isUseThumbs(thumbsSlides) ? [ Thumbs ] : []),
   ];
+
+  /**
+   * Обновляет ARIA-состояние кнопок пагинации в соответствии с активным слайдом.
+   * @param swiper - Экземпляр Swiper с отрендеренной пагинацией.
+   */
+  const updatePaginationButtonState = (swiper: TSwiper) => {
+    const bullets = swiper.pagination?.bullets ?? [];
+
+    bullets.forEach((bullet) => {
+      bullet.setAttribute("aria-current", bullet.classList.contains("swiper-pagination-bullet-active") ? "true" : "false");
+    });
+  };
 
   const handleAutoplay = funnel((data: [ TSwiper, number, number ]) => {
     const [ ,,progress ] = data;
@@ -149,6 +173,7 @@ export const Slider: ISlider = (props) => {
       swiper.pagination?.init();
       swiper.pagination?.render();
       swiper.pagination?.update();
+      updatePaginationButtonState(swiper);
     }
 
     if (isUseNavigation(swiper.params.navigation) && navigationPrevRef.current && navigationNextRef.current) {
@@ -156,7 +181,7 @@ export const Slider: ISlider = (props) => {
       swiper.params.navigation.nextEl = navigationNextRef.current;
       swiper.navigation?.init();
     }
-  }, []);
+  }, [ t ]);
 
   return (
     <S.Slider
@@ -174,7 +199,9 @@ export const Slider: ISlider = (props) => {
         thumbs={thumbsCfg}
         onAfterInit={(swiper: TSwiper) => {
           setTimeout(() => swiper.el?.classList.add(STATE_CLASSES.isActive), 100);
+          updatePaginationButtonState(swiper);
         }}
+        onSlideChange={(swiper: TSwiper) => updatePaginationButtonState(swiper)}
         onAutoplayTimeLeft={swiperConfig?.autoplay
           ? (swiper: TSwiper, time: number, progress: number) => handleAutoplay.call(swiper, time, progress)
           : () => {}}
@@ -230,8 +257,8 @@ export const Slider: ISlider = (props) => {
             <S.NavigationBtn
               ref={navigationPrevRef}
               variant={"secondary"}
-              title={t("previousSlide")}
-              aria-label={t("previousSlide")}
+              title={t("slider.previousSlide")}
+              aria-label={t("slider.previousSlide")}
               icon={<IconChevronLeft />}
               iconSize={24}
               isSquare={true}
@@ -241,8 +268,8 @@ export const Slider: ISlider = (props) => {
             <S.NavigationBtn
               ref={navigationNextRef}
               variant={"secondary"}
-              title={t("nextSlide")}
-              aria-label={t("nextSlide")}
+              title={t("slider.nextSlide")}
+              aria-label={t("slider.nextSlide")}
               icon={<IconChevronRight />}
               iconSize={24}
               isSquare={true}
