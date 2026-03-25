@@ -4,6 +4,7 @@ import type { IPageWrapperProps } from "../config";
 import type { IRouteHandle } from "@shared/types";
 import * as S from "./styles";
 import { Container } from "@shared/ui/container";
+import { useTranslation } from "react-i18next";
 
 /**
  * Компонент-обёртка для страниц, обеспечивающий структуру страницы с возможностью отображения шапки, основного контента и подвала.
@@ -21,14 +22,15 @@ export const PageWrapper: FC<IPageWrapperProps> = (props) => {
   } = props;
 
   const matches = useMatches() as UIMatch<unknown, IRouteHandle>[];
+  const { t } = useTranslation([ "pages", "widgets" ]);
 
   useEffect(() => {
-    const matchWithTitle = [ ...matches ].reverse().find((m) => m.handle?.title);
+    const matchWithTitle = [ ...matches ].reverse().find((m) => m.handle?.titleKey);
 
     if (matchWithTitle) {
-      document.title = `Mega News.${matchWithTitle.handle?.title ? ` ${matchWithTitle.handle?.title}` : ""}`;
+      document.title = `Mega News.${matchWithTitle.handle?.titleKey ? ` ${t(matchWithTitle.handle.titleKey)}` : ""}`;
     }
-  }, [ matches ]);
+  }, [ matches, t ]);
 
   return (
     <S.Layout>

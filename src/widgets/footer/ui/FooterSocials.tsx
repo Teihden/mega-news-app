@@ -5,16 +5,19 @@ import { WithIndicator } from "@entities/withIndicator";
 import { Title } from "@shared/ui/title";
 import IconTwitter from "@shared/assets/images/icons/icon-twitter.svg?react";
 import IconInstagram from "@shared/assets/images/icons/icon-instagram.svg?react";
+import { useTranslation } from "react-i18next";
 
 /**
  * Компонент FooterSocials отвечает за отображение социальных сетей.
  * @returns Возвращает компонент.
  */
 export const FooterSocials: FC = () => {
+  const { t } = useTranslation([ "widgets" ]);
+
   return (
     <S.Wrapper>
       <WithIndicator variant={"primary"}>
-        <Title level={2} variantLevel={4}>Social Network</Title>
+        <Title level={2} variantLevel={4}>{t("footer.socialNetwork")}</Title>
       </WithIndicator>
 
       <InlineCluster gap={"size7"} align={"center"}>

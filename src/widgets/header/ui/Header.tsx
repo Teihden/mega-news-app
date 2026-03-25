@@ -10,6 +10,7 @@ import { Link, type UIMatch, useMatches } from "react-router";
 import type { IRouteHandle } from "@shared/types";
 import { Btn } from "@shared/ui/btn";
 import { LanguageToggler } from "@features/languageToggler";
+import { useTranslation } from "react-i18next";
 
 /**
  * Компонент Header.
@@ -24,10 +25,11 @@ export const Header: FC<IHeaderProps> = (props) => {
     pages = [],
   } = props;
   const theme = useTheme();
+  const { t } = useTranslation([ "widgets" ]);
   const isTabletUp = useMediaQuery(theme.bp.up("tablet"));
   const isTabletDown = useMediaQuery(theme.bp.down("tablet"));
   const matches = useMatches() as UIMatch<unknown, IRouteHandle>[];
-  const currentTitle = [ ...matches ].reverse().find((m) => m.handle?.title)?.handle?.title ?? null;
+  const currentTitleKey = [ ...matches ].reverse().find((m) => m.handle?.titleKey)?.handle?.titleKey ?? null;
 
   return (
     <S.Header>
@@ -41,8 +43,8 @@ export const Header: FC<IHeaderProps> = (props) => {
             variant={"blank"}
             isInline={true}
             to={"/"}
-            title={"Return to the main page"}
-            isDisabled={currentTitle === "Main"}
+            title={t("navigation.returnToMainPage")}
+            isDisabled={currentTitleKey === "widgets:navigation.main"}
           >
             <S.Logo>
               {logo}

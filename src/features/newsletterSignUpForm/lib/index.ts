@@ -1,2 +1,2 @@
-export { validationSchema } from "./validationSchema";
+export { getValidationSchema } from "./validationSchema";
 export { getSessionStorageInitialValues } from "./getSessionStorageInitialValues";

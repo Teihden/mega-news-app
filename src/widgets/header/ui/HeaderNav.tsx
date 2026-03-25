@@ -8,6 +8,7 @@ import { Btn } from "@shared/ui/btn";
 import { Stack } from "@bedrock-layout/primitives";
 import { Link, type UIMatch, useMatches } from "react-router";
 import type { IRouteHandle } from "@shared/types";
+import { useTranslation } from "react-i18next";
 
 /**
  * Компонент HeaderNav.
@@ -19,9 +20,10 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
   const {
     pages = [],
   } = props;
+  const { t } = useTranslation([ "widgets" ]);
 
   const matches = useMatches() as UIMatch<unknown, IRouteHandle>[];
-  const currentTitle = [ ...matches ].reverse().find((m) => m.handle?.title)?.handle?.title ?? null;
+  const currentTitleKey = [ ...matches ].reverse().find((m) => m.handle?.titleKey)?.handle?.titleKey ?? null;
   const [ isTooltipOpen, setIsTooltipOpen ] = useState(false);
   const tooltipId = useId();
 
@@ -35,7 +37,7 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
             variantLevel={5}
             marginBlock={0}
           >
-            {"Pages"}
+            {t("navigation.pages")}
           </Title>
         )}
         isInline={true}
@@ -59,9 +61,9 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
         <Stack
           gap={"size7"}
         >
-          {pages.map(({ href = "", label = "" }) => (
+          {pages.map(({ href = "", labelKey = "" }) => (
             <Btn
-              key={label}
+              key={labelKey}
               as={Link}
               to={href}
               variant={"blank"}
@@ -71,11 +73,11 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
                   variantLevel={6}
                   marginBlock={0}
                 >
-                  {label}
+                  {t(labelKey)}
                 </Title>
               )}
               isInline={true}
-              isDisabled={label === currentTitle}
+              isDisabled={labelKey === currentTitleKey}
             />
           ))}
         </Stack>
@@ -89,7 +91,7 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
             variantLevel={5}
             marginBlock={0}
           >
-            {"Contact Us"}
+            {t("navigation.contactUs")}
           </Title>
         )}
         isInline={true}
@@ -103,7 +105,7 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
             variantLevel={5}
             marginBlock={0}
           >
-            {"About Us"}
+            {t("navigation.aboutUs")}
           </Title>
         )}
         isInline={true}

@@ -5,6 +5,7 @@ import { Title } from "@shared/ui/title";
 import { useTheme } from "styled-components";
 import { useMediaQuery } from "styled-breakpoints/use-media-query";
 import { Accordion } from "@shared/ui/accordion";
+import { useTranslation } from "react-i18next";
 
 /**
  * Компонент FooterAbout.
@@ -13,6 +14,7 @@ import { Accordion } from "@shared/ui/accordion";
  */
 export const FooterAbout: FC = () => {
   const { up } = useTheme().bp;
+  const { t } = useTranslation([ "widgets" ]);
   const isMobileUp = useMediaQuery(up("mobile"));
 
   return (
@@ -25,7 +27,7 @@ export const FooterAbout: FC = () => {
             <WithIndicator
               variant={"primary"}
             >
-              <Title level={2} variantLevel={4}>Mega News</Title>
+              <Title level={2} variantLevel={4}>{t("footer.aboutTitle")}</Title>
             </WithIndicator>
           ),
         }}
@@ -34,8 +36,7 @@ export const FooterAbout: FC = () => {
         `}
       >
         <Text variant={"md"}>
-          Keep up with the latest happenings from around the world. From major events in politics and business to stories in sports and entertainment,
-          we bring you news and insights you can trust. Stay informed and never miss an important update.
+          {t("footer.aboutText")}
         </Text>
       </Accordion>
     </div>

@@ -3,6 +3,7 @@ import { Section } from "@shared/ui/section";
 import { Title } from "@shared/ui/title";
 import { Text } from "@shared/ui/text";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 const StyledSection = styled(Section)`
   padding-block: 20rem;
@@ -49,12 +50,14 @@ const StyledTitle = styled(Title)`
  * @returns Компонент.
  */
 export const NotFoundPage: FC = () => {
+  const { t } = useTranslation([ "pages" ]);
+
   return (
     <StyledSection
-      headerSlot={<StyledTitle level={1}>404</StyledTitle>}
+      headerSlot={<StyledTitle level={1}>{t("notFound.title")}</StyledTitle>}
     >
       <Text variant={"lg"} align={"center"}>
-        {"OOPS! Page you're looking for doesn't exist. Please use search for help."}
+        {t("notFound.description")}
       </Text>
     </StyledSection>
   );

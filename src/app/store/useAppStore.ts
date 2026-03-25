@@ -29,10 +29,11 @@ export const useAppStore = create(
         /**
          * Обновляет язык приложения.
          * @param newLanguage Устанавливает новый язык ("en" или "ru"). По умолчанию используется "en".
+         * @param isInit начальяна загрузка приложения
          */
-        updateLanguage: (newLanguage: TLanguage = "en") => {
+        updateLanguage: (newLanguage: TLanguage = "en", isInit = false) => {
           newLanguage && document.documentElement.setAttribute("lang", newLanguage);
-          void i18n.changeLanguage(newLanguage);
+          !isInit && i18n.changeLanguage(newLanguage);
 
           set({
             language: newLanguage,

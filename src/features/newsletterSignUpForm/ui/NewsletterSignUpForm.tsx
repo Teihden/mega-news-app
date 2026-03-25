@@ -1,13 +1,14 @@
 import { type INewsletterSignUpFormFormik, type INewsletterSignUpFormProps, type INewsletterSignUpFormReq, SESSION_STORAGE_KEY } from "../config";
 import * as S from "./styles";
 import { type FC, useEffect } from "react";
-import { getSessionStorageInitialValues, validationSchema } from "../lib";
+import { getSessionStorageInitialValues, getValidationSchema } from "../lib";
 import { ErrorMessage, Field, Formik } from "formik";
 import { Input } from "@shared/ui/input";
 import { Btn } from "@shared/ui/btn";
 import IconMail from "@shared/assets/images/icons/icon-mail.svg?react";
 import toast from "react-hot-toast";
 import { useSubscribeNewsletterMutation } from "@shared/api";
+import { useTranslation } from "react-i18next";
 
 /**
  * Компонент NewsletterSignUpForm.
@@ -16,6 +17,11 @@ import { useSubscribeNewsletterMutation } from "@shared/api";
  */
 export const NewsletterSignUpForm: FC<INewsletterSignUpFormProps> = () => {
   const [ subscribeNewsletter ] = useSubscribeNewsletterMutation();
+  const { t } = useTranslation([ "common", "features" ]);
+  const validationSchema = getValidationSchema({
+    invalidEmail: t("newsletter.invalidEmail", { ns: "features" }),
+    requiredEmail: t("newsletter.requiredEmail", { ns: "features" }),
+  });
 
   return (
     <Formik<INewsletterSignUpFormFormik>
@@ -40,12 +46,12 @@ export const NewsletterSignUpForm: FC<INewsletterSignUpFormProps> = () => {
             })
             .catch((err) => {
               console.error("Network error", err);
-              throw ({ message: "Network error. Please check your connection.", ...err.data });
+              throw ({ message: t("newsletter.networkError", { ns: "features" }), ...err.data });
             }), {
-            loading: "Loading",
+            loading: t("loading", { ns: "common" }),
             /* eslint-disable jsdoc/require-jsdoc */
-            success: ({ message }) => message ? message : "Subscribed successfully",
-            error: ({ message }) => message ? message : "An error has occurred",
+            success: ({ message }) => message ? message : t("newsletter.success", { ns: "features" }),
+            error: ({ message }) => message ? message : t("errorOccurred", { ns: "common" }),
             /* eslint-enable jsdoc/require-jsdoc */
           },
         );
@@ -62,7 +68,7 @@ export const NewsletterSignUpForm: FC<INewsletterSignUpFormProps> = () => {
               className={"visually-hidden"}
               htmlFor={"email"}
             >
-              Email
+              {t("newsletter.emailLabel", { ns: "features" })}
             </label>
             <Field
               id={"email"}
@@ -70,8 +76,8 @@ export const NewsletterSignUpForm: FC<INewsletterSignUpFormProps> = () => {
               type={"email"}
               variant={"secondary"}
               componentSize={"md"}
-              placeholder={"Write your email..."}
-              title={"Write your email..."}
+              placeholder={t("newsletter.emailPlaceholder", { ns: "features" })}
+              title={t("newsletter.emailTitle", { ns: "features" })}
               autoComplete={"email"}
               as={Input}
               isInvalid={touched.email && errors.email}
@@ -88,7 +94,7 @@ export const NewsletterSignUpForm: FC<INewsletterSignUpFormProps> = () => {
               isSquare={true}
               type={"submit"}
               disabled={isSubmitting || Object.keys(errors).length > 0}
-              title={"Subscribe to the newsletter"}
+              title={t("newsletter.submitTitle", { ns: "features" })}
             />
           </S.Form>
         );

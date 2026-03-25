@@ -8,6 +8,7 @@ import { BurgerBtn, type IBurgerBtnRef } from "@features/burgerBtn";
 import { type UIMatch, useMatches } from "react-router";
 import type { IRouteHandle } from "@shared/types";
 import { WithIndicator } from "@entities/withIndicator";
+import { useTranslation } from "react-i18next";
 
 /**
  * Компонент HeaderNav.
@@ -19,11 +20,12 @@ export const HeaderMenu: FC<IHeaderMenuProps> = (props) => {
   const {
     pages = [],
   } = props;
+  const { t } = useTranslation([ "widgets" ]);
   const [ isMenuOpen, setIsMenuOpen ] = useState(false);
   const headerInnerMenuRef = useRef<HTMLDivElement | null>(null);
   const burgerBtnRef = useRef<IBurgerBtnRef>(null);
   const matches = useMatches() as UIMatch<unknown, IRouteHandle>[];
-  const currentTitle = [ ...matches ].reverse().find((m) => m.handle?.title)?.handle?.title ?? null;
+  const currentTitleKey = [ ...matches ].reverse().find((m) => m.handle?.titleKey)?.handle?.titleKey ?? null;
 
   /**
    * Переключает состояние меню и изменяет возможность прокрутки страницы.
@@ -72,7 +74,7 @@ export const HeaderMenu: FC<IHeaderMenuProps> = (props) => {
                   <WithIndicator
                     variant={"primary"}
                   >
-                    <Title level={2} variantLevel={4}>Pages</Title>
+                    <Title level={2} variantLevel={4}>{t("navigation.pages")}</Title>
                   </WithIndicator>
                 ),
               }}
@@ -80,9 +82,9 @@ export const HeaderMenu: FC<IHeaderMenuProps> = (props) => {
               <Stack
                 gap={"size7"}
               >
-                {pages.map(({ href = "", label = "" }) => (
+                {pages.map(({ href = "", labelKey = "" }) => (
                   <Btn
-                    key={label}
+                    key={labelKey}
                     variant={"blank"}
                     text={(
                       <Title
@@ -90,12 +92,12 @@ export const HeaderMenu: FC<IHeaderMenuProps> = (props) => {
                         variantLevel={6}
                         marginBlock={0}
                       >
-                        {label}
+                        {t(labelKey)}
                       </Title>
                     )}
                     href={href}
                     isInline={true}
-                    isDisabled={label === currentTitle}
+                    isDisabled={labelKey === currentTitleKey}
                   />
                 ))}
               </Stack>
@@ -109,7 +111,7 @@ export const HeaderMenu: FC<IHeaderMenuProps> = (props) => {
                   variantLevel={5}
                   marginBlock={0}
                 >
-                  {"Contact Us"}
+                  {t("navigation.contactUs")}
                 </Title>
               )}
               isInline={true}
@@ -123,7 +125,7 @@ export const HeaderMenu: FC<IHeaderMenuProps> = (props) => {
                   variantLevel={5}
                   marginBlock={0}
                 >
-                  {"About Us"}
+                  {t("navigation.aboutUs")}
                 </Title>
               )}
               isInline={true}

@@ -8,6 +8,7 @@ import { Stack } from "@bedrock-layout/primitives";
 import IconChevronDown from "@shared/assets/images/icons/icon-chevron-down.svg?react";
 import { useAppStore } from "@app/store/useAppStore";
 import { Title } from "@shared/ui/title";
+import { useTranslation } from "react-i18next";
 
 /**
  * Компонент LanguageToggler.
@@ -20,6 +21,7 @@ export const LanguageToggler: FC<ILanguageTogglerProps> = (props) => {
   const {
     variant = "blank",
   } = props;
+  const { t } = useTranslation([ "features" ]);
   const language = useAppStore(({ language }) => language);
   const updateLanguage = useAppStore(({ updateLanguage }) => updateLanguage);
   const [ isTooltipOpen, setIsTooltipOpen ] = useState(false);
@@ -58,7 +60,7 @@ export const LanguageToggler: FC<ILanguageTogglerProps> = (props) => {
         iconPosition={"right"}
         data-tooltip-id={tooltipId}
         $isTooltipOpen={isTooltipOpen}
-        aria-label={`Current language is ${LANGUAGE_LABELS[language]}. Open language menu.`}
+        aria-label={t("languageToggler.currentLanguage", { language: LANGUAGE_LABELS[language] })}
       />
       <Tooltip
         id={tooltipId}
@@ -85,7 +87,7 @@ export const LanguageToggler: FC<ILanguageTogglerProps> = (props) => {
               text={LANGUAGE_LABELS[mode]}
               isDisabled={mode === language}
               onClick={() => handleLanguageClick(mode)}
-              aria-label={`Set language to ${LANGUAGE_LABELS[mode]}`}
+              aria-label={t("languageToggler.setLanguage", { language: LANGUAGE_LABELS[mode] })}
             />
           ))}
         </Stack>

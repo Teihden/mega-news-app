@@ -1,7 +1,7 @@
 export const PAGES = [
-  { href: "/typography/", label: "Typography" },
-  { href: "/components/", label: "Components" },
-  { href: "/", label: "Main" },
+  { href: "/typography/", labelKey: "widgets:navigation.typography" },
+  { href: "/components/", labelKey: "widgets:navigation.components" },
+  { href: "/", labelKey: "widgets:navigation.main" },
 ];
 
 export const API_URL = import.meta.env.VITE_API_URL ?? "https://dummyjson.com";

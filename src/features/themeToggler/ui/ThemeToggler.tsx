@@ -3,6 +3,7 @@ import * as S from "./styles";
 import { createElement, type FC, useState } from "react";
 import { useAppStore } from "@app/store/useAppStore";
 import { getThemeTogglerMode } from "../lib";
+import { useTranslation } from "react-i18next";
 
 /**
  * Компонент ThemeToggler предоставляет функциональность для переключения темы приложения.
@@ -15,8 +16,10 @@ export const ThemeToggler: FC<IThemeTogglerProps> = (props) => {
     variant = "secondary",
   } = props;
 
+  const { t } = useTranslation([ "features" ]);
   const [ togglerThemeMode, setThemeTogglerMode ] = useState<typeof THEME_TOGGLER_MODES[number]>(() => getThemeTogglerMode());
   const updateTheme = useAppStore(({ updateTheme }) => updateTheme);
+  const currentModeLabel = t(`themeToggler.modes.${togglerThemeMode}`);
 
   /**
    * Обработчик события для переключения темы.
@@ -45,8 +48,8 @@ export const ThemeToggler: FC<IThemeTogglerProps> = (props) => {
       iconSize={24}
       icon={createElement(ICONS[togglerThemeMode])}
       isRound={true}
-      title={`${togglerThemeMode} theme`}
-      aria-label={`switching between dark and light theme (currently using ${togglerThemeMode} theme)`}
+      title={t("themeToggler.title", { mode: currentModeLabel })}
+      aria-label={t("themeToggler.ariaLabel", { mode: currentModeLabel })}
     />
   );
 };

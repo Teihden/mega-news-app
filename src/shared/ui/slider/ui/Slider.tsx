@@ -10,6 +10,7 @@ import IconChevronLeft from "@shared/assets/images/icons/icon-chevron-left.svg?r
 import { funnel, isEmpty, isPlainObject } from "remeda";
 import clsx from "clsx";
 import { STATE_CLASSES } from "@shared/config/constants";
+import { useTranslation } from "react-i18next";
 
 /**
  * Компонент слайдера на Swiper.
@@ -31,6 +32,7 @@ export const Slider: ISlider = (props) => {
     isLazyLoadingSlide = true,
     isLazyLoadingThumbSlide = true,
   } = props;
+  const { t } = useTranslation([ "common" ]);
   const componentRef = useRef<HTMLDivElement | null>(null);
   const swiperRef = useRef<SwiperRef | null>(null);
   const thumbsSwiperRef = useRef<SwiperRef | null>(null);
@@ -228,7 +230,8 @@ export const Slider: ISlider = (props) => {
             <S.NavigationBtn
               ref={navigationPrevRef}
               variant={"secondary"}
-              title={"previous slide"}
+              title={t("previousSlide")}
+              aria-label={t("previousSlide")}
               icon={<IconChevronLeft />}
               iconSize={24}
               isSquare={true}
@@ -238,7 +241,8 @@ export const Slider: ISlider = (props) => {
             <S.NavigationBtn
               ref={navigationNextRef}
               variant={"secondary"}
-              title={"next slide"}
+              title={t("nextSlide")}
+              aria-label={t("nextSlide")}
               icon={<IconChevronRight />}
               iconSize={24}
               isSquare={true}

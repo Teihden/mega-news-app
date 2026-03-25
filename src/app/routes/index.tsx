@@ -12,25 +12,25 @@ export const innerRoutes = [
   {
     index: true,
     id: "MAIN",
-    handle: { title: "Main" },
+    handle: { titleKey: "widgets:navigation.main" },
     element: <IndexPage />,
   },
   {
     path: "/typography/",
     id: "TYPOGRAPHY",
-    handle: { title: "Typography" },
+    handle: { titleKey: "widgets:navigation.typography" },
     element: <TypographyPage />,
   },
   {
     path: "/components/",
     id: "COMPONENTS",
-    handle: { title: "Components" },
+    handle: { titleKey: "widgets:navigation.components" },
     element: <ComponentPage />,
   },
   {
     path: "*",
     id: "404",
-    handle: { title: "404" },
+    handle: { titleKey: "pages:notFound.title" },
     element: <NotFoundPage />,
   },
 ];

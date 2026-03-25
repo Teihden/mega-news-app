@@ -16,7 +16,7 @@ export const App: FC = () => {
   const currentLanguage = ((i18n.resolvedLanguage ?? i18n.language) || "en") as TLanguage;
 
   useEffect(() => {
-    updateLanguage(currentLanguage);
+    updateLanguage(currentLanguage, true);
     return setThemeChangeListener(updateTheme);
   }, []);
 

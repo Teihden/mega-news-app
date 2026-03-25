@@ -15,6 +15,7 @@ import { Link } from "react-router";
 import { Btn } from "@shared/ui/btn";
 import IconChevronRight from "@shared/assets/images/icons/icon-chevron-right.svg?react";
 import { PostCardContainer } from "@entities/postCardContainer";
+import { useTranslation } from "react-i18next";
 
 const LazyMainSlider = lazy(() => import("@shared/ui/slider")
   .then((module) => ({ default: styled(module.Slider)`${mainSliderStyles}` })));
@@ -30,6 +31,7 @@ const LatestVideosMediaCard = styled(MediaCard)`${latestVideosMediaCardStyles}`;
  */
 export const IndexPage: FC = () => {
   const theme = useTheme();
+  const { t } = useTranslation([ "common", "pages" ]);
   const isTabletAbove = useMediaQuery(theme.bp.up("tablet"));
   const isTabletDown = useMediaQuery(theme.bp.down("tablet"));
   const isMobileDown = useMediaQuery(theme.bp.down("mobile"));
@@ -47,7 +49,7 @@ export const IndexPage: FC = () => {
   return (
     <>
       <Section className={"visually-hidden"}>
-        <Title level={1}>News</Title>
+        <Title level={1}>{t("index.title", { ns: "pages" })}</Title>
       </Section>
 
       <Section
@@ -88,7 +90,7 @@ export const IndexPage: FC = () => {
                   color: ${theme.palette.secondary["100"]};
                 `}
               >
-                Component loading error
+                {t("componentLoadingError", { ns: "common" })}
               </Title>
             )}
           >
@@ -113,13 +115,13 @@ export const IndexPage: FC = () => {
             justify={"space-between"}
           >
             <WithIndicator variant={"primary"}>
-              <Title level={2} variantLevel={4}>Latest Videos</Title>
+              <Title level={2} variantLevel={4}>{t("index.latestVideos", { ns: "pages" })}</Title>
             </WithIndicator>
             {isTabletDown && (
               <Btn
                 as={Link}
                 variant={"tertiary"}
-                text={"Show all"}
+                text={t("showAll", { ns: "common" })}
                 icon={<IconChevronRight />}
                 iconSize={18}
                 iconPosition={"right"}
@@ -168,7 +170,7 @@ export const IndexPage: FC = () => {
                   color: ${theme.palette.secondary["100"]};
                 `}
               >
-                Component loading error
+                {t("componentLoadingError", { ns: "common" })}
               </Title>
             )}
           >
@@ -213,7 +215,7 @@ export const IndexPage: FC = () => {
       <Section
         headerSlot={(
           <WithIndicator variant={"primary"}>
-            <Title level={2} variantLevel={4}>Popular posts</Title>
+            <Title level={2} variantLevel={4}>{t("index.popularPosts", { ns: "pages" })}</Title>
           </WithIndicator>
         )}
       >

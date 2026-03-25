@@ -1,6 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
+import { defaultNS, namespaces, resources } from "./resources";
 
 const isDev = import.meta.env.DEV;
 
@@ -21,10 +22,12 @@ const initI18n = async () => {
     .use(initReactI18next)
     .init({
       debug: isDev,
-      saveMissing: isDev,
       fallbackLng: "en",
       supportedLngs: [ "en", "ru" ],
       detection,
+      resources,
+      ns: [ ...namespaces ],
+      defaultNS,
     });
 };
 

@@ -3,6 +3,7 @@ import * as S from "./styles";
 import { WithIndicator } from "@entities/withIndicator";
 import { Title } from "@shared/ui/title";
 import { NewsletterSignUpForm } from "@features/newsletterSignUpForm";
+import { useTranslation } from "react-i18next";
 
 /**
  * FooterNewsletter - компонент для отображения блока подписки на рассылку в нижнем колонтитуле.
@@ -11,10 +12,12 @@ import { NewsletterSignUpForm } from "@features/newsletterSignUpForm";
  * @returns Возвращает компонент.
  */
 export const FooterNewsletter: FC = () => {
+  const { t } = useTranslation([ "widgets" ]);
+
   return (
     <S.Wrapper>
       <WithIndicator variant={"primary"}>
-        <Title level={2} variantLevel={4}>Newsletters</Title>
+        <Title level={2} variantLevel={4}>{t("footer.newsletters")}</Title>
       </WithIndicator>
 
       <NewsletterSignUpForm />

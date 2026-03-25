@@ -1,6 +1,7 @@
 import { type IBurgerBtnProps } from "../config";
 import * as S from "./styles";
 import { type FC, useImperativeHandle, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 /**
  * Компонент кнопки-бургера.
@@ -13,8 +14,12 @@ export const BurgerBtn: FC<IBurgerBtnProps> = (props) => {
     onClickCb = null,
     ref,
   } = props;
+  const { t } = useTranslation([ "features" ]);
   const [ isBurgerBtnActive, setIsBurgerBtnActive ] = useState(false);
   const refObject = useRef<HTMLButtonElement | null>(null);
+  const label = isBurgerBtnActive
+    ? t("burgerBtn.closeMenu")
+    : t("burgerBtn.openMenu");
 
   useImperativeHandle((ref), () => ({
     ref: refObject,
@@ -39,8 +44,8 @@ export const BurgerBtn: FC<IBurgerBtnProps> = (props) => {
       variant={"secondary"}
       size={"md"}
       isSquare={true}
-      title={``}
-      aria-label={``}
+      title={label}
+      aria-label={label}
       $isBurgerBtnActive={isBurgerBtnActive}
       onClick={handleClick}
     >
