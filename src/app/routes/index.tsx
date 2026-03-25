@@ -7,8 +7,9 @@ import { Header, headerMock } from "@widgets/header";
 import { Footer, footerMock } from "@widgets/footer";
 import { AppInitError } from "@shared/ui/appInitError";
 import { Toast } from "@shared/ui/toast";
+import type { TAppRouteObject } from "@shared/types";
 
-export const innerRoutes = [
+export const innerRoutes: TAppRouteObject[] = [
   {
     index: true,
     id: "MAIN",
@@ -35,7 +36,7 @@ export const innerRoutes = [
   },
 ];
 
-export const routes = [
+export const routes: TAppRouteObject[] = [
   {
     path: "/",
     id: "ROOT",

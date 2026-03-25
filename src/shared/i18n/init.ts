@@ -28,6 +28,7 @@ const initI18n = async () => {
       resources,
       ns: [ ...namespaces ],
       defaultNS,
+      cleanCode: true,
     });
 };
 
