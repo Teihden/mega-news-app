@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { App } from "./App";
 import { ErrorBoundary } from "react-error-boundary";
 import "@app/styles/vendors";
-import { initI18n } from "@shared/i18n/init";
+import { initI18n } from "@shared/i18n";
 import { renderToStaticMarkup } from "react-dom/server";
 import { AppInitError } from "@shared/ui/appInitError";
 import { startMocking } from "@shared/api";
