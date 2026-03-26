@@ -7,10 +7,10 @@ import { useMediaQuery } from "styled-breakpoints/use-media-query";
 import { HeaderNav } from "./HeaderNav";
 import { HeaderMenu } from "./HeaderMenu";
 import { Link, type UIMatch, useMatches } from "react-router";
-import type { IRouteHandle } from "@shared/types";
 import { Btn } from "@shared/ui/btn";
 import { LanguageToggler } from "@features/languageToggler";
 import { useTranslation } from "react-i18next";
+import type { IRouteHandle } from "@shared/types";
 
 /**
  * Компонент Header.
@@ -29,7 +29,7 @@ export const Header: FC<IHeaderProps> = (props) => {
   const isTabletUp = useMediaQuery(theme.bp.up("tablet"));
   const isTabletDown = useMediaQuery(theme.bp.down("tablet"));
   const matches = useMatches() as UIMatch<unknown, IRouteHandle>[];
-  const currentTitleKey = [ ...matches ].reverse().find((m) => m.handle?.titleKey)?.handle?.titleKey ?? null;
+  const currentNavRouteId = [ ...matches ].reverse().find((match) => match.handle?.showInMenu)?.id ?? null;
 
   return (
     <S.Header>
@@ -43,8 +43,8 @@ export const Header: FC<IHeaderProps> = (props) => {
             variant={"blank"}
             isInline={true}
             to={"/"}
-            title={t("header.returnToMainPage")}
-            isDisabled={currentTitleKey === "widgets:header.main"}
+            title={t(($) => $.header.returnToMainPage)}
+            isDisabled={currentNavRouteId === "MAIN"}
           >
             <S.Logo>
               {logo}

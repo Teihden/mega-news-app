@@ -6,9 +6,9 @@ import { WithIndicator } from "@entities/withIndicator";
 import { Title } from "@shared/ui/title";
 import type { IFooterPagesProps } from "@widgets/footer/config";
 import { Link, type UIMatch, useMatches } from "react-router";
-import type { IRouteHandle } from "@shared/types";
 import { type DefaultTheme } from "styled-components";
 import { useTranslation } from "react-i18next";
+import type { IRouteHandle } from "@shared/types";
 
 /**
  * Компонент FooterPages используется для отображения списка страниц в футере.
@@ -21,14 +21,13 @@ export const FooterPages: FC<IFooterPagesProps> = (props) => {
     pages = [],
   } = props;
   const { t } = useTranslation([ "widgets" ]);
-
   const matches = useMatches() as UIMatch<unknown, IRouteHandle>[];
-  const currentTitleKey = [ ...matches ].reverse().find((m) => m.handle?.titleKey)?.handle?.titleKey ?? null;
+  const currentNavRouteId = [ ...matches ].reverse().find((match) => match.handle?.showInMenu)?.id ?? null;
 
   return (
     <S.Wrapper>
       <WithIndicator variant={"primary"}>
-        <Title level={2} variantLevel={4}>{t("footer.pages")}</Title>
+        <Title level={2} variantLevel={4}>{t(($) => $.footer.pages)}</Title>
       </WithIndicator>
 
       <Stack
@@ -39,15 +38,15 @@ export const FooterPages: FC<IFooterPagesProps> = (props) => {
           }
         `}
       >
-        {pages.map(({ href = "", labelKey = "" }) => (
+        {pages.map(({ id, href, navLabelKey }) => (
           <Btn
-            key={labelKey}
+            key={id}
             as={Link}
             variant={"blank"}
-            text={t(labelKey)}
+            text={t(navLabelKey)}
             to={href}
             isInline={true}
-            isDisabled={labelKey === currentTitleKey}
+            isDisabled={id === currentNavRouteId}
           />
         ))}
       </Stack>

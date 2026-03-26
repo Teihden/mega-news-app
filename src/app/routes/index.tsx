@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-jsdoc */
 import { PageWrapper } from "@widgets/pageWrapper";
 import { ScrollRestoration } from "react-router";
 import { Preloader } from "@shared/ui/preloader";
@@ -6,14 +7,17 @@ import { Header, headerMock } from "@widgets/header";
 import { Footer, footerMock } from "@widgets/footer";
 import { AppInitError } from "@shared/ui/appInitError";
 import { Toast } from "@shared/ui/toast";
-import type { TAppRouteObject } from "@shared/types";
+import type { IMenuRoute, TAppRouteObject } from "@shared/types";
 
 export const innerRoutes: TAppRouteObject[] = [
   {
     index: true,
     id: "MAIN",
-    handle: { titleKey: "meta:routes.main" },
-    // eslint-disable-next-line jsdoc/require-jsdoc
+    handle: {
+      titleKey: ($) => $.routes.main,
+      navLabelKey: ($) => $.header.main,
+      showInMenu: true,
+    },
     lazy: async () => {
       const { IndexPage } = await import("@pages/IndexPage");
 
@@ -25,8 +29,11 @@ export const innerRoutes: TAppRouteObject[] = [
   {
     path: "/typography/",
     id: "TYPOGRAPHY",
-    handle: { titleKey: "meta:routes.typography" },
-    // eslint-disable-next-line jsdoc/require-jsdoc
+    handle: {
+      titleKey: ($) => $.routes.typography,
+      navLabelKey: ($) => $.header.typography,
+      showInMenu: true,
+    },
     lazy: async () => {
       const { TypographyPage } = await import("@pages/TypographyPage");
 
@@ -38,8 +45,11 @@ export const innerRoutes: TAppRouteObject[] = [
   {
     path: "/components/",
     id: "COMPONENTS",
-    handle: { titleKey: "meta:routes.components" },
-    // eslint-disable-next-line jsdoc/require-jsdoc
+    handle: {
+      titleKey: ($) => $.routes.components,
+      navLabelKey: ($) => $.header.components,
+      showInMenu: true,
+    },
     lazy: async () => {
       const { ComponentPage } = await import("@pages/ComponentPage");
 
@@ -51,8 +61,11 @@ export const innerRoutes: TAppRouteObject[] = [
   {
     path: "*",
     id: "404",
-    handle: { titleKey: "meta:routes.notFound" },
-    // eslint-disable-next-line jsdoc/require-jsdoc
+    handle: {
+      titleKey: ($) => $.routes.notFound,
+      navLabelKey: ($) => $.header.pages,
+      showInMenu: false,
+    },
     lazy: async () => {
       const { NotFoundPage } = await import("@pages/NotFoundPage");
 
@@ -63,6 +76,20 @@ export const innerRoutes: TAppRouteObject[] = [
   },
 ];
 
+const pages: IMenuRoute[] = innerRoutes.flatMap((route) => {
+  if (!route.id || !route.handle?.showInMenu || !route.handle.navLabelKey) {
+    return [];
+  }
+
+  return [
+    {
+      id: route.id,
+      href: route.index ? "/" : (route.path ?? "/"),
+      navLabelKey: route.handle.navLabelKey,
+    },
+  ];
+});
+
 export const routes: TAppRouteObject[] = [
   {
     path: "/",
@@ -70,8 +97,8 @@ export const routes: TAppRouteObject[] = [
     element: (
       <>
         <PageWrapper
-          header={<Header {...headerMock.header} />}
-          footer={<Footer {...footerMock.footer} />}
+          header={<Header {...headerMock.header} pages={pages} />}
+          footer={<Footer {...footerMock.footer} pages={pages} />}
         />
         <ScrollRestoration />
         <Preloader logo={<LogoIcon />} />

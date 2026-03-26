@@ -19,7 +19,11 @@ export const ThemeToggler: FC<IThemeTogglerProps> = (props) => {
   const { t } = useTranslation([ "features" ]);
   const [ togglerThemeMode, setThemeTogglerMode ] = useState<typeof THEME_TOGGLER_MODES[number]>(() => getThemeTogglerMode());
   const updateTheme = useAppStore(({ updateTheme }) => updateTheme);
-  const currentModeLabel = t(`themeToggler.modes.${togglerThemeMode}`);
+  const currentModeLabel = {
+    dark: t(($) => $.themeToggler.modes.dark),
+    light: t(($) => $.themeToggler.modes.light),
+    system: t(($) => $.themeToggler.modes.system),
+  }[togglerThemeMode];
 
   /**
    * Обработчик события для переключения темы.
@@ -48,8 +52,8 @@ export const ThemeToggler: FC<IThemeTogglerProps> = (props) => {
       iconSize={24}
       icon={createElement(ICONS[togglerThemeMode])}
       isRound={true}
-      title={t("themeToggler.title", { mode: currentModeLabel })}
-      aria-label={t("themeToggler.ariaLabel", { mode: currentModeLabel })}
+      title={t(($) => $.themeToggler.title, { mode: currentModeLabel })}
+      aria-label={t(($) => $.themeToggler.ariaLabel, { mode: currentModeLabel })}
     />
   );
 };

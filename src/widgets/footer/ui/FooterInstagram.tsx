@@ -31,7 +31,7 @@ export const FooterInstagram: FC<IFooterInstagramProps> = (props) => {
           level={2}
           variantLevel={4}
         >
-          {t("footer.followOnInstagram")}
+          {t(($) => $.footer.followOnInstagram)}
         </Title>
       </WithIndicator>
 

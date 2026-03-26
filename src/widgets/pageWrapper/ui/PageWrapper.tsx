@@ -24,16 +24,17 @@ export const PageWrapper: FC<IPageWrapperProps> = (props) => {
 
   const navigation = useNavigation();
   const matches = useMatches() as UIMatch<unknown, IRouteHandle>[];
-  const { t } = useTranslation([ "common", "meta" ]);
+  const { t: tCommon } = useTranslation("common");
+  const { t: tMeta } = useTranslation("meta");
   const isPageLoading = navigation.state === "loading";
 
   useEffect(() => {
     const matchWithTitle = [ ...matches ].reverse().find((m) => m.handle?.titleKey);
 
     if (matchWithTitle) {
-      document.title = `Mega News.${matchWithTitle.handle?.titleKey ? ` ${t(matchWithTitle.handle.titleKey)}` : ""}`;
+      document.title = `Mega News.${matchWithTitle.handle?.titleKey ? ` ${tMeta(matchWithTitle.handle.titleKey)}` : ""}`;
     }
-  }, [ matches, t ]);
+  }, [ matches, tMeta ]);
 
   return (
     <S.Layout>
@@ -48,7 +49,7 @@ export const PageWrapper: FC<IPageWrapperProps> = (props) => {
         {isPageLoading
           ? (
               <Loader
-                message={t("loading", { ns: "common" })}
+                message={tCommon(($) => $.loading)}
               />
             )
           : (children ?? <Outlet />)}

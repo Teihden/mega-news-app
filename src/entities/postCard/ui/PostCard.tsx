@@ -67,7 +67,7 @@ export const PostCard: IPostCard = (props) => {
           isDisabled={isLoading || isSuccess}
           disabled={isLoading || isSuccess}
           text={likes}
-          title={t("like")}
+          title={t(($) => $.like)}
           onClick={handleClick}
         />
       </S.Wrapper>

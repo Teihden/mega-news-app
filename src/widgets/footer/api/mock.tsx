@@ -1,5 +1,4 @@
 import type { ICommentsResp, IFooterProps } from "../config";
-import { PAGES } from "@shared/config/constants";
 import { randomInteger } from "remeda";
 
 const imgs = import.meta.glob<string>("@shared/assets/images/instagram/*.jpg", {
@@ -28,7 +27,6 @@ export const footer: IFooterProps = {
     },
   ], */
   instagramLinks: Object.values(imgs).map((src) => ({ src })),
-  pages: PAGES,
 };
 
 // eslint-disable-next-line jsdoc/require-jsdoc

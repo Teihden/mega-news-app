@@ -24,11 +24,11 @@ export const TypographyPage: FC = () => {
   return (
     <>
       <Section>
-        <Title>{t("typography.title")}</Title>
+        <Title>{t(($) => $.typography.title)}</Title>
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>{t("typography.titleSection")}</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>{t(($) => $.typography.titleSection)}</Title>}
       >
         <Stack gap={"size8"}>
           <InlineCluster style={{ "--gap": "3rem 5rem" }} align={"center"}>
@@ -64,7 +64,7 @@ export const TypographyPage: FC = () => {
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>{t("typography.subtitleSection")}</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>{t(($) => $.typography.subtitleSection)}</Title>}
       >
         <Stack gap={"size8"}>
           <InlineCluster style={{ "--gap": "3rem 5rem" }} align={"center"}>
@@ -80,7 +80,7 @@ export const TypographyPage: FC = () => {
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>{t("typography.textSection")}</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>{t(($) => $.typography.textSection)}</Title>}
       >
         <Stack gap={"size8"}>
           <Stack gap={"size8"}>
@@ -129,7 +129,7 @@ export const TypographyPage: FC = () => {
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>{t("typography.buttonsSection")}</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>{t(($) => $.typography.buttonsSection)}</Title>}
       >
         <Stack gap={"size8"}>
           <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
@@ -242,7 +242,7 @@ export const TypographyPage: FC = () => {
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>{t("typography.withIndicatorSection")}</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>{t(($) => $.typography.withIndicatorSection)}</Title>}
       >
         <Stack gap={"size8"}>
           <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
@@ -269,7 +269,7 @@ export const TypographyPage: FC = () => {
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>{t("typography.inputsSection")}</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>{t(($) => $.typography.inputsSection)}</Title>}
       >
         <Stack gap={"size8"}>
           <Stack gap={"size8"}>

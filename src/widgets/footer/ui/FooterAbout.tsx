@@ -27,7 +27,7 @@ export const FooterAbout: FC = () => {
             <WithIndicator
               variant={"primary"}
             >
-              <Title level={2} variantLevel={4}>{t("footer.aboutTitle")}</Title>
+              <Title level={2} variantLevel={4}>{t(($) => $.footer.aboutTitle)}</Title>
             </WithIndicator>
           ),
         }}
@@ -36,7 +36,7 @@ export const FooterAbout: FC = () => {
         `}
       >
         <Text variant={"md"}>
-          {t("footer.aboutText")}
+          {t(($) => $.footer.aboutText)}
         </Text>
       </Accordion>
     </div>

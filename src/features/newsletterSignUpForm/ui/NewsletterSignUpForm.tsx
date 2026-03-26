@@ -17,10 +17,11 @@ import { useTranslation } from "react-i18next";
  */
 export const NewsletterSignUpForm: FC<INewsletterSignUpFormProps> = () => {
   const [ subscribeNewsletter ] = useSubscribeNewsletterMutation();
-  const { t } = useTranslation([ "common", "features" ]);
+  const { t: tCommon } = useTranslation("common");
+  const { t: tFeatures } = useTranslation("features");
   const validationSchema = getValidationSchema({
-    invalidEmail: t("newsletter.invalidEmail", { ns: "features" }),
-    requiredEmail: t("newsletter.requiredEmail", { ns: "features" }),
+    invalidEmail: tFeatures(($) => $.newsletter.invalidEmail),
+    requiredEmail: tFeatures(($) => $.newsletter.requiredEmail),
   });
 
   return (
@@ -46,12 +47,12 @@ export const NewsletterSignUpForm: FC<INewsletterSignUpFormProps> = () => {
             })
             .catch((err) => {
               console.error("Network error", err);
-              throw ({ message: t("newsletter.networkError", { ns: "features" }), ...err.data });
+              throw ({ message: tFeatures(($) => $.newsletter.networkError), ...err.data });
             }), {
-            loading: t("loading", { ns: "common" }),
+            loading: tCommon(($) => $.loading),
             /* eslint-disable jsdoc/require-jsdoc */
-            success: ({ message }) => message ? message : t("newsletter.success", { ns: "features" }),
-            error: ({ message }) => message ? message : t("errorOccurred", { ns: "common" }),
+            success: ({ message }) => message ? message : tFeatures(($) => $.newsletter.success),
+            error: ({ message }) => message ? message : tCommon(($) => $.errorOccurred),
             /* eslint-enable jsdoc/require-jsdoc */
           },
         );
@@ -68,7 +69,7 @@ export const NewsletterSignUpForm: FC<INewsletterSignUpFormProps> = () => {
               className={"visually-hidden"}
               htmlFor={"email"}
             >
-              {t("newsletter.emailLabel", { ns: "features" })}
+              {tFeatures(($) => $.newsletter.emailLabel)}
             </label>
             <Field
               id={"email"}
@@ -76,8 +77,8 @@ export const NewsletterSignUpForm: FC<INewsletterSignUpFormProps> = () => {
               type={"email"}
               variant={"secondary"}
               componentSize={"md"}
-              placeholder={t("newsletter.emailPlaceholder", { ns: "features" })}
-              title={t("newsletter.emailTitle", { ns: "features" })}
+              placeholder={tFeatures(($) => $.newsletter.emailPlaceholder)}
+              title={tFeatures(($) => $.newsletter.emailTitle)}
               autoComplete={"email"}
               as={Input}
               isInvalid={touched.email && errors.email}
@@ -94,7 +95,7 @@ export const NewsletterSignUpForm: FC<INewsletterSignUpFormProps> = () => {
               isSquare={true}
               type={"submit"}
               disabled={isSubmitting || Object.keys(errors).length > 0}
-              title={t("newsletter.submitTitle", { ns: "features" })}
+              title={tFeatures(($) => $.newsletter.submitTitle)}
             />
           </S.Form>
         );

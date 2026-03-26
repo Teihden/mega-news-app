@@ -30,7 +30,7 @@ export const FooterComments: FC<IFooterCommentsProps> = (props) => {
     && (
       <S.Wrapper>
         <WithIndicator variant={"primary"}>
-          <Title level={2} variantLevel={4}>{t("footer.newComments")}</Title>
+          <Title level={2} variantLevel={4}>{t(($) => $.footer.newComments)}</Title>
         </WithIndicator>
 
         {isLoading && (

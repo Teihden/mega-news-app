@@ -60,7 +60,7 @@ export const LanguageToggler: FC<ILanguageTogglerProps> = (props) => {
         iconPosition={"right"}
         data-tooltip-id={tooltipId}
         $isTooltipOpen={isTooltipOpen}
-        aria-label={t("languageToggler.currentLanguage", { language: LANGUAGE_LABELS[language] })}
+        aria-label={t(($) => $.languageToggler.currentLanguage, { language: LANGUAGE_LABELS[language] })}
       />
       <Tooltip
         id={tooltipId}
@@ -87,7 +87,7 @@ export const LanguageToggler: FC<ILanguageTogglerProps> = (props) => {
               text={LANGUAGE_LABELS[mode]}
               isDisabled={mode === language}
               onClick={() => handleLanguageClick(mode)}
-              aria-label={t("languageToggler.setLanguage", { language: LANGUAGE_LABELS[mode] })}
+              aria-label={t(($) => $.languageToggler.setLanguage, { language: LANGUAGE_LABELS[mode] })}
             />
           ))}
         </Stack>

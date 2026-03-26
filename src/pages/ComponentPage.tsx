@@ -30,11 +30,11 @@ export const ComponentPage: FC = () => {
   return (
     <>
       <Section>
-        <Title>{t("components.title")}</Title>
+        <Title>{t(($) => $.components.title)}</Title>
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>{t("components.images")}</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>{t(($) => $.components.images)}</Title>}
       >
         <Stack gap={"size8"}>
           <Stack gap={"size8"}>
@@ -46,7 +46,7 @@ export const ComponentPage: FC = () => {
             />
           </Stack>
           <Stack gap={"size8"}>
-            <Title level={3} variantLevel={4} marginBlock={"0"}>{t("components.picture")}</Title>
+            <Title level={3} variantLevel={4} marginBlock={"0"}>{t(($) => $.components.picture)}</Title>
             <Img
               src={imgSport5Desktop}
               width={1920}
@@ -73,7 +73,7 @@ export const ComponentPage: FC = () => {
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>{t("components.video")}</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>{t(($) => $.components.video)}</Title>}
       >
         <Video
           width={1920}
@@ -92,11 +92,11 @@ export const ComponentPage: FC = () => {
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>{t("components.accordions")}</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>{t(($) => $.components.accordions)}</Title>}
       >
         <Stack gap={"size8"}>
           <Stack gap={"size8"}>
-            <Title level={3} variantLevel={4} marginBlock={"0"}>{t("components.closed")}</Title>
+            <Title level={3} variantLevel={4} marginBlock={"0"}>{t(($) => $.components.closed)}</Title>
             <Accordion>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
               magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In
@@ -110,7 +110,7 @@ export const ComponentPage: FC = () => {
             </Accordion>
           </Stack>
           <Stack gap={"size8"}>
-            <Title level={3} variantLevel={4} marginBlock={"0"}>{t("components.opened")}</Title>
+            <Title level={3} variantLevel={4} marginBlock={"0"}>{t(($) => $.components.opened)}</Title>
             <Accordion isControlledOpen={true}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
               magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In
@@ -125,7 +125,7 @@ export const ComponentPage: FC = () => {
           </Stack>
 
           <Stack gap={"size8"}>
-            <Title level={3} variantLevel={4} marginBlock={"0"}>{t("components.openedAndInactive")}</Title>
+            <Title level={3} variantLevel={4} marginBlock={"0"}>{t(($) => $.components.openedAndInactive)}</Title>
             <Accordion isControlledOpen={true} isActive={false}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
               magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In
@@ -142,13 +142,13 @@ export const ComponentPage: FC = () => {
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>{t("components.burgerBtn")}</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>{t(($) => $.components.burgerBtn)}</Title>}
       >
         <BurgerBtn />
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>{t("components.mediaCard")}</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>{t(($) => $.components.mediaCard)}</Title>}
       >
         <MediaCard
           {...mediaCardMock.main[0]}
@@ -160,7 +160,7 @@ export const ComponentPage: FC = () => {
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>{t("components.userCard")}</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>{t(($) => $.components.userCard)}</Title>}
       >
         <UserCard
           {...userCardMock.componentPage}
@@ -171,7 +171,7 @@ export const ComponentPage: FC = () => {
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>{t("components.postCard")}</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>{t(($) => $.components.postCard)}</Title>}
       >
         <PostCard
           {...postCardMock.componentPage}

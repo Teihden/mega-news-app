@@ -17,7 +17,7 @@ export const FooterSocials: FC = () => {
   return (
     <S.Wrapper>
       <WithIndicator variant={"primary"}>
-        <Title level={2} variantLevel={4}>{t("footer.socialNetwork")}</Title>
+        <Title level={2} variantLevel={4}>{t(($) => $.footer.socialNetwork)}</Title>
       </WithIndicator>
 
       <InlineCluster gap={"size7"} align={"center"}>

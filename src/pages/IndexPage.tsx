@@ -30,7 +30,8 @@ const LatestVideosMediaCard = styled(MediaCard)`${latestVideosMediaCardStyles}`;
  */
 export const IndexPage: FC = () => {
   const theme = useTheme();
-  const { t } = useTranslation([ "common", "pages" ]);
+  const { t: tCommon } = useTranslation("common");
+  const { t: tPages } = useTranslation("pages");
   const isTabletAbove = useMediaQuery(theme.bp.up("tablet"));
   const isTabletDown = useMediaQuery(theme.bp.down("tablet"));
   const isMobileDown = useMediaQuery(theme.bp.down("mobile"));
@@ -48,7 +49,7 @@ export const IndexPage: FC = () => {
   return (
     <>
       <Section className={"visually-hidden"}>
-        <Title level={1}>{t("index.title", { ns: "pages" })}</Title>
+        <Title level={1}>{tPages(($) => $.index.title)}</Title>
       </Section>
 
       <Section
@@ -89,7 +90,7 @@ export const IndexPage: FC = () => {
                   color: ${theme.palette.secondary["100"]};
                 `}
               >
-                {t("componentLoadingError", { ns: "common" })}
+                {tCommon(($) => $.componentLoadingError)}
               </Title>
             )}
           >
@@ -114,13 +115,13 @@ export const IndexPage: FC = () => {
             justify={"space-between"}
           >
             <WithIndicator variant={"primary"}>
-              <Title level={2} variantLevel={4}>{t("index.latestVideos", { ns: "pages" })}</Title>
+              <Title level={2} variantLevel={4}>{tPages(($) => $.index.latestVideos)}</Title>
             </WithIndicator>
             {isTabletDown && (
               <Btn
                 as={Link}
                 variant={"tertiary"}
-                text={t("showAll", { ns: "common" })}
+                text={tCommon(($) => $.showAll)}
                 icon={<IconChevronRight />}
                 iconSize={18}
                 iconPosition={"right"}
@@ -169,7 +170,7 @@ export const IndexPage: FC = () => {
                   color: ${theme.palette.secondary["100"]};
                 `}
               >
-                {t("componentLoadingError", { ns: "common" })}
+                {tCommon(($) => $.componentLoadingError)}
               </Title>
             )}
           >
@@ -214,7 +215,7 @@ export const IndexPage: FC = () => {
       <Section
         headerSlot={(
           <WithIndicator variant={"primary"}>
-            <Title level={2} variantLevel={4}>{t("index.popularPosts", { ns: "pages" })}</Title>
+            <Title level={2} variantLevel={4}>{tPages(($) => $.index.popularPosts)}</Title>
           </WithIndicator>
         )}
       >

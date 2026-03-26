@@ -17,7 +17,7 @@ export const FooterNewsletter: FC = () => {
   return (
     <S.Wrapper>
       <WithIndicator variant={"primary"}>
-        <Title level={2} variantLevel={4}>{t("footer.newsletters")}</Title>
+        <Title level={2} variantLevel={4}>{t(($) => $.footer.newsletters)}</Title>
       </WithIndicator>
 
       <NewsletterSignUpForm />

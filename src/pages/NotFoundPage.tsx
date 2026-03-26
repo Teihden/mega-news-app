@@ -54,10 +54,10 @@ export const NotFoundPage: FC = () => {
 
   return (
     <StyledSection
-      headerSlot={<StyledTitle level={1}>{t("notFound.title")}</StyledTitle>}
+      headerSlot={<StyledTitle level={1}>{t(($) => $.notFound.title)}</StyledTitle>}
     >
       <Text variant={"lg"} align={"center"}>
-        {t("notFound.description")}
+        {t(($) => $.notFound.description)}
       </Text>
     </StyledSection>
   );

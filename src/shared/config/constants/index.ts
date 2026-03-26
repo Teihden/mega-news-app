@@ -1,9 +1,3 @@
-export const PAGES = [
-  { href: "/typography/", labelKey: "widgets:header.typography" },
-  { href: "/components/", labelKey: "widgets:header.components" },
-  { href: "/", labelKey: "widgets:header.main" },
-];
-
 export const API_URL = import.meta.env.VITE_API_URL ?? "https://dummyjson.com";
 
 export const API_ENDPOINTS = {

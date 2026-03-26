@@ -18,8 +18,8 @@ export const BurgerBtn: FC<IBurgerBtnProps> = (props) => {
   const [ isBurgerBtnActive, setIsBurgerBtnActive ] = useState(false);
   const refObject = useRef<HTMLButtonElement | null>(null);
   const label = isBurgerBtnActive
-    ? t("burgerBtn.closeMenu")
-    : t("burgerBtn.openMenu");
+    ? t(($) => $.burgerBtn.closeMenu)
+    : t(($) => $.burgerBtn.openMenu);
 
   useImperativeHandle((ref), () => ({
     ref: refObject,

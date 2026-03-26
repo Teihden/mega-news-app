@@ -1,7 +1,6 @@
+/* eslint-disable jsdoc/require-jsdoc */
 import { configureStore } from "@reduxjs/toolkit";
 import { apiClient } from "@shared/api";
-
-/* eslint-disable jsdoc/require-jsdoc */
 
 export const reduxStore = configureStore({
   reducer: {
@@ -12,5 +11,3 @@ export const reduxStore = configureStore({
 
 export type TReduxStore = typeof reduxStore;
 export type TReduxDispatch = typeof reduxStore.dispatch;
-
-/* eslint-enable jsdoc/require-jsdoc */

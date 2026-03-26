@@ -19,19 +19,19 @@ export const FooterBottom: FC = () => {
         <Btn
           variant={"blank"}
           href={"./"}
-          text={t("footer.privacyPolicy")}
+          text={t(($) => $.footer.privacyPolicy)}
           isInline={true}
         />
         <Btn
           variant={"blank"}
           href={"./"}
-          text={t("footer.termsAndConditions")}
+          text={t(($) => $.footer.termsAndConditions)}
           isInline={true}
         />
       </InlineCluster>
 
       <Text variant={"sm"}>
-        {t("footer.copyright", { year: new Date().getFullYear() })}
+        {t(($) => $.footer.copyright, { year: new Date().getFullYear() })}
       </Text>
     </S.BottomWrapper>
   );

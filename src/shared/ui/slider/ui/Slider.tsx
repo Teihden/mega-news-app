@@ -67,7 +67,7 @@ export const Slider: ISlider = (props) => {
        * @returns HTML-строка кнопки пагинации с локализованными атрибутами.
        */
       renderBullet: (index, className) => {
-        const label = t("slider.goToSlide", { slide: index + 1 });
+        const label = t(($) => $.slider.goToSlide, { slide: index + 1 });
         return `<button class="${className}" type="button" title="${label}" aria-label="${label}"></button>`;
       },
     } satisfies SwiperOptions["pagination"]
@@ -257,8 +257,8 @@ export const Slider: ISlider = (props) => {
             <S.NavigationBtn
               ref={navigationPrevRef}
               variant={"secondary"}
-              title={t("slider.previousSlide")}
-              aria-label={t("slider.previousSlide")}
+              title={t(($) => $.slider.previousSlide)}
+              aria-label={t(($) => $.slider.previousSlide)}
               icon={<IconChevronLeft />}
               iconSize={24}
               isSquare={true}
@@ -268,8 +268,8 @@ export const Slider: ISlider = (props) => {
             <S.NavigationBtn
               ref={navigationNextRef}
               variant={"secondary"}
-              title={t("slider.nextSlide")}
-              aria-label={t("slider.nextSlide")}
+              title={t(($) => $.slider.nextSlide)}
+              aria-label={t(($) => $.slider.nextSlide)}
               icon={<IconChevronRight />}
               iconSize={24}
               isSquare={true}

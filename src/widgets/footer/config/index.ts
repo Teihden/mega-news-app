@@ -1,4 +1,4 @@
-import type { PAGES } from "@shared/config/constants";
+import type { IMenuRoute } from "@shared/types";
 
 export interface IFooterProps {
   comments?: IComment[] | null;
@@ -6,7 +6,7 @@ export interface IFooterProps {
     src?: string;
     href?: string;
   }[];
-  pages?: typeof PAGES;
+  pages?: readonly IMenuRoute[];
 }
 
 export interface IFooterInstagramProps {
