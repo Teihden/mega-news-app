@@ -1,5 +1,5 @@
 const widgets = {
-  navigation: {
+  header: {
     main: "Main",
     typography: "Typography",
     components: "Components",

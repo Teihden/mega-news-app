@@ -13,6 +13,7 @@ export const Header = styled.div`
 `;
 
 export const Main = styled.main`
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
   flex-grow: 1;

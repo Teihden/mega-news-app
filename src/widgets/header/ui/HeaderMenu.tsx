@@ -74,7 +74,7 @@ export const HeaderMenu: FC<IHeaderMenuProps> = (props) => {
                   <WithIndicator
                     variant={"primary"}
                   >
-                    <Title level={2} variantLevel={4}>{t("navigation.pages")}</Title>
+                    <Title level={2} variantLevel={4}>{t("header.pages")}</Title>
                   </WithIndicator>
                 ),
               }}
@@ -111,7 +111,7 @@ export const HeaderMenu: FC<IHeaderMenuProps> = (props) => {
                   variantLevel={5}
                   marginBlock={0}
                 >
-                  {t("navigation.contactUs")}
+                  {t("header.contactUs")}
                 </Title>
               )}
               isInline={true}
@@ -125,7 +125,7 @@ export const HeaderMenu: FC<IHeaderMenuProps> = (props) => {
                   variantLevel={5}
                   marginBlock={0}
                 >
-                  {t("navigation.aboutUs")}
+                  {t("header.aboutUs")}
                 </Title>
               )}
               isInline={true}

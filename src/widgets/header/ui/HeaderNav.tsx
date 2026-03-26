@@ -37,7 +37,7 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
             variantLevel={5}
             marginBlock={0}
           >
-            {t("navigation.pages")}
+            {t("header.pages")}
           </Title>
         )}
         isInline={true}
@@ -91,7 +91,7 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
             variantLevel={5}
             marginBlock={0}
           >
-            {t("navigation.contactUs")}
+            {t("header.contactUs")}
           </Title>
         )}
         isInline={true}
@@ -105,7 +105,7 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
             variantLevel={5}
             marginBlock={0}
           >
-            {t("navigation.aboutUs")}
+            {t("header.aboutUs")}
           </Title>
         )}
         isInline={true}

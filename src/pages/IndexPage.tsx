@@ -5,7 +5,6 @@ import { LogoCarousel, logoCarouselMock } from "@entities/logoCarousel";
 import { cfgs, mainSliderStyles, latestVideosSliderStyles } from "@shared/ui/slider";
 import { MediaCard, mediaCardMock, latestVideosMediaCardStyles } from "@entities/mediaCard";
 import styled, { useTheme } from "styled-components";
-import { defaultTheme } from "@app/styles";
 import ContentLoader from "react-content-loader";
 import { ErrorBoundary } from "react-error-boundary";
 import { useMediaQuery } from "styled-breakpoints/use-media-query";
@@ -73,8 +72,8 @@ export const IndexPage: FC = () => {
               <rect
                 x={0}
                 y={0}
-                rx={defaultTheme.default.borderRadius}
-                ry={defaultTheme.default.borderRadius}
+                rx={theme.default.borderRadius}
+                ry={theme.default.borderRadius}
                 width={1652}
                 height={getSliderContentLoaderHeight()}
               />
@@ -153,8 +152,8 @@ export const IndexPage: FC = () => {
               <rect
                 x={0}
                 y={0}
-                rx={defaultTheme.default.borderRadius}
-                ry={defaultTheme.default.borderRadius}
+                rx={theme.default.borderRadius}
+                ry={theme.default.borderRadius}
                 width={1652}
                 height={getSliderContentLoaderHeight()}
               />

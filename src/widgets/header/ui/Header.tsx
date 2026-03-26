@@ -43,8 +43,8 @@ export const Header: FC<IHeaderProps> = (props) => {
             variant={"blank"}
             isInline={true}
             to={"/"}
-            title={t("navigation.returnToMainPage")}
-            isDisabled={currentTitleKey === "widgets:navigation.main"}
+            title={t("header.returnToMainPage")}
+            isDisabled={currentTitleKey === "widgets:header.main"}
           >
             <S.Logo>
               {logo}

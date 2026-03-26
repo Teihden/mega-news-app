@@ -7,9 +7,9 @@ import IconUser from "@shared/assets/images/icons/icon-user.svg?react";
 import { InlineCluster, Stack, Grid } from "@bedrock-layout/primitives";
 import { WithIndicator } from "@entities/withIndicator";
 import { Input } from "@shared/ui/input";
-import { defaultTheme, palette } from "@app/styles";
 import { useAppStore } from "@app/store/useAppStore";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "styled-components";
 
 /**
  * Компонент TypoPage.
@@ -17,6 +17,7 @@ import { useTranslation } from "react-i18next";
  * @returns Компонент.
  */
 export const TypographyPage: FC = () => {
+  const theme = useTheme();
   const themeMode = useAppStore(({ themeMode }) => themeMode);
   const { t } = useTranslation([ "pages" ]);
 
@@ -305,9 +306,9 @@ export const TypographyPage: FC = () => {
           <Stack
             gap={"size8"}
             style={{
-              background: themeMode === "light" ? palette.gray["100"] : palette.washDark["100"],
+              background: themeMode === "light" ? theme.palette.gray["100"] : theme.palette.washDark["100"],
               padding: "2rem",
-              borderRadius: defaultTheme.default.borderRadius,
+              borderRadius: theme.default.borderRadius,
             }}
           >
             <Title level={3} variantLevel={4} marginBlock={"0"}>Secondary with placeholder</Title>
@@ -323,9 +324,9 @@ export const TypographyPage: FC = () => {
           <Stack
             gap={"size8"}
             style={{
-              background: themeMode === "light" ? palette.gray["100"] : palette.washDark["100"],
+              background: themeMode === "light" ? theme.palette.gray["100"] : theme.palette.washDark["100"],
               padding: "2rem",
-              borderRadius: defaultTheme.default.borderRadius,
+              borderRadius: theme.default.borderRadius,
             }}
           >
             <Title level={3} variantLevel={4} marginBlock={"0"}>Secondary with defaultValue</Title>

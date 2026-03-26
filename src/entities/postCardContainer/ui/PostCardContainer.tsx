@@ -1,10 +1,9 @@
 import { type IPostCardContainer, LIMIT, MAX_LIMIT } from "../config";
 import * as S from "./styles";
-import { PostCard } from "@entities/postCard";
+import { PostCard } from "@entities/postCard/ui/PostCard";
 import { useGetCommentsQuery, useGetPostsQuery } from "@shared/api";
 import { useStableRandomFromList } from "@shared/utils";
 import { randomInteger } from "remeda";
-import { defaultTheme } from "@app/styles";
 import ContentLoader from "react-content-loader";
 import { useTheme } from "styled-components";
 import { Title } from "@shared/ui/title";
@@ -190,8 +189,8 @@ export const PostCardContainer: IPostCardContainer = (props) => {
             <rect
               x={0}
               y={0}
-              rx={defaultTheme.default.borderRadius}
-              ry={defaultTheme.default.borderRadius}
+              rx={theme.default.borderRadius}
+              ry={theme.default.borderRadius}
               width={360}
               height={389}
             />

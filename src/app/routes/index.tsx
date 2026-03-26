@@ -2,7 +2,6 @@ import { PageWrapper } from "@widgets/pageWrapper";
 import { ScrollRestoration } from "react-router";
 import { Preloader } from "@shared/ui/preloader";
 import LogoIcon from "@shared/assets/images/logo/logo.svg?react";
-import { ComponentPage, IndexPage, NotFoundPage, TypographyPage } from "@pages/index";
 import { Header, headerMock } from "@widgets/header";
 import { Footer, footerMock } from "@widgets/footer";
 import { AppInitError } from "@shared/ui/appInitError";
@@ -13,26 +12,54 @@ export const innerRoutes: TAppRouteObject[] = [
   {
     index: true,
     id: "MAIN",
-    handle: { titleKey: "widgets:navigation.main" },
-    element: <IndexPage />,
+    handle: { titleKey: "meta:routes.main" },
+    // eslint-disable-next-line jsdoc/require-jsdoc
+    lazy: async () => {
+      const { IndexPage } = await import("@pages/IndexPage");
+
+      return {
+        Component: IndexPage,
+      };
+    },
   },
   {
     path: "/typography/",
     id: "TYPOGRAPHY",
-    handle: { titleKey: "widgets:navigation.typography" },
-    element: <TypographyPage />,
+    handle: { titleKey: "meta:routes.typography" },
+    // eslint-disable-next-line jsdoc/require-jsdoc
+    lazy: async () => {
+      const { TypographyPage } = await import("@pages/TypographyPage");
+
+      return {
+        Component: TypographyPage,
+      };
+    },
   },
   {
     path: "/components/",
     id: "COMPONENTS",
-    handle: { titleKey: "widgets:navigation.components" },
-    element: <ComponentPage />,
+    handle: { titleKey: "meta:routes.components" },
+    // eslint-disable-next-line jsdoc/require-jsdoc
+    lazy: async () => {
+      const { ComponentPage } = await import("@pages/ComponentPage");
+
+      return {
+        Component: ComponentPage,
+      };
+    },
   },
   {
     path: "*",
     id: "404",
-    handle: { titleKey: "pages:notFound.title" },
-    element: <NotFoundPage />,
+    handle: { titleKey: "meta:routes.notFound" },
+    // eslint-disable-next-line jsdoc/require-jsdoc
+    lazy: async () => {
+      const { NotFoundPage } = await import("@pages/NotFoundPage");
+
+      return {
+        Component: NotFoundPage,
+      };
+    },
   },
 ];
 

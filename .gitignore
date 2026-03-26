@@ -117,3 +117,6 @@ temp
 
 # Eslint
 .eslintcache
+
+# ai
+/.ai/*
