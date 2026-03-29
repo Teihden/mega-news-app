@@ -30,6 +30,6 @@ export const resources = {
     widgets: widgetsRu,
     features: featuresRu,
   },
-} as const;
+};
 
 export const namespaces = [ "common", "meta", "pages", "shared", "widgets", "features" ] as const;

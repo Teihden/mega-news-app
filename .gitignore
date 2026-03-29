@@ -37,6 +37,7 @@ Thumbs.db
 
 # IntelliJ IDEA project files
 .idea/
+.air/
 *.iml
 *.iws
 *.ipr
