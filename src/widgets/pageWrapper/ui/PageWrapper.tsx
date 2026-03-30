@@ -1,4 +1,4 @@
-import { type FC, useEffect } from "react";
+import { type FC, Suspense, useEffect } from "react";
 import { Outlet, type UIMatch, useMatches, useNavigation } from "react-router";
 import type { IPageWrapperProps } from "../config";
 import type { IRouteHandle } from "@shared/types";
@@ -47,12 +47,12 @@ export const PageWrapper: FC<IPageWrapperProps> = (props) => {
       )}
       <S.Main>
         {isPageLoading
-          ? (
-              <Loader
-                message={tCommon(($) => $.loading)}
-              />
-            )
-          : (children ?? <Outlet />)}
+          ? (<Loader message={tCommon(($) => $.loading)} />)
+          : (
+              <Suspense fallback={<Loader message={tCommon(($) => $.loading)} />}>
+                {children ?? <Outlet />}
+              </Suspense>
+            )}
       </S.Main>
       {footer && (
         <S.Footer>

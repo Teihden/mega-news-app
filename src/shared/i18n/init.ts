@@ -4,7 +4,7 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import ChainedBackend from "i18next-chained-backend";
 import LocalStorageBackend from "i18next-localstorage-backend";
 import resourcesToBackend from "i18next-resources-to-backend";
-import { bundledResources, defaultNS, namespaces } from "./resources";
+import { bundledNS, bundledResources, defaultNS } from "./resources";
 
 const isDev = import.meta.env.DEV;
 
@@ -48,12 +48,15 @@ const initI18n = async () => {
         ],
       },
       resources: bundledResources,
-      ns: [ ...namespaces ],
+      ns: bundledNS,
       defaultNS,
       cleanCode: true,
       partialBundledLanguages: true,
       react: {
         useSuspense: true,
+      },
+      interpolation: {
+        escapeValue: false,
       },
     });
 };
