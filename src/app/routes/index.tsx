@@ -1,13 +1,14 @@
 /* eslint-disable jsdoc/require-jsdoc */
 import { PageWrapper } from "@widgets/pageWrapper";
 import { ScrollRestoration } from "react-router";
-import { Preloader } from "@shared/ui/preloader";
+import { isPreloaderShown, Preloader } from "@shared/ui/preloader";
 import LogoIcon from "@shared/assets/images/logo/logo.svg?react";
 import { Header, headerMock } from "@widgets/header";
 import { Footer, footerMock } from "@widgets/footer";
 import { AppInitError } from "@shared/ui/appInitError";
 import { Toast } from "@shared/ui/toast";
 import type { IMenuRoute, TAppRouteObject } from "@shared/types";
+import { Loader } from "@shared/ui/loader";
 
 export const innerRoutes: TAppRouteObject[] = [
   {
@@ -105,6 +106,7 @@ export const routes: TAppRouteObject[] = [
         <Toast />
       </>
     ),
+    hydrateFallbackElement: isPreloaderShown() ? <Loader /> : null,
     errorElement: <AppInitError />,
     children: innerRoutes,
   },

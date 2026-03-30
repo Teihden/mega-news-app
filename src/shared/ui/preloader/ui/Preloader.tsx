@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import { COOKIE_CFG, type IPreloader } from "../config";
+import { type IPreloader } from "../config";
 import * as S from "./styles";
 import { Overlay } from "@shared/ui/overlay";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { defaultTheme } from "@app/styles";
-import { usePageLoadProgress } from "../lib";
-import Cookies from "js-cookie";
+import { isPreloaderShown, usePageLoadProgress } from "../lib";
 
 /**
  * Функциональный компонент Preloader.
@@ -19,7 +18,7 @@ export const Preloader: IPreloader = (props) => {
   } = props;
 
   const progress = usePageLoadProgress();
-  const [ isVisible, setIsVisible ] = useState(() => Cookies.get(COOKIE_CFG.name) !== COOKIE_CFG.value);
+  const [ isVisible, setIsVisible ] = useState(() => !isPreloaderShown());
 
   useEffect(() => {
     if (progress === 100) {
