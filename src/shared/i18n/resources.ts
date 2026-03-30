@@ -1,7 +1,7 @@
-import commonEn from "./locales/en/common";
-import widgetsEn from "./locales/en/widgets";
-import commonRu from "./locales/ru/common";
-import widgetsRu from "./locales/ru/widgets";
+import commonEn from "./locales/en/static/common";
+import widgetsEn from "./locales/en/static/widgets";
+import commonRu from "./locales/ru/static/common";
+import widgetsRu from "./locales/ru/static/widgets";
 
 export const defaultNS = "common";
 

@@ -21,7 +21,7 @@ const initI18n = async () => {
   return await i18n
     .use(LanguageDetector)
     .use(resourcesToBackend((language: string, namespace: string) => {
-      return import(`./locales/${language}/${namespace}.ts`).then((module) => module.default);
+      return import(`./locales/${language}/lazy/${namespace}.ts`).then((module) => module.default);
     }))
     .on("failedLoading", (lng, ns, msg) => {
       console.error(`[i18n] Failed to load namespace "${ns}" for language "${lng}": ${msg}`);
