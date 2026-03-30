@@ -1,7 +1,8 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import { defaultNS, namespaces, resources } from "./resources";
+import resourcesToBackend from "i18next-resources-to-backend";
+import { bundledResources, defaultNS, namespaces } from "./resources";
 
 const isDev = import.meta.env.DEV;
 
@@ -19,16 +20,26 @@ const detection = {
 const initI18n = async () => {
   return await i18n
     .use(LanguageDetector)
+    .use(resourcesToBackend((language: string, namespace: string) => {
+      return import(`./locales/${language}/${namespace}.ts`).then((module) => module.default);
+    }))
+    .on("failedLoading", (lng, ns, msg) => {
+      console.error(`[i18n] Failed to load namespace "${ns}" for language "${lng}": ${msg}`);
+    })
     .use(initReactI18next)
     .init({
       debug: isDev,
       fallbackLng: "en",
       supportedLngs: [ "en", "ru" ],
       detection,
-      resources,
+      resources: bundledResources,
       ns: [ ...namespaces ],
       defaultNS,
       cleanCode: true,
+      partialBundledLanguages: true,
+      react: {
+        useSuspense: true,
+      },
     });
 };
 
