@@ -1,13 +1,14 @@
 import { type INewsletterSignUpFormFormik, type INewsletterSignUpFormProps, type INewsletterSignUpFormReq, SESSION_STORAGE_KEY } from "../config";
 import * as S from "./styles";
 import { type FC, useEffect } from "react";
-import { getSessionStorageInitialValues, validationSchema } from "../lib";
+import { getSessionStorageInitialValues, getValidationSchema } from "../lib";
 import { ErrorMessage, Field, Formik } from "formik";
 import { Input } from "@shared/ui/input";
 import { Btn } from "@shared/ui/btn";
 import IconMail from "@shared/assets/images/icons/icon-mail.svg?react";
 import toast from "react-hot-toast";
 import { useSubscribeNewsletterMutation } from "@shared/api";
+import { useTranslation } from "react-i18next";
 
 /**
  * Компонент NewsletterSignUpForm.
@@ -16,6 +17,12 @@ import { useSubscribeNewsletterMutation } from "@shared/api";
  */
 export const NewsletterSignUpForm: FC<INewsletterSignUpFormProps> = () => {
   const [ subscribeNewsletter ] = useSubscribeNewsletterMutation();
+  const { t: tCommon } = useTranslation("common");
+  const { t: tFeatures } = useTranslation("features");
+  const validationSchema = getValidationSchema({
+    invalidEmail: tFeatures(($) => $.newsletter.invalidEmail),
+    requiredEmail: tFeatures(($) => $.newsletter.requiredEmail),
+  });
 
   return (
     <Formik<INewsletterSignUpFormFormik>
@@ -40,12 +47,12 @@ export const NewsletterSignUpForm: FC<INewsletterSignUpFormProps> = () => {
             })
             .catch((err) => {
               console.error("Network error", err);
-              throw ({ message: "Network error. Please check your connection.", ...err.data });
+              throw ({ message: tFeatures(($) => $.newsletter.networkError), ...err.data });
             }), {
-            loading: "Loading",
+            loading: tCommon(($) => $.loading),
             /* eslint-disable jsdoc/require-jsdoc */
-            success: ({ message }) => message ? message : "Subscribed successfully",
-            error: ({ message }) => message ? message : "An error has occurred",
+            success: ({ message }) => message ? message : tFeatures(($) => $.newsletter.success),
+            error: ({ message }) => message ? message : tCommon(($) => $.errorOccurred),
             /* eslint-enable jsdoc/require-jsdoc */
           },
         );
@@ -62,7 +69,7 @@ export const NewsletterSignUpForm: FC<INewsletterSignUpFormProps> = () => {
               className={"visually-hidden"}
               htmlFor={"email"}
             >
-              Email
+              {tFeatures(($) => $.newsletter.emailLabel)}
             </label>
             <Field
               id={"email"}
@@ -70,8 +77,8 @@ export const NewsletterSignUpForm: FC<INewsletterSignUpFormProps> = () => {
               type={"email"}
               variant={"secondary"}
               componentSize={"md"}
-              placeholder={"Write your email..."}
-              title={"Write your email..."}
+              placeholder={tFeatures(($) => $.newsletter.emailPlaceholder)}
+              title={tFeatures(($) => $.newsletter.emailTitle)}
               autoComplete={"email"}
               as={Input}
               isInvalid={touched.email && errors.email}
@@ -88,7 +95,7 @@ export const NewsletterSignUpForm: FC<INewsletterSignUpFormProps> = () => {
               isSquare={true}
               type={"submit"}
               disabled={isSubmitting || Object.keys(errors).length > 0}
-              title={"Subscribe to the newsletter"}
+              title={tFeatures(($) => $.newsletter.submitTitle)}
             />
           </S.Form>
         );

@@ -2,6 +2,7 @@ import type { IPostCard } from "../config";
 import * as S from "./styles";
 import IconHeart from "@shared/assets/images/icons/icon-heart.svg?react";
 import { useUpdatePostMutation } from "@shared/api";
+import { useTranslation } from "react-i18next";
 
 /**
  * Компонент PostCard.
@@ -24,6 +25,7 @@ export const PostCard: IPostCard = (props) => {
     ...rest
   } = props;
   const { likes = 0 } = reactions ?? {};
+  const { t } = useTranslation([ "common" ]);
   const [ updatePost, { isSuccess, isLoading } ] = useUpdatePostMutation();
 
   /**
@@ -65,7 +67,7 @@ export const PostCard: IPostCard = (props) => {
           isDisabled={isLoading || isSuccess}
           disabled={isLoading || isSuccess}
           text={likes}
-          title={"Like"}
+          title={t(($) => $.like)}
           onClick={handleClick}
         />
       </S.Wrapper>

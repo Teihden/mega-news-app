@@ -28,14 +28,14 @@ export const swiperStyles = css`
     --swiper-preloader-transform: translate(-50%, -50%);
 
     z-index: var(--swiper-preloader-z-index);
+    transform: var(--swiper-preloader-transform);
+    aspect-ratio: var(--swiper-preloader-aspect-ratio);
     width: var(--swiper-preloader-width);
     height: var(--swiper-preloader-height);
     min-height: var(--swiper-preloader-min-height);
     max-height: var(--swiper-preloader-max-height);
     margin-top: var(--swiper-preloader-margin-top);
     margin-left: var(--swiper-preloader-margin-left);
-    aspect-ratio: var(--swiper-preloader-aspect-ratio);
-    transform: var(--swiper-preloader-transform);
   }
 
   .swiper-lazy-preloader-white {
@@ -63,20 +63,22 @@ export const swiperStyles = css`
     --swiper-pagination-bullet-inactive-color: ${({ theme }) => theme.palette.white["50"]};
     --swiper-pagination-bullet-horizontal-gap: 0;
     --swiper-pagination-bullet-inactive-opacity: 1;
+    --swiper-pagination-bullet-outline: ${({ theme }) => theme.default.outline};
+    --swiper-pagination-bullet-outline-offset: .25rem;
 
     position: var(--swiper-pagination-bullet-position);
-    display: var(--swiper-pagination-bullet-display);
     overflow: var(--swiper-pagination-bullet-overflow);
+    display: var(--swiper-pagination-bullet-display);
     background-color: var(--swiper-pagination-bullet-inactive-color);
 
     &::after {
+      content: "";
       position: absolute;
       top: 50%;
       left: 0;
+      transform: translateY(-50%);
       width: 100%;
       height: 2rem;
-      content: "";
-      transform: translateY(-50%);
     }
 
     &-active {
@@ -85,6 +87,7 @@ export const swiperStyles = css`
       --swiper-pagination-bullet-overflow: hidden;
 
       &::before {
+        content: "";
         position: relative;
         left: 0;
         display: block;
@@ -92,8 +95,12 @@ export const swiperStyles = css`
         height: inherit;
         border-radius: var(--swiper-pagination-bullet-border-radius);
         background: var(--swiper-pagination-color);
-        content: "";
       }
+    }
+
+    &:focus-visible {
+      outline: var(--swiper-pagination-bullet-outline);
+      outline-offset: var(--swiper-pagination-bullet-outline-offset);
     }
   }
 `;

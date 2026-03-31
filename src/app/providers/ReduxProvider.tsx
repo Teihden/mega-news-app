@@ -1,5 +1,5 @@
 import type { FC, PropsWithChildren } from "react";
-import { reduxStore } from "@app/store";
+import { reduxStore } from "@app/store/reduxStore";
 import { Provider } from "react-redux";
 
 /**

@@ -10,6 +10,7 @@ import { formatDate } from "../lib";
  * @param props.imgProps - Свойства для настройки изображения, передаваемого в карточку.
  * @param props.name - Имя пользователя.
  * @param props.timestamp - Timestamp в миллисекундах для отображения даты.
+ * @param props.language - язык
  * @param props.rest - Дополнительные свойства, передаваемые в корневой элемент компонента.
  * @returns Компонент.
  */
@@ -19,6 +20,7 @@ export const UserCard: IUserCard = (props) => {
     imgProps = {},
     name = "",
     timestamp = null,
+    language = "en",
     ...rest
   } = props;
 
@@ -45,7 +47,7 @@ export const UserCard: IUserCard = (props) => {
           marginBlock={"0"}
           forwardedAs={"span"}
         >
-          {formatDate(timestamp)}
+          {formatDate(timestamp, language)}
         </S.Timestamp>
       )}
     </S.UserCard>

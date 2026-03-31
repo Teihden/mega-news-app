@@ -1,7 +1,8 @@
 import { create } from "zustand";
 import { devtools, combine } from "zustand/middleware";
-import type { TThemeMode } from "@shared/types";
+import type { TLanguage, TThemeMode } from "@shared/types";
 import { getThemeMode } from "@shared/utils";
+import { i18n } from "@shared/i18n";
 
 export const useAppStore = create(
   devtools(
@@ -9,6 +10,7 @@ export const useAppStore = create(
       // initial state
       {
         themeMode: getThemeMode(),
+        language: "en" as TLanguage,
       },
       // eslint-disable-next-line @stylistic/function-call-argument-newline
       // actions
@@ -22,6 +24,19 @@ export const useAppStore = create(
 
           set({
             themeMode: newThemeMode,
+          });
+        },
+        /**
+         * Обновляет язык приложения.
+         * @param newLanguage Устанавливает новый язык ("en" или "ru"). По умолчанию используется "en".
+         * @param isInit начальяна загрузка приложения
+         */
+        updateLanguage: (newLanguage: TLanguage = "en", isInit = false) => {
+          newLanguage && document.documentElement.setAttribute("lang", newLanguage);
+          !isInit && i18n.changeLanguage(newLanguage);
+
+          set({
+            language: newLanguage,
           });
         },
 

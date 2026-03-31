@@ -1,9 +1,3 @@
-export const PAGES = [
-  { href: "/typography/", label: "Typography" },
-  { href: "/components/", label: "Components" },
-  { href: "/", label: "Main" },
-];
-
 export const API_URL = import.meta.env.VITE_API_URL ?? "https://dummyjson.com";
 
 export const API_ENDPOINTS = {
@@ -32,3 +26,5 @@ export const STATE_CLASSES = {
   isActive: "is-active",
   isDisabled: "is-disabled",
 };
+
+export const LANGUAGES = [ "en", "ru" ] as const;

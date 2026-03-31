@@ -1,11 +1,10 @@
+/* eslint-disable jsdoc/require-jsdoc */
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type { INewsletterSignUpFormReq, INewsletterSignUpFormResp } from "@features/newsletterSignUpForm";
 import { API_URL, API_ENDPOINTS } from "@shared/config/constants";
 import type { IUpdatePostReq, IUpdatePostResp } from "@entities/postCard";
 import type { ICommentsReq, ICommentsResp } from "@widgets/footer";
 import type { IPostsReq, IPostsResp } from "@entities/postCardContainer";
-
-/* eslint-disable jsdoc/require-jsdoc */
 
 export const apiClient = createApi({
   reducerPath: "apiClient",
@@ -75,8 +74,6 @@ export const apiClient = createApi({
     }),
   }),
 });
-
-/* eslint-enable jsdoc/require-jsdoc */
 
 export const {
   useSubscribeNewsletterMutation,

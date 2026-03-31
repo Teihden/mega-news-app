@@ -8,6 +8,7 @@ export const tooltip = {
   borderRadius: defaultStyles.borderRadius,
   padding: "2rem",
   boxShadow: palette.shadow["2"],
+  zIndex: 9999,
 };
 
 export const tooltipDark = {

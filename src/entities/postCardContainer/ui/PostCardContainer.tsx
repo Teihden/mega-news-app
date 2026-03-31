@@ -1,16 +1,17 @@
 import { type IPostCardContainer, LIMIT, MAX_LIMIT } from "../config";
 import * as S from "./styles";
-import { PostCard } from "@entities/postCard";
+import { PostCard } from "@entities/postCard/ui/PostCard";
 import { useGetCommentsQuery, useGetPostsQuery } from "@shared/api";
 import { useStableRandomFromList } from "@shared/utils";
 import { randomInteger } from "remeda";
-import { defaultTheme } from "@app/styles";
 import ContentLoader from "react-content-loader";
 import { useTheme } from "styled-components";
 import { Title } from "@shared/ui/title";
 import { useEffect, useRef, useState } from "react";
 import { Btn } from "@shared/ui/btn";
 import { Stack } from "@bedrock-layout/primitives";
+import { useAppStore } from "@app/store/useAppStore";
+import { useTranslation } from "react-i18next";
 
 const mediaImgs = Object.values(import.meta.glob<string>("@shared/assets/images/{technology,music,cars,food}/*.jpg", {
   query: "?url",
@@ -46,6 +47,8 @@ export const PostCardContainer: IPostCardContainer = (props) => {
   } = props;
   const { pick } = useStableRandomFromList();
   const theme = useTheme();
+  const { t } = useTranslation([ "common" ]);
+  const language = useAppStore(({ language }) => language);
   const [ skip, setSkip ] = useState(0);
   const sentinelRef = useRef<HTMLDivElement | null>(null);
 
@@ -142,6 +145,7 @@ export const PostCardContainer: IPostCardContainer = (props) => {
                 },
                 name: userName,
                 timestamp: Number(timestamp),
+                language,
               }}
             />
           );
@@ -158,12 +162,12 @@ export const PostCardContainer: IPostCardContainer = (props) => {
             color: ${theme.palette.secondary["100"]};
           `}
           >
-            Component loading error
+            {t(($) => $.componentLoadingError)}
           </Title>
           <Btn
             variant={"primary"}
             size={"sm"}
-            text={"refetch"}
+            text={t(($) => $.refetch)}
             onClick={() => {
               commentsRefetch();
               postsRefetch();
@@ -187,8 +191,8 @@ export const PostCardContainer: IPostCardContainer = (props) => {
             <rect
               x={0}
               y={0}
-              rx={defaultTheme.default.borderRadius}
-              ry={defaultTheme.default.borderRadius}
+              rx={theme.default.borderRadius}
+              ry={theme.default.borderRadius}
               width={360}
               height={389}
             />

@@ -1,4 +1,4 @@
-import { type FC, useState } from "react";
+import { type FC, useId, useState } from "react";
 import type { IHeaderNavProps } from "../config";
 import * as S from "./styles";
 import IconChevronDown from "@shared/assets/images/icons/icon-chevron-down.svg?react";
@@ -7,6 +7,7 @@ import { Tooltip } from "react-tooltip";
 import { Btn } from "@shared/ui/btn";
 import { Stack } from "@bedrock-layout/primitives";
 import { Link, type UIMatch, useMatches } from "react-router";
+import { useTranslation } from "react-i18next";
 import type { IRouteHandle } from "@shared/types";
 
 /**
@@ -19,10 +20,11 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
   const {
     pages = [],
   } = props;
-
+  const { t } = useTranslation([ "widgets" ]);
   const matches = useMatches() as UIMatch<unknown, IRouteHandle>[];
-  const currentTitle = [ ...matches ].reverse().find((m) => m.handle?.title)?.handle?.title ?? null;
+  const currentNavRouteId = [ ...matches ].reverse().find((match) => match.handle?.showInMenu)?.id ?? null;
   const [ isTooltipOpen, setIsTooltipOpen ] = useState(false);
+  const tooltipId = useId();
 
   return (
     <S.HeaderNav>
@@ -34,18 +36,18 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
             variantLevel={5}
             marginBlock={0}
           >
-            {"Pages"}
+            {t(($) => $.header.pages)}
           </Title>
         )}
         isInline={true}
         icon={<IconChevronDown />}
         iconSize={16}
         iconPosition={"right"}
-        data-tooltip-id={"pages"}
+        data-tooltip-id={tooltipId}
         $isTooltipOpen={isTooltipOpen}
       />
       <Tooltip
-        id={"pages"}
+        id={tooltipId}
         className={"custom-react-tooltip"}
         clickable={true}
         noArrow={true}
@@ -58,9 +60,9 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
         <Stack
           gap={"size7"}
         >
-          {pages.map(({ href = "", label = "" }) => (
+          {pages.map(({ id, href, navLabelKey }) => (
             <Btn
-              key={label}
+              key={id}
               as={Link}
               to={href}
               variant={"blank"}
@@ -70,11 +72,11 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
                   variantLevel={6}
                   marginBlock={0}
                 >
-                  {label}
+                  {t(navLabelKey)}
                 </Title>
               )}
               isInline={true}
-              isDisabled={label === currentTitle}
+              isDisabled={id === currentNavRouteId}
             />
           ))}
         </Stack>
@@ -88,7 +90,7 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
             variantLevel={5}
             marginBlock={0}
           >
-            {"Contact Us"}
+            {t(($) => $.header.contactUs)}
           </Title>
         )}
         isInline={true}
@@ -102,7 +104,7 @@ export const HeaderNav: FC<IHeaderNavProps> = (props) => {
             variantLevel={5}
             marginBlock={0}
           >
-            {"About Us"}
+            {t(($) => $.header.aboutUs)}
           </Title>
         )}
         isInline={true}

@@ -9,6 +9,7 @@ import { useMediaQuery } from "styled-breakpoints/use-media-query";
 import { useGetCommentsQuery } from "@shared/api";
 import ContentLoader from "react-content-loader";
 import { defaultTheme } from "@app/styles";
+import { useTranslation } from "react-i18next";
 
 /**
  * Компонент FooterComments отображает список комментариев.
@@ -20,6 +21,7 @@ export const FooterComments: FC<IFooterCommentsProps> = (props) => {
   const {
     comments = null,
   } = props;
+  const { t } = useTranslation([ "widgets" ]);
   const theme = useTheme();
   const isTabletSmallUp = useMediaQuery(theme.bp.up("tabletSmall"));
   const { data, isLoading } = useGetCommentsQuery({ limit: 8 });
@@ -28,7 +30,7 @@ export const FooterComments: FC<IFooterCommentsProps> = (props) => {
     && (
       <S.Wrapper>
         <WithIndicator variant={"primary"}>
-          <Title level={2} variantLevel={4}>New Comments</Title>
+          <Title level={2} variantLevel={4}>{t(($) => $.footer.newComments)}</Title>
         </WithIndicator>
 
         {isLoading && (

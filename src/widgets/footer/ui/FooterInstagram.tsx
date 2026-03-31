@@ -8,6 +8,7 @@ import { Img } from "@shared/ui/img";
 import { Btn } from "@shared/ui/btn";
 import { useTheme } from "styled-components";
 import { useMediaQuery } from "styled-breakpoints/use-media-query";
+import { useTranslation } from "react-i18next";
 
 /**
  * Компонент FooterInstagram отображает блок с заголовком и сеткой изображений, представляющих ссылки на Instagram.
@@ -19,6 +20,7 @@ export const FooterInstagram: FC<IFooterInstagramProps> = (props) => {
   const {
     links = [],
   } = props;
+  const { t } = useTranslation([ "widgets" ]);
   const { up } = useTheme().bp;
   const isTabletUp = useMediaQuery(up("tablet"));
 
@@ -29,7 +31,7 @@ export const FooterInstagram: FC<IFooterInstagramProps> = (props) => {
           level={2}
           variantLevel={4}
         >
-          Follow on Instagram
+          {t(($) => $.footer.followOnInstagram)}
         </Title>
       </WithIndicator>
 

@@ -1,55 +1,112 @@
+/* eslint-disable jsdoc/require-jsdoc */
 import { PageWrapper } from "@widgets/pageWrapper";
 import { ScrollRestoration } from "react-router";
-import { Preloader } from "@shared/ui/preloader";
+import { isPreloaderShown, Preloader } from "@shared/ui/preloader";
 import LogoIcon from "@shared/assets/images/logo/logo.svg?react";
-import { ComponentPage, IndexPage, NotFoundPage, TypographyPage } from "@pages/index";
 import { Header, headerMock } from "@widgets/header";
 import { Footer, footerMock } from "@widgets/footer";
 import { AppInitError } from "@shared/ui/appInitError";
 import { Toast } from "@shared/ui/toast";
+import type { IMenuRoute, TAppRouteObject } from "@shared/types";
+import { Loader } from "@shared/ui/loader";
 
-export const innerRoutes = [
+export const innerRoutes: TAppRouteObject[] = [
   {
     index: true,
     id: "MAIN",
-    handle: { title: "Main" },
-    element: <IndexPage />,
+    handle: {
+      titleKey: ($) => $.routes.main,
+      navLabelKey: ($) => $.header.main,
+      showInMenu: true,
+    },
+    lazy: async () => {
+      const { IndexPage } = await import("@pages/IndexPage");
+
+      return {
+        Component: IndexPage,
+      };
+    },
   },
   {
     path: "/typography/",
     id: "TYPOGRAPHY",
-    handle: { title: "Typography" },
-    element: <TypographyPage />,
+    handle: {
+      titleKey: ($) => $.routes.typography,
+      navLabelKey: ($) => $.header.typography,
+      showInMenu: true,
+    },
+    lazy: async () => {
+      const { TypographyPage } = await import("@pages/TypographyPage");
+
+      return {
+        Component: TypographyPage,
+      };
+    },
   },
   {
     path: "/components/",
     id: "COMPONENTS",
-    handle: { title: "Components" },
-    element: <ComponentPage />,
+    handle: {
+      titleKey: ($) => $.routes.components,
+      navLabelKey: ($) => $.header.components,
+      showInMenu: true,
+    },
+    lazy: async () => {
+      const { ComponentPage } = await import("@pages/ComponentPage");
+
+      return {
+        Component: ComponentPage,
+      };
+    },
   },
   {
     path: "*",
     id: "404",
-    handle: { title: "404" },
-    element: <NotFoundPage />,
+    handle: {
+      titleKey: ($) => $.routes.notFound,
+      navLabelKey: ($) => $.header.pages,
+      showInMenu: false,
+    },
+    lazy: async () => {
+      const { NotFoundPage } = await import("@pages/NotFoundPage");
+
+      return {
+        Component: NotFoundPage,
+      };
+    },
   },
 ];
 
-export const routes = [
+const pages: IMenuRoute[] = innerRoutes.flatMap((route) => {
+  if (!route.id || !route.handle?.showInMenu || !route.handle.navLabelKey) {
+    return [];
+  }
+
+  return [
+    {
+      id: route.id,
+      href: route.index ? "/" : (route.path ?? "/"),
+      navLabelKey: route.handle.navLabelKey,
+    },
+  ];
+});
+
+export const routes: TAppRouteObject[] = [
   {
     path: "/",
     id: "ROOT",
     element: (
       <>
         <PageWrapper
-          header={<Header {...headerMock.header} />}
-          footer={<Footer {...footerMock.footer} />}
+          header={<Header {...headerMock.header} pages={pages} />}
+          footer={<Footer {...footerMock.footer} pages={pages} />}
         />
         <ScrollRestoration />
         <Preloader logo={<LogoIcon />} />
         <Toast />
       </>
     ),
+    hydrateFallbackElement: isPreloaderShown() ? <Loader /> : null,
     errorElement: <AppInitError />,
     children: innerRoutes,
   },

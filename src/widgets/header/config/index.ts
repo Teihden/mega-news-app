@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
-import type { PAGES } from "@shared/config/constants";
+import type { IMenuRoute } from "@shared/types";
 
 export interface IHeaderProps {
   logo?: ReactNode;
-  pages?: typeof PAGES;
+  pages?: readonly IMenuRoute[];
 }
 
 export interface IStyledBtn {

@@ -2,12 +2,14 @@ import type { FC, ReactNode } from "react";
 import { UserCard, Img, Name, Timestamp } from "../ui/styles";
 import type { IImgProps } from "@shared/ui/img";
 import type { CSSProp } from "styled-components";
+import type { TLanguage } from "@shared/types";
 
 export interface IUserCardProps {
   className?: string;
   imgProps?: IImgProps;
   name?: ReactNode;
   timestamp?: number | null;
+  language?: TLanguage;
   css?: CSSProp;
 }
 

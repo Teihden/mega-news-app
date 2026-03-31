@@ -5,7 +5,6 @@ import { LogoCarousel, logoCarouselMock } from "@entities/logoCarousel";
 import { cfgs, mainSliderStyles, latestVideosSliderStyles } from "@shared/ui/slider";
 import { MediaCard, mediaCardMock, latestVideosMediaCardStyles } from "@entities/mediaCard";
 import styled, { useTheme } from "styled-components";
-import { defaultTheme } from "@app/styles";
 import ContentLoader from "react-content-loader";
 import { ErrorBoundary } from "react-error-boundary";
 import { useMediaQuery } from "styled-breakpoints/use-media-query";
@@ -15,6 +14,7 @@ import { Link } from "react-router";
 import { Btn } from "@shared/ui/btn";
 import IconChevronRight from "@shared/assets/images/icons/icon-chevron-right.svg?react";
 import { PostCardContainer } from "@entities/postCardContainer";
+import { useTranslation } from "react-i18next";
 
 const LazyMainSlider = lazy(() => import("@shared/ui/slider")
   .then((module) => ({ default: styled(module.Slider)`${mainSliderStyles}` })));
@@ -30,6 +30,8 @@ const LatestVideosMediaCard = styled(MediaCard)`${latestVideosMediaCardStyles}`;
  */
 export const IndexPage: FC = () => {
   const theme = useTheme();
+  const { t: tCommon } = useTranslation("common");
+  const { t: tPages } = useTranslation("pages");
   const isTabletAbove = useMediaQuery(theme.bp.up("tablet"));
   const isTabletDown = useMediaQuery(theme.bp.down("tablet"));
   const isMobileDown = useMediaQuery(theme.bp.down("mobile"));
@@ -47,7 +49,7 @@ export const IndexPage: FC = () => {
   return (
     <>
       <Section className={"visually-hidden"}>
-        <Title level={1}>News</Title>
+        <Title level={1}>{tPages(($) => $.index.title)}</Title>
       </Section>
 
       <Section
@@ -71,8 +73,8 @@ export const IndexPage: FC = () => {
               <rect
                 x={0}
                 y={0}
-                rx={defaultTheme.default.borderRadius}
-                ry={defaultTheme.default.borderRadius}
+                rx={theme.default.borderRadius}
+                ry={theme.default.borderRadius}
                 width={1652}
                 height={getSliderContentLoaderHeight()}
               />
@@ -88,7 +90,7 @@ export const IndexPage: FC = () => {
                   color: ${theme.palette.secondary["100"]};
                 `}
               >
-                Component loading error
+                {tCommon(($) => $.componentLoadingError)}
               </Title>
             )}
           >
@@ -113,13 +115,13 @@ export const IndexPage: FC = () => {
             justify={"space-between"}
           >
             <WithIndicator variant={"primary"}>
-              <Title level={2} variantLevel={4}>Latest Videos</Title>
+              <Title level={2} variantLevel={4}>{tPages(($) => $.index.latestVideos)}</Title>
             </WithIndicator>
             {isTabletDown && (
               <Btn
                 as={Link}
                 variant={"tertiary"}
-                text={"Show all"}
+                text={tCommon(($) => $.showAll)}
                 icon={<IconChevronRight />}
                 iconSize={18}
                 iconPosition={"right"}
@@ -151,8 +153,8 @@ export const IndexPage: FC = () => {
               <rect
                 x={0}
                 y={0}
-                rx={defaultTheme.default.borderRadius}
-                ry={defaultTheme.default.borderRadius}
+                rx={theme.default.borderRadius}
+                ry={theme.default.borderRadius}
                 width={1652}
                 height={getSliderContentLoaderHeight()}
               />
@@ -168,7 +170,7 @@ export const IndexPage: FC = () => {
                   color: ${theme.palette.secondary["100"]};
                 `}
               >
-                Component loading error
+                {tCommon(($) => $.componentLoadingError)}
               </Title>
             )}
           >
@@ -213,7 +215,7 @@ export const IndexPage: FC = () => {
       <Section
         headerSlot={(
           <WithIndicator variant={"primary"}>
-            <Title level={2} variantLevel={4}>Popular posts</Title>
+            <Title level={2} variantLevel={4}>{tPages(($) => $.index.popularPosts)}</Title>
           </WithIndicator>
         )}
       >

@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const Header = styled.div`
   position: sticky;
   z-index: ${({ theme }) => theme.header.zIndex};
+  inset: 0 0 auto;
   width: 100%;
   background: ${({ theme }) => theme.header.bg};
-  inset: 0 0 auto;
 
   ${({ theme }) => theme.bp.down("tablet")} {
     box-shadow: ${({ theme }) => theme.palette.shadow["2"]};
@@ -13,6 +13,7 @@ export const Header = styled.div`
 `;
 
 export const Main = styled.main`
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
   flex-grow: 1;
@@ -33,8 +34,8 @@ export const Footer = styled.div`
 
 export const Layout = styled.div`
   display: flex;
-  width: 100%;
-  max-width: 100%;
   flex-flow: column nowrap;
   flex-grow: 1;
+  width: 100%;
+  max-width: 100%;
 `;

@@ -23,7 +23,8 @@ import type { Ref } from "react";
  * @param props.href - Если передан, кнопка рендерится как `<a>` с указанным href.
  * @param props.target - Атрибут target для ссылки (`_blank`, `_self` и т.д.).
  * @param props.rel - Атрибут rel для ссылки (например, `noopener noreferrer` для `_blank`).
- * @param props.ref - реф.
+ * @param props.ref - Реф.
+ * @param props.style - Стили.
  * @returns Компонент.
  */
 export const Btn: IBtn = (props) => {
@@ -48,6 +49,7 @@ export const Btn: IBtn = (props) => {
     target,
     rel,
     ref,
+    style,
     ...rest
   } = props;
   const isLink = "href" in props || "to" in props;
@@ -67,6 +69,7 @@ export const Btn: IBtn = (props) => {
       $isInline={isInline}
       {...(isLink ? { href, to, target, rel } : {})}
       {...(!isLink ? { disabled: isDisabled || disabled } : {})}
+      {...(style ? { style } : {})}
       {...rest}
     >
       {children

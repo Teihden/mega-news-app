@@ -4,36 +4,36 @@ import { palette } from "@app/styles";
 import { Title } from "@shared/ui/title";
 
 export const Btn = styled.button<IStyledBtnProps>`
+  cursor: pointer;
+  user-select: none;
   display: ${({ $isInline }) => $isInline ? "inline-flex" : "flex"};
-  width: fit-content;
-  height: ${({ theme, $isInline, $size }) => $isInline ? "auto" : theme.btn.sizes[$size!].height};
+  gap: ${({ theme, $size }) => theme.btn.sizes[$size!].gap};
   align-items: center;
   justify-content: center;
-  border-width: ${({ theme, $isInline }) => $isInline ? 0 : theme.btn.borderWidth};
-  border-style: ${({ $isInline }) => $isInline ? "none" : "solid"};
+  width: fit-content;
+  height: ${({ theme, $isInline, $size }) => $isInline ? "auto" : theme.btn.sizes[$size!].height};
+  padding-inline: ${({ theme, $isInline }) => $isInline ? 0 : theme.btn.paddingInline};
   border-color: ${({ theme, $variant }) => theme.btn.variants[$variant!].borderColor};
+  border-style: ${({ $isInline }) => $isInline ? "none" : "solid"};
+  border-width: ${({ theme, $isInline }) => $isInline ? 0 : theme.btn.borderWidth};
   border-radius: ${({ theme, $isInline }) => $isInline ? 0 : theme.btn.borderRadius};
-  appearance: none;
-  background: ${({ theme, $variant, $isInline }) => $isInline ? palette.transparent : theme.btn.variants[$variant!].bg};
-  box-shadow: none;
-  color: ${({ theme, $variant }) => theme.btn.variants[$variant!].color};
-  cursor: pointer;
   font-family: inherit;
   font-size: ${({ theme }) => theme.btn.fontSize};
   font-weight: ${({ theme, $isInline }) => $isInline ? "inherit" : theme.btn.fontWeight};
-  gap: ${({ theme, $size }) => theme.btn.sizes[$size!].gap};
   line-height: ${({ theme }) => theme.btn.lineHeight};
-  padding-inline: ${({ theme, $isInline }) => $isInline ? 0 : theme.btn.paddingInline};
-  -webkit-tap-highlight-color: transparent;
+  color: ${({ theme, $variant }) => theme.btn.variants[$variant!].color};
   text-decoration: none;
+  appearance: none;
+  background: ${({ theme, $variant, $isInline }) => $isInline ? palette.transparent : theme.btn.variants[$variant!].bg};
+  box-shadow: none;
   transition: ${({ theme }) => theme.default.transitionDuration} ease-in-out;
-  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 
   @media (hover: hover) {
     &:hover {
       border-color: ${({ theme, $variant, $isInline }) => $isInline ? palette.transparent : theme.btn.variants[$variant!].hover.borderColor};
-      background: ${({ theme, $variant, $isInline }) => $isInline ? palette.transparent : theme.btn.variants[$variant!].hover.bg};
       color: ${({ theme, $variant }) => theme.btn.variants[$variant!].hover.color};
+      background: ${({ theme, $variant, $isInline }) => $isInline ? palette.transparent : theme.btn.variants[$variant!].hover.bg};
 
       svg {
         color: ${({ theme, $variant }) => theme.btn.variants[$variant!].hover.iconColor};
@@ -52,8 +52,8 @@ export const Btn = styled.button<IStyledBtnProps>`
 
   &:active {
     border-color: ${({ theme, $variant, $isInline }) => $isInline ? palette.transparent : theme.btn.variants[$variant!].active.borderColor};
-    background: ${({ theme, $variant, $isInline }) => $isInline ? palette.transparent : theme.btn.variants[$variant!].active.bg};
     color: ${({ theme, $variant }) => theme.btn.variants[$variant!].active.color};
+    background: ${({ theme, $variant, $isInline }) => $isInline ? palette.transparent : theme.btn.variants[$variant!].active.bg};
 
     svg {
       color: ${({ theme, $variant }) => theme.btn.variants[$variant!].active.iconColor};
@@ -62,10 +62,10 @@ export const Btn = styled.button<IStyledBtnProps>`
 
   &:disabled,
   &[disabled] {
-    border-color: ${({ theme, $isInline, $variant }) => $isInline ? palette.transparent : theme.btn.variants[$variant!].disabled.borderColor};
-    background: ${({ theme, $isInline, $variant }) => $isInline ? palette.transparent : theme.btn.variants[$variant!].disabled.bg};
-    color: ${({ theme, $variant }) => theme.btn.variants[$variant!].disabled.color};
     cursor: not-allowed;
+    border-color: ${({ theme, $isInline, $variant }) => $isInline ? palette.transparent : theme.btn.variants[$variant!].disabled.borderColor};
+    color: ${({ theme, $variant }) => theme.btn.variants[$variant!].disabled.color};
+    background: ${({ theme, $isInline, $variant }) => $isInline ? palette.transparent : theme.btn.variants[$variant!].disabled.bg};
 
     svg {
       color: ${({ theme, $variant }) => theme.btn.variants[$variant!].disabled.iconColor};
@@ -74,10 +74,10 @@ export const Btn = styled.button<IStyledBtnProps>`
 
   ${({ theme, $isInline, $variant, $isHover }) => {
     return $isHover && css`
-      border-color: ${$isInline ? palette.transparent : theme.btn.variants[$variant!].hover.borderColor};
-      background: ${$isInline ? palette.transparent : theme.btn.variants[$variant!].hover.bg};
-      color: ${theme.btn.variants[$variant!].hover.color};
       pointer-events: none;
+      border-color: ${$isInline ? palette.transparent : theme.btn.variants[$variant!].hover.borderColor};
+      color: ${theme.btn.variants[$variant!].hover.color};
+      background: ${$isInline ? palette.transparent : theme.btn.variants[$variant!].hover.bg};
 
       svg {
         color: ${theme.btn.variants[$variant!].hover.iconColor};
@@ -87,10 +87,10 @@ export const Btn = styled.button<IStyledBtnProps>`
 
   ${({ theme, $isInline, $variant, $isActive }) => {
     return $isActive && css`
-      border-color: ${$isInline ? palette.transparent : theme.btn.variants[$variant!].active.borderColor};
-      background: ${$isInline ? palette.transparent : theme.btn.variants[$variant!].active.bg};
-      color: ${theme.btn.variants[$variant!].active.color};
       pointer-events: none;
+      border-color: ${$isInline ? palette.transparent : theme.btn.variants[$variant!].active.borderColor};
+      color: ${theme.btn.variants[$variant!].active.color};
+      background: ${$isInline ? palette.transparent : theme.btn.variants[$variant!].active.bg};
 
       svg {
         color: ${theme.btn.variants[$variant!].active.iconColor};
@@ -100,10 +100,10 @@ export const Btn = styled.button<IStyledBtnProps>`
 
   ${({ theme, $isInline, $variant, $isDisabled }) => {
     return $isDisabled && css`
-      border-color: ${$isInline ? palette.transparent : theme.btn.variants[$variant!].disabled.borderColor};
-      background: ${$isInline ? palette.transparent : theme.btn.variants[$variant!].disabled.bg};
-      color: ${theme.btn.variants[$variant!].disabled.color};
       pointer-events: none;
+      border-color: ${$isInline ? palette.transparent : theme.btn.variants[$variant!].disabled.borderColor};
+      color: ${theme.btn.variants[$variant!].disabled.color};
+      background: ${$isInline ? palette.transparent : theme.btn.variants[$variant!].disabled.bg};
 
       svg {
         color: ${theme.btn.variants[$variant!].disabled.iconColor};
@@ -113,9 +113,9 @@ export const Btn = styled.button<IStyledBtnProps>`
 
   ${({ $isRound }) => {
     return $isRound && css`
-      border-radius: 50%;
       aspect-ratio: 1;
       padding-inline: 0;
+      border-radius: 50%;
     `;
   }}
 

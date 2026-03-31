@@ -291,6 +291,20 @@ const config: Linter.Config[] = [
     rules: {
       "import/default": 0,
       "import/namespace": 0,
+      "import/named": 0,
+      "import/no-unresolved": 0,
+      "import/no-extraneous-dependencies": 0,
+      "import/no-named-as-default": 0,
+      "import/no-named-as-default-member": 0,
+    },
+  },
+  {
+    name: "stylelint-config-overrides",
+    files: [ "stylelint.config.{js,cjs,mjs,ts,cts,mts}" ],
+    rules: {
+      "import/default": 0,
+      "import/namespace": 0,
+      "import/named": 0,
       "import/no-unresolved": 0,
       "import/no-extraneous-dependencies": 0,
       "import/no-named-as-default": 0,

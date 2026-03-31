@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import { COOKIE_CFG } from "@shared/ui/preloader/config";
+import { PRELOADER_COOKIE_CFG } from "@shared/ui/preloader/config";
+import { isPreloaderShown } from "./isPreloaderShown.ts";
 
 /**
  * Хук `usePageLoadProgress` отслеживает прогресс загрузки страницы и возвращает его значение.
@@ -44,14 +45,14 @@ export const usePageLoadProgress = () => {
     if (document.readyState === "complete") {
       setProgress(100);
       setIsInterval(false);
-      Cookies.set(COOKIE_CFG.name, COOKIE_CFG.value, { expires: COOKIE_CFG.expires });
+      Cookies.set(PRELOADER_COOKIE_CFG.name, PRELOADER_COOKIE_CFG.value, { expires: PRELOADER_COOKIE_CFG.expires });
     } else {
       startProgress();
     }
   };
 
   useEffect(() => {
-    if (Cookies.get(COOKIE_CFG.name) === COOKIE_CFG.value) {
+    if (isPreloaderShown()) {
       return;
     }
 

@@ -7,8 +7,9 @@ import IconUser from "@shared/assets/images/icons/icon-user.svg?react";
 import { InlineCluster, Stack, Grid } from "@bedrock-layout/primitives";
 import { WithIndicator } from "@entities/withIndicator";
 import { Input } from "@shared/ui/input";
-import { defaultTheme, palette } from "@app/styles";
-import { useAppStore } from "@app/store";
+import { useAppStore } from "@app/store/useAppStore";
+import { useTranslation } from "react-i18next";
+import { useTheme } from "styled-components";
 
 /**
  * Компонент TypoPage.
@@ -16,16 +17,18 @@ import { useAppStore } from "@app/store";
  * @returns Компонент.
  */
 export const TypographyPage: FC = () => {
+  const theme = useTheme();
   const themeMode = useAppStore(({ themeMode }) => themeMode);
+  const { t } = useTranslation([ "pages" ]);
 
   return (
     <>
       <Section>
-        <Title>Typography</Title>
+        <Title>{t(($) => $.typography.title)}</Title>
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>Title</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>{t(($) => $.typography.titleSection)}</Title>}
       >
         <Stack gap={"size8"}>
           <InlineCluster style={{ "--gap": "3rem 5rem" }} align={"center"}>
@@ -61,7 +64,7 @@ export const TypographyPage: FC = () => {
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>Subtitle</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>{t(($) => $.typography.subtitleSection)}</Title>}
       >
         <Stack gap={"size8"}>
           <InlineCluster style={{ "--gap": "3rem 5rem" }} align={"center"}>
@@ -77,7 +80,7 @@ export const TypographyPage: FC = () => {
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>Text</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>{t(($) => $.typography.textSection)}</Title>}
       >
         <Stack gap={"size8"}>
           <Stack gap={"size8"}>
@@ -126,7 +129,7 @@ export const TypographyPage: FC = () => {
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>Buttons</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>{t(($) => $.typography.buttonsSection)}</Title>}
       >
         <Stack gap={"size8"}>
           <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
@@ -239,7 +242,7 @@ export const TypographyPage: FC = () => {
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>WithIndicator</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>{t(($) => $.typography.withIndicatorSection)}</Title>}
       >
         <Stack gap={"size8"}>
           <InlineCluster style={{ "--gap": "2rem 3rem" }} align={"center"}>
@@ -266,7 +269,7 @@ export const TypographyPage: FC = () => {
       </Section>
 
       <Section
-        headerSlot={<Title level={2} variantLevel={2}>Inputs</Title>}
+        headerSlot={<Title level={2} variantLevel={2}>{t(($) => $.typography.inputsSection)}</Title>}
       >
         <Stack gap={"size8"}>
           <Stack gap={"size8"}>
@@ -303,9 +306,9 @@ export const TypographyPage: FC = () => {
           <Stack
             gap={"size8"}
             style={{
-              background: themeMode === "light" ? palette.gray["100"] : palette.washDark["100"],
+              background: themeMode === "light" ? theme.palette.gray["100"] : theme.palette.washDark["100"],
               padding: "2rem",
-              borderRadius: defaultTheme.default.borderRadius,
+              borderRadius: theme.default.borderRadius,
             }}
           >
             <Title level={3} variantLevel={4} marginBlock={"0"}>Secondary with placeholder</Title>
@@ -321,9 +324,9 @@ export const TypographyPage: FC = () => {
           <Stack
             gap={"size8"}
             style={{
-              background: themeMode === "light" ? palette.gray["100"] : palette.washDark["100"],
+              background: themeMode === "light" ? theme.palette.gray["100"] : theme.palette.washDark["100"],
               padding: "2rem",
-              borderRadius: defaultTheme.default.borderRadius,
+              borderRadius: theme.default.borderRadius,
             }}
           >
             <Title level={3} variantLevel={4} marginBlock={"0"}>Secondary with defaultValue</Title>
