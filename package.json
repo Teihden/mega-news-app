@@ -11,7 +11,7 @@
   "sideEffects": false,
   "scripts": {
     "start": "dotenv -e .env -- cross-env vite dev",
-    "build": "tsc -b && vite build",
+    "build": "tsc --noEmit && vite build",
     "preview": "dotenv -e .env -- cross-env vite preview",
     "i18next-cli-extract": "npx i18next-cli extract && eslint --no-config-lookup --config eslint.config.ts ./src/shared/i18n/locales --fix",
     "lint": "npm run stylelint && npm run eslint",

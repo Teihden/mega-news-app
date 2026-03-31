@@ -69,7 +69,6 @@ export const PageWrapper: FC<IPageWrapperProps> = (props) => {
         <meta name={"twitter:description"} content={pageDescription} />
         <meta name={"twitter:image"} content={PAGE_WRAPPER_SOCIAL_IMAGE_URL} />
       </Helmet>
-
       {header && (
         <S.Header>
           <Container>

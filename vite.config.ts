@@ -162,6 +162,7 @@ export default defineConfig(({ mode }) => {
         openAnalyzer: true,
         enabled: !(process.env.RENDER ?? false),
         exclude: /\.(jpe?g|png|gif|tiff|webp|svg|avif|webmanifest|html)$/i,
+        analyzerPort: "auto",
       }),
       ViteCompression({
         algorithms: [ "zstd", "br" ],
