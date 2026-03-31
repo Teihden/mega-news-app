@@ -1,10 +1,8 @@
-const meta = {
+export default {
   routes: {
-    main: "Главная",
-    typography: "Типографика",
     components: "Компоненты",
+    main: "Главная",
     notFound: "Страница не найдена",
+    typography: "Типографика",
   },
-};
-
-export default meta;
+} as const;

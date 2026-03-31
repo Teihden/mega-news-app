@@ -14,8 +14,16 @@ const detection = {
   caches: [ "localStorage" ],
 };
 
-const lazyResourcesBackend = resourcesToBackend((language: string, namespace: string) => {
-  return import(`./locales/${language}/lazy/${namespace}.ts`).then((module) => module.default);
+const lazyLocaleModules = import.meta.glob<{ default: object }>("./locales/*/{pages,shared}.ts");
+
+const lazyResourcesBackend = resourcesToBackend(async (language: string, namespace: string) => {
+  const moduleLoader = lazyLocaleModules[`./locales/${language}/${namespace}.ts`];
+  if (!moduleLoader) {
+    return;
+  }
+
+  const module = await moduleLoader();
+  return module.default;
 });
 
 /**

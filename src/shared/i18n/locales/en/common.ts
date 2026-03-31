@@ -1,9 +1,8 @@
-const common = {
-  showAll: "Show all",
+export default {
   componentLoadingError: "Component loading error",
-  loading: "Loading",
   errorOccurred: "An error has occurred",
   like: "Like",
-};
-
-export default common;
+  loading: "Loading",
+  refetch: "Refetch",
+  showAll: "Show all",
+} as const;

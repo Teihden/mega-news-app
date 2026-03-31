@@ -1,11 +1,11 @@
-import commonEn from "./locales/en/static/common";
-import featuresEn from "./locales/en/static/features";
-import metaEn from "./locales/en/static/meta";
-import widgetsEn from "./locales/en/static/widgets";
-import commonRu from "./locales/ru/static/common";
-import featuresRu from "./locales/ru/static/features";
-import metaRu from "./locales/ru/static/meta";
-import widgetsRu from "./locales/ru/static/widgets";
+import commonEn from "./locales/en/common";
+import featuresEn from "./locales/en/features";
+import metaEn from "./locales/en/meta";
+import widgetsEn from "./locales/en/widgets";
+import commonRu from "./locales/ru/common";
+import featuresRu from "./locales/ru/features";
+import metaRu from "./locales/ru/meta";
+import widgetsRu from "./locales/ru/widgets";
 
 export const defaultNS = "common";
 
