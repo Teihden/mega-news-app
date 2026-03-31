@@ -16,7 +16,6 @@ export default {
     requiredEmail: "Введите email",
     submitTitle: "Подписаться на рассылку",
     success: "Подписка оформлена",
-    title: "Рассылки",
   },
   themeToggler: {
     ariaLabel: "Переключить режим темы. Текущий режим: {{mode}}.",

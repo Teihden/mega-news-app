@@ -16,7 +16,6 @@ export default {
     requiredEmail: "Enter your email address",
     submitTitle: "Subscribe to the newsletter",
     success: "Subscribed successfully",
-    title: "Newsletters",
   },
   themeToggler: {
     ariaLabel: "Switch theme mode. Current mode: {{mode}}.",
