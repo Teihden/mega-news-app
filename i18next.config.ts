@@ -12,5 +12,7 @@ export default defineConfig({
       "meta:*",
       "widgets:header.*",
     ],
+    primaryLanguage: "en",
+    secondaryLanguages: [ "ru" ],
   },
 });

@@ -5,6 +5,7 @@ import { useAppStore } from "@app/store/useAppStore";
 import { setThemeChangeListener } from "@shared/utils";
 import { i18n } from "@shared/i18n/init";
 import type { TLanguage } from "@shared/types";
+import { HelmetProvider } from "react-helmet-async";
 
 /**
  * Компонент приложения, отвечающий за рендеринг глобальных стилей и обертки страницы.
@@ -23,8 +24,10 @@ export const App: FC = () => {
   return (
     <ReduxProvider>
       <StyleProvider>
-        <GlobalStyle />
-        <BrowserRouterProvider />
+        <HelmetProvider>
+          <GlobalStyle />
+          <BrowserRouterProvider />
+        </HelmetProvider>
       </StyleProvider>
     </ReduxProvider>
   );

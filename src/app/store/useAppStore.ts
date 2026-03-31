@@ -32,7 +32,6 @@ export const useAppStore = create(
          * @param isInit начальяна загрузка приложения
          */
         updateLanguage: (newLanguage: TLanguage = "en", isInit = false) => {
-          newLanguage && document.documentElement.setAttribute("lang", newLanguage);
           !isInit && i18n.changeLanguage(newLanguage);
 
           set({
