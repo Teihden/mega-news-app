@@ -131,23 +131,33 @@ export default defineConfig(({ mode }) => {
       ViteImageOptimizer({
         exclude: /\.(svg?react)$/i,
         includePublic: true,
+        ansiColors: true,
         logStats: true,
         cache: true,
         cacheLocation: "node_modules/.vite/image-optimizer",
+        jpg: {
+          quality: 70,
+          progressive: true,
+          mozjpeg: true,
+        },
         jpeg: {
-          quality: 75,
+          quality: 70,
           progressive: true,
           mozjpeg: true,
         },
         png: {
-          quality: 75,
-          compressionLevel: 7,
+          quality: 85,
+          compressionLevel: 9,
           palette: true,
         },
         webp: {
           quality: 70,
         },
         avif: {
+          quality: 70,
+        },
+        gif: {},
+        tiff: {
           quality: 70,
         },
       }),
