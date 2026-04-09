@@ -1,6 +1,6 @@
 import { type IPostCardContainer, LIMIT, MAX_LIMIT } from "../config";
 import * as S from "./styles";
-import { PostCard } from "@entities/postCard/ui/PostCard";
+import { PostCard } from "@entities/postCard";
 import { useGetCommentsQuery, useGetPostsQuery } from "@shared/api";
 import { useStableRandomFromList } from "@shared/utils";
 import { randomInteger } from "remeda";

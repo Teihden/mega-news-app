@@ -15,8 +15,7 @@ import { BurgerBtn } from "@features/burgerBtn";
 import { MediaCard, mediaCardMock } from "@entities/mediaCard";
 import { Video } from "@shared/ui/video";
 import { UserCard, userCardMock } from "@entities/userCard";
-import { PostCard } from "@entities/postCard/ui/PostCard";
-import * as postCardMock from "@entities/postCard/api/mock";
+import { PostCard, postCardMock } from "@entities/postCard";
 import { useTranslation } from "react-i18next";
 
 /**
