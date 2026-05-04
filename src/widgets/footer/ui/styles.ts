@@ -25,6 +25,8 @@ export const Footer = styled.div`
 `;
 
 export const Wrapper = styled.div`
+  height: 100%;
+
   ${WithIndicator.WithIndicator} {
     &:not(:last-child) {
       margin-block: 0 2.5rem;
@@ -124,6 +126,14 @@ export const BottomWrapper = styled.div`
   }
 `;
 
+export const CommentWrapper = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2.25rem;
+  justify-content: space-between;
+  min-height: 45rem;
+`;
+
 export const Comment = styled.div`
   display: flex;
   flex-flow: column nowrap;
@@ -131,10 +141,6 @@ export const Comment = styled.div`
   padding: 2rem;
   border-radius: ${({ theme }) => theme.default.borderRadius};
   background: ${({ theme }) => theme.mode === "light" ? theme.palette.gray["100"] : theme.palette.washDark["100"]};
-
-  &:not(:last-child) {
-    margin-block: 0 2.25rem;
-  }
 
   ${Text.Text} {
     overflow: hidden;
