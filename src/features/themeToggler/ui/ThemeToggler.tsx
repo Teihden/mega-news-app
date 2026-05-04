@@ -6,10 +6,10 @@ import { getThemeTogglerMode } from "../lib";
 import { useTranslation } from "react-i18next";
 
 /**
- * Компонент ThemeToggler предоставляет функциональность для переключения темы приложения.
- * @param props - Пропсы компонента.
- * @param props.variant Вариант отображения компонента.
- * @returns Компонент.
+ * Cycles through the available application theme modes.
+ * @param props - Component props.
+ * @param props.variant - Visual variant of the toggle button.
+ * @returns Theme toggler component.
  */
 export const ThemeToggler: FC<IThemeTogglerProps> = (props) => {
   const {
@@ -26,7 +26,7 @@ export const ThemeToggler: FC<IThemeTogglerProps> = (props) => {
   }[togglerThemeMode];
 
   /**
-   * Обработчик события для переключения темы.
+   * Switches the app theme to the next available mode.
    */
   const handleClick = () => {
     const nextIndex = (THEME_TOGGLER_MODES.indexOf(togglerThemeMode) + 1) % THEME_TOGGLER_MODES.length;

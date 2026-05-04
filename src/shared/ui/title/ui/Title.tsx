@@ -3,18 +3,18 @@ import type { ITitle } from "../config";
 import * as S from "./styles";
 
 /**
- * Компонент заголовка.
- * @param props Параметры компонента.
- * @param props.as Определяет HTML-элемент, используемый для рендеринга ввода. По умолчанию null.
- * @param props.level Уровень заголовка, определяет HTML-тег (от 1 до 6). По умолчанию 1.
- * @param props.variant Вариант стиля заголовка. По умолчанию "title".
- * @param props.variantLevel Уровень стиля заголовка. По умолчанию 1.
- * @param props.marginBlock Свойство margin-block.
- * @param props.children Содержимое заголовка.
- * @param props.className Дополнительный CSS-класс для заголовка.
- * @param props.style - Стили.
- * @param props.rest Остальные свойства, передаваемые в компонент.
- * @returns Компонент.
+ * Renders a styled title element.
+ * @param props - Component props.
+ * @param props.as - Optional element override used for rendering.
+ * @param props.level - Semantic heading level from 1 to 6.
+ * @param props.variant - Title visual variant.
+ * @param props.variantLevel - Variant intensity level.
+ * @param props.marginBlock - CSS margin-block value.
+ * @param props.children - Title content.
+ * @param props.className - Optional CSS class for the title.
+ * @param props.style - Inline styles passed to the root element.
+ * @param props.rest - Additional props forwarded to the root element.
+ * @returns Title component.
  */
 export const Title: ITitle = (props) => {
   const {

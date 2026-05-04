@@ -11,10 +11,10 @@ import { useTranslation } from "react-i18next";
 import type { IRouteHandle } from "@shared/types";
 
 /**
- * Компонент FooterPages используется для отображения списка страниц в футере.
- * @param props Объект с параметрами компонента.
- * @param props.pages - Массив объектов, содержащий информацию о страницах.
- * @returns Возвращает компонент.
+ * Displays the list of footer navigation pages.
+ * @param props - Component props.
+ * @param props.pages - Footer navigation pages.
+ * @returns Footer pages component.
  */
 export const FooterPages: FC<IFooterPagesProps> = (props) => {
   const {

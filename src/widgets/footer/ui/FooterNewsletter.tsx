@@ -6,10 +6,8 @@ import { NewsletterSignUpForm } from "@features/newsletterSignUpForm";
 import { useTranslation } from "react-i18next";
 
 /**
- * FooterNewsletter - компонент для отображения блока подписки на рассылку в нижнем колонтитуле.
- * Компонент содержит заголовок "Newsletters" и форму для подписки на рассылку. Обернут в визуальный
- * индикатор с использованием компонента WithIndicator и стилизован через Wrapper.
- * @returns Возвращает компонент.
+ * Displays the newsletter subscription block in the footer.
+ * @returns Footer newsletter component.
  */
 export const FooterNewsletter: FC = () => {
   const { t } = useTranslation([ "widgets" ]);

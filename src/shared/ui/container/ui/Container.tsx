@@ -2,10 +2,10 @@ import type { IContainer } from "../config";
 import * as S from "./styles";
 
 /**
- * Компонент Container отвечает за визуальное представление контейнера.
- * @param props - Пропсы компонента.
- * @param props.children - Дочерние элементы для отображения внутри контейнера.
- * @returns Компонент.
+ * Renders the shared layout container.
+ * @param props - Component props.
+ * @param props.children - Content rendered inside the container.
+ * @returns Container component.
  */
 export const Container: IContainer = (props) => {
   const {

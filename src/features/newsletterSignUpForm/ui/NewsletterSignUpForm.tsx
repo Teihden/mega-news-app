@@ -11,9 +11,8 @@ import { useSubscribeNewsletterMutation } from "@shared/api";
 import { useTranslation } from "react-i18next";
 
 /**
- * Компонент NewsletterSignUpForm.
- * Этот компонент представляет собой форму подписки на рассылку.
- * @returns Возвращает компонент.
+ * Renders the newsletter subscription form.
+ * @returns Newsletter sign-up form component.
  */
 export const NewsletterSignUpForm: FC<INewsletterSignUpFormProps> = () => {
   const [ subscribeNewsletter ] = useSubscribeNewsletterMutation();

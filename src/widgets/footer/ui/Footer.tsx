@@ -10,12 +10,12 @@ import { FooterSocials } from "./FooterSocials";
 import { FooterNewsletter } from "./FooterNewsletter";
 
 /**
- * Компонент Footer предоставляет элемент футера для отображения информации и взаимодействия с пользователем.
- * @param props Объект свойств компонента.
- * @param props.comments Массив комментариев, отображаемых в футере. По умолчанию пустой массив.
- * @param props.instagramLinks Массив ссылок на Instagram, используемых для отображения элементов в секции Instagram. По умолчанию пустой массив.
- * @param props.pages Массив страниц, отображаемых в навигации футера. По умолчанию пустой массив.
- * @returns Возвращает компонент.
+ * Renders the application footer and its content blocks.
+ * @param props - Component props.
+ * @param props.comments - Optional comments displayed in the footer.
+ * @param props.instagramLinks - Instagram link items displayed in the footer.
+ * @param props.pages - Navigation pages displayed in the footer.
+ * @returns Footer component.
  */
 export const Footer: FC<IFooterProps> = (props) => {
   const {

@@ -9,10 +9,9 @@ const themes = {
 };
 
 /**
- * Компонент StyleProvider предоставляет тему оформления для своего дочернего контента.
- * Использует тему, определенную в состоянии хранилища приложения.
- * @param props Свойства, передаваемые в компонент.
- * @returns Компонент.
+ * Provides the styled-components theme for application content.
+ * @param props - Component props.
+ * @returns Style provider component.
  */
 export const StyleProvider: FC<PropsWithChildren> = (props) => {
   const { children } = props;

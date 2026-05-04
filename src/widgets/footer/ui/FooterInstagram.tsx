@@ -11,10 +11,10 @@ import { useMediaQuery } from "styled-breakpoints/use-media-query";
 import { useTranslation } from "react-i18next";
 
 /**
- * Компонент FooterInstagram отображает блок с заголовком и сеткой изображений, представляющих ссылки на Instagram.
- * @param props - Свойства компонента.
- * @param props.instagram - Массив объектов, представляющих изображения, и их данные для отображения в компоненте.
- * @returns Возвращает компонент.
+ * Displays the footer Instagram links grid.
+ * @param props - Component props.
+ * @param props.links - Instagram link items rendered in the grid.
+ * @returns Footer Instagram component.
  */
 export const FooterInstagram: FC<IFooterInstagramProps> = (props) => {
   const {

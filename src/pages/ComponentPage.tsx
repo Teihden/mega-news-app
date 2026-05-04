@@ -19,9 +19,8 @@ import { PostCard, postCardMock } from "@entities/postCard";
 import { useTranslation } from "react-i18next";
 
 /**
- * Компонент ComponentPage.
- * Представляет собой страницу, отображающую различные компоненты.
- * @returns Компонент.
+ * Displays the page that showcases shared UI components.
+ * @returns Component showcase page.
  */
 export const ComponentPage: FC = () => {
   const { t } = useTranslation([ "pages" ]);

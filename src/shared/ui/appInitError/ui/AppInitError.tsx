@@ -2,8 +2,8 @@ import type { IAppInitErrorProps } from "../config";
 import type { FC } from "react";
 
 /**
- * Компонент отвечает за отображение сообщения об ошибке инициализации приложения.
- * @returns Возвращает компонент.
+ * Displays the fallback error screen for app initialization failures.
+ * @returns App initialization error component.
  */
 export const AppInitError: FC<IAppInitErrorProps> = () => {
   return (

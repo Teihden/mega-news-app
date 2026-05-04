@@ -8,8 +8,8 @@ import type { TLanguage } from "@shared/types";
 import { HelmetProvider } from "react-helmet-async";
 
 /**
- * Компонент приложения, отвечающий за рендеринг глобальных стилей и обертки страницы.
- * @returns Компонент.
+ * Renders the root application providers and router.
+ * @returns App component.
  */
 export const App: FC = () => {
   const updateTheme = useAppStore(({ updateTheme }) => updateTheme);

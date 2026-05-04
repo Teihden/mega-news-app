@@ -11,8 +11,8 @@ import { startMocking } from "@shared/api";
 import { registerSW } from "virtual:pwa-register";
 
 /**
- * Асинхронная функция инициализации приложения.
- * @returns Возвращает Promise<void>
+ * Initializes and renders the application.
+ * @returns Promise resolved after the app render starts.
  */
 const appStart = async () => {
   const root = createRoot(document.getElementById("root")!);

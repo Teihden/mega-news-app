@@ -18,6 +18,7 @@
     "stylelint": "stylelint --config stylelint.config.mjs ./src --fix",
     "eslint": "eslint --no-config-lookup --config eslint.config.ts ./src --fix",
     "eslint-config-inspect": "npx @eslint/config-inspector --config eslint.config.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
     "check-deps-updates": "npx npm-check-updates",
     "update-deps": "npx npm-check-updates -u && npm i",
     "prepare": "cd ./ && husky ./.husky",

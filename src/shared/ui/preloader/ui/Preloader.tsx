@@ -7,10 +7,10 @@ import { defaultTheme } from "@app/styles";
 import { isPreloaderShown, usePageLoadProgress } from "../lib";
 
 /**
- * Функциональный компонент Preloader.
- * @param props - Свойства компонента.
- * @param props.logo - Логотип.
- * @returns Возвращает компонент.
+ * Renders the startup preloader with optional logo and progress bar.
+ * @param props - Component props.
+ * @param props.logo - Optional logo rendered above the progress bar.
+ * @returns Preloader component.
  */
 export const Preloader: IPreloader = (props) => {
   const {

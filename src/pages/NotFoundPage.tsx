@@ -45,9 +45,8 @@ const StyledTitle = styled(Title)`
 `;
 
 /**
- * Компонент NotFoundPage.
- * Отображает страницу, показывающую, что запрашиваемая страница не найдена.
- * @returns Компонент.
+ * Displays the page shown when a route cannot be found.
+ * @returns Not found page component.
  */
 export const NotFoundPage: FC = () => {
   const { t } = useTranslation([ "pages" ]);

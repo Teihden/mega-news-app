@@ -2,14 +2,14 @@ import type { IOverlay } from "@shared/ui/overlay/config";
 import * as S from "./styles";
 
 /**
- * Компонент Overlay используется для отображения перекрытий на экране.
- * @param props - Свойства компонента.
- * @param props.isVisible Определяет видимость оверлея. По умолчанию true.
- * @param props.background Цвет или стиль фона для оверлея.
- * @param props.opacity Прозрачность фона.
- * @param props.backdropFilter Фильтр фона.
- * @param props.onClick Функция, которая вызывается при клике на компонент.
- * @returns Содержимое, отображаемое внутри оверлея.
+ * Renders an overlay layer over the current screen content.
+ * @param props - Component props.
+ * @param props.isVisible - Whether the overlay is visible.
+ * @param props.background - Optional overlay background value.
+ * @param props.opacity - Optional overlay opacity.
+ * @param props.backdropFilter - Optional backdrop filter value.
+ * @param props.onClick - Click handler for the overlay.
+ * @returns Overlay component.
  */
 export const Overlay: IOverlay = (props) => {
   const {

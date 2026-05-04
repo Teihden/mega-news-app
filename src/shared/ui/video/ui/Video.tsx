@@ -6,14 +6,14 @@ import { useTheme } from "styled-components";
 import { useMediaQuery } from "styled-breakpoints/use-media-query";
 
 /**
- * Компонент Video представляет видеоплеер с пользовательскими настройками.
- * @param props - Свойства компонента.
- * @param props.className - Кастомный класс для обертки компонента.
- * @param props.poster - Путь к постеру видео, отображаемому до начала воспроизведения.
- * @param props.sources - Список источников видео с их параметрами (src, media, type).
- * @param props.css - Пользовательские CSS-стили для компонента.
- * @param props.rest - Дополнительные параметры, передаваемые в компонент видео.
- * @returns Компонент Video.
+ * Renders a custom video player with a play overlay button.
+ * @param props - Component props.
+ * @param props.className - Optional CSS class for the wrapper.
+ * @param props.poster - Poster image shown before playback starts.
+ * @param props.sources - Video sources rendered inside the `<video>` element.
+ * @param props.css - Custom CSS passed to the wrapper.
+ * @param props.rest - Additional video element props.
+ * @returns Video component.
  */
 export const Video: IVideo = (props) => {
   const {
@@ -29,7 +29,7 @@ export const Video: IVideo = (props) => {
   const isMobileDown = useMediaQuery(down("mobile"));
 
   /**
-   * Обработчик события, связанный с воспроизведением и приостановкой видео.
+   * Toggles playback when the video wrapper is clicked.
    */
   const handleClick = () => {
     const video = videoRef.current ?? null;

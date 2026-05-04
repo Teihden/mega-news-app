@@ -16,12 +16,12 @@ import { Helmet } from "react-helmet-async";
 import { useAppStore } from "@app/store/useAppStore";
 
 /**
- * Компонент-обёртка для страниц, обеспечивающий структуру страницы с возможностью отображения шапки, основного контента и подвала.
- * @param props - Объект параметров компонента.
- * @param props.header - Опциональный элемент шапки страницы. Если не передан, шапка не отображается.
- * @param props.footer - Опциональный элемент подвала страницы. Если не передан, подвал не отображается.
- * @param props.children - Основной контент страницы. Если не передан, используется компонент <Outlet>.
- * @returns Компонент.
+ * Provides the shared page layout with optional header, footer, and routed content.
+ * @param props - Component props.
+ * @param props.header - Optional page header content.
+ * @param props.footer - Optional page footer content.
+ * @param props.children - Page content. Falls back to <Outlet /> when omitted.
+ * @returns Page wrapper component.
  */
 export const PageWrapper: FC<IPageWrapperProps> = (props) => {
   const {

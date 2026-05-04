@@ -4,11 +4,11 @@ import { Link } from "react-router";
 import { useState } from "react";
 
 /**
- * Компонент LogoCarousel, который создает карусель для логотипов с функцией анимации.
- * @param props Свойства компонента.
- * @param props.items - Массив данных для элементов карусели.
- * @param props.rest Дополнительные свойства.
- * @returns Возвращает компонент.
+ * Renders an animated carousel of linked logos.
+ * @param props - Component props.
+ * @param props.items - Logo items rendered in the carousel.
+ * @param props.rest - Additional props passed to the root element.
+ * @returns Logo carousel component.
  */
 export const LogoCarousel: ILogoCarousel = (props) => {
   const {
@@ -18,14 +18,14 @@ export const LogoCarousel: ILogoCarousel = (props) => {
   const [ animationState, setAnimationState ] = useState("running");
 
   /**
-   * Обрабатывает событие наведения указателя мыши, изменяя состояние анимации на "paused".
-   * @returns Метод ничего не возвращает.
+   * Pauses the logo animation while the carousel is hovered.
+   * @returns void
    */
   const handlePointerEnter = () => setAnimationState("paused");
 
   /**
-   * Обрабатывает событие покидания указателя области компонента.
-   * @returns Метод ничего не возвращает.
+   * Resumes the logo animation when the pointer leaves the carousel.
+   * @returns void
    */
   const handlePointerLeave = () => setAnimationState("running");
 

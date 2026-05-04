@@ -3,17 +3,17 @@ import { Container } from "@shared/ui/container";
 import * as S from "./styles";
 
 /**
- * Компонент Section представляет собой секцию с возможностью использования слотов для заголовка, основного контента и подвала.
- * @param props - Пропсы компонента.
- * @param props.className Кастомное имя класса для основного контейнера секции.
- * @param props.as Определяет HTML-элемент, используемый для рендеринга ввода. По умолчанию section.
- * @param props.headerSlot Слот для отображения содержимого заголовка секции.
- * @param props.headerTag Тег для хэдера.
- * @param props.footerSlot Слот для отображения содержимого подвала секции.
- * @param props.footerTag Тег для футера.
- * @param props.withContainer Определяет, нужно ли оборачивать контент в Container. По умолчанию true.
- * @param props.children Основное содержимое секции.
- * @returns Компонент.
+ * Renders a layout section with optional header and footer slots.
+ * @param props - Component props.
+ * @param props.className - Optional custom class name for the root section.
+ * @param props.as - HTML element used for rendering. Defaults to section.
+ * @param props.headerSlot - Content rendered inside the section header.
+ * @param props.headerTag - HTML tag used for the header wrapper.
+ * @param props.footerSlot - Content rendered inside the section footer.
+ * @param props.footerTag - HTML tag used for the footer wrapper.
+ * @param props.withContainer - Whether the content is wrapped with Container.
+ * @param props.children - Main section content.
+ * @returns Section component.
  */
 export const Section: ISection = (props) => {
   const {

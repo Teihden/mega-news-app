@@ -5,14 +5,14 @@ import imgStub2 from "@shared/assets/images/stubs/placeholder-2.png";
 import { loadImage } from "@shared/utils";
 
 /**
- * Компонент для отображения изображения с поддержкой источников для элементов `<picture>` и плейсхолдера.
- * @param props - Свойства компонента.
- * @param props.src URL основного изображения.
- * @param props.sources Массив объектов с дополнительными источниками для тэга `<picture>`. Каждый источник может содержать поля `srcset`, `media` и `type`.
- * @param props.placeholder Путь к изображению-заглушке, отображаемой, если основное изображение не загрузилось. По умолчанию используется `imgStub2`.
- * @param props.alt Альтернативный текст для изображения.
- * @param props.rest Дополнительные свойства, передаваемые в изображение.
- * @returns Компонент изображения.
+ * Renders an image with optional <picture> sources and a fallback placeholder.
+ * @param props - Component props.
+ * @param props.src - Primary image URL.
+ * @param props.sources - Additional picture sources for responsive images.
+ * @param props.placeholder - Fallback image shown when loading fails.
+ * @param props.alt - Alternative text for the image.
+ * @param props.rest - Additional props forwarded to the image element.
+ * @returns Image component.
  */
 export const Img: IImg = (props) => {
   const {
