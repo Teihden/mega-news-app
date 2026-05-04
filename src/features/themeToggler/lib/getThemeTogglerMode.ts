@@ -2,9 +2,9 @@ import type { TThemeMode } from "@shared/types";
 import { THEME_TOGGLER_MODES } from "../config";
 
 /**
- * Возвращает текущий режим темы, сохраненный в локальном хранилище, или режим по умолчанию, если сохраненный режим отсутствует.
- * Если в локальном хранилище не найдено сохраненного значения, возвращает значение "system".
- * @returns Режим темы (например, "light", "dark" или "system").
+ * Returns the current theme toggler mode from local storage.
+ * Falls back to `"system"` when there is no saved value or the saved value is invalid.
+ * @returns Theme mode, for example `"light"`, `"dark"`, or `"system"`.
  */
 export const getThemeTogglerMode = (): typeof THEME_TOGGLER_MODES[number] => {
   const savedThemeMode = localStorage.getItem("theme") as (TThemeMode | null);
