@@ -22,18 +22,6 @@ const resolvePath = (...segments: string[]) => resolve(__dirname, ...segments);
 
 const MANUAL_CHUNK_RULES: Array<{ chunkName: string; patterns: string[] }> = [
   {
-    chunkName: "router-vendor",
-    patterns: [ "react-router" ],
-  },
-  {
-    chunkName: "react-ecosystem-vendor",
-    patterns: [ "react-helmet-async", "react-error-boundary", "react-hot-toast" ],
-  },
-  {
-    chunkName: "react-vendor",
-    patterns: [ "react", "scheduler" ],
-  },
-  {
     chunkName: "style-vendor",
     patterns: [ "styled-components", "styled-breakpoints" ],
   },
@@ -55,10 +43,6 @@ const MANUAL_CHUNK_RULES: Array<{ chunkName: string; patterns: string[] }> = [
   {
     chunkName: "swiper-vendor",
     patterns: [ "swiper" ],
-  },
-  {
-    chunkName: "forms-vendor",
-    patterns: [ "formik", "yup" ],
   },
   {
     chunkName: "layout-vendor",
