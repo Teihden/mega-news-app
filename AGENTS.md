@@ -41,18 +41,42 @@ mocked API support, and a scalable layered source structure.
 
 Read the relevant focused docs before changing related code:
 
-| Area                                                       | Read when changing                                                 | Covers                                                           |
-|------------------------------------------------------------|--------------------------------------------------------------------|------------------------------------------------------------------|
-| [Development guidelines](ai/development.md)                | Components, pages, routes, exports, JSDoc, `lib/`, text, or assets | Step-by-step development patterns and examples                   |
-| [Project structure](ai/project-structure.md)               | File placement, FSD layers, aliases, or module boundaries          | `app`, `pages`, `widgets`, `features`, `entities`, `shared`      |
-| [TypeScript](ai/typescript.md)                             | Types, contracts, naming, or type-only imports                     | Strict TS, naming rules, domain types, request/response types    |
-| [Styling and UI](ai/styling.md)                            | Styled-components, theme usage, UI states, or accessibility        | Theme tokens, `$` props, Stylelint, focus and disabled states    |
-| [Internationalization](ai/i18n.md)                         | User-facing text, locale resources, or route metadata              | Locale files, typed translation callbacks, extraction            |
-| [Routing](ai/routing.md)                                   | Routes, pages, navigation, or route metadata                       | React Router objects, lazy page imports, generated menus         |
-| [Forms](ai/forms.md)                                       | Forms, validation, submit flows, or form persistence               | Formik, Yup, i18n validation, sessionStorage, toasts             |
-| [API](ai/api.md)                                           | API endpoints, queries, mutations, or server data                  | RTK Query client, type ownership, pagination, optimistic updates |
-| [State management](ai/state-management.md)                 | Local state, global state, API cache, or providers                 | Redux, RTK Query cache, Zustand, provider boundaries             |
-| [Mocks](ai/mocks.md)                                       | Mock data, MSW handlers, or local API behavior                     | MSW setup, service worker, module mock payloads                  |
-| [Assets and build](ai/assets-and-build.md)                 | Assets, Vite config, PWA, compression, or build plugins            | Vite root/output, public assets, SVGR, image optimization        |
-| [Environment setup](ai/environment-setup.md)               | Local setup, `.env`, server ports, or commands                     | Node/npm requirements, install, dev/build/lint commands          |
-| [Rules](ai/rules.md)                                       | Cross-cutting implementation or workflow decisions                 | Dependencies, TS, React, state, styling, i18n, quality, Git      |
+- [Development guidelines](ai/development.md)
+  - Read when changing: components, pages, routes, exports, JSDoc, `lib/`, text, or assets.
+  - Covers: step-by-step development patterns and examples.
+- [Project structure](ai/project-structure.md)
+  - Read when changing: file placement, FSD layers, aliases, or module boundaries.
+  - Covers: `app`, `pages`, `widgets`, `features`, `entities`, `shared`.
+- [TypeScript](ai/typescript.md)
+  - Read when changing: types, contracts, naming, or type-only imports.
+  - Covers: strict TS, naming rules, domain types, request/response types.
+- [Styling and UI](ai/styling.md)
+  - Read when changing: styled-components, theme usage, UI states, or accessibility.
+  - Covers: theme tokens, `$` props, Stylelint, focus, and disabled states.
+- [Internationalization](ai/i18n.md)
+  - Read when changing: user-facing text, locale resources, or route metadata.
+  - Covers: locale files, typed translation callbacks, extraction.
+- [Routing](ai/routing.md)
+  - Read when changing: routes, pages, navigation, or route metadata.
+  - Covers: React Router objects, lazy page imports, generated menus.
+- [Forms](ai/forms.md)
+  - Read when changing: forms, validation, submit flows, or form persistence.
+  - Covers: Formik, Yup, i18n validation, sessionStorage, toasts.
+- [API](ai/api.md)
+  - Read when changing: API endpoints, queries, mutations, or server data.
+  - Covers: RTK Query client, type ownership, pagination, optimistic updates.
+- [State management](ai/state-management.md)
+  - Read when changing: local state, global state, API cache, or providers.
+  - Covers: Redux, RTK Query cache, Zustand, provider boundaries.
+- [Mocks](ai/mocks.md)
+  - Read when changing: mock data, MSW handlers, or local API behavior.
+  - Covers: MSW setup, service worker, module mock payloads.
+- [Assets and build](ai/assets-and-build.md)
+  - Read when changing: assets, Vite config, PWA, compression, or build plugins.
+  - Covers: Vite root/output, public assets, SVGR, image optimization.
+- [Environment setup](ai/environment-setup.md)
+  - Read when changing: local setup, `.env`, server ports, or commands.
+  - Covers: Node/npm requirements, install, dev/build/lint commands.
+- [Rules](ai/rules.md)
+  - Read when changing: cross-cutting implementation or workflow decisions.
+  - Covers: dependencies, TS, React, state, styling, i18n, quality, Git.
