@@ -11,6 +11,7 @@ import { analyzer as ViteBundleAnalyzer } from "vite-bundle-analyzer";
 import { compression as ViteCompression } from "vite-plugin-compression2";
 import { createHtmlPlugin as ViteHtml } from "vite-plugin-html";
 import ViteChecker from "vite-plugin-checker";
+import type { TNullValue } from "@shared/types";
 
 /**
  * Joins the provided path segments and returns an absolute path.
@@ -70,13 +71,14 @@ const MANUAL_CHUNK_RULES: Array<{ chunkName: string; patterns: string[] }> = [
  * @param id - Resolved module id from Rollup.
  * @returns Manual chunk name for matching dependencies.
  */
-const getManualChunk = (id: string): string | undefined => {
+const getManualChunk = (id: string): string | TNullValue => {
   if (!id.includes("node_modules")) {
-    return undefined;
+    return null;
   }
 
-  const rule = MANUAL_CHUNK_RULES.find(({ patterns }) => patterns.some((pattern) => id.includes(pattern)));
-
+  const rule = MANUAL_CHUNK_RULES.find(({ patterns }) => {
+    return patterns.some((pattern) => id.includes(pattern));
+  });
   return rule?.chunkName;
 };
 

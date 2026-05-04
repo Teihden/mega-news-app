@@ -27,3 +27,5 @@ export interface IMenuRoute {
   href: string;
   navLabelKey: TWidgetPageLabelKey;
 }
+
+export type TNullValue = null | undefined | void;

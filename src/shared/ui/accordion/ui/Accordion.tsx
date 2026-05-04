@@ -33,11 +33,13 @@ export const Accordion: IAccordion = (props) => {
 
   /**
    * Toggles the accordion open state when the header is clicked.
+   * @returns void.
    */
   const handleHeaderClick = () => setIsOpen((prev) => !prev);
 
   /**
    * Finalizes the open state after the content height transition ends.
+   * @returns void.
    */
   const handleTransitionEnd = () => {
     if (isOpen) {
