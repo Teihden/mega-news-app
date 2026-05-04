@@ -13,9 +13,9 @@ import { createHtmlPlugin as ViteHtml } from "vite-plugin-html";
 import ViteChecker from "vite-plugin-checker";
 
 /**
- * Функция resolvePath объединяет указанные сегменты пути и возвращает абсолютный путь.
- * @param segments - Массив строк, представляющих части пути, которые требуется объединить.
- * @returns Абсолютный путь, сформированный из переданных сегментов, относительно текущей директории.
+ * Joins the provided path segments and returns an absolute path.
+ * @param segments - Path segments that should be resolved from the current directory.
+ * @returns Absolute path built from the provided segments.
  */
 const resolvePath = (...segments: string[]) => resolve(__dirname, ...segments);
 
@@ -84,7 +84,7 @@ export default defineConfig(({ mode }) => {
         manifest: {
           name: "Mega news",
           short_name: "Mega news",
-          description: "Mega News is a modern platform with up—to-date news, analytics, and personalized recommendations",
+          description: "Mega News is a modern platform with up-to-date news, analytics, and personalized recommendations",
           theme_color: "#fff",
           background_color: "#fc4308",
           display: "standalone",

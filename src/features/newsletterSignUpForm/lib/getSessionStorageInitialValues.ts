@@ -1,8 +1,8 @@
 import { SESSION_STORAGE_KEY } from "../config";
 
 /**
- * Функция для получения начальных значений из sessionStorage.
- * @returns Объект с извлечёнными данными или значение по умолчанию { email: "" }.
+ * Reads the newsletter form initial values from `sessionStorage`.
+ * @returns Parsed stored values or the default value `{ email: "" }`.
  */
 export const getSessionStorageInitialValues = () => {
   try {

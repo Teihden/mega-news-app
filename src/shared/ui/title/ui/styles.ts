@@ -2,11 +2,11 @@ import styled, { css, type DefaultTheme } from "styled-components";
 import type { IStyledTitleProps, ITitleProps } from "../config";
 
 /**
- * Функция для получения стилей варианта из темы.
- * @param theme Объект темы, содержащий стили.
- * @param $variant Имя категории стилей, например, "title". По умолчанию "title".
- * @param $variantLevel Уровень варианта внутри категории стилей. По умолчанию 1.
- * @returns CSS-стили, соответствующие указанным параметрам.
+ * Returns variant styles from the active theme.
+ * @param theme - Theme object containing title style definitions.
+ * @param $variant - Style category name, for example `"title"`.
+ * @param $variantLevel - Variant level inside the selected category.
+ * @returns CSS styles matching the provided variant settings.
  */
 export const getVariantStyles = (
   theme: DefaultTheme, $variant: ITitleProps["variant"] = "title", $variantLevel = 1,
