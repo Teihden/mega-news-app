@@ -19,6 +19,67 @@ import ViteChecker from "vite-plugin-checker";
  */
 const resolvePath = (...segments: string[]) => resolve(__dirname, ...segments);
 
+const MANUAL_CHUNK_RULES: Array<{ chunkName: string; patterns: string[] }> = [
+  {
+    chunkName: "router-vendor",
+    patterns: [ "react-router" ],
+  },
+  {
+    chunkName: "react-ecosystem-vendor",
+    patterns: [ "react-helmet-async", "react-error-boundary", "react-hot-toast" ],
+  },
+  {
+    chunkName: "react-vendor",
+    patterns: [ "react", "scheduler" ],
+  },
+  {
+    chunkName: "style-vendor",
+    patterns: [ "styled-components", "styled-breakpoints" ],
+  },
+  {
+    chunkName: "i18n-vendor",
+    patterns: [
+      "i18next",
+      "react-i18next",
+      "i18next-browser-languagedetector",
+      "i18next-chained-backend",
+      "i18next-localstorage-backend",
+      "i18next-resources-to-backend",
+    ],
+  },
+  {
+    chunkName: "state-vendor",
+    patterns: [ "@reduxjs", "react-redux", "zustand" ],
+  },
+  {
+    chunkName: "swiper-vendor",
+    patterns: [ "swiper" ],
+  },
+  {
+    chunkName: "forms-vendor",
+    patterns: [ "formik", "yup" ],
+  },
+  {
+    chunkName: "layout-vendor",
+    patterns: [ "@bedrock-layout" ],
+  },
+];
+
+/**
+ * Returns a stable manual chunk name for third-party modules.
+ * @param id - Resolved module id from Rollup.
+ * @returns Manual chunk name for matching dependencies.
+ */
+const getManualChunk = (id: string): string | undefined => {
+  if (!id.includes("node_modules")) {
+    return undefined;
+  }
+
+  const rule = MANUAL_CHUNK_RULES.find(({ patterns }) => patterns.some((pattern) => id.includes(pattern)));
+
+  return rule?.chunkName;
+};
+
 export default defineConfig(({ mode }) => {
   const isDev = mode === "development";
   const isProd = mode === "production";
@@ -41,6 +102,11 @@ export default defineConfig(({ mode }) => {
       emptyOutDir: true,
       sourcemap: false,
       cssMinify: "lightningcss",
+      rollupOptions: {
+        output: {
+          manualChunks: getManualChunk,
+        },
+      },
     },
     plugins: [
       react({
