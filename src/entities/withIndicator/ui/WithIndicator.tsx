@@ -2,13 +2,12 @@ import type { IWithIndicator } from "../config";
 import * as S from "./styles";
 
 /**
- * Компонент WithIndicator.
- * Отображает обёртку с индикатором. Принимает пропсы, определяющие её внешний вид и содержимое.
- * @param props Свойства компонента.
- * @param props.variant Вариант стиля индикатора.
- * @param props.children Дочерние элементы внутри компонента.
- * @param props.rest Дополнительные свойства.
- * @returns Возвращает элемент пользовательского интерфейса с индикатором.
+ * Wraps content with a visual indicator style.
+ * @param props - Component props.
+ * @param props.variant - Indicator visual variant.
+ * @param props.children - Nested content rendered inside the wrapper.
+ * @param props.rest - Additional props passed to the root element.
+ * @returns Indicator wrapper component.
  */
 export const WithIndicator: IWithIndicator = (props) => {
   const {

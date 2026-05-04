@@ -5,15 +5,15 @@ import { useUpdatePostMutation } from "@shared/api";
 import { useTranslation } from "react-i18next";
 
 /**
- * Компонент PostCard.
- * @param props - Свойства компонента.
- * @param props.className Дополнительный класс для стилизации компонента.
- * @param props.mediaCardProps Пропсы для передачи в компонент MediaCard, отображающего медиа-контент.
- * @param props.userCardProps Пропсы для передачи в компонент UserCard, отображающего информацию о пользователе.
- * @param props.id Идентификатор поста.
- * @param props.reactions Реакции на пост.
- * @param props.rest Прочие пропсы, которые распространяются на корневой элемент компонента.
- * @returns Компонент.
+ * Renders a post card with media, author metadata, and reactions.
+ * @param props - Component props.
+ * @param props.className - Optional CSS class for the root element.
+ * @param props.mediaCardProps - Props passed to the media card section.
+ * @param props.userCardProps - Props passed to the user card section.
+ * @param props.id - Post identifier.
+ * @param props.reactions - Post reaction counters.
+ * @param props.rest - Additional props forwarded to the root element.
+ * @returns Post card component.
  */
 export const PostCard: IPostCard = (props) => {
   const {
@@ -29,7 +29,7 @@ export const PostCard: IPostCard = (props) => {
   const [ updatePost, { isSuccess, isLoading } ] = useUpdatePostMutation();
 
   /**
-   * Функция обработчик события клика.
+   * Increments the post like counter.
    */
   const handleClick = () => {
     updatePost({

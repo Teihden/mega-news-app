@@ -25,8 +25,8 @@ const LazyLatestVideosSlider = lazy(() => import("@shared/ui/slider")
 const LatestVideosMediaCard = styled(MediaCard)`${latestVideosMediaCardStyles}`;
 
 /**
- * Компонент IndexPage является функциональным компонентом, который отвечает за отображение главной страницы.
- * @returns Компонент.
+ * Renders the main landing page.
+ * @returns Index page component.
  */
 export const IndexPage: FC = () => {
   const theme = useTheme();
@@ -37,8 +37,8 @@ export const IndexPage: FC = () => {
   const isMobileDown = useMediaQuery(theme.bp.down("mobile"));
 
   /**
-   * Функция `getSliderContentLoaderHeight` вычисляет и возвращает высоту загрузчика содержимого для слайдера в зависимости от текущего устройства или ширины экрана.
-   * @returns Возвращаемое значение может быть использовано для адаптивного UI, изменяющего размер загрузчика контента в зависимости от устройства пользователя.
+   * Computes the skeleton loader height for sliders based on the current breakpoint.
+   * @returns Loader height for the current viewport.
    */
   const getSliderContentLoaderHeight = () => isMobileDown
     ? 320

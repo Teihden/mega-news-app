@@ -1,10 +1,10 @@
 import type { TThemeMode } from "@shared/types";
 
 /**
- * Устанавливает слушатель изменения темы в зависимости от пользовательских предпочтений и системной темы.
- * @param updateThemeCb - Необязательная функция обратного вызова, которая вызывается при изменении системной темы.
- * Получает один аргумент `themeMode`, который может быть "dark" или "light".
- * @returns Возвращает функцию для снятия обработчика события изменения темы `MediaQueryListEvent`.
+ * Attaches a listener that reacts to system theme changes.
+ * @param updateThemeCb - Optional callback fired when the system theme changes.
+ * Receives a `themeMode` argument with either `"dark"` or `"light"`.
+ * @returns Cleanup function that removes the `MediaQueryListEvent` listener.
  */
 export const setThemeChangeListener = (updateThemeCb?: (themeMode: TThemeMode) => void): () => void => {
   const media = window.matchMedia("(prefers-color-scheme: dark)");

@@ -2,12 +2,12 @@ import type { ILoaderComponent } from "../config";
 import * as S from "./styles";
 
 /**
- * Компонент лоадера
- * @param props - Свойства компонента.
- * @param props.className - Дополнительный CSS-класс.
- * @param props.message - Сообщение при загрузке.
- * @param props.minHeight - Минимальная высота контейнера лоадера.
- * @returns Компонент.
+ * Renders a loading indicator with an optional message.
+ * @param props - Component props.
+ * @param props.className - Optional CSS class for the root element.
+ * @param props.message - Optional loading message.
+ * @param props.minHeight - Minimum height of the loader container.
+ * @returns Loader component.
  */
 export const Loader: ILoaderComponent = ({
   className,

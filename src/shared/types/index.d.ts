@@ -6,11 +6,13 @@ export type TThemeMode = "light" | "dark";
 export type TLanguage = "en" | "ru";
 
 export type TMetaTitleKey = (src: (typeof resources)["en"]["meta"]) => string;
+export type TMetaDescriptionKey = (src: (typeof resources)["en"]["meta"]) => string;
 
 export type TWidgetPageLabelKey = (src: (typeof resources)["en"]["widgets"]) => string;
 
 export interface IRouteHandle {
   titleKey?: TMetaTitleKey;
+  descriptionKey?: TMetaDescriptionKey;
   navLabelKey?: TWidgetPageLabelKey;
   showInMenu?: boolean;
 }
@@ -25,3 +27,5 @@ export interface IMenuRoute {
   href: string;
   navLabelKey: TWidgetPageLabelKey;
 }
+
+export type TNullValue = null | undefined | void;

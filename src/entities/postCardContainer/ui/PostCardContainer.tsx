@@ -1,6 +1,6 @@
 import { type IPostCardContainer, LIMIT, MAX_LIMIT } from "../config";
 import * as S from "./styles";
-import { PostCard } from "@entities/postCard/ui/PostCard";
+import { PostCard } from "@entities/postCard";
 import { useGetCommentsQuery, useGetPostsQuery } from "@shared/api";
 import { useStableRandomFromList } from "@shared/utils";
 import { randomInteger } from "remeda";
@@ -33,12 +33,11 @@ const timestamps = Array.from({ length: MAX_LIMIT }, () => {
 });
 
 /**
- * Компонент контейнера для отображения списка карточек постов.
- * Управляет состоянием загрузки данных, отображает ошибки или список карточек постов, если данные успешно загружены.
- * @param props - Свойства компонента.
- * @param props.className Дополнительный класс для стилизации компонента.
- * @param props.rest Прочие пропсы, которые распространяются на корневой элемент компонента.
- * @returns Компонент.
+ * Loads and renders a paginated list of post cards.
+ * @param props - Component props.
+ * @param props.className - Optional CSS class for the root element.
+ * @param props.rest - Additional props forwarded to the root element.
+ * @returns Post card container component.
  */
 export const PostCardContainer: IPostCardContainer = (props) => {
   const {

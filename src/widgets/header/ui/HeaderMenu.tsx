@@ -11,10 +11,10 @@ import { useTranslation } from "react-i18next";
 import type { IRouteHandle } from "@shared/types";
 
 /**
- * Компонент HeaderNav.
- * @param props - Свойства компонента.
- * @param props.pages - - Массив объектов, содержащий информацию о страницах.
- * @returns Возвращает компонент.
+ * Renders the mobile header menu with navigation links and overlay handling.
+ * @param props - Component props.
+ * @param props.pages - Navigation pages available from the header.
+ * @returns Header menu component.
  */
 export const HeaderMenu: FC<IHeaderMenuProps> = (props) => {
   const {
@@ -28,7 +28,7 @@ export const HeaderMenu: FC<IHeaderMenuProps> = (props) => {
   const currentNavRouteId = [ ...matches ].reverse().find((match) => match.handle?.showInMenu)?.id ?? null;
 
   /**
-   * Переключает состояние меню и изменяет возможность прокрутки страницы.
+   * Toggles the menu state and updates page scroll locking.
    */
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -36,8 +36,8 @@ export const HeaderMenu: FC<IHeaderMenuProps> = (props) => {
   };
 
   /**
-   * Обработчик клика по оверлею.
-   * @param e - Событие клика мыши.
+   * Closes the menu when the user clicks outside the menu panel.
+   * @param e - Mouse click event fired on the overlay.
    */
   const handleOverlayClick = (e: MouseEvent<HTMLDivElement>) => {
     if (headerInnerMenuRef.current?.contains(e.target as HTMLDivElement)) {

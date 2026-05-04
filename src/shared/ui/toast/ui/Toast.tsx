@@ -4,9 +4,9 @@ import { Toaster } from "react-hot-toast";
 import { useTheme } from "styled-components";
 
 /**
- * Компонент Toast отвечает за отображение уведомлений на экране.
- * @param props - Свойства, передаваемые компоненту.
- * @returns Возвращает компонент.
+ * Renders the global toast notification container.
+ * @param props - Props forwarded to Toaster.
+ * @returns Toast component.
  */
 export const Toast: FC<IToastProps> = (props) => {
   const { toast } = useTheme();

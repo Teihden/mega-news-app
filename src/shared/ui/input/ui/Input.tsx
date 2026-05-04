@@ -2,18 +2,18 @@ import type { IInput } from "../config";
 import * as S from "./styles";
 
 /**
- * Компонент Input.
- * @param props Свойства компонента.
- * @param props.as Определяет HTML-элемент, используемый для рендеринга ввода.
- * @param props.variant Вариант стиля компонента.
- * @param props.componentSize Размер компонента.
- * @param props.isHover Указывает, находится ли элемент в состоянии наведения.
- * @param props.isFocus Указывает, находится ли элемент в состоянии фокуса.
- * @param props.isInvalid Указывает, является ли ввод недействительным.
- * @param props.disabled Отключает компонент, если установлено значение true.
- * @param props.style - Стили.
- * @param props.rest Дополнительные свойства, передаваемые в компонент.
- * @returns Компонент.
+ * Renders a styled input element.
+ * @param props - Component props.
+ * @param props.as - HTML element used for rendering the input.
+ * @param props.variant - Input visual variant.
+ * @param props.componentSize - Input size variant.
+ * @param props.isHover - Whether the input should show the hover state.
+ * @param props.isFocus - Whether the input should show the focus state.
+ * @param props.isInvalid - Whether the input should show the invalid state.
+ * @param props.disabled - Whether the input is disabled.
+ * @param props.style - Inline styles passed to the root element.
+ * @param props.rest - Additional props forwarded to the root element.
+ * @returns Input component.
  */
 export const Input: IInput = (props) => {
   const {

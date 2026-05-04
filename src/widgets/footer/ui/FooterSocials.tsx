@@ -8,8 +8,8 @@ import IconInstagram from "@shared/assets/images/icons/icon-instagram.svg?react"
 import { useTranslation } from "react-i18next";
 
 /**
- * Компонент FooterSocials отвечает за отображение социальных сетей.
- * @returns Возвращает компонент.
+ * Displays the social network links in the footer.
+ * @returns Footer socials component.
  */
 export const FooterSocials: FC = () => {
   const { t } = useTranslation([ "widgets" ]);

@@ -1,9 +1,9 @@
 /**
- * Загружает изображение и дожидается его декодирования.
- * Возвращает промис, который резолвится после успешной загрузки.
- * Если загрузка или декодирование неудачны — промис реджектится.
- * @param src Путь к изображению
- * @returns Promise<void>
+ * Loads an image and waits for it to finish decoding.
+ * Resolves after the image has been loaded successfully.
+ * Rejects if loading or decoding fails.
+ * @param src - Image source path.
+ * @returns Promise that resolves when the image is ready.
  */
 export const loadImage = (src: string): Promise<void> => {
   return new Promise((resolve, reject) => {

@@ -27,9 +27,9 @@ const lazyResourcesBackend = resourcesToBackend(async (language: string, namespa
 });
 
 /**
- * Инициализирует библиотеку интернационализации (i18n) с использованием детектора языка и React интеграции.
- * Настраивает параметры для отладки, отсутствующих переводов, резервного языка и поддерживаемых языков.
- * @returns Асинхронная операция инициализации i18n.
+ * Initializes the i18n library with language detection and React integration.
+ * Configures debug mode, fallback language, supported languages, and lazy resource loading.
+ * @returns Asynchronous i18n initialization operation.
  */
 const initI18n = async () => {
   return await i18n

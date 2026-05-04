@@ -3,29 +3,29 @@ import * as S from "./styles";
 import type { Ref } from "react";
 
 /**
- * Компонент кнопки.
- * @param props - Свойства компонента.
- * @param props.as Определяет HTML-элемент, используемый для рендеринга. По умолчанию null.
- * @param props.variant - Тип кнопки, определяющий стиль оформления (например, "primary", "secondary").
- * @param props.size - Размер кнопки (например, "sm", "md", "lg").
- * @param props.icon - Иконка, которая отображается внутри кнопки.
- * @param props.iconPosition - Положение иконки относительно текста ("left" или "right").
- * @param props.iconSize - Размер иконки.
- * @param props.text - Текст, отображаемый внутри кнопки.
- * @param props.children - Дополнительный контент внутри кнопки.
- * @param props.disabled - Указывает, должна ли кнопка быть отключенной.
- * @param props.isActive - Указывает, активна ли кнопка.
- * @param props.isHover - Указывает, наведен ли курсор на кнопку.
- * @param props.isDisabled - Альтернативное свойство для отключения кнопки.
- * @param props.isRound - Флаг для круглой кнопки.
- * @param props.isSquare - Флаг для квадратной кнопки.
- * @param props.isInline - Флаг для компонента с внешним видом текста.
- * @param props.href - Если передан, кнопка рендерится как `<a>` с указанным href.
- * @param props.target - Атрибут target для ссылки (`_blank`, `_self` и т.д.).
- * @param props.rel - Атрибут rel для ссылки (например, `noopener noreferrer` для `_blank`).
- * @param props.ref - Реф.
- * @param props.style - Стили.
- * @returns Компонент.
+ * Renders the shared button component.
+ * @param props - Component props.
+ * @param props.as - Optional element override used for rendering.
+ * @param props.variant - Button visual variant.
+ * @param props.size - Button size variant.
+ * @param props.icon - Optional icon rendered inside the button.
+ * @param props.iconPosition - Icon position relative to the text.
+ * @param props.iconSize - Icon size in pixels.
+ * @param props.text - Text content rendered inside the button.
+ * @param props.children - Custom button content.
+ * @param props.disabled - Native disabled state for button elements.
+ * @param props.isActive - Whether the active visual state is applied.
+ * @param props.isHover - Whether the hover visual state is applied.
+ * @param props.isDisabled - Whether the disabled visual state is applied.
+ * @param props.isRound - Whether the button should be rendered as round.
+ * @param props.isSquare - Whether the button should be rendered as square.
+ * @param props.isInline - Whether the button should look like inline text.
+ * @param props.href - Link target used when rendering as an anchor.
+ * @param props.target - Anchor target attribute.
+ * @param props.rel - Anchor rel attribute.
+ * @param props.ref - Forwarded ref for the rendered element.
+ * @param props.style - Inline styles passed to the root element.
+ * @returns Button component.
  */
 export const Btn: IBtn = (props) => {
   const {

@@ -5,8 +5,8 @@ const MSW_PARAMS: StartOptions = {
 };
 
 /**
- * Асинхронная функция, запускающая мок-сервер в режиме разработки.
- * @returns Если режим - разработка, возвращает промис, который разрешается объектом `ServiceWorkerRegistration`.
+ * Starts the mock service worker in development mode.
+ * @returns A promise resolving to `ServiceWorkerRegistration` in development mode.
  */
 export const startMocking = async (): Promise<void | ServiceWorkerRegistration> => {
   if (import.meta.env.DEV) {

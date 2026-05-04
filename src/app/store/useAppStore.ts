@@ -16,8 +16,8 @@ export const useAppStore = create(
       // actions
       (set, _get, store) => ({
         /**
-         * Обновляет текущую тему приложения.
-         * @param newThemeMode Устанавливает новый режим темы ("light" или "dark"). По умолчанию используется "light".
+         * Updates the current application theme.
+         * @param newThemeMode - New theme mode to apply, either `"light"` or `"dark"`.
          */
         updateTheme: (newThemeMode: TThemeMode = "light") => {
           newThemeMode && document.documentElement.setAttribute("data-theme", newThemeMode);
@@ -27,12 +27,11 @@ export const useAppStore = create(
           });
         },
         /**
-         * Обновляет язык приложения.
-         * @param newLanguage Устанавливает новый язык ("en" или "ru"). По умолчанию используется "en".
-         * @param isInit начальяна загрузка приложения
+         * Updates the application language.
+         * @param newLanguage - New language to apply, either `"en"` or `"ru"`.
+         * @param isInit - Whether the update happens during the initial app bootstrap.
          */
         updateLanguage: (newLanguage: TLanguage = "en", isInit = false) => {
-          newLanguage && document.documentElement.setAttribute("lang", newLanguage);
           !isInit && i18n.changeLanguage(newLanguage);
 
           set({
@@ -41,7 +40,7 @@ export const useAppStore = create(
         },
 
         /**
-         * Сбрасывает хранилище в начальное состояние.
+         * Resets the store to its initial state.
          */
         resetStore: () => {
           set(store.getInitialState());

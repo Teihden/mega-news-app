@@ -8,9 +8,8 @@ import { Accordion } from "@shared/ui/accordion";
 import { useTranslation } from "react-i18next";
 
 /**
- * Компонент FooterAbout.
- * Используется для предоставления краткой информации о новостном ресурсе Mega News.
- * @returns Возвращает компонент.
+ * Displays the short about section in the footer.
+ * @returns Footer about component.
  */
 export const FooterAbout: FC = () => {
   const { up } = useTheme().bp;

@@ -11,10 +11,10 @@ import { useTranslation } from "react-i18next";
 import type { IRouteHandle } from "@shared/types";
 
 /**
- * Компонент HeaderNav.
- * @param props - Свойства компонента.
- * @param props.pages - - Массив объектов, содержащий информацию о страницах.
- * @returns Возвращает компонент.
+ * Renders the header navigation with a page list inside a tooltip.
+ * @param props - Component props.
+ * @param props.pages - Navigation pages available from the header.
+ * @returns Header navigation component.
  */
 export const HeaderNav: FC<IHeaderNavProps> = (props) => {
   const {

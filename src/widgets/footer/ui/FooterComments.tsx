@@ -12,10 +12,10 @@ import { defaultTheme } from "@app/styles";
 import { useTranslation } from "react-i18next";
 
 /**
- * Компонент FooterComments отображает список комментариев.
- * @param props Объект с параметрами компонента.
- * @param props.comments Список комментариев, где каждый комментарий содержит свойства title и content.
- * @returns Возвращает компонент.
+ * Displays recent comments in the footer.
+ * @param props - Component props.
+ * @param props.comments - Optional comments to render instead of fetched data.
+ * @returns Footer comments component.
  */
 export const FooterComments: FC<IFooterCommentsProps> = (props) => {
   const {
@@ -57,16 +57,18 @@ export const FooterComments: FC<IFooterCommentsProps> = (props) => {
           </ContentLoader>
         )}
 
-        {(comments ?? data?.comments?.slice(0, 4) ?? [])?.map(({ postId, body = "", user = {} }) => (
-          <S.Comment key={postId}>
-            <Title variantLevel={5} as={"p"} marginBlock={"0"}>
-              {user?.username}
-            </Title>
-            <Text variant={"sm"}>
-              {body}
-            </Text>
-          </S.Comment>
-        ))}
+        <S.CommentWrapper>
+          {(comments ?? data?.comments?.slice(0, 4) ?? [])?.map(({ postId, body = "", user = {} }) => (
+            <S.Comment key={postId}>
+              <Title variantLevel={5} as={"p"} marginBlock={"0"}>
+                {user?.username}
+              </Title>
+              <Text variant={"sm"}>
+                {body}
+              </Text>
+            </S.Comment>
+          ))}
+        </S.CommentWrapper>
       </S.Wrapper>
     );
 };

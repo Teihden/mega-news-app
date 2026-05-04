@@ -4,15 +4,15 @@ import { isEmpty, isPlainObject } from "remeda";
 import { formatDate } from "../lib";
 
 /**
- * Карточка пользователя.
- * @param props - Свойства компонента.
- * @param props.className - Дополнительный CSS-класс, передаваемый компоненту.
- * @param props.imgProps - Свойства для настройки изображения, передаваемого в карточку.
- * @param props.name - Имя пользователя.
- * @param props.timestamp - Timestamp в миллисекундах для отображения даты.
- * @param props.language - язык
- * @param props.rest - Дополнительные свойства, передаваемые в корневой элемент компонента.
- * @returns Компонент.
+ * Displays compact user information with optional avatar and timestamp.
+ * @param props - Component props.
+ * @param props.className - Optional CSS class for the root element.
+ * @param props.imgProps - Image props for the user avatar.
+ * @param props.name - User display name.
+ * @param props.timestamp - Timestamp in milliseconds used to render the date.
+ * @param props.language - Language used to format the date.
+ * @param props.rest - Additional props passed to the root element.
+ * @returns User card component.
  */
 export const UserCard: IUserCard = (props) => {
   const {

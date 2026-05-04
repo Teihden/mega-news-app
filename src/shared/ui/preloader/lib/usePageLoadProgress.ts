@@ -4,16 +4,15 @@ import { PRELOADER_COOKIE_CFG } from "@shared/ui/preloader/config";
 import { isPreloaderShown } from "./isPreloaderShown.ts";
 
 /**
- * Хук `usePageLoadProgress` отслеживает прогресс загрузки страницы и возвращает его значение.
- * @returns Число прогресса
+ * Tracks page loading progress and returns the current value.
+ * @returns Current progress value.
  */
 export const usePageLoadProgress = () => {
   const [ progress, setProgress ] = useState(0);
   const [ isInterval, setIsInterval ] = useState(false);
 
   /**
-   * Функция startProgress запускает процесс обновления прогресса, повышая его значение с шагом,
-   * рассчитанным на основе текущего прогресса.
+   * Starts incrementing the progress value based on the current loading state.
    */
   const startProgress = () => {
     if (isInterval) {
@@ -39,7 +38,7 @@ export const usePageLoadProgress = () => {
   };
 
   /**
-   * Функция handleReadyStateChange обрабатывает изменения состояния document.readyState.
+   * Handles `document.readyState` changes and finalizes the loading progress.
    */
   const handleReadyStateChange = () => {
     if (document.readyState === "complete") {

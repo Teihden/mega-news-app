@@ -4,19 +4,19 @@ import { randomInteger } from "remeda";
 type TCacheKey = string | number;
 
 /**
- * useStableRandomFromList предоставляет механизм выбора случайного элемента из
- * заданного списка, сохраняя стабильность результата для одинаковых ключей кэша.
- * @returns Объект, содержащий методы `pick` и `clear`.
+ * Provides stable random selection from a list for repeated cache keys.
+ * @returns Object with the `pick` and `clear` methods.
  */
 export const useStableRandomFromList = () => {
   const cacheRef = useRef<Map<TCacheKey, unknown>>(new Map());
 
   /**
-   * Выбирает случайный элемент из заданного списка на основе указанного ключа.
-   * Если элемент уже находится в кеше, возвращает его из кеша. Если список пуст, возвращает undefined.
-   * @param list - Список элементов, из которого выбирается элемент.
-   * @param key - Ключ для поиска закешированного значения.
-   * @returns Возвращает выбранный элемент или undefined, если список пуст.
+   * Selects a random item from the provided list using the given cache key.
+   * Returns the cached item when the key was already used.
+   * Returns `undefined` when the list is empty.
+   * @param list - Source list to select from.
+   * @param key - Cache key used to store and reuse the chosen value.
+   * @returns Selected item or `undefined` when the list is empty.
    */
   const pick = <T>(list: T[], key: TCacheKey): T | undefined => {
     if (list.length === 0) {
@@ -35,8 +35,7 @@ export const useStableRandomFromList = () => {
   };
 
   /**
-   * Очищает содержимое текущего кеша.
-   * Вызывает метод `clear` у ссылки на объект кеша.
+   * Clears the current cache contents.
    */
   const clear = () => {
     cacheRef.current.clear();

@@ -16,6 +16,7 @@ export const innerRoutes: TAppRouteObject[] = [
     id: "MAIN",
     handle: {
       titleKey: ($) => $.routes.main,
+      descriptionKey: ($) => $.descriptions.main,
       navLabelKey: ($) => $.header.main,
       showInMenu: true,
     },
@@ -32,6 +33,7 @@ export const innerRoutes: TAppRouteObject[] = [
     id: "TYPOGRAPHY",
     handle: {
       titleKey: ($) => $.routes.typography,
+      descriptionKey: ($) => $.descriptions.typography,
       navLabelKey: ($) => $.header.typography,
       showInMenu: true,
     },
@@ -48,6 +50,7 @@ export const innerRoutes: TAppRouteObject[] = [
     id: "COMPONENTS",
     handle: {
       titleKey: ($) => $.routes.components,
+      descriptionKey: ($) => $.descriptions.components,
       navLabelKey: ($) => $.header.components,
       showInMenu: true,
     },
@@ -64,6 +67,7 @@ export const innerRoutes: TAppRouteObject[] = [
     id: "404",
     handle: {
       titleKey: ($) => $.routes.notFound,
+      descriptionKey: ($) => $.descriptions.notFound,
       navLabelKey: ($) => $.header.pages,
       showInMenu: false,
     },

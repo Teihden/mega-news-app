@@ -6,9 +6,8 @@ import { Btn } from "@shared/ui/btn";
 import { useTranslation } from "react-i18next";
 
 /**
- * Компонент FooterBottom отвечает за отображение нижнего блока пользовательского интерфейса,
- * включающего ссылки на политику конфиденциальности и условия использования, а также текст с указанием авторских прав.
- * @returns Возвращает компонент.
+ * Displays the bottom footer area with policy links and copyright text.
+ * @returns Footer bottom component.
  */
 export const FooterBottom: FC = () => {
   const { t } = useTranslation([ "widgets" ]);

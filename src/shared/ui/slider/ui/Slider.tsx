@@ -14,14 +14,14 @@ import { useTranslation } from "react-i18next";
 import type { SwiperOptions } from "swiper/types";
 
 /**
- * Компонент слайдера на Swiper.
- * @param props - Свойства компонента.
- * @param props.className Кастомное имя класса.
- * @param props.swiperCfg - конфиг для главного слайдера
- * @param props.thumbsSwiperCfg - конфиг для слайдера с миниатюрами
- * @param props.slides - массив слайдов для главного слайдера
- * @param props.thumbsSlides - массив слайдов для слайдера с миниатюрами
- * @returns Возвращает JSX-разметку компонента.
+ * Renders a Swiper-based slider with optional navigation, pagination, and thumbs.
+ * @param props - Component props.
+ * @param props.className - Optional custom class name.
+ * @param props.swiperCfg - Main slider configuration.
+ * @param props.swiperThumbsCfg - Thumbnail slider configuration.
+ * @param props.slides - Main slider slides.
+ * @param props.thumbsSlides - Thumbnail slider slides.
+ * @returns Slider component markup.
  */
 export const Slider: ISlider = (props) => {
   const {
@@ -61,10 +61,10 @@ export const Slider: ISlider = (props) => {
       bulletElement: "button",
       type: "bullets",
       /**
-       * Формирует HTML-разметку кнопки пагинации для конкретного слайда.
-       * @param index - Индекс слайда, для которого создается bullet.
-       * @param className - CSS-класс, который Swiper назначает bullet-элементу.
-       * @returns HTML-строка кнопки пагинации с локализованными атрибутами.
+       * Builds pagination button markup for a specific slide.
+       * @param index - Slide index used for the bullet.
+       * @param className - CSS class assigned by Swiper.
+       * @returns HTML string for the localized pagination button.
        */
       renderBullet: (index, className) => {
         const label = t(($) => $.slider.goToSlide, { slide: index + 1 });
@@ -106,8 +106,8 @@ export const Slider: ISlider = (props) => {
   ];
 
   /**
-   * Обновляет ARIA-состояние кнопок пагинации в соответствии с активным слайдом.
-   * @param swiper - Экземпляр Swiper с отрендеренной пагинацией.
+   * Updates pagination button ARIA state for the active slide.
+   * @param swiper - Swiper instance with rendered pagination bullets.
    */
   const updatePaginationButtonState = (swiper: TSwiper) => {
     const bullets = swiper.pagination?.bullets ?? [];
@@ -118,7 +118,7 @@ export const Slider: ISlider = (props) => {
   };
 
   const handleAutoplay = funnel((data: [ TSwiper, number, number ]) => {
-    const [ ,,progress ] = data;
+    const [ ,, progress ] = data;
     const el = componentRef.current ?? null;
 
     if (el && el instanceof HTMLElement) {
@@ -131,7 +131,7 @@ export const Slider: ISlider = (props) => {
     triggerAt: "start",
   });
 
-  /* При ресайзе свайпера запускается автопролистывание слайдов */
+  /* Restarts slider autoplay after a resize when hover has interrupted it. */
   const handleResize = funnel((data: [ TSwiper ]) => {
     const [ swiper ] = data;
 
@@ -140,9 +140,7 @@ export const Slider: ISlider = (props) => {
 
       if (!autoplayListenerAddedRef.current) {
         /**
-         * Обработчик события, который вызывается при выходе указателя за пределы элемента.
-         * Если автоматическое воспроизведение свайпера не активно, оно будет запущено
-         * и возобновлено.
+         * Restarts autoplay after the pointer leaves the slider element.
          */
         const onPointerLeave = () => {
           if (!swiper.autoplay?.running) {

@@ -5,16 +5,16 @@ import IconChevronRight from "@shared/assets/images/icons/icon-chevron-right.svg
 import { Title } from "@shared/ui/title";
 
 /**
- * Компонент "Accordion" представляет собой раскрывающийся элемент интерфейса.
- * @param props Объект с параметрами компонента.
- * @param props.btnProps Свойства, которые передаются на элемент кнопки заголовка.
- * @param props.titleProps Свойства, которые передаются на заголовок (текст).
- * @param props.isControlledOpen Определяет, будет ли аккордеон открыт по умолчанию.
- * @param props.isActive Определяет, активен ли аккордеон.
- * @param props.title Текст заголовка аккордеона.
- * @param props.children Вложенное содержимое, отображаемое при раскрытии.
- * @param props.rest Дополнительные свойства.
- * @returns Возвращает JSX-разметку аккордеона.
+ * Renders a collapsible accordion section.
+ * @param props - Component props.
+ * @param props.btnProps - Props passed to the accordion button.
+ * @param props.titleProps - Props passed to the accordion title.
+ * @param props.isControlledOpen - Whether the accordion starts opened.
+ * @param props.isActive - Whether the accordion button uses the active state.
+ * @param props.title - Accordion title text.
+ * @param props.children - Content revealed when the accordion is open.
+ * @param props.rest - Additional props passed to the root element.
+ * @returns Accordion component markup.
  */
 export const Accordion: IAccordion = (props) => {
   const {
@@ -32,13 +32,14 @@ export const Accordion: IAccordion = (props) => {
   const contentWrapperRef = useRef<HTMLDivElement>(null);
 
   /**
-   * Функция для обработки клика по заголовку.
-   * @returns Ничего не возвращает.
+   * Toggles the accordion open state when the header is clicked.
+   * @returns void.
    */
   const handleHeaderClick = () => setIsOpen((prev) => !prev);
 
   /**
-   * Функция-обработчик события завершения CSS-перехода.
+   * Finalizes the open state after the content height transition ends.
+   * @returns void.
    */
   const handleTransitionEnd = () => {
     if (isOpen) {

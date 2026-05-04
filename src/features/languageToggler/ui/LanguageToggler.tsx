@@ -11,11 +11,10 @@ import { Title } from "@shared/ui/title";
 import { useTranslation } from "react-i18next";
 
 /**
- * Компонент LanguageToggler.
- * Отображает кнопку текущего языка и открывает tooltip со списком доступных языков.
- * @param props - Свойства компонента.
- * @param props.variant - Вариант отображения основной кнопки переключателя.
- * @returns Возвращает компонент переключателя языка.
+ * Renders the current language button and a tooltip with available languages.
+ * @param props - Component props.
+ * @param props.variant - Visual variant of the main toggle button.
+ * @returns Language toggler component.
  */
 export const LanguageToggler: FC<ILanguageTogglerProps> = (props) => {
   const {
@@ -28,10 +27,8 @@ export const LanguageToggler: FC<ILanguageTogglerProps> = (props) => {
   const tooltipId = useId();
 
   /**
-   * Обработчик события переключения языка.
-   * Функция проверяет, отличается ли выбранный язык от текущего,
-   * и если они различаются, обновляет язык приложения.
-   * @param nextLanguage Новый язык, на который нужно переключиться.
+   * Updates the application language when a different option is selected.
+   * @param nextLanguage - Next language to activate.
    */
   const handleLanguageClick = (nextLanguage: TLanguage) => {
     if (nextLanguage === language) {

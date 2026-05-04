@@ -2,16 +2,16 @@ import type { IText } from "../config";
 import * as S from "./styles";
 
 /**
- * Компонент для отображения текста с заданными параметрами.
- * @param props Параметры компонента.
- * @param props.className Дополнительный класс стилей для компонента.
- * @param props.as Тип HTML элемента для рендера.
- * @param props.variant Вариант стилей текста.
- * @param props.align Вариант горизонтального расположения текста.
- * @param props.marginBlock Свойство margin-block.
- * @param props.children Дочерние элементы компонента.
- * @param props.rest Прочие свойства, передаваемые компоненту.
- * @returns Компонент.
+ * Renders styled text content.
+ * @param props - Component props.
+ * @param props.className - Optional CSS class for the root element.
+ * @param props.as - HTML element used for rendering.
+ * @param props.variant - Text style variant.
+ * @param props.align - Horizontal text alignment.
+ * @param props.marginBlock - CSS margin-block value.
+ * @param props.children - Nested text content.
+ * @param props.rest - Additional props forwarded to the root element.
+ * @returns Text component.
  */
 export const Text: IText = (props) => {
   const {

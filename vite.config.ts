@@ -11,13 +11,76 @@ import { analyzer as ViteBundleAnalyzer } from "vite-bundle-analyzer";
 import { compression as ViteCompression } from "vite-plugin-compression2";
 import { createHtmlPlugin as ViteHtml } from "vite-plugin-html";
 import ViteChecker from "vite-plugin-checker";
+import type { TNullValue } from "@shared/types";
 
 /**
- * Функция resolvePath объединяет указанные сегменты пути и возвращает абсолютный путь.
- * @param segments - Массив строк, представляющих части пути, которые требуется объединить.
- * @returns Абсолютный путь, сформированный из переданных сегментов, относительно текущей директории.
+ * Joins the provided path segments and returns an absolute path.
+ * @param segments - Path segments that should be resolved from the current directory.
+ * @returns Absolute path built from the provided segments.
  */
 const resolvePath = (...segments: string[]) => resolve(__dirname, ...segments);
+
+const MANUAL_CHUNK_RULES: Array<{ chunkName: string; patterns: string[] }> = [
+  {
+    chunkName: "router-vendor",
+    patterns: [ "react-router" ],
+  },
+  {
+    chunkName: "react-ecosystem-vendor",
+    patterns: [ "react-helmet-async", "react-error-boundary", "react-hot-toast" ],
+  },
+  {
+    chunkName: "react-vendor",
+    patterns: [ "react", "scheduler" ],
+  },
+  {
+    chunkName: "style-vendor",
+    patterns: [ "styled-components", "styled-breakpoints" ],
+  },
+  {
+    chunkName: "i18n-vendor",
+    patterns: [
+      "i18next",
+      "react-i18next",
+      "i18next-browser-languagedetector",
+      "i18next-chained-backend",
+      "i18next-localstorage-backend",
+      "i18next-resources-to-backend",
+    ],
+  },
+  {
+    chunkName: "state-vendor",
+    patterns: [ "@reduxjs", "react-redux", "zustand" ],
+  },
+  {
+    chunkName: "swiper-vendor",
+    patterns: [ "swiper" ],
+  },
+  {
+    chunkName: "forms-vendor",
+    patterns: [ "formik", "yup" ],
+  },
+  {
+    chunkName: "layout-vendor",
+    patterns: [ "@bedrock-layout" ],
+  },
+];
+
+/**
+ * Returns a stable manual chunk name for third-party modules.
+ * @param id - Resolved module id from Rollup.
+ * @returns Manual chunk name for matching dependencies.
+ */
+const getManualChunk = (id: string): string | TNullValue => {
+  if (!id.includes("node_modules")) {
+    return null;
+  }
+
+  const rule = MANUAL_CHUNK_RULES.find(({ patterns }) => {
+    return patterns.some((pattern) => id.includes(pattern));
+  });
+  return rule?.chunkName;
+};
 
 export default defineConfig(({ mode }) => {
   const isDev = mode === "development";
@@ -41,6 +104,11 @@ export default defineConfig(({ mode }) => {
       emptyOutDir: true,
       sourcemap: false,
       cssMinify: "lightningcss",
+      rollupOptions: {
+        output: {
+          manualChunks: getManualChunk,
+        },
+      },
     },
     plugins: [
       react({
@@ -84,7 +152,7 @@ export default defineConfig(({ mode }) => {
         manifest: {
           name: "Mega news",
           short_name: "Mega news",
-          description: "Mega News is a modern platform with up—to-date news, analytics, and personalized recommendations",
+          description: "Mega News is a modern platform with up-to-date news, analytics, and personalized recommendations",
           theme_color: "#fff",
           background_color: "#fc4308",
           display: "standalone",
@@ -131,23 +199,33 @@ export default defineConfig(({ mode }) => {
       ViteImageOptimizer({
         exclude: /\.(svg?react)$/i,
         includePublic: true,
+        ansiColors: true,
         logStats: true,
         cache: true,
         cacheLocation: "node_modules/.vite/image-optimizer",
+        jpg: {
+          quality: 70,
+          progressive: true,
+          mozjpeg: true,
+        },
         jpeg: {
-          quality: 75,
+          quality: 70,
           progressive: true,
           mozjpeg: true,
         },
         png: {
-          quality: 75,
-          compressionLevel: 7,
+          quality: 85,
+          compressionLevel: 9,
           palette: true,
         },
         webp: {
           quality: 70,
         },
         avif: {
+          quality: 70,
+        },
+        gif: {},
+        tiff: {
           quality: 70,
         },
       }),
@@ -162,6 +240,7 @@ export default defineConfig(({ mode }) => {
         openAnalyzer: true,
         enabled: !(process.env.RENDER ?? false),
         exclude: /\.(jpe?g|png|gif|tiff|webp|svg|avif|webmanifest|html)$/i,
+        analyzerPort: "auto",
       }),
       ViteCompression({
         algorithms: [ "zstd", "br" ],

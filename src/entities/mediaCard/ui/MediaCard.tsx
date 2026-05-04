@@ -4,19 +4,19 @@ import { isEmpty, isPlainObject } from "remeda";
 import { Link } from "react-router";
 
 /**
- * Компонент MediaCard.
- * @param props - Свойства компонента.
- * @param props.className - Дополнительный CSS-класс, передаваемый компоненту.
- * @param props.imgProps - Свойства для настройки изображения, передаваемого в карточку.
- * @param props.videoProps - Свойства для настройки видео, передаваемого в карточку.
- * @param props.title - Заголовок, отображаемый внутри карточки.
- * @param props.titleVariantLevel - Уровень заголовка.
- * @param props.text - Текст, отображаемый внутри карточки.
- * @param props.textVariant - Вариант стилей текста.
- * @param props.textLineClamp - Кол-во отображаемых строк для компонента Text.
- * @param props.isBtnOverlay - рендер overlay для заголовка карточки.
- * @param props.rest - Дополнительные свойства, передаваемые в корневой элемент компонента.
- * @returns Компонент.
+ * Displays media content with optional title and description text.
+ * @param props - Component props.
+ * @param props.className - Optional CSS class for the root element.
+ * @param props.imgProps - Image props for the media preview.
+ * @param props.videoProps - Video props for the media preview.
+ * @param props.title - Card title.
+ * @param props.titleVariantLevel - Title style level.
+ * @param props.text - Card description text.
+ * @param props.textVariant - Text style variant.
+ * @param props.textLineClamp - Maximum number of visible text lines.
+ * @param props.isBtnOverlay - Whether the title button uses the overlay style.
+ * @param props.rest - Additional props passed to the root element.
+ * @returns Media card component.
  */
 export const MediaCard: IMediaCard = (props) => {
   const {

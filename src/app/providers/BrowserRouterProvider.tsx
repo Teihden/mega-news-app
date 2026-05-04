@@ -5,11 +5,8 @@ import { routes } from "@app/routes";
 const router = createBrowserRouter(routes);
 
 /**
- * Компонент BrowserRouterProvider.
- * Этот компонент используется для предоставления контекста маршрутизатора (Router) в приложении.
- * Он оборачивает RouterProvider и передает ему объект маршрутов (router).
- * Предназначен для облегчения интеграции маршрутизации в приложение React.
- * @returns BrowserRouterProvider
+ * Provides the configured browser router to the application.
+ * @returns Browser router provider component.
  */
 export const BrowserRouterProvider: FC = () => {
   return (

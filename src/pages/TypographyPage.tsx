@@ -12,9 +12,8 @@ import { useTranslation } from "react-i18next";
 import { useTheme } from "styled-components";
 
 /**
- * Компонент TypoPage.
- * Представляет собой страницу, отображающую различные стили типографики.
- * @returns Компонент.
+ * Displays the typography showcase page.
+ * @returns Typography page component.
  */
 export const TypographyPage: FC = () => {
   const theme = useTheme();

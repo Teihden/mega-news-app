@@ -15,14 +15,12 @@ import { BurgerBtn } from "@features/burgerBtn";
 import { MediaCard, mediaCardMock } from "@entities/mediaCard";
 import { Video } from "@shared/ui/video";
 import { UserCard, userCardMock } from "@entities/userCard";
-import { PostCard } from "@entities/postCard/ui/PostCard";
-import * as postCardMock from "@entities/postCard/api/mock";
+import { PostCard, postCardMock } from "@entities/postCard";
 import { useTranslation } from "react-i18next";
 
 /**
- * Компонент ComponentPage.
- * Представляет собой страницу, отображающую различные компоненты.
- * @returns Компонент.
+ * Displays the page that showcases shared UI components.
+ * @returns Component showcase page.
  */
 export const ComponentPage: FC = () => {
   const { t } = useTranslation([ "pages" ]);

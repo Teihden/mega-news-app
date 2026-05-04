@@ -13,11 +13,11 @@ import { useTranslation } from "react-i18next";
 import type { IRouteHandle } from "@shared/types";
 
 /**
- * Компонент Header.
- * @param props - Свойства компонента.
- * @param props.logo - Логотип, отображаемый в заголовке.
- * @param props.pages - - Массив объектов, содержащий информацию о страницах.
- * @returns Компонент.
+ * Renders the application header with logo, navigation, and feature toggles.
+ * @param props - Component props.
+ * @param props.logo - Logo content rendered in the header.
+ * @param props.pages - Navigation pages rendered in the header navigation.
+ * @returns Header component.
  */
 export const Header: FC<IHeaderProps> = (props) => {
   const {

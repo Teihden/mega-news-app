@@ -4,10 +4,10 @@ import { type FC, useImperativeHandle, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 /**
- * Компонент кнопки-бургера.
- * @param props - Свойства компонента.
- * @param props.onClickCb - Функция обратного вызова, которая вызывается при клике на кнопку.
- * @returns Возвращает компонент.
+ * Renders the burger button used to open and close navigation menus.
+ * @param props - Component props.
+ * @param props.onClickCb - Optional callback fired after the button is clicked.
+ * @returns Burger button component.
  */
 export const BurgerBtn: FC<IBurgerBtnProps> = (props) => {
   const {
@@ -28,7 +28,7 @@ export const BurgerBtn: FC<IBurgerBtnProps> = (props) => {
   }));
 
   /**
-   * Функция обработчик события клика.
+   * Toggles the visual button state and calls the external click callback.
    */
   const handleClick = () => {
     setIsBurgerBtnActive((prev) => !prev);

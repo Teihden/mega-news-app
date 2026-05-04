@@ -20,7 +20,7 @@ const Configuration: UserConfig = {
         "test",
       ],
     ],
-    "header-max-length": [ 2, "always", 100 ],
+    "header-max-length": [ 2, "always", 150 ],
     "header-full-stop": [ 2, "never", "." ],
     "subject-empty": [ 2, "never" ],
     "subject-full-stop": [ 2, "never", "." ],
