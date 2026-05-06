@@ -1,1 +1,1 @@
-D:/Projects (new)/mega-news-app/AGENTS.md
+AGENTS.md

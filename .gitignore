@@ -121,3 +121,6 @@ temp
 
 # ai
 /.ai/*
+/.aiassistant/*
+/.air/*
+/.junie/*
