@@ -121,6 +121,9 @@ temp
 
 # ai
 /.ai/*
+/ai
 /.aiassistant/*
 /.air/*
 /.junie/*
+AGENTS.md
+CLAUDE.md
