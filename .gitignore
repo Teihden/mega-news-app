@@ -120,10 +120,10 @@ temp
 .eslintcache
 
 # ai
-/.ai/*
+/.ai
 /ai
-/.aiassistant/*
+/.aiassistant
 /.air/*
-/.junie/*
+/.junie
 AGENTS.md
 CLAUDE.md
