@@ -37,7 +37,10 @@ Thumbs.db
 
 # IntelliJ IDEA project files
 .idea/
+.ai/
+.aiassistant/
 .air/
+.junie/
 *.iml
 *.iws
 *.ipr
@@ -118,12 +121,3 @@ temp
 
 # Eslint
 .eslintcache
-
-# ai
-/.ai
-/ai
-/.aiassistant
-/.air/*
-/.junie
-AGENTS.md
-CLAUDE.md
